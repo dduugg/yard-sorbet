@@ -1,2 +1,32 @@
 AllCops:
   TargetRubyVersion: 2.4
+
+Layout/ClassStructure:
+  Enabled: true
+# doesn't recognize sorbet magic comments
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+Style/NegatedIf:
+  Enabled: false
+Style/NegatedWhile:
+  Enabled: false
+Style/Next:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
