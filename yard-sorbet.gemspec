@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/dduugg/yard-sorbet'
   spec.license = 'Apache-2.0'
   spec.add_development_dependency 'rubocop', '0.78.0'
+  spec.add_development_dependency 'sorbet', '~> 0.5.5200'
   spec.add_runtime_dependency 'yard', '~> 0.9'
   spec.required_ruby_version = '>= 2.4.0'
 end
