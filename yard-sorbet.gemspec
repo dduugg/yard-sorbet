@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Gem::Specification.new do |spec|
   spec.name = 'yard-sorbet'
   spec.author = 'Douglas Eichelberger'
