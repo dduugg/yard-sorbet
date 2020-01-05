@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 # typed: strict
 
+# Translate sig type syntax to YARD type syntax.
 module YARDSorbet::SigToYARD
-  # Translate sig type syntax to YARD type syntax.
-  #
   # @see https://yardoc.org/types.html
-  #   sig {params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]).checked(:tests)}
   def self.convert(node)
     types = convert_type(node)
     # scrub newlines, as they break the YARD parser
