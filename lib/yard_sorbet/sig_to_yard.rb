@@ -3,6 +3,8 @@
 
 # Translate sig type syntax to YARD type syntax.
 module YARDSorbet::SigToYARD
+  IS_LEGACY_RUBY_VERSION = RUBY_VERSION.match?(/\A2\.[45]\./)
+
   # @see https://yardoc.org/types.html
   def self.convert(node)
     types = convert_type(node)
@@ -36,7 +38,8 @@ module YARDSorbet::SigToYARD
       ["Array(#{member_types})"]
     when :call
       if children[0].source == 'T'
-        case children[2].source
+        t_method = IS_LEGACY_RUBY_VERSION ? children[1].source : children[2].source
+        case t_method
         when 'all', 'class_of', 'enum', 'noreturn', 'self_type', 'type_parameter', 'untyped'
           # YARD doesn't have equivalent notions, so we just use the raw source
           [node.source]

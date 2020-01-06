@@ -44,15 +44,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     end
   end
 
-  # sig do
-  #  params(
-  #    docstring: YARD::Docstring,
-  #    name: String,
-  #    types: T::Array[String]
-  #  )
-  #    .void
-  #    .checked(:tests)
-  # end
   private def enhance_param(docstring, name, types)
     tag = docstring.tags.find { |t| t.tag_name == 'param' && t.name == name }
     if tag
@@ -64,15 +55,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
-  # sig do
-  #  params(
-  #    docstring: YARD::Docstring,
-  #    type: Symbol,
-  #    parsed_sig: T::Hash[T.untyped, T.untyped]
-  #  )
-  #    .void
-  #    .checked(:tests)
-  # end
   private def enhance_tag(docstring, type, parsed_sig)
     return if !parsed_sig[type]
 
@@ -88,11 +70,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
-  # sig do
-  #  params(sig_node: YARD::Parser::Ruby::MethodCallNode)
-  #    .returns(T::Hash[T.untyped, T.untyped])
-  #    .checked(:tests)
-  # end
   private def parse_sig(sig_node)
     parsed = {}
     parsed[:abstract] = false
@@ -123,11 +100,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   # Returns true if the given node is part of a type signature.
-  # sig do
-  # node is T.nilable(YARD::Parser::Ruby::AstNode) but that has issues
-  # with loop code
-  # params(node: T.untyped).returns(T.nilable(Boolean)).checked(:tests)
-  # end
   private def type_signature?(node)
     loop do
       return false if node.nil?
@@ -138,11 +110,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     end
   end
 
-  # sig do
-  #  params(node: YARD::Parser::Ruby::AstNode)
-  #    .returns(T.nilable(YARD::Parser::Ruby::AstNode))
-  #    .checked(:tests)
-  # end
   private def sibling_node(node)
     found_sibling = T.let(false, T::Boolean)
     node.parent.children.each do |n|
@@ -158,15 +125,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   # @yield [YARD::Parser::Ruby::AstNode]
-  # sig do
-  #  params(
-  #    node: YARD::Parser::Ruby::AstNode,
-  #    exclude: T::Array[Symbol],
-  #    blk: T.proc.params(arg0: T.untyped).returns(T.untyped)
-  #  )
-  #    .void
-  #    .checked(:tests)
-  # end
   private def bfs_traverse(node, exclude: [])
     queue = [node]
     while !queue.empty?
