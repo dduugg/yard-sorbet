@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../lib/yard_sorbet'
+
 if ENV['CI'] == 'true'
   require 'simplecov'
   require 'codecov'
