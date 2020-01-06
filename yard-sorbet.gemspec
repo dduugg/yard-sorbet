@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+require_relative 'lib/yard_sorbet/version'
+
 Gem::Specification.new do |spec|
   spec.name = 'yard-sorbet'
   spec.author = 'Douglas Eichelberger'
   spec.files = []
   spec.summary = 'Create YARD docs from Sorbet type signatures'
-  spec.version = '0.0.0'
+  spec.version = YARDSorbet::VERSION
   spec.description = <<~DESC
     A YARD plugin that incorporates Sorbet type information
   DESC
