@@ -8,3 +8,4 @@ module YARDSorbet; end
 
 require_relative 'yard_sorbet/sig_handler'
 require_relative 'yard_sorbet/sig_to_yard'
+require_relative 'yard_sorbet/struct_handler'

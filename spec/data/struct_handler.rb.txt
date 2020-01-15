@@ -1,0 +1,10 @@
+# Comment on PersonStruct
+class PersonStruct < T:Struct
+  # A name
+  const :name, String
+  # An age
+  const :age, Integer
+  # An optional
+  const :optional, T.nilable(String)
+  const :mystery, T.untyped
+end
