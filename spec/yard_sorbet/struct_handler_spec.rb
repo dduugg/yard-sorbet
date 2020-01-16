@@ -32,7 +32,12 @@ RSpec.describe YARDSorbet::StructHandler do
 
     it 'attaches the docstring to the accessor' do
       node = YARD::Registry.at('PersonStruct#age')
-      expect(node.docstring).to eq('Returns the value of attribute +age+.')
+      expect(node.docstring).to eq('An age')
+    end
+
+    it 'creates a docstring if it does not exist' do
+      node = YARD::Registry.at('PersonStruct#mystery')
+      expect(node.docstring).to eq('Returns the value of attribute +mystery+.')
     end
   end
 end
