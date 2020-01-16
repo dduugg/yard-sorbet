@@ -32,7 +32,7 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
 
     reader_docstring = doc.empty? ? "Returns the value of attribute +#{name}+." : doc
     docstring = YARD::DocstringParser.new.parse(reader_docstring).to_docstring
-    docstring.add_tag(YARD::Tags::Tag.new(:return, doc, types))
+    docstring.add_tag(YARD::Tags::Tag.new(:return, '', types))
     object.docstring = docstring.to_raw
 
     # Register the object explicitly as an attribute
