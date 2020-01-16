@@ -13,12 +13,11 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
     source = statement.source
     types = YARDSorbet::SigToYARD.convert(statement.parameters[1])
 
-    extra_state.prop_docs ||= []
-    extra_state.prop_docs << {
+    extra_state.prop_docs ||= Hash.new { |h, k| h[k] = [] }
+    extra_state.prop_docs[namespace] << {
       doc: doc,
       prop_name: name,
       types: types,
-      namespace: namespace,
       source: source
     }
 
@@ -41,52 +40,44 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
 end
 
 # Class-level handler that folds all `const` declarations into the constructor documentation
+# this needs to be injected as a module otherwise the default Class handler will overwrite documentation
 module YARDSorbet::StructClassHandler
   def process
     ret = super
 
-    return ret if extra_state.prop_docs.nil? || extra_state.prop_docs.empty?
+    return ret if extra_state.prop_docs.nil?
+
+    # lookup the full YARD path for the current class
+    class_ns = YARD::CodeObjects::ClassObject.new(namespace, statement[0].source.gsub(/\s/, ''))
+    return ret if extra_state.prop_docs[class_ns].empty?
+
+    props = extra_state.prop_docs[class_ns]
 
     # Create a virtual `initialize` method with all the `prop`/`const` arguments
     # having the name :initialize & the scope :instance marks this as the constructor
-    object = YARD::CodeObjects::MethodObject.new(extra_state.prop_docs.first[:namespace], :initialize, :instance)
+    object = YARD::CodeObjects::MethodObject.new(class_ns, :initialize, :instance)
 
-    # Copy the class doc into the virtual constructor doc
-    parser = YARD::DocstringParser.new.parse(statement.docstring)
-    # Directives are already parsed at this point, and there doesn't
-    # seem to be an API to tweeze them from one node to another without
-    # managing YARD internal state. Instead, we just extract them from
-    # the raw text and re-attach them.
-    directives = parser.raw_text&.split("\n")&.select do |line|
-      line.start_with?('@!')
-    end || []
-    docstring = parser.to_docstring
-    statement.docstring = nil
+    docstring = YARD::DocstringParser.new.parse('').to_docstring
 
     # Annotate the parameters of the constructor with the prop docs
-    extra_state.prop_docs.each do |prop|
+    props.each do |prop|
       docstring.add_tag(YARD::Tags::Tag.new(:param, prop[:doc], prop[:types], prop[:prop_name]))
     end
 
-    docstring.add_tag(YARD::Tags::Tag.new(:return, '', extra_state.prop_docs.first[:namespace]))
+    docstring.add_tag(YARD::Tags::Tag.new(:return, '', class_ns))
 
     # Use kwarg style arguments, with optionals being marked with a default
-    object.parameters = extra_state.prop_docs.map do |prop|
+    object.parameters = props.map do |prop|
       ["#{prop[:prop_name]}:", prop[:types].include?('nil') ? 'nil' : nil]
     end
 
     # The "source" of our constructor is compromised with the props/consts
-    object.source = extra_state.prop_docs.map { |p| p[:source] }.join("\n")
+    object.source = props.map { |p| p[:source] }.join("\n")
     object.explicit = false # not strictly necessary
 
     register(object)
 
-    directives.each do |directive|
-      docstring.concat("\n#{directive}")
-    end
-
     object.docstring = docstring.to_raw
-    extra_state.prop_docs = []
 
     ret
   end

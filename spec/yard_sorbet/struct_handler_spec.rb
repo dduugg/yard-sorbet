@@ -13,11 +13,6 @@ RSpec.describe YARDSorbet::StructHandler do
   end
 
   describe 'constructor' do
-    it 'attaches the class level docstring' do
-      node = YARD::Registry.at('PersonStruct#initialize')
-      expect(node.docstring).to eq('Comment on PersonStruct')
-    end
-
     it 'has the appropriate parameters' do
       node = YARD::Registry.at('PersonStruct#initialize')
       expect(node.parameters).to eq([['name:', nil], ['age:', nil], ['optional:', 'nil'], ['mystery:', nil]])
