@@ -2,7 +2,7 @@
 
 require 'yard'
 
-RSpec.describe YARDSorbet::SigHandler do
+RSpec.describe YARDSorbet::StructHandler do
   before do
     YARD::Registry.clear
     path = File.join(

@@ -10,7 +10,7 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
     # Store the property for use in the constructor definition
     name = statement.parameters[0].jump(:ident).source
     doc = statement.docstring.to_s
-    source = doc + "\n" + statement.source
+    source = statement.source
     types = YARDSorbet::SigToYARD.convert(statement.parameters[1])
 
     extra_state.prop_docs ||= []
