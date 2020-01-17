@@ -12,13 +12,16 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
     doc = statement.docstring.to_s
     source = statement.source
     types = YARDSorbet::SigToYARD.convert(statement.parameters[1])
+    default_node = statement.traverse { |n| break n if n.source == 'default:' && n.type == :label }
+    default = default_node.parent[1].source if default_node
 
     extra_state.prop_docs ||= Hash.new { |h, k| h[k] = [] }
     extra_state.prop_docs[namespace] << {
       doc: doc,
       prop_name: name,
       types: types,
-      source: source
+      source: source,
+      default: default
     }
 
     # Create the virtual method in our current scope
@@ -66,9 +69,10 @@ module YARDSorbet::StructClassHandler
 
     docstring.add_tag(YARD::Tags::Tag.new(:return, '', class_ns))
 
-    # Use kwarg style arguments, with optionals being marked with a default
+    # Use kwarg style arguments, with optionals being marked with a default (unless an actual default was specified)
     object.parameters = props.map do |prop|
-      ["#{prop[:prop_name]}:", prop[:types].include?('nil') ? 'nil' : nil]
+      default = prop[:default] || (prop[:types].include?('nil') ? 'nil' : nil)
+      ["#{prop[:prop_name]}:", default]
     end
 
     # The "source" of our constructor is compromised with the props/consts
