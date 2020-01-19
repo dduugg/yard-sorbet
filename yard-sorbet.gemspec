@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/yard_sorbet/version'
+require_relative 'lib/yard-sorbet/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'yard-sorbet'
