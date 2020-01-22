@@ -5,7 +5,7 @@ require_relative 'lib/yard-sorbet/version'
 Gem::Specification.new do |spec|
   spec.name = 'yard-sorbet'
   spec.author = 'Douglas Eichelberger'
-  spec.files = []
+  spec.files = `git ls-files`.strip.split(/\s+/)
   spec.summary = 'Create YARD docs from Sorbet type signatures'
   spec.version = YARDSorbet::VERSION
   spec.description = <<~DESC
