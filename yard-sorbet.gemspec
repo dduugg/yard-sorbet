@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec', '~> 1.37'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_development_dependency 'sorbet', '~> 0.5.5200'
+  spec.add_runtime_dependency 'sorbet-runtime', '~> 0.5'
   spec.add_runtime_dependency 'yard', '~> 0.9'
   spec.required_ruby_version = '>= 2.4.0'
 end
