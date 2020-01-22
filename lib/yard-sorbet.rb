@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 # typed: strong
-require 'sorbet-runtime'
 require 'yard'
 
 # top-level namespace
