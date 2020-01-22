@@ -43,6 +43,5 @@ Style/Next:
 Style/IfUnlessModifier:
   Enabled: false
 Naming/FileName:
-  Enabled: true
   Exclude:
     - lib/yard-sorbet.rb
