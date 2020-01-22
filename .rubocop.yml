@@ -26,6 +26,9 @@ Metrics/MethodLength:
   Enabled: false
 Metrics/PerceivedComplexity:
   Enabled: false
+Naming/FileName:
+  Exclude:
+    - lib/yard-sorbet.rb
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
