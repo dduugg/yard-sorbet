@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# typed: strict
+# typed: true
 
 # Translate sig type syntax to YARD type syntax.
 module YARDSorbet::SigToYARD
