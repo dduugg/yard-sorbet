@@ -52,15 +52,17 @@ module YARDSorbet::StructClassHandler
 
     # lookup the full YARD path for the current class
     class_ns = YARD::CodeObjects::ClassObject.new(namespace, statement[0].source.gsub(/\s/, ''))
-    return ret if extra_state.prop_docs[class_ns].empty?
-
     props = extra_state.prop_docs[class_ns]
 
+    return ret if props.empty?
+
     # Create a virtual `initialize` method with all the `prop`/`const` arguments
-    # having the name :initialize & the scope :instance marks this as the constructor
+    # having the name :initialize & the scope :instance marks this as the constructor.
+    # There is a chance that there is a custom initializer, so make sure we steal the existing docstring
+    # and source
     object = YARD::CodeObjects::MethodObject.new(class_ns, :initialize, :instance)
 
-    docstring = YARD::DocstringParser.new.parse('').to_docstring
+    docstring, directives = YARDSorbet::Directives.extract_directives(object.docstring || '')
 
     # Annotate the parameters of the constructor with the prop docs
     props.each do |prop|
@@ -76,12 +78,14 @@ module YARDSorbet::StructClassHandler
     end
 
     # The "source" of our constructor is compromised with the props/consts
-    object.source = props.map { |p| p[:source] }.join("\n")
-    object.explicit = false # not strictly necessary
+    object.source ||= props.map { |p| p[:source] }.join("\n")
+    object.explicit ||= false # not strictly necessary
 
     register(object)
 
     object.docstring = docstring.to_raw
+
+    YARDSorbet::Directives.add_directives(object.docstring, directives)
 
     ret
   end

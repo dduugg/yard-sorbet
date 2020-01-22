@@ -8,3 +8,18 @@ class PersonStruct < T:Struct
   const :optional, T.nilable(String)
   const :mystery, T.untyped
 end
+
+class SpecializedPersonStruct < T::Struct
+  const :special, String
+
+  # This is a special intializer
+  def initialize(special:)
+    raise ArgumentError("bad human") if special != "special"
+    super
+  end
+end
+
+class DefaultPersonStruct < T::Struct
+  # This has a default
+  const :defaulted, String, default: 'hello'
+end

@@ -17,6 +17,11 @@ RSpec.describe YARDSorbet::StructHandler do
       node = YARD::Registry.at('PersonStruct#initialize')
       expect(node.parameters).to eq([['name:', nil], ['age:', nil], ['optional:', 'nil'], ['mystery:', nil]])
     end
+
+    it 'uses the docstring from an explicit initializer' do
+      node = YARD::Registry.at('SpecializedPersonStruct#initialize')
+      expect(node.docstring).to eq('This is a special intializer')
+    end
   end
 
   describe 'attributes' do
@@ -33,6 +38,11 @@ RSpec.describe YARDSorbet::StructHandler do
     it 'creates a docstring if it does not exist' do
       node = YARD::Registry.at('PersonStruct#mystery')
       expect(node.docstring).to eq('Returns the value of attribute +mystery+.')
+    end
+
+    it 'handles default values appropriately' do
+      node = YARD::Registry.at('DefaultPersonStruct#initialize')
+      expect(node.parameters).to eq([['defaulted:', "'hello'"]])
     end
   end
 end
