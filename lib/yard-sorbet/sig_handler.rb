@@ -19,15 +19,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
       if %i[def defs command].include?(next_statement&.type) && !next_statement.docstring
         # Swap the method definition docstring and the sig docstring.
         # Parse relevant parts of the `sig` and include them as well.
-        parser = YARD::DocstringParser.new.parse(child.docstring)
-        # Directives are already parsed at this point, and there doesn't
-        # seem to be an API to tweeze them from one node to another without
-        # managing YARD internal state. Instead, we just extract them from
-        # the raw text and re-attach them.
-        directives = parser.raw_text&.split("\n")&.select do |line|
-          line.start_with?('@!')
-        end || []
-        docstring = parser.to_docstring
+        docstring, directives = YARDSorbet::Directives.extract_directives(child.docstring)
         parsed_sig = parse_sig(child)
         enhance_tag(docstring, :abstract, parsed_sig)
         enhance_tag(docstring, :return, parsed_sig)
@@ -37,9 +29,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
           end
         end
         next_statement.docstring = docstring.to_raw
-        directives.each do |directive|
-          next_statement.docstring.concat("\n#{directive}")
-        end
+        YARDSorbet::Directives.add_directives(next_statement.docstring, directives)
         child.docstring = nil
       end
     end

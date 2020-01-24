@@ -57,7 +57,12 @@ module YARDSorbet::SigToYARD
         [node.source]
       end
     when :const_path_ref
-      [node.source]
+      case node.source
+      when 'T::Boolean'
+        ['Boolean'] # YARD convention for booleans
+      else
+        [node.source]
+      end
     when :hash, :list
       # Fixed hashes as return values are unsupported:
       # https://github.com/lsegal/yard/issues/425
