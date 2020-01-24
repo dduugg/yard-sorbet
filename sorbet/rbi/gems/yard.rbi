@@ -1154,3 +1154,28 @@ class YARD::Tags::Library
   def yieldparam_tag(text); end
   def yieldreturn_tag(text); end
 end
+module YARD::Handlers::Ruby::StructHandlerMethods
+  def add_reader_tags(klass, new_method, member); end
+  def add_writer_tags(klass, new_method, member); end
+  def create_attributes(klass, members); end
+  def create_class(classname, superclass); end
+  def create_member_method?(klass, member, type = nil); end
+  def create_reader(klass, member); end
+  def create_writer(klass, member); end
+  def member_tag_for_member(klass, member, type = nil); end
+  def members_from_tags(klass); end
+  def return_type_from_tag(member_tag); end
+  include YARD::CodeObjects
+end
+class YARD::Handlers::Ruby::ClassHandler < YARD::Handlers::Ruby::Base
+  def create_struct_superclass(superclass, superclass_def); end
+  def extract_parameters(superclass); end
+  def parse_struct_superclass(klass, superclass); end
+  def parse_superclass(superclass); end
+  def struct_superclass_name(superclass); end
+  include Anonymous_Module_1
+  include YARD::Handlers::Ruby::StructHandlerMethods
+end
+module Anonymous_Module_1
+  def process; end
+end
