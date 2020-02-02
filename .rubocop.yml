@@ -42,6 +42,7 @@ Sorbet/StrongSigil:
   Enabled: false
 Sorbet/TrueSigil:
   Exclude:
+    - lib/yard-sorbet/struct_handler.rb
     - spec/**/*
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline

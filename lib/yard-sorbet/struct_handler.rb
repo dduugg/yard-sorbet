@@ -1,4 +1,4 @@
-# typed: true
+# typed: false
 # frozen_string_literal: true
 
 # Handle all `const` calls, creating accessor methods, and compiles them for later usage at the class level
