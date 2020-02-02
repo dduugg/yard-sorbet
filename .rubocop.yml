@@ -1,6 +1,7 @@
 ---
 require:
   - rubocop-rspec
+  - rubocop-sorbet
 
 AllCops:
   TargetRubyVersion: 2.4
@@ -33,6 +34,16 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
+Sorbet/EnforceSignatures:
+  Enabled: false
+Sorbet/StrictSigil:
+  Enabled: false
+Sorbet/StrongSigil:
+  Enabled: false
+Sorbet/TrueSigil:
+  Exclude:
+    - lib/yard-sorbet/struct_handler.rb
+    - spec/**/*
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline
 Style/ClassAndModuleChildren:
