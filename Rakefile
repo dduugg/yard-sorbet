@@ -8,4 +8,8 @@ task :lint do
   sh 'rubocop'
 end
 
-task default: %i[lint spec]
+task :typecheck do
+  sh 'srb tc'
+end
+
+task default: %i[lint spec typecheck]
