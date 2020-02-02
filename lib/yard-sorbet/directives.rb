@@ -1,5 +1,5 @@
+# typed: true
 # frozen_string_literal: true
-# typed: strict
 
 # Extract & re-add directives to a docstring
 module YARDSorbet::Directives
