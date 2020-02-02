@@ -1,6 +1,7 @@
 ---
 require:
   - rubocop-rspec
+  - rubocop-sorbet
 
 AllCops:
   TargetRubyVersion: 2.4
