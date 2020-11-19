@@ -184,6 +184,62 @@ class CollectionSigs
   def fixed_param_hash(tos_acceptance); nil; end
 end
 
+class VariousTypedSigs
+  sig { returns(String) }
+  def arg_paren; end
+
+  sig { returns([String]) }
+  def array; end
+
+  sig { returns(T.all(Foo, Bar)) }
+  def call_T_all; end
+
+  sig { returns(T.class_of(String)) }
+  def call_T_class_of; String; end
+
+  sig { returns(T.enum) }
+  def call_T_enum; end
+
+  sig { returns(T.noreturn) }
+  def call_T_noreturn; end
+
+  sig { returns(T.self_type) }
+  def call_T_self_type; end
+
+  sig { returns(T.type_parameter) }
+  def call_T_type_parameter; end
+
+  sig { returns(T.untyped) }
+  def call_T_untyped; end
+
+  sig { returns(T.any(Integer, String)) }
+  def call_T_any; end
+
+  sig { returns(T.nilable(String)) }
+  def call_T_nilable; end
+
+  sig { returns(Foo::Bar) }
+  def const_path_ref; end
+
+  sig { returns( {foo: 1} ) }
+  def hash; end
+
+  sig { returns(FalseClass) }
+  def var_ref_false_class; end
+
+  sig { returns(NilClass) }
+  def var_ref_nil_class; end
+
+  sig { returns(TrueClass) }
+  def var_ref_true_class; end
+
+  sig { returns(Foo) }
+  def var_ref; end
+
+  sig { returns(::Foo) }
+  def top_const_ref; end
+end
+
 class AttrSigs
   sig {returns(String)}
   attr_accessor :my_accessor

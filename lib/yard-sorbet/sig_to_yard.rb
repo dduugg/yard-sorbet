@@ -56,7 +56,7 @@ module YARDSorbet::SigToYARD
       else
         [node.source]
       end
-    when :const_path_ref
+    when :const_path_ref, :const
       case node.source
       when 'T::Boolean'
         ['Boolean'] # YARD convention for booleans
@@ -83,6 +83,10 @@ module YARDSorbet::SigToYARD
       else
         [node.source]
       end
+    when :top_const_ref
+      # A top-level constant reference, such as ::Klass
+      # It contains a child node of type :const
+      convert(children.first)
     else
       log.warn("Unsupported sig #{node.type} node #{node.source}")
       [node.source]
