@@ -11,7 +11,7 @@ task :lint do
 end
 
 task :typecheck do
-  sh 'srb tc'
+  sh 'srb tc --ignore=vendor/'
 end
 
 task default: %i[lint spec typecheck]
