@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/pry-byebug/all/pry-byebug.rbi
 #
-# pry-byebug-3.7.0
+# pry-byebug-3.9.0
+
 module PryByebug
   def check_file_context(target, msg = nil); end
   def current_remote_server; end
@@ -15,6 +16,12 @@ module PryByebug
   def file_context?(target); end
   def self.check_file_context(target, msg = nil); end
   def self.file_context?(target); end
+end
+module PryByebug::Helpers
+end
+module PryByebug::Helpers::Location
+  def current_file(source = nil); end
+  def self.current_file(source = nil); end
 end
 module Byebug
 end
@@ -45,8 +52,6 @@ class Pry
   def self.start_with_pry_byebug(target = nil, options = nil); end
   def self.start_without_pry_byebug(target = nil, options = nil); end
 end
-module PryByebug::Helpers
-end
 module PryByebug::Helpers::Navigation
   def breakout_navigation(action, options = nil); end
 end
@@ -69,7 +74,6 @@ end
 module PryByebug::Helpers::Breakpoints
   def bold_puts(msg); end
   def breakpoints; end
-  def current_file; end
   def max_width; end
   def print_breakpoints_header; end
   def print_full_breakpoint(breakpoint); end
@@ -78,6 +82,7 @@ end
 class PryByebug::ContinueCommand < Pry::ClassCommand
   def process; end
   include PryByebug::Helpers::Breakpoints
+  include PryByebug::Helpers::Location
   include PryByebug::Helpers::Navigation
 end
 class PryByebug::FinishCommand < Pry::ClassCommand
@@ -142,6 +147,7 @@ class PryByebug::BreakCommand < Pry::ClassCommand
   def process_enable; end
   def process_show; end
   include PryByebug::Helpers::Breakpoints
+  include PryByebug::Helpers::Location
   include PryByebug::Helpers::Multiline
 end
 class PryByebug::ExitAllCommand < Pry::Command::ExitAll

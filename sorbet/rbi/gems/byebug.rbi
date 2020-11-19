@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/byebug/all/byebug.rbi
 #
-# byebug-11.0.1
+# byebug-11.1.3
+
 module Byebug
   def add_catchpoint(arg0); end
   def breakpoints; end
@@ -77,6 +78,11 @@ module Byebug
   extend Byebug
   include Byebug::Helpers::ReflectionHelper
 end
+module Kernel
+  def byebug; end
+  def debugger; end
+  def remote_byebug(host = nil, port = nil); end
+end
 module Byebug::Helpers
 end
 module Byebug::Helpers::ReflectionHelper
@@ -130,7 +136,7 @@ class Byebug::Context
   include Byebug::Helpers::FileHelper
 end
 class Byebug::DebugThread < Thread
-  def self.inherited(arg0); end
+  def self.inherited; end
 end
 class Byebug::Breakpoint
   def enabled=(arg0); end
@@ -298,6 +304,7 @@ class Byebug::LocalInterface < Byebug::Interface
   def initialize; end
   def readline(prompt); end
   def with_repl_like_sigint; end
+  def without_readline_completion; end
 end
 class Byebug::ScriptInterface < Byebug::Interface
   def close; end
@@ -1031,9 +1038,4 @@ class Byebug::LinetraceSetting < Byebug::Setting
 end
 class Exception
   def __bb_context; end
-end
-module Kernel
-  def byebug; end
-  def debugger; end
-  def remote_byebug(host = nil, port = nil); end
 end

@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/yard/all/yard.rbi
 #
-# yard-0.9.22
+# yard-0.9.25
+
 module YARD
   def self.load_plugins; end
   def self.parse(*args); end
@@ -113,9 +114,9 @@ class Insertion
   def insertion(val, rel, recursive = nil, list = nil); end
 end
 class File < IO
+  def self.cleanpath(path, rel_root = nil); end
   def self.empty?(arg0); end
-  def self.join(*arg0); end
-  def self.read_binary(file); end
+  def self.open!(file, *args, &block); end
   def self.relative_path(from, to); end
 end
 module Gem
@@ -310,172 +311,32 @@ class YARD::CLI::Yardoc < YARD::CLI::YardoptsCommand
   def visibilities; end
   def visibilities=(arg0); end
 end
-module YARD::CodeObjects::NamespaceMapper
-  def clear_separators; end
-  def default_separator(value = nil); end
-  def register_separator(sep, *valid_types); end
-  def self.default_separator; end
-  def self.default_separator=(arg0); end
-  def self.invalidate; end
-  def self.map; end
-  def self.map_match; end
-  def self.rev_map; end
-  def separators; end
-  def separators_for_type(type); end
-  def separators_match; end
-  def types_for_separator(sep); end
-end
-class YARD::CodeObjects::CodeObjectList < Array
-  def <<(value); end
-  def initialize(owner = nil); end
-  def push(value); end
-end
-class YARD::CodeObjects::Base
-  def ==(other); end
-  def [](key); end
-  def []=(key, value); end
-  def add_file(file, line = nil, has_comments = nil); end
-  def add_tag(*tags); end
-  def base_docstring; end
-  def copy_to(other); end
-  def copyable_attributes; end
-  def docstring(locale = nil); end
-  def docstring=(comments); end
-  def dynamic; end
-  def dynamic=(arg0); end
-  def dynamic?; end
-  def eql?(other); end
-  def equal?(other); end
-  def file; end
-  def files; end
-  def format(options = nil); end
-  def format_source(source); end
-  def group; end
-  def group=(arg0); end
-  def has_tag?(name); end
-  def hash; end
-  def initialize(namespace, name, *arg2); end
-  def inspect; end
-  def line; end
-  def method_missing(meth, *args, &block); end
-  def name(prefix = nil); end
-  def namespace; end
-  def namespace=(obj); end
-  def parent; end
-  def parent=(obj); end
-  def path; end
-  def relative_path(other); end
-  def root?; end
-  def self.===(other); end
-  def self.new(namespace, name, *args, &block); end
-  def sep; end
-  def signature; end
-  def signature=(arg0); end
-  def source; end
-  def source=(statement); end
-  def source_type; end
-  def source_type=(arg0); end
-  def tag(name); end
-  def tags(name = nil); end
-  def title; end
-  def to_ary; end
-  def to_s; end
-  def translate_docstring(locale); end
-  def type; end
-  def visibility; end
-  def visibility=(v); end
-end
-class YARD::CodeObjects::MethodObject < YARD::CodeObjects::Base
-  def aliases; end
-  def attr_info; end
-  def constructor?; end
-  def copyable_attributes; end
-  def explicit; end
-  def explicit=(arg0); end
-  def initialize(namespace, name, scope = nil, &block); end
-  def is_alias?; end
-  def is_attribute?; end
-  def is_explicit?; end
-  def module_function?; end
-  def name(prefix = nil); end
-  def overridden_method; end
-  def parameters; end
-  def parameters=(arg0); end
-  def path; end
-  def reader?; end
-  def scope; end
-  def scope=(v); end
-  def sep; end
-  def writer?; end
-end
-class YARD::DocstringParser
-  def call_after_parse_callbacks; end
-  def call_directives_after_parse; end
-  def create_directive(tag_name, tag_buf); end
-  def create_ref_tag(tag_name, name, object_name); end
-  def create_tag(tag_name, tag_buf = nil); end
-  def detect_reference(content); end
-  def directives; end
-  def directives=(arg0); end
-  def handler; end
-  def handler=(arg0); end
-  def initialize(library = nil); end
-  def library; end
-  def library=(arg0); end
-  def namespace; end
-  def object; end
-  def object=(arg0); end
-  def parse(content, object = nil, handler = nil); end
-  def parse_content(content); end
-  def post_process; end
-  def raw_text; end
-  def raw_text=(arg0); end
-  def reference; end
-  def reference=(arg0); end
-  def self.after_parse(&block); end
-  def self.after_parse_callbacks; end
-  def state; end
-  def state=(arg0); end
-  def tag_is_directive?(tag_name); end
-  def tags; end
-  def tags=(arg0); end
-  def text; end
-  def text=(arg0); end
-  def to_docstring; end
-end
-class YARD::Docstring < String
-  def +(other); end
-  def add_tag(*tags); end
-  def all; end
-  def all=(content, parse = nil); end
-  def blank?(only_visible_tags = nil); end
-  def convert_ref_tags; end
-  def delete_tag_if(&block); end
-  def delete_tags(name); end
-  def dup; end
-  def has_tag?(name); end
-  def hash_flag; end
-  def hash_flag=(v); end
-  def initialize(content = nil, object = nil); end
-  def line; end
-  def line_range; end
-  def line_range=(arg0); end
-  def object; end
-  def object=(arg0); end
-  def parse_comments(comments); end
-  def ref_tags; end
-  def replace(content, parse = nil); end
-  def resolve_reference; end
-  def self.default_parser; end
-  def self.default_parser=(arg0); end
-  def self.new!(text, tags = nil, object = nil, raw_data = nil, ref_object = nil); end
-  def self.parser(*args); end
-  def stable_sort_by(list); end
-  def summary; end
-  def tag(name); end
-  def tags(name = nil); end
-  def to_raw; end
-  def to_s; end
+class YARD::Logger < Logger
+  def <<(msg = nil); end
+  def add(*args); end
+  def backtrace(exc, level_meth = nil); end
+  def capture(msg, nontty_log = nil); end
+  def clear_line; end
+  def clear_progress; end
+  def debug(*args); end
+  def enter_level(new_level = nil); end
+  def format_log(sev, _time, _prog, msg); end
+  def initialize(pipe, *args); end
+  def io; end
+  def io=(pipe); end
+  def print(msg = nil); end
+  def print_no_newline(msg); end
+  def progress(msg, nontty_log = nil); end
+  def puts(msg = nil); end
+  def self.instance(pipe = nil); end
+  def show_backtraces; end
+  def show_backtraces=(arg0); end
+  def show_progress; end
+  def show_progress=(arg0); end
+  def warn(*args); end
+  def warn_no_continuations; end
+  def warned; end
+  def warned=(arg0); end
 end
 class YARD::Parser::Base
   def enumerator; end
@@ -703,6 +564,7 @@ class YARD::Parser::Ruby::RipperParser < Ripper
   def on_if_mod(*args); end
   def on_ifop(*args); end
   def on_ignored_nl(tok); end
+  def on_ignored_sp(tok); end
   def on_imaginary(tok); end
   def on_int(tok); end
   def on_ivar(tok); end
@@ -970,6 +832,200 @@ class YARD::Handlers::Ruby::Base < YARD::Handlers::Base
   def self.method_call(name = nil); end
   include YARD::Parser::Ruby
 end
+module YARD::Handlers::Ruby::StructHandlerMethods
+  def add_reader_tags(klass, new_method, member); end
+  def add_writer_tags(klass, new_method, member); end
+  def create_attributes(klass, members); end
+  def create_class(classname, superclass); end
+  def create_member_method?(klass, member, type = nil); end
+  def create_reader(klass, member); end
+  def create_writer(klass, member); end
+  def member_tag_for_member(klass, member, type = nil); end
+  def members_from_tags(klass); end
+  def return_type_from_tag(member_tag); end
+  include YARD::CodeObjects
+end
+class YARD::Handlers::Ruby::ClassHandler < YARD::Handlers::Ruby::Base
+  def create_struct_superclass(superclass, superclass_def); end
+  def extract_parameters(superclass); end
+  def parse_struct_superclass(klass, superclass); end
+  def parse_superclass(superclass); end
+  def struct_superclass_name(superclass); end
+  include Anonymous_Module_4
+  include YARD::Handlers::Ruby::StructHandlerMethods
+end
+module Anonymous_Module_4
+  def process; end
+end
+module YARD::CodeObjects::NamespaceMapper
+  def clear_separators; end
+  def default_separator(value = nil); end
+  def register_separator(sep, *valid_types); end
+  def self.default_separator; end
+  def self.default_separator=(arg0); end
+  def self.invalidate; end
+  def self.map; end
+  def self.map_match; end
+  def self.on_invalidate(&block); end
+  def self.rev_map; end
+  def separators; end
+  def separators_for_type(type); end
+  def separators_match; end
+  def types_for_separator(sep); end
+  def unregister_separator_by_type(type); end
+end
+class YARD::CodeObjects::CodeObjectList < Array
+  def <<(value); end
+  def initialize(owner = nil); end
+  def push(value); end
+end
+class YARD::CodeObjects::Base
+  def ==(other); end
+  def [](key); end
+  def []=(key, value); end
+  def add_file(file, line = nil, has_comments = nil); end
+  def add_tag(*tags); end
+  def base_docstring; end
+  def copy_to(other); end
+  def copyable_attributes; end
+  def docstring(locale = nil); end
+  def docstring=(comments); end
+  def dynamic; end
+  def dynamic=(arg0); end
+  def dynamic?; end
+  def eql?(other); end
+  def equal?(other); end
+  def file; end
+  def files; end
+  def format(options = nil); end
+  def format_source(source); end
+  def group; end
+  def group=(arg0); end
+  def has_tag?(name); end
+  def hash; end
+  def initialize(namespace, name, *arg2); end
+  def inspect; end
+  def line; end
+  def method_missing(meth, *args, &block); end
+  def name(prefix = nil); end
+  def namespace; end
+  def namespace=(obj); end
+  def parent; end
+  def parent=(obj); end
+  def path; end
+  def relative_path(other); end
+  def root?; end
+  def self.===(other); end
+  def self.new(namespace, name, *args, &block); end
+  def sep; end
+  def signature; end
+  def signature=(arg0); end
+  def source; end
+  def source=(statement); end
+  def source_type; end
+  def source_type=(arg0); end
+  def tag(name); end
+  def tags(name = nil); end
+  def title; end
+  def to_ary; end
+  def to_s; end
+  def translate_docstring(locale); end
+  def type; end
+  def visibility; end
+  def visibility=(v); end
+end
+class YARD::CodeObjects::MethodObject < YARD::CodeObjects::Base
+  def aliases; end
+  def attr_info; end
+  def constructor?; end
+  def copyable_attributes; end
+  def explicit; end
+  def explicit=(arg0); end
+  def initialize(namespace, name, scope = nil, &block); end
+  def is_alias?; end
+  def is_attribute?; end
+  def is_explicit?; end
+  def module_function?; end
+  def name(prefix = nil); end
+  def overridden_method; end
+  def parameters; end
+  def parameters=(arg0); end
+  def path; end
+  def reader?; end
+  def scope; end
+  def scope=(v); end
+  def sep; end
+  def writer?; end
+end
+class YARD::DocstringParser
+  def call_after_parse_callbacks; end
+  def call_directives_after_parse; end
+  def create_directive(tag_name, tag_buf); end
+  def create_ref_tag(tag_name, name, object_name); end
+  def create_tag(tag_name, tag_buf = nil); end
+  def detect_reference(content); end
+  def directives; end
+  def directives=(arg0); end
+  def handler; end
+  def handler=(arg0); end
+  def initialize(library = nil); end
+  def library; end
+  def library=(arg0); end
+  def namespace; end
+  def object; end
+  def object=(arg0); end
+  def parse(content, object = nil, handler = nil); end
+  def parse_content(content); end
+  def post_process; end
+  def raw_text; end
+  def raw_text=(arg0); end
+  def reference; end
+  def reference=(arg0); end
+  def self.after_parse(&block); end
+  def self.after_parse_callbacks; end
+  def state; end
+  def state=(arg0); end
+  def tag_is_directive?(tag_name); end
+  def tags; end
+  def tags=(arg0); end
+  def text; end
+  def text=(arg0); end
+  def to_docstring; end
+end
+class YARD::Docstring < String
+  def +(other); end
+  def add_tag(*tags); end
+  def all; end
+  def all=(content, parse = nil); end
+  def blank?(only_visible_tags = nil); end
+  def convert_ref_tags; end
+  def delete_tag_if(&block); end
+  def delete_tags(name); end
+  def dup; end
+  def has_tag?(name); end
+  def hash_flag; end
+  def hash_flag=(v); end
+  def initialize(content = nil, object = nil); end
+  def line; end
+  def line_range; end
+  def line_range=(arg0); end
+  def object; end
+  def object=(arg0); end
+  def parse_comments(comments); end
+  def ref_tags; end
+  def replace(content, parse = nil); end
+  def resolve_reference; end
+  def self.default_parser; end
+  def self.default_parser=(arg0); end
+  def self.new!(text, tags = nil, object = nil, raw_data = nil, ref_object = nil); end
+  def self.parser(*args); end
+  def stable_sort_by(list); end
+  def summary; end
+  def tag(name); end
+  def tags(name = nil); end
+  def to_raw; end
+  def to_s; end
+end
 module YARD::Registry
   def self.[](path); end
   def self.all(*types); end
@@ -1153,29 +1209,4 @@ class YARD::Tags::Library
   def yield_tag(text); end
   def yieldparam_tag(text); end
   def yieldreturn_tag(text); end
-end
-module YARD::Handlers::Ruby::StructHandlerMethods
-  def add_reader_tags(klass, new_method, member); end
-  def add_writer_tags(klass, new_method, member); end
-  def create_attributes(klass, members); end
-  def create_class(classname, superclass); end
-  def create_member_method?(klass, member, type = nil); end
-  def create_reader(klass, member); end
-  def create_writer(klass, member); end
-  def member_tag_for_member(klass, member, type = nil); end
-  def members_from_tags(klass); end
-  def return_type_from_tag(member_tag); end
-  include YARD::CodeObjects
-end
-class YARD::Handlers::Ruby::ClassHandler < YARD::Handlers::Ruby::Base
-  def create_struct_superclass(superclass, superclass_def); end
-  def extract_parameters(superclass); end
-  def parse_struct_superclass(klass, superclass); end
-  def parse_superclass(superclass); end
-  def struct_superclass_name(superclass); end
-  include Anonymous_Module_1
-  include YARD::Handlers::Ruby::StructHandlerMethods
-end
-module Anonymous_Module_1
-  def process; end
 end
