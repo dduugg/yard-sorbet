@@ -207,6 +207,96 @@ RSpec.describe YARDSorbet::SigHandler do
       param_tag = node.tags.find { |t| t.name == 'tos_acceptance' }
       expect(param_tag.types).to eq(%w[Hash nil])
     end
+
+    it 'arg_paren' do
+      node = YARD::Registry.at('VariousTypedSigs#arg_paren')
+      expect(node.tag(:return).types).to eq(['String'])
+    end
+
+    it 'array' do
+      node = YARD::Registry.at('VariousTypedSigs#array')
+      expect(node.tag(:return).types).to eq(['Array(String)'])
+    end
+
+    it 'call_T_all' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_all')
+      expect(node.tag(:return).types).to eq(['T.all(Foo, Bar)'])
+    end
+
+    it 'call_T_class_of' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_class_of')
+      expect(node.tag(:return).types).to eq(['T.class_of(String)'])
+    end
+
+    it 'call_T_enum' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_enum')
+      expect(node.tag(:return).types).to eq(['T.enum'])
+    end
+
+    it 'call_T_noreturn' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_noreturn')
+      expect(node.tag(:return).types).to eq(['T.noreturn'])
+    end
+
+    it 'call_T_self_type' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_self_type')
+      expect(node.tag(:return).types).to eq(['T.self_type'])
+    end
+
+    it 'call_T_type_parameter' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_type_parameter')
+      expect(node.tag(:return).types).to eq(['T.type_parameter'])
+    end
+
+    it 'call_T_untyped' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_untyped')
+      expect(node.tag(:return).types).to eq(['T.untyped'])
+    end
+
+    it 'call_T_any' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_any')
+      expect(node.tag(:return).types).to eq(['Integer', 'String'])
+    end
+
+    it 'call_T_nilable' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_nilable')
+      expect(node.tag(:return).types).to eq(['String', 'nil'])
+    end
+
+    it 'const_path_ref' do
+      node = YARD::Registry.at('VariousTypedSigs#const_path_ref')
+      expect(node.tag(:return).types).to eq(['Foo::Bar'])
+    end
+
+    it 'hash' do
+      node = YARD::Registry.at('VariousTypedSigs#hash')
+      expect(node.tag(:return).types).to eq(['Hash'])
+    end
+
+    it 'var_ref_false_class' do
+      node = YARD::Registry.at('VariousTypedSigs#var_ref_false_class')
+      expect(node.tag(:return).types).to eq(['false'])
+    end
+
+    it 'var_ref_nil_class' do
+      node = YARD::Registry.at('VariousTypedSigs#var_ref_nil_class')
+      expect(node.tag(:return).types).to eq(['nil'])
+    end
+
+    it 'var_ref_true_class' do
+      node = YARD::Registry.at('VariousTypedSigs#var_ref_true_class')
+      expect(node.tag(:return).types).to eq(['true'])
+    end
+
+    it 'var_ref' do
+      node = YARD::Registry.at('VariousTypedSigs#var_ref')
+      expect(node.tag(:return).types).to eq(['Foo'])
+    end
+
+    it 'top_const_ref' do
+      node = YARD::Registry.at('VariousTypedSigs#top_const_ref')
+      expect(node.tag(:return).types).to eq(['Foo'])
+    end
   end
 
   describe 'attributes' do
