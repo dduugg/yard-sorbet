@@ -255,12 +255,12 @@ RSpec.describe YARDSorbet::SigHandler do
 
     it 'call_T_any' do
       node = YARD::Registry.at('VariousTypedSigs#call_T_any')
-      expect(node.tag(:return).types).to eq(['Integer', 'String'])
+      expect(node.tag(:return).types).to eq(%w[Integer String])
     end
 
     it 'call_T_nilable' do
       node = YARD::Registry.at('VariousTypedSigs#call_T_nilable')
-      expect(node.tag(:return).types).to eq(['String', 'nil'])
+      expect(node.tag(:return).types).to eq(%w[String nil])
     end
 
     it 'const_path_ref' do
