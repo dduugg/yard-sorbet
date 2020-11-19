@@ -4,6 +4,7 @@ require:
   - rubocop-sorbet
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.4
 
 Layout/ClassStructure:
@@ -30,6 +31,8 @@ Metrics/PerceivedComplexity:
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
+RSpec/EmptyExampleGroup:
+  Enabled: false
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
