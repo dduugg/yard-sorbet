@@ -25,14 +25,14 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(sorbet|spec)/}) }
   end
 
-  spec.add_development_dependency 'codecov', '~> 0.1.16'
+  spec.add_development_dependency 'codecov', '~> 0.2.12'
   spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'rspec', '~> 3.9'
-  spec.add_development_dependency 'rubocop', '~> 0.79.0'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1.37'
-  spec.add_development_dependency 'rubocop-sorbet', '~> 0.3.6'
-  spec.add_development_dependency 'simplecov', '~> 0.18.1'
-  spec.add_development_dependency 'sorbet', '~> 0.5.5325'
+  spec.add_development_dependency 'rspec', '~> 3.10'
+  spec.add_development_dependency 'rubocop', '~> 1.3.1'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.0.0'
+  spec.add_development_dependency 'rubocop-sorbet', '~> 0.5.1'
+  spec.add_development_dependency 'simplecov', '~> 0.19.1'
+  spec.add_development_dependency 'sorbet', '~> 0.5.6083'
   spec.add_runtime_dependency 'sorbet-runtime', '~> 0.5'
   spec.add_runtime_dependency 'yard', '~> 0.9'
 end
