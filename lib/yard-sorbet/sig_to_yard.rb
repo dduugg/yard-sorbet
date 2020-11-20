@@ -27,7 +27,7 @@ module YARDSorbet::SigToYARD
         value_type = convert(children.last.children.last).join(', ')
         ["Hash{#{key_type} => #{value_type}}"]
       else
-        log.warn("Unsupported sig aref node #{node.source}")
+        log.info("Unsupported sig aref node #{node.source}")
         [node.source]
       end
     when :arg_paren
