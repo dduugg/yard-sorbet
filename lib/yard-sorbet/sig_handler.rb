@@ -12,27 +12,43 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     class_def = statement.children.find { |c| c.type == :list }
     class_contents = class_def.children
 
+    process_class_contents(class_contents)
+  end
+
+  private def process_class_contents(class_contents)
     class_contents.each_with_index do |child, i|
+      if child.type == :sclass && child.children.size == 2 && child.children[1].type == :list
+        singleton_class_contents = child.children[1]
+        process_class_contents(singleton_class_contents)
+      end
       next unless type_signature?(child)
 
       next_statement = class_contents[i + 1]
-      if %i[def defs command].include?(next_statement&.type) && !next_statement.docstring
-        # Swap the method definition docstring and the sig docstring.
-        # Parse relevant parts of the `sig` and include them as well.
-        docstring, directives = YARDSorbet::Directives.extract_directives(child.docstring)
-        parsed_sig = parse_sig(child)
-        enhance_tag(docstring, :abstract, parsed_sig)
-        enhance_tag(docstring, :return, parsed_sig)
-        if next_statement.type != :command
-          parsed_sig[:params]&.each do |name, types|
-            enhance_param(docstring, name, types)
-          end
-        end
-        next_statement.docstring = docstring.to_raw
-        YARDSorbet::Directives.add_directives(next_statement.docstring, directives)
-        child.docstring = nil
+      next unless processable_method?(next_statement)
+
+      process_method_definition(next_statement, child)
+    end
+  end
+
+  private def processable_method?(next_statement)
+    %i[def defs command].include?(next_statement&.type) && !next_statement.docstring
+  end
+
+  private def process_method_definition(method_node, sig_node)
+    # Swap the method definition docstring and the sig docstring.
+    # Parse relevant parts of the `sig` and include them as well.
+    docstring, directives = YARDSorbet::Directives.extract_directives(sig_node.docstring)
+    parsed_sig = parse_sig(sig_node)
+    enhance_tag(docstring, :abstract, parsed_sig)
+    enhance_tag(docstring, :return, parsed_sig)
+    if method_node.type != :command
+      parsed_sig[:params]&.each do |name, types|
+        enhance_param(docstring, name, types)
       end
     end
+    method_node.docstring = docstring.to_raw
+    YARDSorbet::Directives.add_directives(method_node.docstring, directives)
+    sig_node.docstring = nil
   end
 
   private def enhance_param(docstring, name, types)
