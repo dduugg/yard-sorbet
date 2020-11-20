@@ -194,6 +194,9 @@ class VariousTypedSigs
   sig { returns(T.all(Foo, Bar)) }
   def call_T_all; end
 
+  sig { returns(T.attached_class) }
+  def call_T_attached_class; end
+
   sig { returns(T.class_of(String)) }
   def call_T_class_of; String; end
 
