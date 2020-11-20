@@ -168,6 +168,9 @@ class CollectionSigs
   sig{params(arr: T::Array[Custom[String]]).void}
   def nested_custom_collection(arr); end
 
+  sig{params(arr: Custom[T.all(T.any(Foo, Bar), T::Array[String], T::Hash[Integer, Symbol])]).void}
+  def custom_collection_with_inner_nodes(arr); end
+
   sig {returns([String, Integer])}
   def fixed_array; ['', 0]; end
 
