@@ -29,7 +29,7 @@ module YARDSorbet::SigToYARD
       else
         log.info("Unsupported sig aref node #{node.source}")
 
-        collection_type = children.first.source.split('::').last
+        collection_type = children.first.source
         member_type = children.last.source
         ["#{collection_type}[#{member_type}]"]
       end
