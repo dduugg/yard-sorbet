@@ -30,7 +30,7 @@ module YARDSorbet::SigToYARD
         log.info("Unsupported sig aref node #{node.source}")
 
         collection_type = children.first.source.split('::').last
-        member_type = convert(children.last.children.first).join(', ')
+        member_type = children.last.source
         ["#{collection_type}[#{member_type}]"]
       end
     when :arg_paren
