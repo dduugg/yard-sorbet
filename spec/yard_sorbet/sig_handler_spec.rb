@@ -223,6 +223,11 @@ RSpec.describe YARDSorbet::SigHandler do
       expect(node.tag(:return).types).to eq(['T.all(Foo, Bar)'])
     end
 
+    it 'call_T_attached_class' do
+      node = YARD::Registry.at('VariousTypedSigs#call_T_attached_class')
+      expect(node.tag(:return).types).to eq(['T.attached_class'])
+    end
+
     it 'call_T_class_of' do
       node = YARD::Registry.at('VariousTypedSigs#call_T_class_of')
       expect(node.tag(:return).types).to eq(['T.class_of(String)'])

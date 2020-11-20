@@ -40,7 +40,7 @@ module YARDSorbet::SigToYARD
       if children[0].source == 'T'
         t_method = IS_LEGACY_RUBY_VERSION ? children[1].source : children[2].source
         case t_method
-        when 'all', 'class_of', 'enum', 'noreturn', 'self_type', 'type_parameter', 'untyped'
+        when 'all', 'attached_class', 'class_of', 'enum', 'noreturn', 'self_type', 'type_parameter', 'untyped'
           # YARD doesn't have equivalent notions, so we just use the raw source
           [node.source]
         when 'any'
