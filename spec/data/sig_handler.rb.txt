@@ -162,6 +162,12 @@ class CollectionSigs
   sig {returns(T::Hash[String, Symbol])}
   def hash_method; end
 
+  sig{params(arr: Custom[String]).void}
+  def custom_collection(arr); end
+
+  sig{params(arr: T::Array[Custom[String]]).void}
+  def nested_custom_collection(arr); end
+
   sig {returns([String, Integer])}
   def fixed_array; ['', 0]; end
 
