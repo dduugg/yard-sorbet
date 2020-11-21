@@ -191,6 +191,24 @@ RSpec.describe YARDSorbet::SigHandler do
       expect(node.tag(:return).types).to eq(['Hash{String => Symbol}'])
     end
 
+    it 'custom collection' do
+      node = YARD::Registry.at('CollectionSigs#custom_collection')
+      param_tag = node.tags.find { |t| t.name == 'arr' }
+      expect(param_tag.types).to eq(['Custom[String]'])
+    end
+
+    it 'nested custom collection' do
+      node = YARD::Registry.at('CollectionSigs#nested_custom_collection')
+      param_tag = node.tags.find { |t| t.name == 'arr' }
+      expect(param_tag.types).to eq(['Array<Custom[String]>'])
+    end
+
+    it 'custom collection with inner nodes' do
+      node = YARD::Registry.at('CollectionSigs#custom_collection_with_inner_nodes')
+      param_tag = node.tags.find { |t| t.name == 'arr' }
+      expect(param_tag.types).to eq(['Custom[T.all(T.any(Foo, Bar), T::Array[String], T::Hash[Integer, Symbol])]'])
+    end
+
     it 'fixed Array' do
       node = YARD::Registry.at('CollectionSigs#fixed_array')
       expect(node.tag(:return).types).to eq(['Array(String, Integer)'])
