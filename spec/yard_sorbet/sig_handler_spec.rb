@@ -199,7 +199,7 @@ RSpec.describe YARDSorbet::SigHandler do
     it 'nested custom collection' do
       node = YARD::Registry.at('CollectionSigs#nested_custom_collection')
       param_tag = node.tags.find { |t| t.name == 'arr' }
-      expect(param_tag.types).to eq(['Array<Custom[String]>'])
+      expect(param_tag.types).to eq(['Array<Custom1[Custom2[String]]>'])
     end
 
     it 'custom collection with inner nodes' do

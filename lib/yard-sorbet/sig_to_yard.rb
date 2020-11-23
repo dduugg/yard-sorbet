@@ -28,10 +28,7 @@ module YARDSorbet::SigToYARD
         ["Hash{#{key_type} => #{value_type}}"]
       else
         log.info("Unsupported sig aref node #{node.source}")
-
-        collection_type = children.first.source
-        member_type = children.last.source
-        ["#{collection_type}[#{member_type}]"]
+        [fix_generic_aref(node)]
       end
     when :arg_paren
       convert(children.first.children.first)
@@ -94,5 +91,11 @@ module YARDSorbet::SigToYARD
       log.warn("Unsupported sig #{node.type} node #{node.source}")
       [node.source]
     end
+  end
+
+  def self.fix_generic_aref(node)
+    return node.source if node.children.empty? || node.type != :aref
+
+    "#{node.children.first.source}[#{fix_generic_aref(node.children.last.children.first)}]"
   end
 end
