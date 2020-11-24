@@ -97,11 +97,10 @@ module YARDSorbet::SigToYARD
     return node.source if node.children.empty? || node.type != :aref
 
     collection_type = node.children.first.source
-    member_types = []
-    node.children.last.children.each do |child|
-      member_types << build_generic_type(child)
-    end
-    member_type = member_types.join(", ")
+
+    member_type = node.children.last.children
+      .map { |child| build_generic_type(child) }
+      .join(", ")
 
     "#{collection_type}[#{member_type}]"
   end
