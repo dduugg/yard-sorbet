@@ -99,8 +99,8 @@ module YARDSorbet::SigToYARD
     collection_type = node.children.first.source
 
     member_type = node.children.last.children
-      .map { |child| build_generic_type(child) }
-      .join(", ")
+                      .map { |child| build_generic_type(child) }
+                      .join(', ')
 
     "#{collection_type}[#{member_type}]"
   end
