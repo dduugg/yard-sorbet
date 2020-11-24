@@ -93,9 +93,16 @@ module YARDSorbet::SigToYARD
     end
   end
 
-  def self.fix_generic_aref(node)
+  def self.build_generic_type(node)
     return node.source if node.children.empty? || node.type != :aref
 
-    "#{node.children.first.source}[#{fix_generic_aref(node.children.last.children.first)}]"
+    collection_type = node.children.first.source
+    member_types = []
+    node.children.last.children.each do |child|
+      member_types << build_generic_type(child)
+    end
+    member_type = member_types.join(", ")
+
+    "#{collection_type}[#{member_type}]"
   end
 end
