@@ -28,7 +28,7 @@ module YARDSorbet::SigToYARD
         ["Hash{#{key_type} => #{value_type}}"]
       else
         log.info("Unsupported sig aref node #{node.source}")
-        [fix_generic_aref(node)]
+        [build_generic_type(node)]
       end
     when :arg_paren
       convert(children.first.children.first)

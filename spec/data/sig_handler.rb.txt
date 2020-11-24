@@ -165,7 +165,7 @@ class CollectionSigs
   sig{params(arr: Custom[String]).void}
   def custom_collection(arr); end
 
-  sig{params(arr: T::Array[Custom1[Custom2[String]]]).void}
+  sig{params(arr: T::Array[Custom1[Custom2[String, Integer, T::Boolean], T.any(Custom3[String], Custom4[Integer])]]).void}
   def nested_custom_collection(arr); end
 
   sig{params(arr: Custom[T.all(T.any(Foo, Bar), T::Array[String], T::Hash[Integer, Symbol])]).void}
