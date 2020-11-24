@@ -97,7 +97,6 @@ module YARDSorbet::SigToYARD
     return node.source if node.children.empty? || node.type != :aref
 
     collection_type = node.children.first.source
-
     member_type = node.children.last.children
                       .map { |child| build_generic_type(child) }
                       .join(', ')
