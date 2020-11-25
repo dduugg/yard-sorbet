@@ -11,6 +11,7 @@
 
 * [#9](https://github.com/dduugg/yard-sorbet/pull/9): Remove warning for use of `T.attached_class`.
 * [#11](https://github.com/dduugg/yard-sorbet/pull/11): Fix parsing of custom parameterized types.
+* [#12](https://github.com/dduugg/yard-sorbet/pull/12): Fix parsing of recursive custom parameterized types.
 
 ### Changes
 
