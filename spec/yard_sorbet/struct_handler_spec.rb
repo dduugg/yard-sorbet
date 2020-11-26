@@ -3,18 +3,6 @@
 
 require 'yard'
 
-module Refinement
-  refine YARDSorbet::StructHandler do
-    prepend(Module.new do
-      def register(*objects)
-        raise "Redundant call"
-      end
-    end)
-  end
-end
-
-using Refinement
-
 RSpec.describe YARDSorbet::StructHandler do
   path = File.join(
     File.expand_path('../data', __dir__),
@@ -61,6 +49,7 @@ RSpec.describe YARDSorbet::StructHandler do
 
     it('does not trigger a redundant call to `register`') do
       YARD::Registry.clear
+      expect_any_instance_of(described_class).not_to receive(:register) # rubocop:disable RSpec/AnyInstance
       YARD::Parser::SourceParser.parse(path)
     end
   end
