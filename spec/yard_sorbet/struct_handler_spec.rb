@@ -4,13 +4,12 @@
 require 'yard'
 
 RSpec.describe YARDSorbet::StructHandler do
-  path = File.join(
+  before do
+    YARD::Registry.clear
+    path = File.join(
       File.expand_path('../data', __dir__),
       'struct_handler.rb.txt'
     )
-
-  before do
-    YARD::Registry.clear
     YARD::Parser::SourceParser.parse(path)
   end
 
@@ -45,12 +44,6 @@ RSpec.describe YARDSorbet::StructHandler do
     it('handles default values appropriately') do
       node = YARD::Registry.at('DefaultPersonStruct#initialize')
       expect(node.parameters).to eq([['defaulted:', "'hello'"]])
-    end
-
-    it('does not trigger a redundant call to `register`') do
-      YARD::Registry.clear
-      expect_any_instance_of(YARDSorbet::StructHandler).to_not receive(:register)
-      YARD::Parser::SourceParser.parse(path)
     end
   end
 end
