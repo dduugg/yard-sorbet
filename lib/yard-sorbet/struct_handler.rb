@@ -31,6 +31,8 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
     object = MethodObject.new(namespace, name, scope)
     object.source = source
 
+    register(object.source) # TODO: remove
+
     reader_docstring = doc.empty? ? "Returns the value of attribute +#{name}+." : doc
     docstring = YARD::DocstringParser.new.parse(reader_docstring).to_docstring
     docstring.add_tag(YARD::Tags::Tag.new(:return, '', types))

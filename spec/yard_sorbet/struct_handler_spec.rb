@@ -3,13 +3,26 @@
 
 require 'yard'
 
+module Refinement
+  refine YARDSorbet::StructHandler do
+    prepend(Module.new do
+      def register(*objects)
+        raise "Redundant call"
+      end
+    end)
+  end
+end
+
+using Refinement
+
 RSpec.describe YARDSorbet::StructHandler do
+  path = File.join(
+    File.expand_path('../data', __dir__),
+    'struct_handler.rb.txt'
+  )
+
   before do
     YARD::Registry.clear
-    path = File.join(
-      File.expand_path('../data', __dir__),
-      'struct_handler.rb.txt'
-    )
     YARD::Parser::SourceParser.parse(path)
   end
 
@@ -44,6 +57,11 @@ RSpec.describe YARDSorbet::StructHandler do
     it('handles default values appropriately') do
       node = YARD::Registry.at('DefaultPersonStruct#initialize')
       expect(node.parameters).to eq([['defaulted:', "'hello'"]])
+    end
+
+    it('does not trigger a redundant call to `register`') do
+      YARD::Registry.clear
+      YARD::Parser::SourceParser.parse(path)
     end
   end
 end
