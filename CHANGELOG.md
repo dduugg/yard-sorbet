@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.1.0 (2020-12-01)
+
 ### New features
 
 * [#8](https://github.com/dduugg/yard-sorbet/pull/8): Add support for singleton class syntax.
