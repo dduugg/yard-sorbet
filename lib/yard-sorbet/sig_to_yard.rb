@@ -3,7 +3,7 @@
 
 # Translate sig type syntax to YARD type syntax.
 module YARDSorbet::SigToYARD
-  IS_LEGACY_RUBY_VERSION = RUBY_VERSION.match?(/\A2\.[45]\./)
+  IS_LEGACY_RUBY_VERSION = RUBY_VERSION.start_with?('2.5.')
 
   # @see https://yardoc.org/types.html
   def self.convert(node)
