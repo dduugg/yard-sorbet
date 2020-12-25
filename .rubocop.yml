@@ -4,7 +4,13 @@ require:
   - rubocop-rspec
   - rubocop-sorbet
 
+inherit_mode:
+  merge:
+    - Exclude
+
 AllCops:
+  Exclude:
+    - 'sorbet/**/*' # VSCode plugin workaround
   NewCops: enable
   TargetRubyVersion: 2.5
 
