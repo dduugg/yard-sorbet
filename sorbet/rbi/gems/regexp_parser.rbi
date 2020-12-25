@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/regexp_parser/all/regexp_parser.rbi
 #
-# regexp_parser-1.8.2
+# regexp_parser-2.0.1
 
 class Regexp
 end
@@ -32,6 +32,7 @@ class Regexp::Parser
   def extract_options(input, options); end
   def free_space(token); end
   def group(token); end
+  def increase_level(exp); end
   def intersection(token); end
   def interval(target_node, token); end
   def keep(token); end
@@ -100,13 +101,15 @@ class Regexp::Scanner
   def append_literal(data, ts, te); end
   def block; end
   def block=(arg0); end
+  def char_pos; end
+  def char_pos=(arg0); end
   def conditional_stack; end
   def conditional_stack=(arg0); end
-  def copy(data, range); end
-  def emit(type, token, text, ts, te); end
+  def copy(data, ts, te); end
+  def emit(type, token, text); end
   def emit_literal; end
   def emit_meta_control_sequence(data, ts, te, token); end
-  def emit_options(text, ts, te); end
+  def emit_options(text); end
   def free_spacing; end
   def free_spacing=(arg0); end
   def free_spacing?(input_object, options); end
@@ -124,7 +127,6 @@ class Regexp::Scanner
   def set_depth=(arg0); end
   def spacing_stack; end
   def spacing_stack=(arg0); end
-  def text(data, ts, te, soff = nil); end
   def tokens; end
   def tokens=(arg0); end
   def validation_error(type, what, reason); end
@@ -311,9 +313,10 @@ class Regexp::Lexer
   def tokens=(arg0); end
 end
 module Regexp::Expression
-  def self.parsed(exp); end
 end
 class Regexp::Expression::Quantifier
+  def ==(other); end
+  def eq(other); end
   def greedy?; end
   def initialize(token, text, min, max, mode); end
   def initialize_clone(orig); end
@@ -360,7 +363,6 @@ class Regexp::Expression::Subexpression < Regexp::Expression::Base
   include Enumerable
 end
 class Regexp::Expression::Sequence < Regexp::Expression::Subexpression
-  def initialize(*args); end
   def quantify(token, text, min = nil, max = nil, mode = nil); end
   def self.add_to(subexpression, params = nil, active_opts = nil); end
   def self.at_levels(level, set_level, conditional_level); end
@@ -536,12 +538,15 @@ class Regexp::Expression::Group::Base < Regexp::Expression::Subexpression
   def comment?; end
   def to_s(format = nil); end
 end
-class Regexp::Expression::Group::Atomic < Regexp::Expression::Group::Base
-end
 class Regexp::Expression::Group::Passive < Regexp::Expression::Group::Base
+  def implicit=(arg0); end
+  def implicit?; end
+  def to_s(format = nil); end
 end
 class Regexp::Expression::Group::Absence < Regexp::Expression::Group::Base
   def match_length; end
+end
+class Regexp::Expression::Group::Atomic < Regexp::Expression::Group::Base
 end
 class Regexp::Expression::Group::Options < Regexp::Expression::Group::Base
   def option_changes; end
@@ -752,7 +757,6 @@ end
 class Regexp::Expression::UnicodeProperty::Block < Regexp::Expression::UnicodeProperty::Base
 end
 class Regexp::Expression::Root < Regexp::Expression::Subexpression
-  def initialize(*args); end
   def self.build(options = nil); end
   def self.build_token; end
 end
@@ -816,6 +820,7 @@ class Regexp::Expression::Base
   def a?; end
   def ascii_classes?; end
   def attributes; end
+  def base_length; end
   def case_insensitive?; end
   def coded_offset; end
   def conditional_level; end

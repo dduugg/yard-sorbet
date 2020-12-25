@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-rspec/all/rubocop-rspec.rbi
 #
-# rubocop-rspec-2.0.0
+# rubocop-rspec-2.1.0
 
 module RuboCop
 end
@@ -502,12 +502,12 @@ class RuboCop::Cop::RSpec::FilePath < RuboCop::Cop::RSpec::Base
   def custom_transform; end
   def ensure_correct_file_path(send_node, described_class, arguments); end
   def expected_path(constant); end
-  def filename_ends_with?(glob); end
-  def glob_for(described_class, method_name); end
-  def glob_for_spec_suffix_only?; end
+  def filename_ends_with?(pattern); end
   def ignore_methods?; end
-  def name_glob(method_name); end
+  def name_pattern(method_name); end
   def on_top_level_example_group(node); end
+  def pattern_for(described_class, method_name); end
+  def pattern_for_spec_suffix_only?; end
   def relevant_rubocop_rspec_file?(_file); end
   def routing_metadata?(param0); end
   def routing_spec?(args); end
@@ -515,11 +515,15 @@ class RuboCop::Cop::RSpec::FilePath < RuboCop::Cop::RSpec::Base
   include RuboCop::Cop::RSpec::TopLevelGroup
 end
 class RuboCop::Cop::RSpec::Focus < RuboCop::Cop::RSpec::Base
+  def correct_send(corrector, focus); end
   def focus_metadata(node, &block); end
   def focusable_selector?(param0 = nil); end
   def focused_block?(param0 = nil); end
   def metadata(param0 = nil); end
   def on_send(node); end
+  def with_surrounding(focus); end
+  extend RuboCop::Cop::AutoCorrector
+  include RuboCop::Cop::RangeHelp
 end
 class RuboCop::Cop::RSpec::HookArgument < RuboCop::Cop::RSpec::Base
   def argument_range(send_node); end

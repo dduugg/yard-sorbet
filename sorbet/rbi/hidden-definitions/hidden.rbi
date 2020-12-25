@@ -36,6 +36,19 @@ class Binding
   def irb(); end
 end
 
+class Bundler::APIResponseInvalidDependenciesError
+  def status_code(); end
+end
+
+class Bundler::APIResponseInvalidDependenciesError
+end
+
+class Bundler::Definition
+  def dependencies_for(groups); end
+
+  def requested_dependencies(); end
+end
+
 class Bundler::Dependency
   def branch(); end
 
@@ -55,6 +68,16 @@ class Bundler::Env
   def self.report(options=T.unsafe(nil)); end
 
   def self.write(io); end
+end
+
+class Bundler::EnvironmentPreserver
+  def replace_with_backup(); end
+end
+
+class Bundler::EnvironmentPreserver
+  def self.env_to_hash(env); end
+
+  def self.from_env(); end
 end
 
 class Bundler::Fetcher
@@ -246,6 +269,8 @@ class Bundler::GemHelper
 
   def committed?(); end
 
+  def default_remote(); end
+
   def gem_command(); end
 
   def gem_key(); end
@@ -280,6 +305,8 @@ class Bundler::GemHelper
 
   def spec_path(); end
 
+  def tag_prefix=(tag_prefix); end
+
   def tag_version(); end
 
   def version(); end
@@ -295,6 +322,12 @@ class Bundler::GemHelper
   def self.instance(); end
 
   def self.instance=(instance); end
+
+  def self.tag_prefix=(prefix); end
+end
+
+module Bundler::GemHelpers
+  def self.local_platform(); end
 end
 
 class Bundler::GemVersionPromoter
@@ -382,7 +415,7 @@ end
 class Bundler::Installer
   def generate_bundler_executable_stubs(spec, options=T.unsafe(nil)); end
 
-  def generate_standalone_bundler_executable_stubs(spec); end
+  def generate_standalone_bundler_executable_stubs(spec, options=T.unsafe(nil)); end
 
   def initialize(root, definition); end
 
@@ -397,6 +430,10 @@ class Bundler::Installer
   def self.ambiguous_gems=(ambiguous_gems); end
 
   def self.install(root, definition, options=T.unsafe(nil)); end
+end
+
+class Bundler::LazySpecification
+  def eql?(other); end
 end
 
 class Bundler::Molinillo::DependencyGraph
@@ -493,6 +530,8 @@ class Bundler::Plugin::Index
   def installed_plugins(); end
 
   def plugin_commands(plugin); end
+
+  def unregister_plugin(name); end
 end
 
 class Bundler::Plugin::Index::CommandConflict
@@ -539,6 +578,8 @@ end
 
 module Bundler::Plugin
   def self.list(); end
+
+  def self.uninstall(names, options); end
 end
 
 class Bundler::ProcessLock
@@ -546,6 +587,18 @@ end
 
 class Bundler::ProcessLock
   def self.lock(bundle_path=T.unsafe(nil)); end
+end
+
+class Bundler::Resolver::SpecGroup
+  def activated_platforms(); end
+
+  def activated_platforms=(activated_platforms); end
+
+  def copy_for(platforms); end
+
+  def sorted_activated_platforms(); end
+
+  def spec_for(platform); end
 end
 
 class Bundler::Retry
@@ -583,6 +636,8 @@ class Bundler::RubyGemsGemInstaller
 end
 
 class Bundler::RubygemsIntegration
+  def add_default_gems_to(specs); end
+
   def add_to_load_path(paths); end
 
   def all_specs(); end
@@ -596,6 +651,8 @@ class Bundler::RubygemsIntegration
   def find_name(name); end
 
   def gem_remote_fetcher(); end
+
+  def load_env_plugins(); end
 
   def plain_specs(); end
 
@@ -667,10 +724,20 @@ end
 
 class Bundler::Source::Git
   def glob(); end
+
+  def local?(); end
 end
 
 class Bundler::SpecSet
   include ::Enumerable
+end
+
+class Bundler::StubSpecification
+  def default_gem?(); end
+
+  def extensions(); end
+
+  def gem_build_complete_path(); end
 end
 
 class Bundler::Thor
@@ -1796,7 +1863,7 @@ class Bundler::UI::Shell
 
   def debug?(); end
 
-  def error(msg, newline=T.unsafe(nil)); end
+  def error(msg, newline=T.unsafe(nil), color=T.unsafe(nil)); end
 
   def info(msg, newline=T.unsafe(nil)); end
 
@@ -1818,7 +1885,7 @@ class Bundler::UI::Shell
 
   def unprinted_warnings(); end
 
-  def warn(msg, newline=T.unsafe(nil)); end
+  def warn(msg, newline=T.unsafe(nil), color=T.unsafe(nil)); end
 
   def yes?(msg); end
   LEVELS = ::T.let(nil, ::T.untyped)
@@ -2335,9 +2402,15 @@ module Bundler::VersionRanges
 end
 
 module Bundler
+  def self.locked_bundler_version(); end
+
   def self.original_exec(*args); end
 
   def self.original_system(*args); end
+
+  def self.preferred_gemfile_name(); end
+
+  def self.reset_settings_and_root!(); end
 
   def self.unbundled_env(); end
 
@@ -2710,6 +2783,10 @@ end
 class CodeRay::TokensProxy
 end
 
+module Codecov
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
 class DRb::DRbArray
   def _dump(lv); end
 end
@@ -3000,6 +3077,10 @@ end
 
 module Docile
   VERSION = ::T.let(nil, ::T.untyped)
+end
+
+module Docile::BacktraceFilter
+  FILTER_PATTERN = ::T.let(nil, ::T.untyped)
 end
 
 class Docile::FallbackContextProxy
@@ -4324,6 +4405,14 @@ class Integer
 end
 
 class JSON::Ext::Generator::State
+  def escape_slash(); end
+
+  def escape_slash=(escape_slash); end
+
+  def escape_slash?(); end
+end
+
+class JSON::Ext::Generator::State
   def self.from_state(_); end
 end
 
@@ -4336,6 +4425,16 @@ JSON::Parser = JSON::Ext::Parser
 JSON::State = JSON::Ext::Generator::State
 
 JSON::UnparserError = JSON::GeneratorError
+
+module JSON
+  def self.create_fast_state(); end
+
+  def self.create_pretty_state(); end
+
+  def self.load_file(filespec, opts=T.unsafe(nil)); end
+
+  def self.load_file!(filespec, opts=T.unsafe(nil)); end
+end
 
 module Kernel
   def itself(); end
@@ -4436,6 +4535,8 @@ end
 class Net::HTTPAlreadyReported
 end
 
+Net::HTTPClientError::EXCEPTION_TYPE = Net::HTTPServerException
+
 Net::HTTPClientErrorCode = Net::HTTPClientError
 
 class Net::HTTPEarlyHints
@@ -4501,6 +4602,8 @@ end
 class Net::HTTPRangeNotSatisfiable
 end
 
+Net::HTTPRedirection::EXCEPTION_TYPE = Net::HTTPRetriableError
+
 Net::HTTPRedirectionCode = Net::HTTPRedirection
 
 Net::HTTPRequestURITooLarge = Net::HTTPURITooLong
@@ -4508,6 +4611,8 @@ Net::HTTPRequestURITooLarge = Net::HTTPURITooLong
 Net::HTTPResponceReceiver = Net::HTTPResponse
 
 Net::HTTPRetriableCode = Net::HTTPRedirection
+
+Net::HTTPServerError::EXCEPTION_TYPE = Net::HTTPFatalError
 
 Net::HTTPServerErrorCode = Net::HTTPServerError
 
@@ -4730,6 +4835,8 @@ module Parser
   VERSION = ::T.let(nil, ::T.untyped)
 end
 
+Parser::CurrentRuby = Parser::Ruby26
+
 class Parser::Diagnostic
   LEVELS = ::T.let(nil, ::T.untyped)
 end
@@ -4753,6 +4860,10 @@ class Parser::Lexer::Literal
   TYPES = ::T.let(nil, ::T.untyped)
 end
 
+class Parser::MaxNumparamStack
+  ORDINARY_PARAMS = ::T.let(nil, ::T.untyped)
+end
+
 module Parser::Meta
   NODE_TYPES = ::T.let(nil, ::T.untyped)
 end
@@ -4762,6 +4873,12 @@ class Parser::Rewriter
 end
 
 class Parser::Ruby24
+  Racc_arg = ::T.let(nil, ::T.untyped)
+  Racc_debug_parser = ::T.let(nil, ::T.untyped)
+  Racc_token_to_s_table = ::T.let(nil, ::T.untyped)
+end
+
+class Parser::Ruby26
   Racc_arg = ::T.let(nil, ::T.untyped)
   Racc_debug_parser = ::T.let(nil, ::T.untyped)
   Racc_token_to_s_table = ::T.let(nil, ::T.untyped)
@@ -5676,8 +5793,6 @@ end
 
 class Resolv::DNS
   def extract_resources(msg, name, typeclass); end
-
-  def getname(address); end
   RequestID = ::T.let(nil, ::T.untyped)
   RequestIDMutex = ::T.let(nil, ::T.untyped)
 end
@@ -6410,6 +6525,7 @@ class RuboCop::AST::NodePattern::LexerRex
   CALL = ::T.let(nil, ::T.untyped)
   CONST_NAME = ::T.let(nil, ::T.untyped)
   IDENTIFIER = ::T.let(nil, ::T.untyped)
+  NODE_TYPE = ::T.let(nil, ::T.untyped)
   REGEXP = ::T.let(nil, ::T.untyped)
   REGEXP_BODY = ::T.let(nil, ::T.untyped)
   SYMBOL_NAME = ::T.let(nil, ::T.untyped)
@@ -6543,6 +6659,7 @@ module RuboCop::AST::NodePattern::Sets
   SET_SPRINTF_FORMAT = ::T.let(nil, ::T.untyped)
   SET_STRUCT_CLASS = ::T.let(nil, ::T.untyped)
   SET_SUCC_PRED_NEXT = ::T.let(nil, ::T.untyped)
+  SET_TASK_NAMESPACE = ::T.let(nil, ::T.untyped)
   SET_TEMPFILE_STRINGIO = ::T.let(nil, ::T.untyped)
   SET_TO_ENUM_ENUM_FOR = ::T.let(nil, ::T.untyped)
   SET_TO_I_TO_F_TO_C = ::T.let(nil, ::T.untyped)
@@ -6560,6 +6677,7 @@ module RuboCop::AST::NodePattern::Sets
   SET___5 = ::T.let(nil, ::T.untyped)
   SET___6 = ::T.let(nil, ::T.untyped)
   SET___7 = ::T.let(nil, ::T.untyped)
+  SET___EQL = ::T.let(nil, ::T.untyped)
   SET___METHOD_____CALLEE__ = ::T.let(nil, ::T.untyped)
   SET____ = ::T.let(nil, ::T.untyped)
   SET____ETC = ::T.let(nil, ::T.untyped)
@@ -6606,6 +6724,10 @@ class RuboCop::CLI::Command::InitDotfile
   DOTFILE = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::CLI::Command::SuggestExtensions
+  INCLUDED_FORMATTERS = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::CommentConfig
   COMMENT_DIRECTIVE_REGEXP = ::T.let(nil, ::T.untyped)
   COPS_PATTERN = ::T.let(nil, ::T.untyped)
@@ -6630,14 +6752,21 @@ class RuboCop::ConfigLoader
 end
 
 class RuboCop::ConfigObsoletion
-  MOVED_COPS = ::T.let(nil, ::T.untyped)
-  OBSOLETE_COPS = ::T.let(nil, ::T.untyped)
-  OBSOLETE_ENFORCED_STYLES = ::T.let(nil, ::T.untyped)
-  OBSOLETE_PARAMETERS = ::T.let(nil, ::T.untyped)
-  REMOVED_COPS = ::T.let(nil, ::T.untyped)
-  REMOVED_COPS_WITH_REASON = ::T.let(nil, ::T.untyped)
-  RENAMED_COPS = ::T.let(nil, ::T.untyped)
-  SPLIT_COPS = ::T.let(nil, ::T.untyped)
+  COP_RULE_CLASSES = ::T.let(nil, ::T.untyped)
+  DEFAULT_RULES_FILE = ::T.let(nil, ::T.untyped)
+  PARAMETER_RULE_CLASSES = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::ConfigObsoletion::ChangedEnforcedStyles
+  BASE_MESSAGE = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::ConfigObsoletion::ChangedParameter
+  BASE_MESSAGE = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::ConfigObsoletion::RemovedCop
+  BASE_MESSAGE = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::ConfigRegeneration
@@ -7088,6 +7217,10 @@ class RuboCop::Cop::Layout::SpaceBeforeBlockBraces
   MISSING_MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Layout::SpaceBeforeBrackets
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Layout::SpaceBeforeComment
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -7145,6 +7278,12 @@ class RuboCop::Cop::Layout::TrailingWhitespace
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Lint::AmbiguousAssignment
+  MISTAKES = ::T.let(nil, ::T.untyped)
+  MSG = ::T.let(nil, ::T.untyped)
+  SIMPLE_ASSIGNMENT_TYPES = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Lint::AmbiguousBlockAssociation
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -7170,7 +7309,7 @@ class RuboCop::Cop::Lint::BigDecimalNew
 end
 
 class RuboCop::Cop::Lint::BinaryOperatorWithIdenticalOperands
-  MATH_OPERATORS = ::T.let(nil, ::T.untyped)
+  ALLOWED_MATH_OPERATORS = ::T.let(nil, ::T.untyped)
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -7381,7 +7520,6 @@ class RuboCop::Cop::Lint::MissingSuper
   CLASS_LIFECYCLE_CALLBACKS = ::T.let(nil, ::T.untyped)
   CONSTRUCTOR_MSG = ::T.let(nil, ::T.untyped)
   METHOD_LIFECYCLE_CALLBACKS = ::T.let(nil, ::T.untyped)
-  OBJECT_LIFECYCLE_CALLBACKS = ::T.let(nil, ::T.untyped)
   STATELESS_CLASSES = ::T.let(nil, ::T.untyped)
 end
 
@@ -7601,6 +7739,10 @@ class RuboCop::Cop::Lint::UnderscorePrefixedVariableName
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Lint::UnexpectedBlockArity
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Lint::UnifiedInteger
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -7695,6 +7837,7 @@ end
 
 class RuboCop::Cop::Metrics::ParameterLists
   MSG = ::T.let(nil, ::T.untyped)
+  OPTIONAL_PARAMETERS_MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Metrics::PerceivedComplexity
@@ -7702,8 +7845,17 @@ class RuboCop::Cop::Metrics::PerceivedComplexity
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Metrics::Utils::AbcSizeCalculator
+  include ::RuboCop::Cop::Metrics::Utils::RepeatedAttributeDiscount
+  include ::RuboCop::AST::Sexp
+end
+
 module RuboCop::Cop::Metrics::Utils::IteratingBlock
   KNOWN_ITERATING_METHODS = ::T.let(nil, ::T.untyped)
+end
+
+module RuboCop::Cop::Metrics::Utils::RepeatedAttributeDiscount
+  VAR_SETTER_TO_GETTER = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Migration::DepartmentName
@@ -7761,6 +7913,7 @@ class RuboCop::Cop::Naming::HeredocDelimiterNaming
 end
 
 class RuboCop::Cop::Naming::MemoizedInstanceVariableName
+  DYNAMIC_DEFINE_METHODS = ::T.let(nil, ::T.untyped)
   MSG = ::T.let(nil, ::T.untyped)
   UNDERSCORE_REQUIRED = ::T.let(nil, ::T.untyped)
 end
@@ -8185,6 +8338,26 @@ class RuboCop::Cop::RSpec::Yield
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Rake::ClassDefinitionInTask
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Rake::Desc
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Rake::DuplicateNamespace
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Rake::DuplicateTask
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Rake::MethodDefinitionInTask
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 module RuboCop::Cop::RangeHelp
   BYTE_ORDER_MARK = ::T.let(nil, ::T.untyped)
 end
@@ -8603,6 +8776,11 @@ class RuboCop::Cop::Style::HashEachMethods
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Style::HashExcept
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Style::HashLikeCase
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -8636,7 +8814,8 @@ class RuboCop::Cop::Style::IfUnlessModifierOfIfUnless
 end
 
 class RuboCop::Cop::Style::IfWithSemicolon
-  MSG = ::T.let(nil, ::T.untyped)
+  MSG_IF_ELSE = ::T.let(nil, ::T.untyped)
+  MSG_TERNARY = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::ImplicitRuntimeError
@@ -8872,7 +9051,7 @@ class RuboCop::Cop::Style::PercentQLiterals
 end
 
 class RuboCop::Cop::Style::PerlBackrefs
-  MSG = ::T.let(nil, ::T.untyped)
+  MESSAGE_FORMAT = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::PreferredHashMethods
@@ -8894,6 +9073,10 @@ end
 class RuboCop::Cop::Style::RandomWithOffset
   MSG = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Style::RedundantArgument
+  MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::RedundantAssignment
@@ -9394,6 +9577,11 @@ RuboCop::ProcessedSource = RuboCop::AST::ProcessedSource
 
 module RuboCop::RSpec::Version
   STRING = ::T.let(nil, ::T.untyped)
+end
+
+module RuboCop::Rake
+  CONFIG = ::T.let(nil, ::T.untyped)
+  VERSION = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::RemoteConfig
@@ -10472,7 +10660,6 @@ class SimpleCov::Formatter::Codecov
   SOLANO = ::T.let(nil, ::T.untyped)
   TEAMCITY = ::T.let(nil, ::T.untyped)
   TRAVIS = ::T.let(nil, ::T.untyped)
-  VERSION = ::T.let(nil, ::T.untyped)
   WERCKER = ::T.let(nil, ::T.untyped)
 end
 
@@ -10491,6 +10678,10 @@ end
 class SimpleCov::SourceFile
   RUBY_FILE_ENCODING_MAGIC_COMMENT_REGEX = ::T.let(nil, ::T.untyped)
   SHEBANG_REGEX = ::T.let(nil, ::T.untyped)
+end
+
+class SimpleCovJSONFormatter::ResultExporter
+  FILENAME = ::T.let(nil, ::T.untyped)
 end
 
 module Singleton

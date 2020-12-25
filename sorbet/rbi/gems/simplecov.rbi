@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/simplecov/all/simplecov.rbi
 #
-# simplecov-0.19.1
+# simplecov-0.20.0
 
 module SimpleCov
   def self.adapt_coverage_result; end
@@ -53,6 +53,7 @@ module SimpleCov
   extend SimpleCov::Configuration
 end
 module SimpleCov::Formatter
+  def self.from_env(env); end
 end
 class SimpleCov::Formatter::MultiFormatter
   def self.[](*args); end

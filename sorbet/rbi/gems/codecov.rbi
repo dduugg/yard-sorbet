@@ -7,8 +7,10 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/codecov/all/codecov.rbi
 #
-# codecov-0.2.12
+# codecov-0.2.15
 
+module Codecov
+end
 class SimpleCov::Formatter::Codecov
   def black(str); end
   def build_params(ci); end

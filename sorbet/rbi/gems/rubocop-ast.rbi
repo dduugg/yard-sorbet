@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-ast/all/rubocop-ast.rbi
 #
-# rubocop-ast-1.1.1
+# rubocop-ast-1.3.0
 
 module RuboCop
 end
@@ -21,6 +21,8 @@ module RuboCop::AST::Ext::Range
 end
 class Parser::Source::Range
   include RuboCop::AST::Ext::Range
+end
+module RuboCop::AST::Ext::RangeMinMax
 end
 class RuboCop::AST::NodePattern
   def ==(other); end
@@ -287,19 +289,14 @@ class RuboCop::AST::NodePattern::Node::AnyOrder < RuboCop::AST::NodePattern::Nod
   def term_nodes; end
   include RuboCop::AST::NodePattern::Node::ForbidInSeqHead
 end
-module RuboCop::AST::NodePattern::Node::MapMinMax
-  def map_min_max(enum); end
-end
 class RuboCop::AST::NodePattern::Node::Subsequence < RuboCop::AST::NodePattern::Node
   def arity; end
   def in_sequence_head; end
   include RuboCop::AST::NodePattern::Node::ForbidInSeqHead
-  include RuboCop::AST::NodePattern::Node::MapMinMax
 end
 class RuboCop::AST::NodePattern::Node::Union < RuboCop::AST::NodePattern::Node
   def arity; end
   def in_sequence_head; end
-  include RuboCop::AST::NodePattern::Node::MapMinMax
 end
 class RuboCop::AST::NodePattern::Parser < Racc::Parser
   def _reduce_10(val, _values); end
@@ -454,6 +451,7 @@ class RuboCop::AST::Node < Parser::AST::Node
   def ivasgn_type?; end
   def keyword?; end
   def kwarg_type?; end
+  def kwargs_type?; end
   def kwbegin_type?; end
   def kwnilarg_type?; end
   def kwoptarg_type?; end
@@ -476,6 +474,8 @@ class RuboCop::AST::Node < Parser::AST::Node
   def match_current_line_type?; end
   def match_guard_clause?(param0 = nil); end
   def match_nil_pattern_type?; end
+  def match_pattern_p_type?; end
+  def match_pattern_type?; end
   def match_rest_type?; end
   def match_var_type?; end
   def match_with_lvasgn_type?; end
@@ -835,7 +835,13 @@ class RuboCop::AST::AndNode < RuboCop::AST::Node
   include RuboCop::AST::BinaryOperatorNode
   include RuboCop::AST::PredicateOperatorNode
 end
+class RuboCop::AST::ArgNode < RuboCop::AST::Node
+  def default?; end
+  def default_value; end
+  def name; end
+end
 class RuboCop::AST::ArgsNode < RuboCop::AST::Node
+  def argument_list; end
   def empty_and_without_delimiters?; end
   include RuboCop::AST::CollectionNode
 end
@@ -847,6 +853,7 @@ class RuboCop::AST::ArrayNode < RuboCop::AST::Node
   def values; end
 end
 class RuboCop::AST::BlockNode < RuboCop::AST::Node
+  def argument_list; end
   def arguments; end
   def arguments?; end
   def body; end
@@ -857,6 +864,7 @@ class RuboCop::AST::BlockNode < RuboCop::AST::Node
   def lambda?; end
   def method_name; end
   def multiline?; end
+  def numbered_arguments; end
   def opening_delimiter; end
   def send_node; end
   def single_line?; end
@@ -1022,6 +1030,9 @@ class RuboCop::AST::PairNode < RuboCop::AST::Node
   def inverse_delimiter(*deprecated, with_spacing: nil); end
   def value_on_new_line?; end
   include RuboCop::AST::HashElementNode
+end
+class RuboCop::AST::Procarg0Node < RuboCop::AST::ArgNode
+  def name; end
 end
 class RuboCop::AST::RangeNode < RuboCop::AST::Node
   def begin; end
@@ -1195,7 +1206,6 @@ class RuboCop::AST::Token
   def type; end
 end
 module RuboCop::AST::Traversal
-  def on_(node); end
   def on___ENCODING__(node); end
   def on___FILE__(node); end
   def on___LINE__(node); end
@@ -1257,6 +1267,7 @@ module RuboCop::AST::Traversal
   def on_ivar(node); end
   def on_ivasgn(node); end
   def on_kwarg(node); end
+  def on_kwargs(node); end
   def on_kwbegin(node); end
   def on_kwnilarg(node); end
   def on_kwoptarg(node); end
@@ -1270,6 +1281,8 @@ module RuboCop::AST::Traversal
   def on_match_as(node); end
   def on_match_current_line(node); end
   def on_match_nil_pattern(node); end
+  def on_match_pattern(node); end
+  def on_match_pattern_p(node); end
   def on_match_rest(node); end
   def on_match_var(node); end
   def on_match_with_lvasgn(node); end
