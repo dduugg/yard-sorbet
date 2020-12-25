@@ -22,15 +22,15 @@ Gem::Specification.new do |spec|
   spec.metadata['changelog_uri'] = 'https://github.com/dduugg/yard-sorbet/blob/master/CHANGELOG.md'
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(sorbet|spec)/}) }
+    `git ls-files -z`.split("\x0").reject { |f| f.match?(%r{^(sorbet|spec)/}) }
   end
 
   spec.add_development_dependency 'codecov', '~> 0.2.12'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.10'
-  spec.add_development_dependency 'rubocop', '~> 1.5.0'
+  spec.add_development_dependency 'rubocop', '~> 1.7.0'
   spec.add_development_dependency 'rubocop-rake', '~> 0.5.1'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.0.0'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.1.0'
   spec.add_development_dependency 'rubocop-sorbet', '~> 0.5.1'
   spec.add_development_dependency 'simplecov', '~> 0.20.0'
   spec.add_development_dependency 'sorbet', '~> 0.5.6083'
