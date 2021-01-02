@@ -6,6 +6,9 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
   handles :class, :module, :singleton_class?
 
+  SIG_NODE_TYPES = %i[call fcall vcall].freeze
+  private_constant :SIG_NODE_TYPES
+
   sig { returns(String).checked(:never) }
   def process
     # Find the list of declarations inside the class
@@ -110,7 +113,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   private def type_signature?(node)
     loop do
       return false if node.nil?
-      return false unless %i[call vcall fcall].include?(node.type)
+      return false unless SIG_NODE_TYPES.include?(node.type)
       return true if T.unsafe(node).method_name(true) == :sig
 
       node = node.children.first
