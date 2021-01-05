@@ -1,8 +1,11 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
 # Extract & re-add directives to a docstring
 module YARDSorbet::Directives
+  extend T::Sig
+
+  sig { params(docstring: T.nilable(String)).returns([YARD::Docstring, T::Array[String]]) }
   def self.extract_directives(docstring)
     parser = YARD::DocstringParser.new.parse(docstring)
     # Directives are already parsed at this point, and there doesn't
@@ -16,6 +19,7 @@ module YARDSorbet::Directives
     [parser.to_docstring, directives]
   end
 
+  sig { params(docstring: String, directives: T::Array[String]).void }
   def self.add_directives(docstring, directives)
     directives.each do |directive|
       docstring.concat("\n#{directive}")
