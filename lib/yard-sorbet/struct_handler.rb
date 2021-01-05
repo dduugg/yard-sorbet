@@ -1,12 +1,15 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
 # Handle all `const` calls, creating accessor methods, and compiles them for later usage at the class level
 # in creating a constructor
 class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
+  extend T::Sig
+
   handles method_call(:const)
   namespace_only
 
+  sig { void }
   def process
     # Store the property for use in the constructor definition
     name = statement.parameters[0].jump(:ident).source
@@ -44,6 +47,9 @@ end
 # Class-level handler that folds all `const` declarations into the constructor documentation
 # this needs to be injected as a module otherwise the default Class handler will overwrite documentation
 module YARDSorbet::StructClassHandler
+  extend T::Sig
+
+  sig { void }
   def process
     ret = super
 
