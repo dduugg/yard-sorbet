@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 # Handle all `const` calls, creating accessor methods, and compiles them for later usage at the class level
@@ -47,11 +47,13 @@ module YARDSorbet::StructClassHandler
   def process
     ret = super
 
-    return ret if extra_state.prop_docs.nil?
+    return ret if T.unsafe(self).extra_state.prop_docs.nil?
 
     # lookup the full YARD path for the current class
-    class_ns = YARD::CodeObjects::ClassObject.new(namespace, statement[0].source.gsub(/\s/, ''))
-    props = extra_state.prop_docs[class_ns]
+    class_ns = YARD::CodeObjects::ClassObject.new(
+      T.unsafe(self).namespace, T.unsafe(self).statement[0].source.gsub(/\s/, '')
+    )
+    props = T.unsafe(self).extra_state.prop_docs[class_ns]
 
     return ret if props.empty?
 
@@ -80,7 +82,7 @@ module YARDSorbet::StructClassHandler
     object.source ||= props.map { |p| p[:source] }.join("\n")
     object.explicit ||= false # not strictly necessary
 
-    register(object)
+    T.unsafe(self).register(object)
 
     object.docstring = docstring.to_raw
 
