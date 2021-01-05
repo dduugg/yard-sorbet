@@ -1,17 +1,21 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
 # Translate sig type syntax to YARD type syntax.
 module YARDSorbet::SigToYARD
-  IS_LEGACY_RUBY_VERSION = RUBY_VERSION.start_with?('2.5.')
+  extend T::Sig
+
+  IS_LEGACY_RUBY_VERSION = T.let(RUBY_VERSION.start_with?('2.5.'), T::Boolean)
 
   # @see https://yardoc.org/types.html
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   def self.convert(node)
     types = convert_type(node)
     # scrub newlines, as they break the YARD parser
     types.map { |type| type.gsub(/\n\s*/, ' ') }
   end
 
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   def self.convert_type(node)
     children = node.children
     case node.type
@@ -93,6 +97,7 @@ module YARDSorbet::SigToYARD
     end
   end
 
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(String) }
   def self.build_generic_type(node)
     return node.source if node.children.empty? || node.type != :aref
 
