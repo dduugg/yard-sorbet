@@ -45,15 +45,9 @@ RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
-Sorbet/EnforceSignatures:
-  Enabled: false
 Sorbet/StrictSigil:
-  Enabled: false
-Sorbet/StrongSigil:
-  Enabled: false
-Sorbet/TrueSigil:
+  Enabled: true
   Exclude:
-    - lib/yard-sorbet/struct_handler.rb
     - spec/**/*
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline
