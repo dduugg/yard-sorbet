@@ -106,8 +106,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
       params: {},
       return: nil
     }
-    parsed[:abstract] = false
-    parsed[:params] = {}
     found_params = T.let(false, T::Boolean)
     found_return = T.let(false, T::Boolean)
     bfs_traverse(sig_node, exclude: %i[array hash]) do |n|
