@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* [#16](https://github.com/dduugg/yard-sorbet/pull/16): Enforce strict typing in non-spec code.
+
 ## 0.1.0 (2020-12-01)
 
 ### New features
