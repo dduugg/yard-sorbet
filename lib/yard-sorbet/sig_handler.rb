@@ -1,4 +1,4 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
 # A YARD Handler for Sorbet type declarations
@@ -6,10 +6,10 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
   handles :class, :module, :singleton_class?
 
-  SIG_NODE_TYPES = %i[call fcall vcall].freeze
+  SIG_NODE_TYPES = T.let(%i[call fcall vcall].freeze, T::Array[Symbol])
   private_constant :SIG_NODE_TYPES
 
-  sig { returns(String).checked(:never) }
+  sig { void }
   def process
     # Find the list of declarations inside the class
     class_def = statement.children.find { |c| c.type == :list }
@@ -18,6 +18,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     process_class_contents(class_contents)
   end
 
+  sig { params(class_contents: T::Array[YARD::Parser::Ruby::MethodCallNode]).void }
   private def process_class_contents(class_contents)
     class_contents.each_with_index do |child, i|
       if child.type == :sclass && child.children.size == 2 && child.children[1].type == :list
@@ -29,14 +30,21 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
       next_statement = class_contents[i + 1]
       next unless processable_method?(next_statement)
 
-      process_method_definition(next_statement, child)
+      process_method_definition(T.must(next_statement), child)
     end
   end
 
+  sig { params(next_statement: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
   private def processable_method?(next_statement)
-    %i[def defs command].include?(next_statement&.type) && !next_statement.docstring
+    %i[def defs command].include?(next_statement&.type) && !T.must(next_statement).docstring
   end
 
+  sig do
+    params(
+      method_node: YARD::Parser::Ruby::AstNode,
+      sig_node: YARD::Parser::Ruby::MethodCallNode
+    ).void
+  end
   private def process_method_definition(method_node, sig_node)
     # Swap the method definition docstring and the sig docstring.
     # Parse relevant parts of the `sig` and include them as well.
@@ -54,6 +62,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     sig_node.docstring = nil
   end
 
+  sig { params(docstring: YARD::Docstring, name: String, types: T::Array[String]).void }
   private def enhance_param(docstring, name, types)
     tag = docstring.tags.find { |t| t.tag_name == 'param' && t.name == name }
     if tag
@@ -65,6 +74,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
+  sig { params(docstring: YARD::Docstring, type: Symbol, parsed_sig: T::Hash[Symbol, Object]).void }
   private def enhance_tag(docstring, type, parsed_sig)
     return if !parsed_sig[type]
 
@@ -80,8 +90,22 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
+  sig do
+    params(sig_node: YARD::Parser::Ruby::MethodCallNode)
+      .returns(
+        {
+          abstract: T::Boolean,
+          params: T::Hash[String, T::Array[String]],
+          return: T.nilable(T::Array[String])
+        }
+      )
+  end
   private def parse_sig(sig_node)
-    parsed = {}
+    parsed = {
+      abstract: false,
+      params: {},
+      return: nil
+    }
     parsed[:abstract] = false
     parsed[:params] = {}
     found_params = T.let(false, T::Boolean)
@@ -110,16 +134,18 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   # Returns true if the given node is part of a type signature.
+  sig { params(node: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
   private def type_signature?(node)
     loop do
       return false if node.nil?
       return false unless SIG_NODE_TYPES.include?(node.type)
       return true if T.unsafe(node).method_name(true) == :sig
 
-      node = node.children.first
+      node = T.let(node.children.first, T.nilable(YARD::Parser::Ruby::AstNode))
     end
   end
 
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T.nilable(YARD::Parser::Ruby::AstNode)) }
   private def sibling_node(node)
     found_sibling = T.let(false, T::Boolean)
     node.parent.children.each do |n|
@@ -135,7 +161,14 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   # @yield [YARD::Parser::Ruby::AstNode]
-  private def bfs_traverse(node, exclude: [])
+  sig do
+    params(
+      node: YARD::Parser::Ruby::AstNode,
+      exclude: T::Array[Symbol],
+      _blk: T.proc.params(n: YARD::Parser::Ruby::AstNode).void
+    ).void
+  end
+  private def bfs_traverse(node, exclude: [], &_blk)
     queue = [node]
     while !queue.empty?
       n = T.must(queue.shift)
