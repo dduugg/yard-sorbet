@@ -5,6 +5,7 @@
 ### Changes
 
 * [#16](https://github.com/dduugg/yard-sorbet/pull/16): Enforce strict typing in non-spec code.
+* Require yard >= 0.9.16 and sorbet-runtime >= 0.5.5845
 
 ## 0.1.0 (2020-12-01)
 
