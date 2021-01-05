@@ -4405,14 +4405,6 @@ class Integer
 end
 
 class JSON::Ext::Generator::State
-  def escape_slash(); end
-
-  def escape_slash=(escape_slash); end
-
-  def escape_slash?(); end
-end
-
-class JSON::Ext::Generator::State
   def self.from_state(_); end
 end
 
@@ -4425,16 +4417,6 @@ JSON::Parser = JSON::Ext::Parser
 JSON::State = JSON::Ext::Generator::State
 
 JSON::UnparserError = JSON::GeneratorError
-
-module JSON
-  def self.create_fast_state(); end
-
-  def self.create_pretty_state(); end
-
-  def self.load_file(filespec, opts=T.unsafe(nil)); end
-
-  def self.load_file!(filespec, opts=T.unsafe(nil)); end
-end
 
 module Kernel
   def itself(); end
@@ -4935,6 +4917,7 @@ class ProgressBar::Components::Time
   NO_TIME_ELAPSED_TEXT = ::T.let(nil, ::T.untyped)
   OOB_FRIENDLY_TIME_TEXT = ::T.let(nil, ::T.untyped)
   OOB_LIMIT_IN_HOURS = ::T.let(nil, ::T.untyped)
+  OOB_TEXT_TO_FORMAT = ::T.let(nil, ::T.untyped)
   OOB_TIME_FORMATS = ::T.let(nil, ::T.untyped)
   OOB_UNKNOWN_TIME_TEXT = ::T.let(nil, ::T.untyped)
   TIME_FORMAT = ::T.let(nil, ::T.untyped)
@@ -6580,6 +6563,7 @@ module RuboCop::AST::NodePattern::Sets
   MAX = ::T.let(nil, ::T.untyped)
   REGISTRY = ::T.let(nil, ::T.untyped)
   SET_0_1 = ::T.let(nil, ::T.untyped)
+  SET_0_1_2 = ::T.let(nil, ::T.untyped)
   SET_10_10 = ::T.let(nil, ::T.untyped)
   SET_1_1 = ::T.let(nil, ::T.untyped)
   SET_1_2 = ::T.let(nil, ::T.untyped)
@@ -6595,6 +6579,7 @@ module RuboCop::AST::NodePattern::Sets
   SET_BEFORE_AFTER = ::T.let(nil, ::T.untyped)
   SET_BE_EQ_EQL_EQUAL = ::T.let(nil, ::T.untyped)
   SET_BE_TRUTHY_BE_FALSEY_BE_FALSY_ETC = ::T.let(nil, ::T.untyped)
+  SET_CALLER_CALLER_LOCATIONS = ::T.let(nil, ::T.untyped)
   SET_CALL_RUN = ::T.let(nil, ::T.untyped)
   SET_CAPTURE2_CAPTURE2E_CAPTURE3_ETC = ::T.let(nil, ::T.untyped)
   SET_CIPHER_DIGEST = ::T.let(nil, ::T.untyped)
@@ -6608,6 +6593,7 @@ module RuboCop::AST::NodePattern::Sets
   SET_DEFINE_METHOD_DEFINE_SINGLETON_METHOD = ::T.let(nil, ::T.untyped)
   SET_DESCRIBE_FEATURE = ::T.let(nil, ::T.untyped)
   SET_DOUBLE_SPY = ::T.let(nil, ::T.untyped)
+  SET_DOWNCASE_UPCASE = ::T.let(nil, ::T.untyped)
   SET_EACH_EXAMPLE = ::T.let(nil, ::T.untyped)
   SET_EACH_WITH_INDEX_WITH_INDEX = ::T.let(nil, ::T.untyped)
   SET_EACH_WITH_OBJECT_WITH_OBJECT = ::T.let(nil, ::T.untyped)
@@ -6618,12 +6604,16 @@ module RuboCop::AST::NodePattern::Sets
   SET_FACTORYGIRL_FACTORYBOT = ::T.let(nil, ::T.untyped)
   SET_FIRST_LAST__ETC = ::T.let(nil, ::T.untyped)
   SET_FIXNUM_BIGNUM = ::T.let(nil, ::T.untyped)
+  SET_FLATTEN_FLATTEN = ::T.let(nil, ::T.untyped)
   SET_FORMAT_SPRINTF_PRINTF = ::T.let(nil, ::T.untyped)
   SET_GEMCUTTER_RUBYGEMS_RUBYFORGE = ::T.let(nil, ::T.untyped)
   SET_GSUB_GSUB = ::T.let(nil, ::T.untyped)
+  SET_GSUB_GSUB_SUB_SUB = ::T.let(nil, ::T.untyped)
   SET_INCLUDE_EXTEND_PREPEND = ::T.let(nil, ::T.untyped)
+  SET_INCLUDE_MEMBER = ::T.let(nil, ::T.untyped)
   SET_INSTANCE_EVAL_CLASS_EVAL_MODULE_EVAL = ::T.let(nil, ::T.untyped)
   SET_INSTANCE_EXEC_CLASS_EXEC_MODULE_EXEC = ::T.let(nil, ::T.untyped)
+  SET_IO_FILE = ::T.let(nil, ::T.untyped)
   SET_IS_EXPECTED_SHOULD_SHOULD_NOT = ::T.let(nil, ::T.untyped)
   SET_KEYS_VALUES = ::T.let(nil, ::T.untyped)
   SET_KEY_HAS_KEY_FETCH_ETC = ::T.let(nil, ::T.untyped)
@@ -6631,6 +6621,9 @@ module RuboCop::AST::NodePattern::Sets
   SET_LENGTH_SIZE = ::T.let(nil, ::T.untyped)
   SET_LOAD_RESTORE = ::T.let(nil, ::T.untyped)
   SET_MAP_COLLECT = ::T.let(nil, ::T.untyped)
+  SET_MATCH_MATCH = ::T.let(nil, ::T.untyped)
+  SET_MATCH__MATCH = ::T.let(nil, ::T.untyped)
+  SET_NEW_COMPILE = ::T.let(nil, ::T.untyped)
   SET_NEW_OPEN = ::T.let(nil, ::T.untyped)
   SET_NIL_ = ::T.let(nil, ::T.untyped)
   SET_PIPELINE_PIPELINE_R_PIPELINE_RW_ETC = ::T.let(nil, ::T.untyped)
@@ -6650,13 +6643,17 @@ module RuboCop::AST::NodePattern::Sets
   SET_REDUCE_INJECT = ::T.let(nil, ::T.untyped)
   SET_REJECT_REJECT = ::T.let(nil, ::T.untyped)
   SET_REQUIRE_REQUIRE_RELATIVE = ::T.let(nil, ::T.untyped)
+  SET_SELECT_FILTER_FIND_ALL_REJECT = ::T.let(nil, ::T.untyped)
   SET_SELECT_SELECT = ::T.let(nil, ::T.untyped)
   SET_SEND_PUBLIC_SEND___SEND__ = ::T.let(nil, ::T.untyped)
   SET_SHOULD_SHOULD_NOT = ::T.let(nil, ::T.untyped)
   SET_SKIP_PENDING = ::T.let(nil, ::T.untyped)
   SET_SORT_BY_SORT = ::T.let(nil, ::T.untyped)
+  SET_SORT_MIN_MAX = ::T.let(nil, ::T.untyped)
   SET_SPAWN_SYSTEM = ::T.let(nil, ::T.untyped)
   SET_SPRINTF_FORMAT = ::T.let(nil, ::T.untyped)
+  SET_START_WITH_END_WITH = ::T.let(nil, ::T.untyped)
+  SET_START_WITH_STARTS_WITH_END_WITH_ENDS_WITH = ::T.let(nil, ::T.untyped)
   SET_STRUCT_CLASS = ::T.let(nil, ::T.untyped)
   SET_SUCC_PRED_NEXT = ::T.let(nil, ::T.untyped)
   SET_TASK_NAMESPACE = ::T.let(nil, ::T.untyped)
@@ -6677,6 +6674,7 @@ module RuboCop::AST::NodePattern::Sets
   SET___5 = ::T.let(nil, ::T.untyped)
   SET___6 = ::T.let(nil, ::T.untyped)
   SET___7 = ::T.let(nil, ::T.untyped)
+  SET___8 = ::T.let(nil, ::T.untyped)
   SET___EQL = ::T.let(nil, ::T.untyped)
   SET___METHOD_____CALLEE__ = ::T.let(nil, ::T.untyped)
   SET____ = ::T.let(nil, ::T.untyped)
@@ -7941,6 +7939,182 @@ end
 class RuboCop::Cop::Offense
   COMPARISON_ATTRIBUTES = ::T.let(nil, ::T.untyped)
   NO_LOCATION = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::AncestorsInclude
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::ArraySemiInfiniteRangeSlice
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+  SLICE_METHODS = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::BigDecimalWithNumericArgument
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::BindCall
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::BlockGivenWithExplicitBlock
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::Caller
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::Casecmp
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::ChainArrayAllocation
+  RETURNS_NEW_ARRAY = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::CollectionLiteralInLoop
+  ARRAY_METHODS = ::T.let(nil, ::T.untyped)
+  ENUMERABLE_METHOD_NAMES = ::T.let(nil, ::T.untyped)
+  HASH_METHODS = ::T.let(nil, ::T.untyped)
+  LOOP_TYPES = ::T.let(nil, ::T.untyped)
+  MSG = ::T.let(nil, ::T.untyped)
+  NONMUTATING_ARRAY_METHODS = ::T.let(nil, ::T.untyped)
+  NONMUTATING_HASH_METHODS = ::T.let(nil, ::T.untyped)
+  POST_CONDITION_LOOP_TYPES = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::ConstantRegexp
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::Count
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::DeletePrefix
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::DeleteSuffix
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::Detect
+  CANDIDATE_METHODS = ::T.let(nil, ::T.untyped)
+  INDEX_MSG = ::T.let(nil, ::T.untyped)
+  INDEX_REVERSE_MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::EndWith
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::FixedSize
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::FlatMap
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::InefficientHashSearch
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::IoReadlines
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::MethodObjectAsBlock
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::OpenStruct
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::RangeInclude
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::RedundantMatch
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::RedundantMerge
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::RedundantSortBlock
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::RedundantStringChars
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::ReverseEach
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::ReverseFirst
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::Size
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::SortReverse
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::Squeeze
+  MSG = ::T.let(nil, ::T.untyped)
+  PREFERRED_METHODS = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::StartWith
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::StringInclude
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::StringReplacement
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::Sum
+  MSG = ::T.let(nil, ::T.untyped)
+  MSG_IF_NO_INIT_VALUE = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::TimesMap
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::UnfreezeString
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Performance::UriDefaultParser
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::PreferredDelimiters
@@ -11302,9 +11476,6 @@ class YARD::CodeObjects::ClassObject
   def superclass=(object); end
 end
 
-class YARD::CodeObjects::ClassObject
-end
-
 class YARD::CodeObjects::ClassVariableObject
   def value(); end
 
@@ -11445,9 +11616,6 @@ class YARD::CodeObjects::NamespaceObject
   def meths(opts=T.unsafe(nil)); end
 
   def mixins(*scopes); end
-end
-
-class YARD::CodeObjects::NamespaceObject
 end
 
 class YARD::CodeObjects::Proxy
@@ -14127,7 +14295,17 @@ end
 class YARD::Verifier
 end
 
+module YARDSorbet::Directives
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class YARDSorbet::SigHandler
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+module YARDSorbet::SigToYARD
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
 end
