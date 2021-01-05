@@ -3,6 +3,8 @@
 
 require_relative '../lib/yard-sorbet'
 
+T::Configuration.enable_checking_for_sigs_marked_checked_tests
+
 if ENV['CI'] == 'true'
   require 'simplecov'
   require 'codecov'
