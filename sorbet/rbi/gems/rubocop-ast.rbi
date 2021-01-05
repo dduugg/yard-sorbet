@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-ast/all/rubocop-ast.rbi
 #
-# rubocop-ast-1.3.0
+# rubocop-ast-1.4.0
 
 module RuboCop
 end
@@ -1206,6 +1206,7 @@ class RuboCop::AST::Token
   def type; end
 end
 module RuboCop::AST::Traversal
+  def on_(node); end
   def on___ENCODING__(node); end
   def on___FILE__(node); end
   def on___LINE__(node); end

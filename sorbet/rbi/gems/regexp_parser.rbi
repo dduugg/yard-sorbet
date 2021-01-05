@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/regexp_parser/all/regexp_parser.rbi
 #
-# regexp_parser-2.0.1
+# regexp_parser-2.0.3
 
 class Regexp
 end
@@ -212,7 +212,7 @@ module Regexp::Syntax::Token::Literal
 end
 module Regexp::Syntax::Token::FreeSpace
 end
-class Regexp::Syntax::NotImplementedError < SyntaxError
+class Regexp::Syntax::NotImplementedError < Regexp::Syntax::SyntaxError
   def initialize(syntax, type, token); end
 end
 class Regexp::Syntax::Base
@@ -232,14 +232,14 @@ class Regexp::Syntax::Base
   include Regexp::Syntax::Token
 end
 class Regexp::Syntax::Any < Regexp::Syntax::Base
-  def implements!(type, token); end
-  def implements?(type, token); end
+  def implements!(_type, _token); end
+  def implements?(_type, _token); end
   def initialize; end
 end
-class Regexp::Syntax::InvalidVersionNameError < SyntaxError
+class Regexp::Syntax::InvalidVersionNameError < Regexp::Syntax::SyntaxError
   def initialize(name); end
 end
-class Regexp::Syntax::UnknownSyntaxNameError < SyntaxError
+class Regexp::Syntax::UnknownSyntaxNameError < Regexp::Syntax::SyntaxError
   def initialize(name); end
 end
 class Regexp::Syntax::V1_8_6 < Regexp::Syntax::Base
@@ -338,12 +338,12 @@ class Regexp::Expression::Subexpression < Regexp::Expression::Base
   def at(*args, &block); end
   def dig(*indices); end
   def each(*args, &block); end
-  def each_expression(include_self = nil, &block); end
+  def each_expression(include_self = nil); end
   def empty?(*args, &block); end
   def expressions; end
   def expressions=(arg0); end
   def fetch(*args, &block); end
-  def flat_map(include_self = nil, &block); end
+  def flat_map(include_self = nil); end
   def index(*args, &block); end
   def initialize(token, options = nil); end
   def initialize_clone(orig); end
@@ -524,7 +524,7 @@ class Regexp::Expression::EscapeSequence::MetaControl < Regexp::Expression::Esca
 end
 class Regexp::Expression::FreeSpace < Regexp::Expression::Base
   def match_length; end
-  def quantify(token, text, min = nil, max = nil, mode = nil); end
+  def quantify(_token, _text, _min = nil, _max = nil, _mode = nil); end
 end
 class Regexp::Expression::Comment < Regexp::Expression::FreeSpace
 end
@@ -541,6 +541,7 @@ end
 class Regexp::Expression::Group::Passive < Regexp::Expression::Group::Base
   def implicit=(arg0); end
   def implicit?; end
+  def initialize(*arg0); end
   def to_s(format = nil); end
 end
 class Regexp::Expression::Group::Absence < Regexp::Expression::Group::Base
@@ -888,7 +889,7 @@ class Regexp::MatchLength
   def base_min; end
   def base_min=(arg0); end
   def each(opts = nil); end
-  def endless_each(&block); end
+  def endless_each; end
   def exp_class; end
   def exp_class=(arg0); end
   def fixed?; end
