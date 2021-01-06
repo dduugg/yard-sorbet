@@ -11,7 +11,7 @@ inherit_mode:
 
 AllCops:
   Exclude:
-    - 'sorbet/**/*' # VSCode plugin workaround
+    - 'sorbet/**/*'  # VSCode plugin workaround
   NewCops: enable
   TargetRubyVersion: 2.5
 
@@ -37,8 +37,6 @@ Metrics/PerceivedComplexity:
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
-RSpec/EmptyExampleGroup:
-  Enabled: false
 RSpec/ExampleLength:
   Enabled: false
 RSpec/MultipleExpectations:
