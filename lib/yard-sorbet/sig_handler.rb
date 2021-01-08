@@ -36,7 +36,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
 
   sig { params(next_statement: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
   private def processable_method?(next_statement)
-    %i[def defs command].include?(next_statement&.type) && !T.must(next_statement).docstring
+    %i[def defs command].include?(next_statement&.type)
   end
 
   sig do

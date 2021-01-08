@@ -117,6 +117,11 @@ RSpec.describe YARDSorbet::SigHandler do
       expect(node.tag(:return).types).to eq(['void'])
     end
 
+    it 'parses comments on the method definition line' do
+      node = YARD::Registry.at('SigReturn#method_definition_contains_comment')
+      expect(node.tag(:return).types).to eq(['void'])
+    end
+
     it 'with abstract sig' do
       node = YARD::Registry.at('SigAbstract#one')
       expect(node.tag(:abstract).text).to eq('')
