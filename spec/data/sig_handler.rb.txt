@@ -108,8 +108,14 @@ class SigReturn
   sig {void}
   def void_method; end
 
-  sig { void }
+  # method definition contains comment
+  sig {void}
   def method_definition_contains_comment # rubocop:disable ...
+  end
+
+  # class method definition contains comment
+  sig {void}
+  def self.class_method_definition_contains_comment # rubocop:disable ...
   end
 end
 
