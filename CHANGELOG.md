@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+* [#17](https://github.com/dduugg/yard-sorbet/pull/17): Fix docstrings for methods that contain a comment on method definition line
+
 ### Changes
 
 * [#16](https://github.com/dduugg/yard-sorbet/pull/16): Enforce strict typing in non-spec code.
@@ -19,7 +23,6 @@
 * [#9](https://github.com/dduugg/yard-sorbet/pull/9): Remove warning for use of `T.attached_class`.
 * [#11](https://github.com/dduugg/yard-sorbet/pull/11): Fix parsing of custom parameterized types.
 * [#12](https://github.com/dduugg/yard-sorbet/pull/12): Fix parsing of recursive custom parameterized types.
-* [#17](https://github.com/dduugg/yard-sorbet/pull/17): Fix docstrings for methods that contain a comment on method definition line
 
 ### Changes
 
