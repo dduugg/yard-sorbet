@@ -6,8 +6,11 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
   handles :class, :module, :singleton_class?
 
+  PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
+  PROCESSABLE_NODES = T.let(%i[def defs command].freeze, T::Array[Symbol])
+  SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
   SIG_NODE_TYPES = T.let(%i[call fcall vcall].freeze, T::Array[Symbol])
-  private_constant :SIG_NODE_TYPES
+  private_constant :PARAM_EXCLUDES, :PROCESSABLE_NODES, :SIG_EXCLUDES, :SIG_NODE_TYPES
 
   sig { void }
   def process
@@ -36,7 +39,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
 
   sig { params(next_statement: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
   private def processable_method?(next_statement)
-    %i[def defs command].include?(next_statement&.type)
+    PROCESSABLE_NODES.include?(next_statement&.type)
   end
 
   sig do
@@ -108,13 +111,13 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     }
     found_params = T.let(false, T::Boolean)
     found_return = T.let(false, T::Boolean)
-    bfs_traverse(sig_node, exclude: %i[array hash]) do |n|
+    bfs_traverse(sig_node, exclude: SIG_EXCLUDES) do |n|
       if n.source == 'abstract'
         parsed[:abstract] = true
       elsif n.source == 'params' && !found_params
         found_params = true
         sibling = T.must(sibling_node(n))
-        bfs_traverse(sibling, exclude: %i[array call hash]) do |p|
+        bfs_traverse(sibling, exclude: PARAM_EXCLUDES) do |p|
           if p.type == :assoc
             param_name = p.children.first.source[0...-1]
             types = YARDSorbet::SigToYARD.convert(p.children.last)
