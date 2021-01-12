@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+* [#17](https://github.com/dduugg/yard-sorbet/pull/17): Fix docstrings for methods that contain a comment on method definition line
+
 ### Changes
 
 * [#16](https://github.com/dduugg/yard-sorbet/pull/16): Enforce strict typing in non-spec code.

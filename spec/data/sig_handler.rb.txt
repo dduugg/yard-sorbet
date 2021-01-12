@@ -84,6 +84,10 @@ module Module
 end
 
 class SigReturn
+  # attr has trailing comment
+  sig {returns(String)}
+  attr_reader :attr_contains_comment # rubocop:disable ...
+
   sig {returns(Integer)}
   def one; 1; end
 
@@ -107,6 +111,16 @@ class SigReturn
 
   sig {void}
   def void_method; end
+
+  # method definition contains comment
+  sig {void}
+  def method_definition_contains_comment # rubocop:disable ...
+  end
+
+  # class method definition contains comment
+  sig {void}
+  def self.class_method_definition_contains_comment # rubocop:disable ...
+  end
 end
 
 class SigAbstract

@@ -117,6 +117,24 @@ RSpec.describe YARDSorbet::SigHandler do
       expect(node.tag(:return).types).to eq(['void'])
     end
 
+    it 'with trailing comment on attr declaration' do
+      node = YARD::Registry.at('SigReturn#attr_contains_comment')
+      expect(node.tag(:return).types).to eq(['String'])
+      expect(node.docstring).to eq('attr has trailing comment')
+    end
+
+    it 'with trailing comment on the method definition line' do
+      node = YARD::Registry.at('SigReturn#method_definition_contains_comment')
+      expect(node.tag(:return).types).to eq(['void'])
+      expect(node.docstring).to eq('method definition contains comment')
+    end
+
+    it 'with trailing comment on the class method definition line' do
+      node = YARD::Registry.at('SigReturn.class_method_definition_contains_comment')
+      expect(node.tag(:return).types).to eq(['void'])
+      expect(node.docstring).to eq('class method definition contains comment')
+    end
+
     it 'with abstract sig' do
       node = YARD::Registry.at('SigAbstract#one')
       expect(node.tag(:abstract).text).to eq('')
