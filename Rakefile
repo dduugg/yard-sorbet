@@ -9,9 +9,18 @@ RSpec::Core::RakeTask.new(:spec)
 
 RuboCop::RakeTask.new(:rubocop)
 
-desc 'Typecheck files with Sorbet'
+desc 'Update sorbet rbi files'
+task :rbi do
+  sh 'bundle update'
+  sh 'bundle exec srb rbi sorbet-typed'
+  sh 'bundle exec srb rbi gems'
+  sh 'bundle exec srb rbi hidden-definitions'
+  sh 'bundle exec srb rbi todo'
+end
+
+desc 'Typecheck files with sorbet'
 task :typecheck do
-  sh 'srb tc'
+  sh 'bundle exec srb typecheck'
 end
 
 task default: %i[rubocop spec typecheck]
