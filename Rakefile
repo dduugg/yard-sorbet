@@ -11,7 +11,7 @@ RuboCop::RakeTask.new(:rubocop)
 
 desc 'Typecheck files with Sorbet'
 task :typecheck do
-  sh 'srb tc --ignore=vendor/'
+  sh 'srb tc'
 end
 
 task default: %i[rubocop spec typecheck]

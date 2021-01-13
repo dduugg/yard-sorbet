@@ -1,2 +1,5 @@
 --dir
 .
+
+--ignore
+vendor/
