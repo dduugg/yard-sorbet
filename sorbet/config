@@ -1,5 +1,7 @@
+Gemfile
+Rakefile
+yard-sorbet.gemspec
 --dir
 .
-
 --ignore
 vendor/

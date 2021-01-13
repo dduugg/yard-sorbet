@@ -1,4 +1,4 @@
-# typed: strong
+# typed: strict
 # frozen_string_literal: true
 
 require_relative 'lib/yard-sorbet/version'
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'codecov', '~> 0.2.12'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.10'
-  spec.add_development_dependency 'rubocop', '~> 1.7.0'
+  spec.add_development_dependency 'rubocop', '~> 1.8.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.9.2'
   spec.add_development_dependency 'rubocop-rake', '~> 0.5.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.1.0'

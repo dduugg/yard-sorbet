@@ -46,6 +46,8 @@ end
 class Bundler::Definition
   def dependencies_for(groups); end
 
+  def most_specific_locked_platform(); end
+
   def requested_dependencies(); end
 end
 
@@ -326,8 +328,16 @@ class Bundler::GemHelper
   def self.tag_prefix=(prefix); end
 end
 
+class Bundler::GemHelpers::PlatformMatch
+  def self.specificity_score(spec_platform, user_platform); end
+end
+
 module Bundler::GemHelpers
   def self.local_platform(); end
+
+  def self.same_deps(spec, exemplary_spec); end
+
+  def self.same_specificity(platform, spec, exemplary_spec); end
 end
 
 class Bundler::GemVersionPromoter
@@ -597,8 +607,6 @@ class Bundler::Resolver::SpecGroup
   def copy_for(platforms); end
 
   def sorted_activated_platforms(); end
-
-  def spec_for(platform); end
 end
 
 class Bundler::Retry
@@ -745,6 +753,7 @@ class Bundler::Thor
   include ::Bundler::Thor::Invocation
   include ::Bundler::Thor::Shell
   def help(command=T.unsafe(nil), subcommand=T.unsafe(nil)); end
+  Correctable = ::T.let(nil, ::T.untyped)
   HELP_MAPPINGS = ::T.let(nil, ::T.untyped)
   TEMPLATE_EXTNAME = ::T.let(nil, ::T.untyped)
   THOR_RESERVED_WORDS = ::T.let(nil, ::T.untyped)
@@ -1227,8 +1236,6 @@ end
 module Bundler::Thor::CoreExt
 end
 
-Bundler::Thor::Correctable = DidYouMean::Correctable
-
 class Bundler::Thor::DynamicCommand
   def initialize(name, options=T.unsafe(nil)); end
 end
@@ -1383,13 +1390,6 @@ class Bundler::Thor::NestedContext
 end
 
 class Bundler::Thor::NestedContext
-end
-
-class Bundler::Thor::NoKwargSpellChecker
-  def initialize(dictionary); end
-end
-
-class Bundler::Thor::NoKwargSpellChecker
 end
 
 class Bundler::Thor::Option
@@ -1680,7 +1680,6 @@ end
 Bundler::Thor::Task = Bundler::Thor::Command
 
 class Bundler::Thor::UndefinedCommandError
-  include ::DidYouMean::Correctable
   def all_commands(); end
 
   def command(); end
@@ -1707,7 +1706,6 @@ end
 Bundler::Thor::UndefinedTaskError = Bundler::Thor::UndefinedCommandError
 
 class Bundler::Thor::UnknownArgumentError
-  include ::DidYouMean::Correctable
   def initialize(switches, unknown); end
 
   def switches(); end
@@ -2402,7 +2400,7 @@ module Bundler::VersionRanges
 end
 
 module Bundler
-  def self.locked_bundler_version(); end
+  def self.most_specific_locked_platform?(platform); end
 
   def self.original_exec(*args); end
 
@@ -2783,10 +2781,6 @@ end
 class CodeRay::TokensProxy
 end
 
-module Codecov
-  VERSION = ::T.let(nil, ::T.untyped)
-end
-
 class DRb::DRbArray
   def _dump(lv); end
 end
@@ -2969,100 +2963,6 @@ DRbUndumped = DRb::DRbUndumped
 
 class Date::Infinity
   def initialize(d=T.unsafe(nil)); end
-end
-
-class DidYouMean::ClassNameChecker
-  def class_name(); end
-
-  def class_names(); end
-
-  def corrections(); end
-
-  def initialize(exception); end
-
-  def scopes(); end
-end
-
-module DidYouMean::Correctable
-  def corrections(); end
-
-  def original_message(); end
-
-  def spell_checker(); end
-
-  def to_s(); end
-end
-
-module DidYouMean::Jaro
-  def self.distance(str1, str2); end
-end
-
-module DidYouMean::JaroWinkler
-  def self.distance(str1, str2); end
-end
-
-class DidYouMean::KeyErrorChecker
-  def corrections(); end
-
-  def initialize(key_error); end
-end
-
-class DidYouMean::KeyErrorChecker
-end
-
-module DidYouMean::Levenshtein
-  def self.distance(str1, str2); end
-
-  def self.min3(a, b, c); end
-end
-
-class DidYouMean::MethodNameChecker
-  def corrections(); end
-
-  def initialize(exception); end
-
-  def method_name(); end
-
-  def method_names(); end
-
-  def receiver(); end
-  RB_RESERVED_WORDS = ::T.let(nil, ::T.untyped)
-end
-
-class DidYouMean::NullChecker
-  def corrections(); end
-
-  def initialize(*_); end
-end
-
-class DidYouMean::PlainFormatter
-  def message_for(corrections); end
-end
-
-class DidYouMean::PlainFormatter
-end
-
-class DidYouMean::VariableNameChecker
-  def corrections(); end
-
-  def cvar_names(); end
-
-  def initialize(exception); end
-
-  def ivar_names(); end
-
-  def lvar_names(); end
-
-  def method_names(); end
-
-  def name(); end
-  RB_RESERVED_WORDS = ::T.let(nil, ::T.untyped)
-end
-
-module DidYouMean
-  def self.formatter(); end
-
-  def self.formatter=(formatter); end
 end
 
 class Dir
@@ -4405,6 +4305,14 @@ class Integer
 end
 
 class JSON::Ext::Generator::State
+  def escape_slash(); end
+
+  def escape_slash=(escape_slash); end
+
+  def escape_slash?(); end
+end
+
+class JSON::Ext::Generator::State
   def self.from_state(_); end
 end
 
@@ -4417,6 +4325,16 @@ JSON::Parser = JSON::Ext::Parser
 JSON::State = JSON::Ext::Generator::State
 
 JSON::UnparserError = JSON::GeneratorError
+
+module JSON
+  def self.create_fast_state(); end
+
+  def self.create_pretty_state(); end
+
+  def self.load_file(filespec, opts=T.unsafe(nil)); end
+
+  def self.load_file!(filespec, opts=T.unsafe(nil)); end
+end
 
 module Kernel
   def itself(); end
@@ -4432,10 +4350,6 @@ end
 
 module Kernel
   def self.at_exit(); end
-end
-
-class KeyError
-  include ::DidYouMean::Correctable
 end
 
 class Logger
@@ -4481,10 +4395,6 @@ class MonitorMixin::ConditionVariable
   def initialize(monitor); end
 end
 
-class NameError
-  include ::DidYouMean::Correctable
-end
-
 class Net::BufferedIO
   def write_timeout(); end
 
@@ -4517,8 +4427,6 @@ end
 class Net::HTTPAlreadyReported
 end
 
-Net::HTTPClientError::EXCEPTION_TYPE = Net::HTTPServerException
-
 Net::HTTPClientErrorCode = Net::HTTPClientError
 
 class Net::HTTPEarlyHints
@@ -4530,13 +4438,7 @@ end
 
 Net::HTTPFatalErrorCode = Net::HTTPClientError
 
-class Net::HTTPInformation
-end
-
-Net::HTTPInformationCode::EXCEPTION_TYPE = Net::HTTPError
-
-class Net::HTTPInformation
-end
+Net::HTTPInformationCode = Net::HTTPInformation
 
 class Net::HTTPLoopDetected
   HAS_BODY = ::T.let(nil, ::T.untyped)
@@ -4584,8 +4486,6 @@ end
 class Net::HTTPRangeNotSatisfiable
 end
 
-Net::HTTPRedirection::EXCEPTION_TYPE = Net::HTTPRetriableError
-
 Net::HTTPRedirectionCode = Net::HTTPRedirection
 
 Net::HTTPRequestURITooLarge = Net::HTTPURITooLong
@@ -4594,19 +4494,11 @@ Net::HTTPResponceReceiver = Net::HTTPResponse
 
 Net::HTTPRetriableCode = Net::HTTPRedirection
 
-Net::HTTPServerError::EXCEPTION_TYPE = Net::HTTPFatalError
-
 Net::HTTPServerErrorCode = Net::HTTPServerError
 
 Net::HTTPSession = Net::HTTP
 
-class Net::HTTPSuccess
-end
-
-Net::HTTPSuccessCode::EXCEPTION_TYPE = Net::HTTPError
-
-class Net::HTTPSuccess
-end
+Net::HTTPSuccessCode = Net::HTTPSuccess
 
 class Net::HTTPURITooLong
   HAS_BODY = ::T.let(nil, ::T.untyped)
@@ -6783,6 +6675,10 @@ module RuboCop::Cop::Alignment
   SPACE = ::T.let(nil, ::T.untyped)
 end
 
+module RuboCop::Cop::AllowedIdentifiers
+  SIGILS = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::AmbiguousCopName
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -7338,6 +7234,11 @@ class RuboCop::Cop::Lint::DeprecatedClassMethods
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Lint::DeprecatedConstants
+  DO_NOT_USE_MSG = ::T.let(nil, ::T.untyped)
+  SUGGEST_GOOD_MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Lint::DeprecatedOpenSSLConstant
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -7494,6 +7395,11 @@ class RuboCop::Cop::Lint::InterpolationCheck
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Lint::LambdaWithoutLiteralBlock
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Lint::LiteralAsCondition
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -7606,6 +7512,12 @@ end
 
 class RuboCop::Cop::Lint::RedundantCopEnableDirective
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Lint::RedundantDirGlobSort
+  GLOB_METHODS = ::T.let(nil, ::T.untyped)
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Lint::RedundantRequireStatement
@@ -8882,6 +8794,12 @@ class RuboCop::Cop::Style::EndBlock
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Style::EndlessMethod
+  CORRECTION_STYLES = ::T.let(nil, ::T.untyped)
+  MSG = ::T.let(nil, ::T.untyped)
+  MSG_MULTI_LINE = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Style::EvalWithLocation
   MSG = ::T.let(nil, ::T.untyped)
   MSG_INCORRECT_LINE = ::T.let(nil, ::T.untyped)
@@ -9788,7 +9706,13 @@ class RuboCop::TargetRuby::GemspecFile
 end
 
 class RuboCop::TargetRuby::RubyVersionFile
-  FILENAME = ::T.let(nil, ::T.untyped)
+  RUBY_VERSION_FILENAME = ::T.let(nil, ::T.untyped)
+  RUBY_VERSION_PATTERN = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::TargetRuby::ToolVersionsFile
+  TOOL_VERSIONS_FILENAME = ::T.let(nil, ::T.untyped)
+  TOOL_VERSIONS_PATTERN = ::T.let(nil, ::T.untyped)
 end
 
 RuboCop::Token = RuboCop::AST::Token
@@ -10814,6 +10738,10 @@ module SimpleCov::ExitCodes
   SUCCESS = ::T.let(nil, ::T.untyped)
 end
 
+class SimpleCov::ExitCodes::MaximumCoverageDropCheck
+  MAX_DROP_ACCURACY = ::T.let(nil, ::T.untyped)
+end
+
 class SimpleCov::Formatter::Codecov
   APPVEYOR = ::T.let(nil, ::T.untyped)
   AZUREPIPELINES = ::T.let(nil, ::T.untyped)
@@ -10834,6 +10762,7 @@ class SimpleCov::Formatter::Codecov
   SOLANO = ::T.let(nil, ::T.untyped)
   TEAMCITY = ::T.let(nil, ::T.untyped)
   TRAVIS = ::T.let(nil, ::T.untyped)
+  VERSION = ::T.let(nil, ::T.untyped)
   WERCKER = ::T.let(nil, ::T.untyped)
 end
 
@@ -11221,12 +11150,11 @@ module URI
   def self.get_encoding(label); end
 end
 
-module Unicode::DisplayWidth
+class Unicode::DisplayWidth
   DATA_DIRECTORY = ::T.let(nil, ::T.untyped)
   DEPTHS = ::T.let(nil, ::T.untyped)
   INDEX = ::T.let(nil, ::T.untyped)
   INDEX_FILENAME = ::T.let(nil, ::T.untyped)
-  NO_STRING_EXT = ::T.let(nil, ::T.untyped)
   UNICODE_VERSION = ::T.let(nil, ::T.untyped)
   VERSION = ::T.let(nil, ::T.untyped)
 end
@@ -14306,6 +14234,16 @@ class YARDSorbet::SigHandler
 end
 
 module YARDSorbet::SigToYARD
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+module YARDSorbet::StructClassHandler
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+class YARDSorbet::StructHandler
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
 end
