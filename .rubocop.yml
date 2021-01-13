@@ -44,6 +44,8 @@ RSpec/MultipleExpectations:
 Sorbet/StrictSigil:
   Enabled: true
   Exclude:
+    - Gemfile
+    - Rakefile
     - spec/**/*
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline
