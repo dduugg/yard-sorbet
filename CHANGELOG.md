@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.2.0 (2020-01-14)
+
 ### Bug fixes
 
 * [#17](https://github.com/dduugg/yard-sorbet/pull/17): Fix docstrings for methods that contain a comment on method definition line

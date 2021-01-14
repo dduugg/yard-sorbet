@@ -46,7 +46,7 @@ Sorbet/StrictSigil:
   Exclude:
     - Gemfile
     - Rakefile
-    - spec/**/*
+    - spec/yard_sorbet/**/*
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline
 Style/ClassAndModuleChildren:
