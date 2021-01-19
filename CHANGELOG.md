@@ -1,6 +1,10 @@
-# Change log
+# Changelog
 
 ## master (unreleased)
+
+### New features
+
+* Add `YARDSorbet::VERSION`
 
 ## 0.2.0 (2020-01-14)
 
@@ -33,7 +37,12 @@
 
 ## 0.0.1 (2020-01-24)
 
+### New Features
+
 * [#1](https://github.com/dduugg/yard-sorbet/pull/1): Add `T::Struct` support.
+
+### Changes
+
 * [#3](https://github.com/dduugg/yard-sorbet/pull/3): Rename require path to be conistent with gem name.
 
 ## 0.0.0 (2020-01-05)
