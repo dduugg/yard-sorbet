@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# typed: strict
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'pry-byebug'
+
+# Use `Bundler.require(:development)` to add >1s of latency but enjoy access to dev dependencies
+Bundler.require
+
+Pry.start

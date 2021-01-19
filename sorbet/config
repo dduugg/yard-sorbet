@@ -1,7 +1,6 @@
+bin/console
 Gemfile
 Rakefile
 yard-sorbet.gemspec
---dir
-.
---ignore
-vendor/
+--dir=.
+--ignore=/vendor/bundle
