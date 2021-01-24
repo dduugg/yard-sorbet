@@ -6,11 +6,19 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
   handles :class, :module, :singleton_class?
 
+  # A struct that holds the parsed contents of a Sorbet type signature
+  class ParsedSig < T::Struct
+    prop :abstract, T::Boolean, default: false
+    prop :params, T::Hash[String, T::Array[String]], default: {}
+    prop :return, T.nilable(T::Array[String])
+  end
+
   PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
   PROCESSABLE_NODES = T.let(%i[def defs command].freeze, T::Array[Symbol])
   SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
   SIG_NODE_TYPES = T.let(%i[call fcall vcall].freeze, T::Array[Symbol])
-  private_constant :PARAM_EXCLUDES, :PROCESSABLE_NODES, :SIG_EXCLUDES, :SIG_NODE_TYPES
+
+  private_constant :ParsedSig, :PARAM_EXCLUDES, :PROCESSABLE_NODES, :SIG_EXCLUDES, :SIG_NODE_TYPES
 
   sig { void }
   def process
@@ -77,7 +85,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
-  sig { params(docstring: YARD::Docstring, type: Symbol, parsed_sig: YARDSorbet::ParsedSig).void }
+  sig { params(docstring: YARD::Docstring, type: Symbol, parsed_sig: ParsedSig).void }
   private def enhance_tag(docstring, type, parsed_sig)
     type_value = parsed_sig.public_send(type)
     return if !type_value
@@ -94,9 +102,9 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
-  sig { params(sig_node: YARD::Parser::Ruby::MethodCallNode).returns(YARDSorbet::ParsedSig) }
+  sig { params(sig_node: YARD::Parser::Ruby::MethodCallNode).returns(ParsedSig) }
   private def parse_sig(sig_node)
-    parsed = YARDSorbet::ParsedSig.new
+    parsed = ParsedSig.new
     found_params = T.let(false, T::Boolean)
     found_return = T.let(false, T::Boolean)
     bfs_traverse(sig_node, exclude: SIG_EXCLUDES) do |n|
