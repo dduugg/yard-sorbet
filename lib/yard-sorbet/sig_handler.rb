@@ -56,7 +56,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     enhance_tag(docstring, :abstract, parsed_sig)
     enhance_tag(docstring, :return, parsed_sig)
     if method_node.type != :command
-      parsed_sig[:params]&.each do |name, types|
+      parsed_sig.params.each do |name, types|
         enhance_param(docstring, name, types)
       end
     end
@@ -77,9 +77,10 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
-  sig { params(docstring: YARD::Docstring, type: Symbol, parsed_sig: T::Hash[Symbol, Object]).void }
+  sig { params(docstring: YARD::Docstring, type: Symbol, parsed_sig: YARDSorbet::ParsedSig).void }
   private def enhance_tag(docstring, type, parsed_sig)
-    return if !parsed_sig[type]
+    type_value = parsed_sig.public_send(type)
+    return if !type_value
 
     tag = docstring.tags.find { |t| t.tag_name == type.to_s }
     if tag
@@ -87,33 +88,20 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     else
       tag = YARD::Tags::Tag.new(type, '')
     end
-    if parsed_sig[type].is_a?(Array)
-      tag.types = parsed_sig[type]
+    if type_value.is_a?(Array)
+      tag.types = type_value
     end
     docstring.add_tag(tag)
   end
 
-  sig do
-    params(sig_node: YARD::Parser::Ruby::MethodCallNode)
-      .returns(
-        {
-          abstract: T::Boolean,
-          params: T::Hash[String, T::Array[String]],
-          return: T.nilable(T::Array[String])
-        }
-      )
-  end
+  sig { params(sig_node: YARD::Parser::Ruby::MethodCallNode).returns(YARDSorbet::ParsedSig) }
   private def parse_sig(sig_node)
-    parsed = {
-      abstract: false,
-      params: {},
-      return: nil
-    }
+    parsed = YARDSorbet::ParsedSig.new
     found_params = T.let(false, T::Boolean)
     found_return = T.let(false, T::Boolean)
     bfs_traverse(sig_node, exclude: SIG_EXCLUDES) do |n|
       if n.source == 'abstract'
-        parsed[:abstract] = true
+        parsed.abstract = true
       elsif n.source == 'params' && !found_params
         found_params = true
         sibling = T.must(sibling_node(n))
@@ -121,14 +109,14 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
           if p.type == :assoc
             param_name = p.children.first.source[0...-1]
             types = YARDSorbet::SigToYARD.convert(p.children.last)
-            parsed[:params][param_name] = types
+            parsed.params[param_name] = types
           end
         end
       elsif n.source == 'returns' && !found_return
         found_return = true
-        parsed[:return] = YARDSorbet::SigToYARD.convert(T.must(sibling_node(n)))
+        parsed.return = YARDSorbet::SigToYARD.convert(T.must(sibling_node(n)))
       elsif n.source == 'void'
-        parsed[:return] ||= ['void']
+        parsed.return ||= ['void']
       end
     end
     parsed

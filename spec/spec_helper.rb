@@ -1,9 +1,11 @@
 # typed: strict
 # frozen_string_literal: true
 
-require_relative '../lib/yard-sorbet'
+require 'sorbet-runtime'
 
 T::Configuration.enable_checking_for_sigs_marked_checked_tests
+
+require_relative '../lib/yard-sorbet'
 
 if ENV['CI'] == 'true'
   require 'simplecov'

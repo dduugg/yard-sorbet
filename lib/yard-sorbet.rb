@@ -10,6 +10,7 @@ T::Configuration.default_checked_level = :tests
 module YARDSorbet; end
 
 require_relative 'yard-sorbet/directives'
+require_relative 'yard-sorbet/parsed_sig'
 require_relative 'yard-sorbet/sig_handler'
 require_relative 'yard-sorbet/sig_to_yard'
 require_relative 'yard-sorbet/struct_handler'
