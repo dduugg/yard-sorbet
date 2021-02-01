@@ -23,15 +23,15 @@ Gem::Specification.new do |spec|
 
   spec.files = `git ls-files -z -- lib/*`.split("\x0") + ['LICENSE']
 
-  spec.add_development_dependency 'codecov', '~> 0.2.12'
+  spec.add_development_dependency 'codecov'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.10'
-  spec.add_development_dependency 'rubocop', '~> 1.8.0'
+  spec.add_development_dependency 'rubocop', '~> 1.9.1'
   spec.add_development_dependency 'rubocop-performance', '~> 1.9.2'
   spec.add_development_dependency 'rubocop-rake', '~> 0.5.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.1.0'
   spec.add_development_dependency 'rubocop-sorbet', '~> 0.5.1'
-  spec.add_development_dependency 'simplecov', '~> 0.21'
+  spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'sorbet', '~> 0.5.6193'
   spec.add_runtime_dependency 'sorbet-runtime', '>= 0.5.5845'
   spec.add_runtime_dependency 'yard', '>= 0.9.16'
