@@ -1,4 +1,6 @@
 ---
+inherit_from: .rubocop_todo.yml
+
 require:
   - rubocop-performance
   - rubocop-rake
@@ -20,20 +22,11 @@ Layout/ClassStructure:
 # doesn't recognize sorbet magic comments
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
-Metrics/AbcSize:
-  Enabled: false
+Metrics:
+  Severity: info
 Metrics/BlockLength:
-  Enabled: false
-Metrics/BlockNesting:
-  Enabled: false
-Metrics/ClassLength:
-  Enabled: false
-Metrics/CyclomaticComplexity:
-  Enabled: false
-Metrics/MethodLength:
-  Enabled: false
-Metrics/PerceivedComplexity:
-  Enabled: false
+  Exclude:
+    - spec/yard_sorbet/**/*
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
