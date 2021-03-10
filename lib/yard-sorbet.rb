@@ -4,8 +4,6 @@
 require 'sorbet-runtime'
 require 'yard'
 
-T::Configuration.default_checked_level = :tests
-
 # top-level namespace
 module YARDSorbet; end
 
