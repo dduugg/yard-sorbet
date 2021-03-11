@@ -2,9 +2,15 @@
 
 ## master (unreleased)
 
+## 0.3.0 (2020-03-11)
+
 ### New features
 
 * Add `YARDSorbet::VERSION`
+
+### Bug fixes
+
+* [#26](https://github.com/dduugg/yard-sorbet/pull/26): Remove sorbet `default_checked_level`
 
 ## 0.2.0 (2020-01-14)
 

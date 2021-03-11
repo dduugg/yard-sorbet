@@ -12,6 +12,7 @@ RuboCop::RakeTask.new(:rubocop)
 desc 'Update sorbet rbi files'
 task :rbi do
   sh 'bundle update'
+  sh 'bundle clean'
   sh 'rm -r sorbet/rbi'
   sh 'bundle exec srb rbi sorbet-typed'
   sh 'bundle exec srb rbi gems'
