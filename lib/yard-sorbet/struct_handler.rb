@@ -1,12 +1,12 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Handle all `const` calls, creating accessor methods, and compiles them for later usage at the class level
+# Handles all `const`/`prop` calls, creating accessor methods, and compiles them for later usage at the class level
 # in creating a constructor
 class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
 
-  handles method_call(:const)
+  handles method_call(:const), method_call(:prop)
   namespace_only
 
   sig { void }
@@ -41,10 +41,14 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
 
     # Register the object explicitly as an attribute
     namespace.attributes[scope][name][:read] = object
+
+    # While `const` attributes are immutable, `prop` attributes may be reassigned.
+    method_name = statement.method_name.source
+    namespace.attributes[scope][name][:write] = object if method_name == 'prop'
   end
 end
 
-# Class-level handler that folds all `const` declarations into the constructor documentation
+# Class-level handler that folds all `const` and `prop` declarations into the constructor documentation
 # this needs to be injected as a module otherwise the default Class handler will overwrite documentation
 module YARDSorbet::StructClassHandler
   extend T::Sig

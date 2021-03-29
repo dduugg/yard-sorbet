@@ -17,7 +17,15 @@ RSpec.describe YARDSorbet::StructHandler do
   describe 'constructor' do
     it('has the appropriate parameters') do
       node = YARD::Registry.at('PersonStruct#initialize')
-      expect(node.parameters).to eq([['name:', nil], ['age:', nil], ['optional:', 'nil'], ['mystery:', nil]])
+      expect(node.parameters).to eq(
+        [
+          ['name:', nil],
+          ['age:', nil],
+          ['optional:', 'nil'],
+          ['writable:', nil],
+          ['mystery:', nil]
+        ]
+      )
     end
 
     it('uses the docstring from an explicit initializer') do
@@ -45,6 +53,16 @@ RSpec.describe YARDSorbet::StructHandler do
     it('handles default values appropriately') do
       node = YARD::Registry.at('DefaultPersonStruct#initialize')
       expect(node.parameters).to eq([['defaulted:', "'hello'"]])
+    end
+
+    it('marks `const` attributes read-only') do
+      node = YARD::Registry.at('PersonStruct#age')
+      expect(node.writer?).to eq(false)
+    end
+
+    it('does not mark `prop` attributes read-only') do
+      node = YARD::Registry.at('PersonStruct#writable')
+      expect(node.writer?).to eq(true)
     end
 
     it('does not trigger a redundant call to `register`') do
