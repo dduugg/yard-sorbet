@@ -39,13 +39,12 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(YARD::Tags::Tag.new(:return, '', types))
     object.docstring = docstring.to_raw
 
-    # Register the object explicitly as an attribute
-    namespace.attributes[scope][name][:read] = object
-
+    # Register the object explicitly as an attribute.
     # While `const` attributes are immutable, `prop` attributes may be reassigned.
     if statement.method_name.source == 'prop'
-      namespace.attributes[scope][name][:write] = object 
+      namespace.attributes[scope][name][:write] = object
     end
+    namespace.attributes[scope][name][:read] = object
   end
 end
 
