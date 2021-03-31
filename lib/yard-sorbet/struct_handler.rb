@@ -43,8 +43,9 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
     namespace.attributes[scope][name][:read] = object
 
     # While `const` attributes are immutable, `prop` attributes may be reassigned.
-    method_name = statement.method_name.source
-    namespace.attributes[scope][name][:write] = object if method_name == 'prop'
+    if statement.method_name.source == 'prop'
+      namespace.attributes[scope][name][:write] = object 
+    end
   end
 end
 
