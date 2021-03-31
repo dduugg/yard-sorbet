@@ -6,6 +6,8 @@ class PersonStruct < T:Struct
   const :age, Integer
   # An optional
   const :optional, T.nilable(String)
+  # A writable
+  prop :writable, String
   const :mystery, T.untyped
 end
 
