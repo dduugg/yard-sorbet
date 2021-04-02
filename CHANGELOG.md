@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.4.0 (2020-04-02)
+
 ### New features
 
 * [#15](https://github.com/dduugg/yard-sorbet/issues/15) Add support for `T::Struct` `prop` declarations
