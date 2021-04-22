@@ -1,0 +1,10 @@
+version = 1
+
+[merge]
+delete_branch_on_merge = true
+
+  [merge.automerge_dependencies]
+  usernames = ["dependabot"]
+
+[update]
+always = true
