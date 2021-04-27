@@ -25,3 +25,10 @@ class DefaultPersonStruct < T::Struct
   # This has a default
   const :defaulted, String, default: 'hello'
 end
+
+# Symbols that will cause the ruby lexer to capture something other than an :ident
+# @see https://bugs.ruby-lang.org/issues/6306
+class ExceptionalPersonStruct < T::Struct
+  const :end, String
+  const :Foo, String
+end

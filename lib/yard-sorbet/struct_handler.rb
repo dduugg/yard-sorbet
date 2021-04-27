@@ -12,7 +12,12 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
   sig { void }
   def process
     # Store the property for use in the constructor definition
-    name = statement.parameters[0].jump(:ident).source
+    name = statement.parameters[0].jump(
+      :ident, # handles most "normal" identifiers
+      :kw,    # handles prop names using reserved words like `end` or `def`
+      :const  # handles capitalized prop names like Foo
+    ).source
+
     doc = statement.docstring.to_s
     source = statement.source
     types = YARDSorbet::SigToYARD.convert(statement.parameters[1])
