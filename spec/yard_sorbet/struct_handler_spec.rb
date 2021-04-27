@@ -32,6 +32,16 @@ RSpec.describe YARDSorbet::StructHandler do
       node = YARD::Registry.at('SpecializedPersonStruct#initialize')
       expect(node.docstring).to eq('This is a special intializer')
     end
+
+    it('handles exceptional prop names') do
+      node = YARD::Registry.at('ExceptionalPersonStruct#initialize')
+      expect(node.parameters).to eq(
+        [
+          ['end:', nil],
+          ['Foo:', nil]
+        ]
+      )
+    end
   end
 
   describe 'attributes' do
