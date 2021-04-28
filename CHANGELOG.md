@@ -8,6 +8,8 @@
 
 * [#32](https://github.com/dduugg/yard-sorbet/issues/32) Fix processing of `T::Struct` field names that are ruby keywords or capitalized
 
+## 0.4.0 (2021-04-02)
+
 ### New features
 
 * [#15](https://github.com/dduugg/yard-sorbet/issues/15) Add support for `T::Struct` `prop` declarations
