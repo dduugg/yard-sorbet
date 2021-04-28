@@ -2,13 +2,17 @@
 
 ## master (unreleased)
 
-## 0.4.0 (2020-04-02)
+## 0.4.1 (2021-04-28)
+
+### Bug fixes
+
+* [#32](https://github.com/dduugg/yard-sorbet/issues/32) Fix processing of `T::Struct` field names that are ruby keywords or capitalized
 
 ### New features
 
 * [#15](https://github.com/dduugg/yard-sorbet/issues/15) Add support for `T::Struct` `prop` declarations
 
-## 0.3.0 (2020-03-11)
+## 0.3.0 (2021-03-11)
 
 ### New features
 
@@ -18,7 +22,7 @@
 
 * [#26](https://github.com/dduugg/yard-sorbet/pull/26): Remove sorbet `default_checked_level`
 
-## 0.2.0 (2020-01-14)
+## 0.2.0 (2021-01-14)
 
 ### Bug fixes
 
