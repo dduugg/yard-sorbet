@@ -112,7 +112,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
         parsed.abstract = true
       elsif n.source == 'params' && !found_params
         found_params = true
-        sibling = T.must(sibling_node(n))
+        sibling = sibling_node(n)
         bfs_traverse(sibling, exclude: PARAM_EXCLUDES) do |p|
           if p.type == :assoc
             param_name = p.children.first.source[0...-1]
@@ -122,7 +122,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
         end
       elsif n.source == 'returns' && !found_return
         found_return = true
-        parsed.return = YARDSorbet::SigToYARD.convert(T.must(sibling_node(n)))
+        parsed.return = YARDSorbet::SigToYARD.convert(sibling_node(n))
       elsif n.source == 'void'
         parsed.return ||= ['void']
       end
@@ -142,19 +142,16 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     end
   end
 
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T.nilable(YARD::Parser::Ruby::AstNode)) }
+  # Find and return the adjacent node (ascending)
+  # @raise [IndexError] if the node does not have an adjacent sibling (ascending)
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(YARD::Parser::Ruby::AstNode) }
   private def sibling_node(node)
-    found_sibling = T.let(false, T::Boolean)
-    node.parent.children.each do |n|
-      if found_sibling
-        return n
-      end
-
-      if n == node
-        found_sibling = true
+    siblings = node.parent.children
+    siblings.each_with_index.find do |sibling, i|
+      if sibling == node
+        return siblings.fetch(i + 1)
       end
     end
-    nil
   end
 
   # @yield [YARD::Parser::Ruby::AstNode]
