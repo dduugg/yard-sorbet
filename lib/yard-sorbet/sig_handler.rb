@@ -16,9 +16,8 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
   PROCESSABLE_NODES = T.let(%i[def defs command].freeze, T::Array[Symbol])
   SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
-  SIG_NODE_TYPES = T.let(%i[call fcall vcall].freeze, T::Array[Symbol])
 
-  private_constant :ParsedSig, :PARAM_EXCLUDES, :PROCESSABLE_NODES, :SIG_EXCLUDES, :SIG_NODE_TYPES
+  private_constant :ParsedSig, :PARAM_EXCLUDES, :PROCESSABLE_NODES, :SIG_EXCLUDES
 
   sig { void }
   def process
@@ -129,9 +128,9 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   # Returns true if the given node is part of a type signature.
-  sig { params(node: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
   private def type_signature?(node)
-    node.jump(*SIG_NODE_TYPES).jump(:ident).source == 'sig'
+    node.jump(:call, :fcall, :vcall).jump(:ident).source == 'sig'
   end
 
   # Find and return the adjacent node (ascending)
