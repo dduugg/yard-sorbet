@@ -3,4 +3,5 @@ Gemfile
 Rakefile
 yard-sorbet.gemspec
 --dir=.
+--ignore=/spec/data
 --ignore=/vendor/bundle

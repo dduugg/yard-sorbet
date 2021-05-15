@@ -23,7 +23,7 @@ end
 desc 'Typecheck files with sorbet'
 task :typecheck do
   # data files for tests should individually typecheck
-  Dir.glob('spec/data/*.rb.txt') do |file|
+  Dir.glob('spec/data/*.rb') do |file|
     sh "bundle exec srb typecheck #{file}"
   end
   sh 'bundle exec srb typecheck'

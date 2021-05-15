@@ -8,7 +8,7 @@ RSpec.describe YARDSorbet::SigHandler do
     YARD::Registry.clear
     path = File.join(
       File.expand_path('../data', __dir__),
-      'sig_handler.rb.txt'
+      'sig_handler.rb'
     )
     YARD::Parser::SourceParser.parse(path)
   end
