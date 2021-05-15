@@ -1,3 +1,15 @@
+# typed: false
+
+class Bar; end
+class Boolean; end
+class Custom; end
+class Custom1; end
+class Custom2; end
+class Custom3; end
+class Custom4; end
+class EmailConversation; end
+class Foo; class Bar; end; end
+
 class Signatures
   # comment sig_void
   sig {void}
@@ -34,9 +46,6 @@ class Signatures
     sig {void}
     def reopening; end
   end
-
-  # At end of class
-  sig {void}
 end
 
 class Subclass < Signatures
@@ -73,7 +82,7 @@ class Outer
   def outer2; end
 end
 
-module Module
+module MyModule
   # module function
   sig {void}
   def self.foo; end
@@ -106,7 +115,7 @@ class SigReturn
   sig {params(int: Integer).returns(Float)}
   def plus_one(int); int + 1.0; end
 
-  sig {returns(T.any(Numeric, String))}
+  sig {params(a: Numeric, b: Numeric).returns(T.any(Numeric, String))}
   def plus(a, b); a + b; end
 
   sig {void}
@@ -124,21 +133,27 @@ class SigReturn
 end
 
 class SigAbstract
-  sig {abstract}
+  abstract!
+
+  sig {abstract.void}
   def one; end
 
   # @abstract subclass must implement
-  sig {abstract}
+  sig {abstract.returns(NilClass)}
   def two; end
 
   sig {abstract.returns(Boolean)}
-  def with_return; true; end
+  def with_return; end
 
   sig {abstract.void}
   def with_void; end
 end
 
-class SigParams
+class A
+  def impl_blk_method(&block); end
+end
+
+class SigParams < A
   # @param bar the thing
   # @param baz [Object] the other thing
   sig {params(bar: T.any(String, Symbol), baz: T.nilable(String)).void}
@@ -218,7 +233,7 @@ class VariousTypedSigs
   def call_T_all; end
 
   sig { returns(T.attached_class) }
-  def call_T_attached_class; end
+  def self.call_T_attached_class; end
 
   sig { returns(T.class_of(String)) }
   def call_T_class_of; String; end
@@ -247,7 +262,7 @@ class VariousTypedSigs
   sig { returns(Foo::Bar) }
   def const_path_ref; end
 
-  sig { returns( {foo: 1} ) }
+  sig { returns( {foo: Integer} ) }
   def hash; end
 
   sig { returns(FalseClass) }
