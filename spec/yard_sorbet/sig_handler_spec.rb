@@ -66,10 +66,10 @@ RSpec.describe YARDSorbet::SigHandler do
     end
 
     it 'handles modules' do
-      node = YARD::Registry.at('Module.foo')
+      node = YARD::Registry.at('MyModule.foo')
       expect(node.docstring).to eq('module function')
 
-      node = YARD::Registry.at('Module#bar')
+      node = YARD::Registry.at('MyModule#bar')
       expect(node.docstring).to eq('module instance method')
     end
 
@@ -261,7 +261,7 @@ RSpec.describe YARDSorbet::SigHandler do
     end
 
     it 'call_T_attached_class' do
-      node = YARD::Registry.at('VariousTypedSigs#call_T_attached_class')
+      node = YARD::Registry.at('VariousTypedSigs.call_T_attached_class')
       expect(node.tag(:return).types).to eq(['T.attached_class'])
     end
 
