@@ -1,5 +1,7 @@
+# typed: true
+
 # Comment on PersonStruct
-class PersonStruct < T:Struct
+class PersonStruct < T::Struct
   # A name
   const :name, String
   # An age
@@ -16,7 +18,7 @@ class SpecializedPersonStruct < T::Struct
 
   # This is a special intializer
   def initialize(special:)
-    raise ArgumentError("bad human") if special != "special"
+    raise ArgumentError.new("bad human") if special != "special"
     super
   end
 end
