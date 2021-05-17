@@ -32,4 +32,7 @@ task :typecheck do
   sh 'bundle exec srb typecheck'
 end
 
-task default: %i[bundle:audit rubocop spec typecheck]
+desc 'Tasks to run in CI'
+task ci: %i[bundle:audit rubocop spec typecheck]
+
+task default: %i[rubocop spec typecheck]

@@ -10,3 +10,4 @@ rvm:
 jobs:
   allow_failures:
     - rvm: ruby-head
+script: bundle exec rake ci
