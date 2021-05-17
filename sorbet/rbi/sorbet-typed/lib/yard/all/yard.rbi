@@ -5,7 +5,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/edit/master/lib/yard/all/yard.rbi
 #
-# typed: strict
+# typed: true
 
 module YARD
   def self.load_plugins; end

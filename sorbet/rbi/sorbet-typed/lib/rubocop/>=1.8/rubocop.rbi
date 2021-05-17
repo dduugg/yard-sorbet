@@ -5,7 +5,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/edit/master/lib/rubocop/>=1.8/rubocop.rbi
 #
-# typed: strict
+# typed: true
 
 module RuboCop
 end
