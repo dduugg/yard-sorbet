@@ -6,7 +6,7 @@ require 'yard'
 RSpec.describe YARDSorbet::StructHandler do
   path = File.join(
     File.expand_path('../data', __dir__),
-    'struct_handler.rb.txt'
+    'struct_handler.rb'
   )
 
   before do
