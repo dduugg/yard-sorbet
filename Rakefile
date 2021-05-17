@@ -7,9 +7,7 @@ require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
 Bundler::Audit::Task.new
-
 RSpec::Core::RakeTask.new(:spec)
-
 RuboCop::RakeTask.new(:rubocop)
 
 desc 'Update sorbet rbi files'
@@ -32,7 +30,7 @@ task :typecheck do
   sh 'bundle exec srb typecheck'
 end
 
-desc 'Tasks to run in CI'
-task ci: %i[bundle:audit rubocop spec typecheck]
+task default: %i[typecheck rubocop spec]
 
-task default: %i[rubocop spec typecheck]
+desc 'Tasks to run in CI'
+task ci: %i[bundle:audit default]
