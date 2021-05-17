@@ -10,7 +10,11 @@ class Custom4; end
 class EmailConversation; end
 class Foo; class Bar; end; end
 
-class Signatures
+class B
+  def sig_override_void; end
+end
+
+class Signatures < B
   # comment sig_void
   sig {void}
   def sig_void; end
