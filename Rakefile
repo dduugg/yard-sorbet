@@ -1,12 +1,13 @@
 # typed: false
 # frozen_string_literal: true
 
+require 'bundler/audit/task'
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
+Bundler::Audit::Task.new
 RSpec::Core::RakeTask.new(:spec)
-
 RuboCop::RakeTask.new(:rubocop)
 
 desc 'Update sorbet rbi files'
@@ -29,4 +30,7 @@ task :typecheck do
   sh 'bundle exec srb typecheck'
 end
 
-task default: %i[rubocop spec typecheck]
+task default: %i[typecheck rubocop spec]
+
+desc 'Tasks to run in CI'
+task ci: %i[bundle:audit default]

@@ -5,7 +5,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/edit/master/lib/rake/all/rake.rbi
 #
-# typed: ignore
+# typed: true
 
 module Rake
   def self.add_rakelib(*files); end
@@ -640,6 +640,6 @@ module Rake::Backtrace
   def self.collapse(backtrace); end
 end
 class Rake::TaskLib
-  include Cloneable
+  include Rake::Cloneable
   include Rake::DSL
 end

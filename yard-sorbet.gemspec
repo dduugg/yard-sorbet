@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.files = `git ls-files -z -- lib/*`.split("\x0") + ['LICENSE']
 
+  spec.add_development_dependency 'bundler-audit'
   spec.add_development_dependency 'codecov'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.10'
