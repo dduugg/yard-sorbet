@@ -4,7 +4,7 @@ class Signatures
   def sig_void; end
 
   # comment sig_override_void
-  sig.override.void
+  sig {override.void}
   def sig_override_void; end
 
   # comment sig_arguments

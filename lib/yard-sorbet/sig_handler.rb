@@ -23,9 +23,7 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   sig { void }
   def process
     # Find the list of declarations inside the class
-    class_def = statement.children.find { |c| c.type == :list }
-    class_contents = class_def.children
-
+    class_contents = statement.jump(:list).children
     process_class_contents(class_contents)
   end
 
@@ -131,15 +129,9 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   # Returns true if the given node is part of a type signature.
-  sig { params(node: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
   private def type_signature?(node)
-    loop do
-      return false if node.nil?
-      return false unless SIG_NODE_TYPES.include?(node.type)
-      return true if T.unsafe(node).method_name(true) == :sig
-
-      node = T.let(node.children.first, T.nilable(YARD::Parser::Ruby::AstNode))
-    end
+    SIG_NODE_TYPES.include?(node.type) && T.unsafe(node).method_name(true) == :sig
   end
 
   # Find and return the adjacent node (ascending)
