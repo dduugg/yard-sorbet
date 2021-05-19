@@ -1,3 +1,6 @@
---exclude sorbet
---exclude vendor
 --plugin sorbet
+lib/**/*.rb
+-
+CHANGELOG.md
+LICENSE
+README.md
