@@ -6,6 +6,7 @@ module YARDSorbet::SigToYARD
   extend T::Sig
 
   IS_LEGACY_RUBY_VERSION = T.let(RUBY_VERSION.start_with?('2.5.'), T::Boolean)
+  private_constant :IS_LEGACY_RUBY_VERSION
 
   # @see https://yardoc.org/types.html
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }

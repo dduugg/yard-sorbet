@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Make `YARDSorbet::SigToYARD::IS_LEGACY_RUBY_VERSION` private
+
 ## 0.4.1 (2021-04-28)
 
 ### Bug fixes
