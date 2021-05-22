@@ -13,9 +13,7 @@ jobs:
         with:
           ruby-version: 3.0
           bundler-cache: true
-      - run:
-          - rm -rf doc/
-          - bundle exec yard doc
+      - run: rm -rf doc/ && bundle exec yard doc
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
