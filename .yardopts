@@ -1,3 +1,4 @@
+--private
 --plugin sorbet
 lib/**/*.rb
 -
