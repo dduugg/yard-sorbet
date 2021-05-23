@@ -13,12 +13,15 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     prop :return, T.nilable(T::Array[String])
   end
 
+  ATTRIBUTE_METHODS = T.let(%w[attr attr_accessor attr_reader attr_writer].freeze, T::Array[String])
   PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
-  PROCESSABLE_NODES = T.let(%i[def defs command].freeze, T::Array[Symbol])
+  PROCESSABLE_NODE = T.type_alias do
+    T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)
+  end
   SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
   SIG_NODE_TYPES = T.let(%i[call fcall vcall].freeze, T::Array[Symbol])
 
-  private_constant :ParsedSig, :PARAM_EXCLUDES, :PROCESSABLE_NODES, :SIG_EXCLUDES, :SIG_NODE_TYPES
+  private_constant :ParsedSig, :ATTRIBUTE_METHODS, :PARAM_EXCLUDES, :PROCESSABLE_NODE, :SIG_EXCLUDES, :SIG_NODE_TYPES
 
   sig { void }
   def process
@@ -36,16 +39,17 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
       end
       next unless type_signature?(child)
 
-      next_statement = class_contents[i + 1]
-      next unless processable_method?(next_statement)
-
-      process_method_definition(T.must(next_statement), child)
+      method_node = get_method_node(class_contents.fetch(i + 1))
+      process_method_definition(method_node, child)
     end
   end
 
-  sig { params(next_statement: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
-  private def processable_method?(next_statement)
-    PROCESSABLE_NODES.include?(next_statement&.type)
+  sig { params(node: PROCESSABLE_NODE).returns(PROCESSABLE_NODE) }
+  private def get_method_node(node)
+    return node if %i[def defs].include?(node.type)
+    return node if ATTRIBUTE_METHODS.include?(node.method_name.source)
+    
+    node.jump(:def, :defs)
   end
 
   # Swap the method definition docstring and the sig docstring.
