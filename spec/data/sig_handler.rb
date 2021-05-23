@@ -296,3 +296,10 @@ class AttrSigs
   sig {params(my_writer: T.nilable(Symbol)).returns(T.nilable(Symbol))}
   attr_writer :my_writer
 end
+
+class SigInlineVisibility
+  sig { params(next_statement: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
+  private def boolean_method?(next_statement)
+    true
+  end
+end

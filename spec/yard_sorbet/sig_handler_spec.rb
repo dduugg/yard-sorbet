@@ -339,6 +339,13 @@ RSpec.describe YARDSorbet::SigHandler do
       node = YARD::Registry.at('VariousTypedSigs#top_const_ref')
       expect(node.tag(:return).types).to eq(['Foo'])
     end
+
+    it 'handles inline visibility modifiers' do
+      node = YARD::Registry.at('SigInlineVisibility#boolean_method?')
+      return_tags = node.tags.select { |tag| tag.tag_name == 'return' }
+      expect(return_tags.size).to eq(1)
+      expect(return_tags.first.types).to eq(['Boolean'])
+    end
   end
 
   describe 'attributes' do
