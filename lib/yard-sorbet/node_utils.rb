@@ -6,15 +6,13 @@ module YARDSorbet::NodeUtils
   extend T::Sig
 
   # Command node types that can have type signatures
-  ATTRIBUTE_METHODS = T.let(%w[attr attr_accessor attr_reader attr_writer].freeze, T::Array[String])
-  # Node types that indicate method definitions
-  METHOD_NODE_TYPES = T.let(%i[def defs].freeze, T::Array[Symbol])
+  ATTRIBUTE_METHODS = T.let(%i[attr attr_accessor attr_reader attr_writer].freeze, T::Array[Symbol])
   # Node types that can have type signatures
   SIGABLE_NODE = T.type_alias do
     T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)
   end
 
-  private_constant :ATTRIBUTE_METHODS, :METHOD_NODE_TYPES, :SIGABLE_NODE
+  private_constant :ATTRIBUTE_METHODS, :SIGABLE_NODE
 
   # @yield [YARD::Parser::Ruby::AstNode]
   sig do
@@ -40,8 +38,8 @@ module YARDSorbet::NodeUtils
   # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
   sig { params(node: SIGABLE_NODE).returns(SIGABLE_NODE) }
   def self.get_method_node(node)
-    return node if METHOD_NODE_TYPES.include?(node.type)
-    return node if ATTRIBUTE_METHODS.include?(node.method_name.source)
+    return node if node.is_a?(YARD::Parser::Ruby::MethodDefinitionNode)
+    return node if ATTRIBUTE_METHODS.include?(node.method_name(true))
 
     node.jump(:def, :defs)
   end
