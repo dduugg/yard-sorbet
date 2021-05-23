@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+* [#41](https://github.com/dduugg/yard-sorbet/issues/41) Fix superfluous return type of boolean method definitions with inline modifiers
+
 ### Changes
 
 * Make `YARDSorbet::SigToYARD::IS_LEGACY_RUBY_VERSION` private
