@@ -9,14 +9,12 @@ module YARDSorbet::NodeUtils
   ATTRIBUTE_METHODS = T.let(%w[attr attr_accessor attr_reader attr_writer].freeze, T::Array[String])
   # Node types that indicate method definitions
   METHOD_NODE_TYPES = T.let(%i[def defs].freeze, T::Array[Symbol])
-  # Type signatures can be one of these node types
-  SIG_NODE_TYPES = T.let(%i[call fcall vcall].freeze, T::Array[Symbol])
   # Node types that can have type signatures
   SIGABLE_NODE = T.type_alias do
     T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)
   end
 
-  private_constant :ATTRIBUTE_METHODS, :METHOD_NODE_TYPES, :SIGABLE_NODE, :SIG_NODE_TYPES
+  private_constant :ATTRIBUTE_METHODS, :METHOD_NODE_TYPES, :SIGABLE_NODE
 
   # @yield [YARD::Parser::Ruby::AstNode]
   sig do
@@ -60,9 +58,9 @@ module YARDSorbet::NodeUtils
     end
   end
 
-  # Returns true if the given node is part of a type signature.
+  # Returns true if the given node represents a type signature.
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
   def self.type_signature?(node)
-    SIG_NODE_TYPES.include?(node.type) && T.unsafe(node).method_name(true) == :sig
+    node.is_a?(YARD::Parser::Ruby::MethodCallNode) && node.method_name(true) == :sig
   end
 end
