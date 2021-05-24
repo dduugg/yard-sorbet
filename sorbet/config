@@ -3,5 +3,6 @@ Gemfile
 Rakefile
 yard-sorbet.gemspec
 --dir=.
+--enable-experimental-requires-ancestor
 --ignore=/spec/data
 --ignore=/vendor/bundle

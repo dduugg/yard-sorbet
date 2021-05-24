@@ -56,19 +56,20 @@ end
 # Class-level handler that folds all `const` and `prop` declarations into the constructor documentation
 # this needs to be injected as a module otherwise the default Class handler will overwrite documentation
 module YARDSorbet::StructClassHandler
+  extend T::Helpers
   extend T::Sig
+
+  requires_ancestor YARD::Handlers::Ruby::ClassHandler
 
   sig { void }
   def process
     ret = super
 
-    return ret if T.unsafe(self).extra_state.prop_docs.nil?
+    return ret if extra_state.prop_docs.nil?
 
     # lookup the full YARD path for the current class
-    class_ns = YARD::CodeObjects::ClassObject.new(
-      T.unsafe(self).namespace, T.unsafe(self).statement[0].source.gsub(/\s/, '')
-    )
-    props = T.unsafe(self).extra_state.prop_docs[class_ns]
+    class_ns = YARD::CodeObjects::ClassObject.new(namespace, statement[0].source.gsub(/\s/, ''))
+    props = extra_state.prop_docs[class_ns]
 
     return ret if props.empty?
 
@@ -97,7 +98,7 @@ module YARDSorbet::StructClassHandler
     object.source ||= props.map { |p| p[:source] }.join("\n")
     object.explicit ||= false # not strictly necessary
 
-    T.unsafe(self).register(object)
+    register(object)
 
     object.docstring = docstring.to_raw
 
