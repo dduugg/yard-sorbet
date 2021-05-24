@@ -31,9 +31,9 @@
 # wrong constant name <top>
 # wrong constant name <top>
 # wrong constant name deconstruct
-# uninitialized constant Abbrev
-# uninitialized constant Abbrev
 # wrong constant name connect_internal
+# wrong constant name abbrev
+# wrong constant name deconstruct
 # wrong constant name shelljoin
 # wrong constant name to_h
 # wrong constant name try_convert
@@ -41,7 +41,7 @@
 # uninitialized constant Benchmark
 # uninitialized constant Benchmark
 # wrong constant name clone
-# wrong constant name new
+# wrong constant name interpret_loosely
 # wrong constant name clone
 # wrong constant name irb
 # wrong constant name status_code
@@ -49,7 +49,6 @@
 # uninitialized constant Bundler::Definition::GENERICS
 # uninitialized constant Bundler::Definition::GENERIC_CACHE
 # wrong constant name dependencies_for
-# wrong constant name disable_multisource?
 # wrong constant name most_specific_locked_platform
 # wrong constant name requested_dependencies
 # wrong constant name clone
@@ -58,7 +57,6 @@
 # wrong constant name branch
 # wrong constant name expanded_platforms
 # wrong constant name git
-# wrong constant name check_primary_source_safety
 # wrong constant name <static-init>
 # wrong constant name environment
 # wrong constant name report
@@ -154,7 +152,6 @@
 # wrong constant name built_gem_path
 # wrong constant name clean?
 # wrong constant name committed?
-# wrong constant name current_branch
 # wrong constant name default_remote
 # wrong constant name gem_command
 # wrong constant name gem_key
@@ -232,14 +229,12 @@
 # uninitialized constant Bundler::LazySpecification::GENERICS
 # uninitialized constant Bundler::LazySpecification::GENERIC_CACHE
 # wrong constant name eql?
-# wrong constant name platform_string
-# uninitialized constant Bundler::LazySpecification::Identifier
-# uninitialized constant Bundler::LazySpecification::Identifier
 # uninitialized constant Bundler::Molinillo::Compatibility
 # Did you mean?  Comparable
 # uninitialized constant Bundler::Molinillo::Compatibility
 # Did you mean?  Comparable
-# wrong constant name dependencies_equal?
+# wrong constant name _recursive_predecessors
+# wrong constant name _recursive_successors
 # wrong constant name ==
 # wrong constant name app_cache_dirname
 # wrong constant name app_cache_path
@@ -259,7 +254,6 @@
 # wrong constant name install
 # wrong constant name install_path
 # wrong constant name installed?
-# wrong constant name local!
 # wrong constant name name
 # wrong constant name options
 # wrong constant name options_to_lock
@@ -301,15 +295,12 @@
 # wrong constant name uninstall
 # wrong constant name <static-init>
 # wrong constant name lock
-# uninitialized constant Bundler::Resolver::GENERICS
-# uninitialized constant Bundler::Resolver::GENERIC_CACHE
-# wrong constant name results_for
-# wrong constant name activate_all_platforms!
+# uninitialized constant Bundler::Resolver::SpecGroup::GENERICS
+# uninitialized constant Bundler::Resolver::SpecGroup::GENERIC_CACHE
 # wrong constant name activated_platforms
 # wrong constant name activated_platforms=
-# wrong constant name partitioned_dependency_names_for_activated_platforms
+# wrong constant name copy_for
 # wrong constant name sorted_activated_platforms
-# wrong constant name create_for
 # wrong constant name attempt
 # wrong constant name attempts
 # wrong constant name current_run
@@ -378,22 +369,14 @@
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name validate!
-# wrong constant name cached!
-# wrong constant name local!
-# wrong constant name remote!
 # uninitialized constant Bundler::Source::Git::DEFAULT_GLOB
 # wrong constant name glob
 # wrong constant name local?
-# wrong constant name disable_multisource?
-# wrong constant name disable_multisource?
-# wrong constant name global_path_source
-# wrong constant name merged_gem_lockfile_sections!
 # uninitialized constant Bundler::StubSpecification::GENERICS
 # uninitialized constant Bundler::StubSpecification::GENERIC_CACHE
 # wrong constant name default_gem?
 # wrong constant name extensions
 # wrong constant name gem_build_complete_path
-# wrong constant name manually_installed?
 # wrong constant name <Class:Actions>
 # wrong constant name <Class:AmbiguousCommandError>
 # wrong constant name <Class:Argument>
@@ -820,7 +803,6 @@
 # wrong constant name <static-init>
 # uninitialized constant Bundler::Thor::Shell::Color::DEFAULT_TERMINAL_WIDTH
 # wrong constant name are_colors_disabled?
-# wrong constant name are_colors_supported?
 # wrong constant name diff_lcs_loaded?
 # wrong constant name output_diff_line
 # wrong constant name set_color
@@ -1801,7 +1783,9 @@
 # wrong constant name initialize
 # wrong constant name send_message
 # wrong constant name uri
+# wrong constant name make_pool
 # wrong constant name open
+# wrong constant name stop_pool
 # wrong constant name dump
 # wrong constant name initialize
 # wrong constant name load
@@ -1858,19 +1842,22 @@
 # wrong constant name _dump
 # wrong constant name initialize
 # wrong constant name _load
+# wrong constant name _execute
+# wrong constant name alive?
+# wrong constant name initialize
+# wrong constant name kill
+# wrong constant name method_missing
+# wrong constant name <static-init>
 # wrong constant name mutex
-# uninitialized constant Date::Error
-# Did you mean?  IOError
-#                Errno
-# uninitialized constant Date::Error
-# Did you mean?  IOError
-#                Errno
+# wrong constant name infinite?
 # wrong constant name initialize
 # wrong constant name class_name
 # wrong constant name class_names
 # wrong constant name corrections
 # wrong constant name initialize
 # wrong constant name scopes
+# wrong constant name call
+# wrong constant name <static-init>
 # wrong constant name corrections
 # wrong constant name original_message
 # wrong constant name spell_checker
@@ -1888,10 +1875,21 @@
 # wrong constant name initialize
 # wrong constant name method_name
 # wrong constant name method_names
+# wrong constant name names_to_exclude
 # wrong constant name receiver
 # wrong constant name corrections
 # wrong constant name initialize
+# wrong constant name call
+# wrong constant name initialize
+# wrong constant name <static-init>
 # wrong constant name message_for
+# wrong constant name <static-init>
+# wrong constant name augment
+# wrong constant name correct
+# wrong constant name dictionary
+# wrong constant name dimensions
+# wrong constant name initialize
+# wrong constant name separator
 # wrong constant name <static-init>
 # wrong constant name corrections
 # wrong constant name cvar_names
@@ -1900,6 +1898,7 @@
 # wrong constant name lvar_names
 # wrong constant name method_names
 # wrong constant name name
+# wrong constant name correct_error
 # wrong constant name formatter
 # wrong constant name formatter=
 # wrong constant name children
@@ -1910,11 +1909,11 @@
 # wrong constant name _dump
 # wrong constant name initialize
 # wrong constant name _load
-# wrong constant name chain
 # wrong constant name sum
 # wrong constant name +
 # wrong constant name <Class:ArithmeticSequence>
 # wrong constant name <Class:Chain>
+# wrong constant name <Class:Producer>
 # wrong constant name each_with_index
 # uninitialized constant Enumerator::ArithmeticSequence::Elem
 # wrong constant name begin
@@ -1928,6 +1927,11 @@
 # wrong constant name <static-init>
 # wrong constant name each
 # wrong constant name initialize
+# wrong constant name eager
+# wrong constant name each
+# wrong constant name <static-init>
+# wrong constant name to_proc
+# wrong constant name produce
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name <static-init>
@@ -1977,24 +1981,17 @@
 # wrong constant name each
 # wrong constant name members
 # wrong constant name <Class:Passwd>
-# wrong constant name <Class:ErrNotRegisteredException>
-# wrong constant name bind
-# wrong constant name <static-init>
-# uninitialized constant Exception2MessageMapper::Fail
-# Did you mean?  File
-# uninitialized constant Exception2MessageMapper::Raise
-# wrong constant name def_e2message
-# wrong constant name def_exception
-# wrong constant name e2mm_message
-# wrong constant name extend_object
-# wrong constant name message
+# uninitialized constant Exception2MessageMapper
+# uninitialized constant Exception2MessageMapper
 # wrong constant name <static-init>
 # uninitialized constant Fcntl
 # uninitialized constant Fcntl
+# wrong constant name initialize
 # uninitialized constant Fiddle
 # Did you mean?  File
 # uninitialized constant Fiddle
 # Did you mean?  File
+# wrong constant name absolute_path?
 # wrong constant name exists?
 # wrong constant name read_binary
 # uninitialized constant FileUtils::DryRun::LN_SUPPORTED
@@ -2020,6 +2017,7 @@
 # wrong constant name _valid_method?
 # wrong constant name debug
 # wrong constant name debug=
+# wrong constant name receiver
 # wrong constant name garbage_collect
 # wrong constant name verify_transient_heap_internal_consistency
 # uninitialized constant GDBM
@@ -2032,12 +2030,7 @@
 # wrong constant name <Class:SpecFetcher>
 # wrong constant name <Class:SpecificationPolicy>
 # wrong constant name <Class:UninstallError>
-# wrong constant name _deprecated_add_found_dependencies
-# wrong constant name _deprecated_gather_dependencies
-# wrong constant name add_found_dependencies
-# wrong constant name gather_dependencies
 # wrong constant name <static-init>
-# wrong constant name redirector
 # uninitialized constant Gem::Ext::ExtConfBuilder::CHDIR_MONITOR
 # uninitialized constant Gem::Ext::ExtConfBuilder::CHDIR_MUTEX
 # wrong constant name <static-init>
@@ -2055,6 +2048,13 @@
 # wrong constant name spec
 # wrong constant name spec=
 # wrong constant name <static-init>
+# wrong constant name <Class:DigestIO>
+# wrong constant name <Class:FileSource>
+# wrong constant name <Class:IOSource>
+# wrong constant name <Class:Old>
+# wrong constant name <Class:Source>
+# wrong constant name <Class:TarHeader>
+# wrong constant name gem
 # wrong constant name digests
 # wrong constant name initialize
 # wrong constant name write
@@ -2103,6 +2103,7 @@
 # wrong constant name version
 # wrong constant name <static-init>
 # wrong constant name from
+# wrong constant name oct_or_256based
 # wrong constant name strict_oct
 # wrong constant name bytes_read
 # wrong constant name check_closed
@@ -2126,24 +2127,24 @@
 # wrong constant name new
 # wrong constant name new
 # wrong constant name new
+# wrong constant name raw_spec
 # wrong constant name home
 # wrong constant name initialize
 # wrong constant name path
 # wrong constant name spec_cache_dir
-# wrong constant name <Class:FetchError>
-# wrong constant name <Class:UnknownHostError>
-# wrong constant name correct_for_windows_path
-# wrong constant name s3_expiration
-# wrong constant name sign_s3_url
 # wrong constant name initialize
 # wrong constant name uri
 # wrong constant name uri=
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name <Class:CorrectHashForLambdaOperator>
+# wrong constant name <Class:OrderIndependentComparison>
 # wrong constant name hash
 # wrong constant name <static-init>
-# wrong constant name others_possible?
+# wrong constant name ==
+# wrong constant name _requirements_sorted?
+# wrong constant name _with_sorted_requirements
+# wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name add_edge_no_circular
@@ -2161,8 +2162,6 @@
 # wrong constant name suggestion
 # wrong constant name suggestion=
 # wrong constant name <static-init>
-# uninitialized constant Gem::S3URISigner
-# uninitialized constant Gem::S3URISigner
 # wrong constant name <static-init>
 # wrong constant name check_cert
 # wrong constant name check_chain
@@ -2239,10 +2238,8 @@
 # wrong constant name <=>
 # uninitialized constant Gem::Specification::GENERICS
 # uninitialized constant Gem::Specification::GENERIC_CACHE
+# wrong constant name removed_method_calls
 # wrong constant name to_ruby
-# wrong constant name add_spec
-# wrong constant name add_specs
-# wrong constant name remove_spec
 # wrong constant name initialize
 # wrong constant name packaging
 # wrong constant name packaging=
@@ -2273,25 +2270,34 @@
 # wrong constant name spec
 # wrong constant name spec=
 # wrong constant name <static-init>
-# uninitialized constant Gem::UriParser
-# uninitialized constant Gem::UriParser
-# uninitialized constant Gem::UriParsing
-# uninitialized constant Gem::UriParsing
-# wrong constant name default_gems_use_full_paths?
-# wrong constant name remove_unresolved_default_spec
 # uninitialized constant GetoptLong
 # uninitialized constant GetoptLong
+# wrong constant name deconstruct_keys
+# wrong constant name ruby2_keywords_hash
+# wrong constant name ruby2_keywords_hash?
 # wrong constant name try_convert
+# wrong constant name <Class:ConsoleMode>
 # wrong constant name beep
+# wrong constant name check_winsize_changed
+# wrong constant name clear_screen
+# wrong constant name console_mode
+# wrong constant name console_mode=
 # wrong constant name cooked
 # wrong constant name cooked!
 # wrong constant name cursor
 # wrong constant name cursor=
+# wrong constant name cursor_down
+# wrong constant name cursor_left
+# wrong constant name cursor_right
+# wrong constant name cursor_up
 # wrong constant name echo=
 # wrong constant name echo?
+# wrong constant name erase_line
+# wrong constant name erase_screen
 # wrong constant name getch
 # wrong constant name getpass
 # wrong constant name goto
+# wrong constant name goto_column
 # wrong constant name iflush
 # wrong constant name ioflush
 # wrong constant name noecho
@@ -2305,23 +2311,57 @@
 # wrong constant name raw
 # wrong constant name raw!
 # wrong constant name ready?
+# wrong constant name scroll_backward
+# wrong constant name scroll_forward
+# wrong constant name set_encoding_by_bom
 # wrong constant name wait
 # wrong constant name wait_readable
 # wrong constant name wait_writable
 # wrong constant name winsize
 # wrong constant name winsize=
+# wrong constant name echo=
+# wrong constant name raw
+# wrong constant name raw!
+# wrong constant name <static-init>
 # wrong constant name console
+# wrong constant name console_size
+# wrong constant name default_console_size
 # wrong constant name ==
 # wrong constant name initialize
+# wrong constant name <Class:Color>
 # wrong constant name <Class:DefaultEncodings>
+# wrong constant name <Class:InputCompletor>
 # wrong constant name <Class:Locale>
-# wrong constant name <Class:SLex>
+# wrong constant name <Class:ReidlineInputMethod>
+# wrong constant name <static-init>
+# wrong constant name clear
+# wrong constant name colorable?
+# wrong constant name colorize
+# wrong constant name colorize_code
+# wrong constant name inspect_colorable?
 # wrong constant name __exit__
 # wrong constant name __inspect__
 # wrong constant name __to_s__
+# wrong constant name echo_on_assignment
+# wrong constant name echo_on_assignment=
+# wrong constant name echo_on_assignment?
 # wrong constant name evaluate
 # wrong constant name initialize
 # wrong constant name inspect_last_value
+# wrong constant name newline_before_multiline_output
+# wrong constant name newline_before_multiline_output=
+# wrong constant name newline_before_multiline_output?
+# wrong constant name omit_on_assignment
+# wrong constant name omit_on_assignment=
+# wrong constant name omit_on_assignment?
+# wrong constant name use_colorize
+# wrong constant name use_colorize?
+# wrong constant name use_multiline
+# wrong constant name use_multiline?
+# wrong constant name use_reidline
+# wrong constant name use_reidline?
+# wrong constant name use_singleline
+# wrong constant name use_singleline?
 # uninitialized constant IRB::DefaultEncodings::Elem
 # wrong constant name external
 # wrong constant name external=
@@ -2335,6 +2375,7 @@
 # wrong constant name irb_current_working_workspace
 # wrong constant name irb_fg
 # wrong constant name irb_help
+# wrong constant name irb_info
 # wrong constant name irb_jobs
 # wrong constant name irb_kill
 # wrong constant name irb_pop_workspace
@@ -2343,8 +2384,14 @@
 # wrong constant name irb_workspaces
 # wrong constant name irb_original_method_name
 # wrong constant name initialize
+# wrong constant name <static-init>
+# wrong constant name ignored_modules
+# wrong constant name retrieve_completion_data
+# wrong constant name select_message
 # wrong constant name initialize
+# wrong constant name winsize
 # wrong constant name initialize
+# wrong constant name assignment_expression?
 # wrong constant name handle_exception
 # wrong constant name initialize
 # wrong constant name output_value
@@ -2369,42 +2416,23 @@
 # wrong constant name <static-init>
 # wrong constant name initialize
 # wrong constant name initialize
-# wrong constant name initialize
-# uninitialized constant IRB::ReadlineInputMethod::FILENAME_COMPLETION_PROC
-# Did you mean?  IRB::ReadlineInputMethod::USERNAME_COMPLETION_PROC
-# uninitialized constant IRB::ReadlineInputMethod::HISTORY
-# uninitialized constant IRB::ReadlineInputMethod::USERNAME_COMPLETION_PROC
-# Did you mean?  IRB::ReadlineInputMethod::FILENAME_COMPLETION_PROC
-# uninitialized constant IRB::ReadlineInputMethod::VERSION
+# wrong constant name initialize_readline
+# uninitialized constant IRB::ReidlineInputMethod::FILENAME_COMPLETION_PROC
+# Did you mean?  IRB::ReidlineInputMethod::USERNAME_COMPLETION_PROC
+# uninitialized constant IRB::ReidlineInputMethod::HISTORY
+# Did you mean?  IRB::ReidlineInputMethod::History
+# uninitialized constant IRB::ReidlineInputMethod::USERNAME_COMPLETION_PROC
+# Did you mean?  IRB::ReidlineInputMethod::FILENAME_COMPLETION_PROC
+# uninitialized constant IRB::ReidlineInputMethod::VERSION
 # Did you mean?  IRB::VERSION
+# wrong constant name auto_indent
+# wrong constant name check_termination
+# wrong constant name dynamic_prompt
+# wrong constant name encoding
+# wrong constant name eof?
 # wrong constant name initialize
-# wrong constant name <Class:ErrNodeAlreadyExists>
-# wrong constant name <Class:ErrNodeNothing>
-# uninitialized constant IRB::SLex::Fail
-# Did you mean?  File
-# wrong constant name <Class:Node>
-# uninitialized constant IRB::SLex::Raise
-# wrong constant name create
-# wrong constant name def_rule
-# wrong constant name def_rules
-# wrong constant name match
-# wrong constant name postproc
-# wrong constant name preproc
-# wrong constant name search
+# wrong constant name line
 # wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name create_subnode
-# wrong constant name initialize
-# wrong constant name match
-# wrong constant name match_io
-# wrong constant name postproc
-# wrong constant name postproc=
-# wrong constant name preproc
-# wrong constant name preproc=
-# wrong constant name search
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name included
 # wrong constant name initialize
 # wrong constant name initialize
 # wrong constant name local_variable_get
@@ -2433,20 +2461,34 @@
 # wrong constant name at_exit
 # uninitialized constant LUSolve
 # uninitialized constant LUSolve
-# uninitialized constant Logger::LogDevice::EXCEPTION_IMMEDIATE
-# uninitialized constant Logger::LogDevice::EXCEPTION_NEVER
+# wrong constant name debug!
+# wrong constant name error!
+# wrong constant name fatal!
+# wrong constant name info!
+# wrong constant name warn!
 # uninitialized constant Logger::LogDevice::SiD
 # uninitialized constant Matrix
 # uninitialized constant Matrix
 # uninitialized constant MessagePack
 # uninitialized constant MessagePack
-# uninitialized constant Monitor::EXCEPTION_IMMEDIATE
-# uninitialized constant Monitor::EXCEPTION_NEVER
 # wrong constant name enter
 # wrong constant name exit
+# wrong constant name mon_check_owner
+# wrong constant name mon_enter
+# wrong constant name mon_exit
+# wrong constant name mon_locked?
+# wrong constant name mon_owned?
+# wrong constant name mon_synchronize
+# wrong constant name mon_try_enter
+# wrong constant name new_cond
+# wrong constant name synchronize
 # wrong constant name try_enter
+# wrong constant name try_mon_enter
+# wrong constant name wait_for_cond
 # wrong constant name initialize
 # wrong constant name initialize
+# uninitialized constant MonitorMixin::ConditionVariable::Timeout
+# uninitialized constant MonitorMixin::ConditionVariable::Timeout
 # uninitialized constant Mutex_m
 # uninitialized constant Mutex_m
 # uninitialized constant NKF
@@ -2475,6 +2517,8 @@
 # Did you mean?  TypeError
 # uninitialized constant Net::FTPTempError
 # Did you mean?  TypeError
+# wrong constant name ipaddr
+# wrong constant name ipaddr=
 # wrong constant name max_retries
 # wrong constant name max_retries=
 # wrong constant name max_version
@@ -2549,6 +2593,7 @@
 # wrong constant name io
 # uninitialized constant Newton
 # uninitialized constant Newton
+# wrong constant name <static-init>
 # uninitialized constant RUBYGEMS_ACTIVATION_MONITOR
 # wrong constant name to_yaml
 # wrong constant name yaml_tag
@@ -2556,9 +2601,9 @@
 # uninitialized constant Observable
 # uninitialized constant Observable
 # uninitialized constant Open3
-# Did you mean?  OpenSSL
+# Did you mean?  OpenURI
 # uninitialized constant Open3
-# Did you mean?  OpenSSL
+# Did you mean?  OpenURI
 # wrong constant name indefinite_length
 # wrong constant name indefinite_length=
 # wrong constant name +@
@@ -2601,6 +2646,10 @@
 # wrong constant name ==
 # wrong constant name to_der
 # wrong constant name fips_mode
+# wrong constant name additional_message
+# wrong constant name get_candidates
+# wrong constant name additional
+# wrong constant name additional=
 # uninitialized constant Opus
 # uninitialized constant Opus
 # uninitialized constant PStore
@@ -2671,6 +2720,8 @@
 # Did you mean?  Parser::Ruby24::Racc_Runtime_Revision
 #                Parser::Ruby24::Racc_Runtime_Core_Version
 # uninitialized constant Parser::Ruby24::Racc_YY_Parse_Method
+# wrong constant name associate_by_identity
+# wrong constant name associate_by_identity
 # wrong constant name fnmatch?
 # wrong constant name glob
 # wrong constant name make_symlink
@@ -2726,14 +2777,351 @@
 # wrong constant name load_tags
 # wrong constant name load_tags=
 # wrong constant name remove_type
+# uninitialized constant RDoc::Alias::MARKUP_FORMAT
+# uninitialized constant RDoc::Alias::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# uninitialized constant RDoc::Attr::MARKUP_FORMAT
+# uninitialized constant RDoc::Attr::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# uninitialized constant RDoc::ClassModule::MARKUP_FORMAT
+# uninitialized constant RDoc::ClassModule::TOMDOC_TITLES
+# uninitialized constant RDoc::ClassModule::TOMDOC_TITLES_SORT
+# uninitialized constant RDoc::ClassModule::TO_HTML_CHARACTERS
+# uninitialized constant RDoc::ClassModule::TYPES
+# wrong constant name initialize
+# uninitialized constant RDoc::CodeObject::MARKUP_FORMAT
+# uninitialized constant RDoc::CodeObject::TO_HTML_CHARACTERS
+# wrong constant name initialize_visibility
+# uninitialized constant RDoc::Comment::MARKUP_FORMAT
+# uninitialized constant RDoc::Comment::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# wrong constant name line
+# wrong constant name line=
+# uninitialized constant RDoc::Constant::MARKUP_FORMAT
+# uninitialized constant RDoc::Constant::TO_HTML_CHARACTERS
+# wrong constant name initialize
 # uninitialized constant RDoc::Constant::RDoc
 # Did you mean?  RDoc::RDoc
 # uninitialized constant RDoc::Constant::RDoc
 # Did you mean?  RDoc::RDoc
+# uninitialized constant RDoc::Context::MARKUP_FORMAT
+# uninitialized constant RDoc::Context::TO_HTML_CHARACTERS
+# wrong constant name add_module_by_normal_module
+# wrong constant name initialize_methods_etc
+# uninitialized constant RDoc::Context::Section::MARKUP_FORMAT
+# Did you mean?  RDoc::Context::MARKUP_FORMAT
+# uninitialized constant RDoc::Context::Section::TO_HTML_CHARACTERS
+# Did you mean?  RDoc::Context::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# wrong constant name initialize
+# uninitialized constant RDoc::ERBIO::Revision
+# wrong constant name initialize
+# wrong constant name detect_encoding
+# wrong constant name remove_magic_comment
+# wrong constant name initialize
+# uninitialized constant RDoc::Generator::JsonIndex::MARKUP_FORMAT
+# uninitialized constant RDoc::Generator::JsonIndex::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name <Class:RegexpHandling>
+# wrong constant name add_regexp_handling
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name add_regexp_handling
+# wrong constant name convert_regexp_handlings
+# wrong constant name regexp_handlings
+# wrong constant name regexp_handling
+# wrong constant name initialize
+# wrong constant name add_regexp_handling_RDOCLINK
+# wrong constant name add_regexp_handling_TIDYLINK
+# wrong constant name convert_regexp_handling
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name []
+# wrong constant name eos?
+# wrong constant name initialize
+# wrong constant name matched
+# wrong constant name newline!
+# wrong constant name pos
+# wrong constant name scan
+# wrong constant name unscan
+# wrong constant name <static-init>
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name ==
+# wrong constant name initialize
+# wrong constant name text
+# wrong constant name text=
+# wrong constant name type
+# wrong constant name <static-init>
 # uninitialized constant RDoc::Markup::Special
 # uninitialized constant RDoc::Markup::Special
+# uninitialized constant RDoc::Markup::ToHtml::MARKUP_FORMAT
+# uninitialized constant RDoc::Markup::ToHtml::TO_HTML_CHARACTERS
+# wrong constant name handle_regexp_HARD_BREAK
+# wrong constant name handle_regexp_HYPERLINK
+# wrong constant name handle_regexp_RDOCLINK
+# wrong constant name handle_regexp_TIDYLINK
+# uninitialized constant RDoc::Markup::ToHtmlCrossref::LIST_TYPE_TO_HTML
+# uninitialized constant RDoc::Markup::ToHtmlCrossref::MARKUP_FORMAT
+# uninitialized constant RDoc::Markup::ToHtmlCrossref::TO_HTML_CHARACTERS
+# wrong constant name handle_regexp_CROSSREF
+# wrong constant name initialize
+# uninitialized constant RDoc::Markup::ToHtmlSnippet::LIST_TYPE_TO_HTML
+# uninitialized constant RDoc::Markup::ToHtmlSnippet::MARKUP_FORMAT
+# uninitialized constant RDoc::Markup::ToHtmlSnippet::TO_HTML_CHARACTERS
+# wrong constant name handle_regexp_CROSSREF
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name handle_regexp_CROSSREF
+# wrong constant name handle_regexp_HARD_BREAK
+# wrong constant name handle_regexp_TIDYLINK
+# wrong constant name initialize
+# wrong constant name handle_regexp_RDOCLINK
+# wrong constant name handle_regexp_TIDYLINK
+# wrong constant name handle_regexp_HARD_BREAK
+# wrong constant name handle_regexp_SUPPRESSED_CROSSREF
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# uninitialized constant RDoc::MethodAttr::MARKUP_FORMAT
+# uninitialized constant RDoc::MethodAttr::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# uninitialized constant RDoc::Mixin::MARKUP_FORMAT
+# uninitialized constant RDoc::Mixin::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# wrong constant name <Class:RipperStateLex>
+# wrong constant name initialize
+# uninitialized constant RDoc::Parser::C::MARKUP_FORMAT
+# uninitialized constant RDoc::Parser::C::TO_HTML_CHARACTERS
+# wrong constant name do_classes_and_modules
+# wrong constant name <Class:InnerStateLex>
+# wrong constant name <Class:Token>
+# wrong constant name get_squashed_tk
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name on_default
+# wrong constant name <static-init>
+# uninitialized constant RDoc::Parser::RipperStateLex::Token::Elem
+# wrong constant name char_no
+# wrong constant name char_no=
+# wrong constant name kind
+# wrong constant name kind=
+# wrong constant name line_no
+# wrong constant name line_no=
+# wrong constant name state
+# wrong constant name state=
+# wrong constant name text
+# wrong constant name text=
+# wrong constant name <static-init>
+# wrong constant name []
+# wrong constant name members
+# wrong constant name <static-init>
+# wrong constant name end?
+# wrong constant name parse
+# wrong constant name get_included_module_with_optional_parens
+# wrong constant name retrieve_comment_body
+# wrong constant name skip_tkspace_without_nl
+# uninitialized constant RDoc::RD::BlockParser::Racc_Main_Parsing_Routine
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Revision
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Version
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Revision
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Type
+# uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Version
+# Did you mean?  RDoc::RD::BlockParser::Racc_Runtime_Revision
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version
+# uninitialized constant RDoc::RD::BlockParser::Racc_YY_Parse_Method
+# wrong constant name initialize
+# uninitialized constant RDoc::RD::InlineParser::Racc_Main_Parsing_Routine
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Revision
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Version
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Revision
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Type
+# uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Version
+# Did you mean?  RDoc::RD::InlineParser::Racc_Runtime_Revision
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version
+# uninitialized constant RDoc::RD::InlineParser::Racc_YY_Parse_Method
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# uninitialized constant RDoc::Require::MARKUP_FORMAT
+# uninitialized constant RDoc::Require::TO_HTML_CHARACTERS
+# wrong constant name initialize
 # uninitialized constant RDoc::RipperStateLex
 # uninitialized constant RDoc::RipperStateLex
+# wrong constant name initialize
+# uninitialized constant RDoc::Stats::MARKUP_FORMAT
+# uninitialized constant RDoc::Stats::TO_HTML_CHARACTERS
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name initialize
+# wrong constant name unmatched_constant_alias
+# wrong constant name update_parser_of_file
+# wrong constant name initialize
+# uninitialized constant RDoc::Task::DEFAULT
+# uninitialized constant RDoc::Task::LN_SUPPORTED
+# uninitialized constant RDoc::Task::LOW_METHODS
+# Did you mean?  RDoc::Task::LowMethods
+# uninitialized constant RDoc::Task::METHODS
+# Did you mean?  Method
+# uninitialized constant RDoc::Task::OPT_TABLE
+# uninitialized constant RDoc::Task::RUBY
+# uninitialized constant RDoc::Task::VERSION
+# Did you mean?  RDoc::VERSION
+# wrong constant name before_running_rdoc
+# wrong constant name check_names
+# wrong constant name clobber_task_description
+# wrong constant name defaults
+# wrong constant name define
+# wrong constant name external
+# wrong constant name external=
+# wrong constant name generator
+# wrong constant name generator=
+# wrong constant name initialize
+# wrong constant name inline_source
+# wrong constant name inline_source=
+# wrong constant name main
+# wrong constant name main=
+# wrong constant name markup
+# wrong constant name markup=
+# wrong constant name name
+# wrong constant name name=
+# wrong constant name option_list
+# wrong constant name options
+# wrong constant name options=
+# wrong constant name rdoc_dir
+# wrong constant name rdoc_dir=
+# wrong constant name rdoc_files
+# wrong constant name rdoc_files=
+# wrong constant name rdoc_task_description
+# wrong constant name rerdoc_task_description
+# wrong constant name template
+# wrong constant name template=
+# wrong constant name title
+# wrong constant name title=
+# wrong constant name <static-init>
+# wrong constant name language
+# wrong constant name language=
+# uninitialized constant RDoc::TopLevel::MARKUP_FORMAT
+# uninitialized constant RDoc::TopLevel::TOMDOC_TITLES
+# uninitialized constant RDoc::TopLevel::TOMDOC_TITLES_SORT
+# uninitialized constant RDoc::TopLevel::TO_HTML_CHARACTERS
+# uninitialized constant RDoc::TopLevel::TYPES
+# wrong constant name initialize
 # wrong constant name <static-init>
 # wrong constant name parent
 # uninitialized constant REXML::Parsers::XPathParser::NAME
@@ -2778,11 +3166,48 @@
 # uninitialized constant REXML::XPathParser::NMTOKENS
 # Did you mean?  REXML::XMLTokens
 # uninitialized constant REXML::XPathParser::REFERENCE
+# wrong constant name ruby2_keywords
 # uninitialized constant RSpec::Core::ExampleGroup::BE_PREDICATE_REGEX
 # uninitialized constant RSpec::Core::ExampleGroup::DYNAMIC_MATCHER_REGEX
 # uninitialized constant RSpec::Core::ExampleGroup::HAS_REGEX
 # uninitialized constant RSpec::Core::ExampleGroup::NOT_YET_IMPLEMENTED
 # uninitialized constant RSpec::Core::ExampleGroup::NO_REASON_GIVEN
+# wrong constant name deconstruct_keys
+# wrong constant name filter_map
+# wrong constant name tally
+# wrong constant name beep
+# wrong constant name check_winsize_changed
+# wrong constant name clear_screen
+# wrong constant name console_mode
+# wrong constant name console_mode=
+# wrong constant name cooked
+# wrong constant name cooked!
+# wrong constant name cursor
+# wrong constant name cursor=
+# wrong constant name cursor_down
+# wrong constant name cursor_left
+# wrong constant name cursor_right
+# wrong constant name cursor_up
+# wrong constant name echo=
+# wrong constant name echo?
+# wrong constant name erase_line
+# wrong constant name erase_screen
+# wrong constant name getch
+# wrong constant name getpass
+# wrong constant name goto
+# wrong constant name goto_column
+# wrong constant name iflush
+# wrong constant name ioflush
+# wrong constant name noecho
+# wrong constant name oflush
+# wrong constant name pressed?
+# wrong constant name raw
+# wrong constant name raw!
+# wrong constant name scroll_backward
+# wrong constant name scroll_forward
+# wrong constant name set_encoding_by_bom
+# wrong constant name winsize
+# wrong constant name winsize=
 # uninitialized constant RSpec::Matchers::BuiltIn::BePredicate::UNDEFINED
 # uninitialized constant RSpec::Matchers::BuiltIn::Equal::UNDEFINED
 # uninitialized constant RSpec::Matchers::BuiltIn::Has::UNDEFINED
@@ -2795,7 +3220,6 @@
 # wrong constant name <static-init>
 # wrong constant name <Class:CparseParams>
 # wrong constant name <static-init>
-# wrong constant name <Class:TaskLib>
 # uninitialized constant Rake::DSL::DEFAULT
 # uninitialized constant Rake::DSL::LN_SUPPORTED
 # uninitialized constant Rake::DSL::LOW_METHODS
@@ -2807,6 +3231,10 @@
 # uninitialized constant Rake::DSL::VERSION
 # Did you mean?  Rake::Version
 #                Rake::VERSION
+# wrong constant name deconstruct
+# wrong constant name filter_map
+# wrong constant name intersection
+# wrong constant name tally
 # uninitialized constant Rake::FileUtilsExt::LN_SUPPORTED
 # uninitialized constant Rake::FileUtilsExt::LOW_METHODS
 # Did you mean?  Rake::FileUtilsExt::LowMethods
@@ -2828,7 +3256,6 @@
 # uninitialized constant Rake::TaskLib::VERSION
 # Did you mean?  Rake::Version
 #                Rake::VERSION
-# wrong constant name <static-init>
 # wrong constant name bytes
 # wrong constant name %
 # wrong constant name entries
@@ -2839,6 +3266,366 @@
 # wrong constant name completion_quote_character
 # wrong constant name <Class:Error>
 # wrong constant name <static-init>
+# wrong constant name <Class:ANSI>
+# wrong constant name <Class:Config>
+# wrong constant name <Class:Core>
+# wrong constant name <Class:CursorPos>
+# wrong constant name <Class:GeneralIO>
+# wrong constant name <Class:History>
+# wrong constant name <Class:KeyActor>
+# wrong constant name <Class:KeyStroke>
+# wrong constant name <Class:KillRing>
+# wrong constant name <Class:LineEditor>
+# wrong constant name <Class:Unicode>
+# wrong constant name eof?
+# wrong constant name <static-init>
+# wrong constant name clear_screen
+# wrong constant name cursor_pos
+# wrong constant name deprep
+# wrong constant name encoding
+# wrong constant name erase_after_cursor
+# wrong constant name get_screen_size
+# wrong constant name getc
+# wrong constant name input=
+# wrong constant name move_cursor_column
+# wrong constant name move_cursor_down
+# wrong constant name move_cursor_up
+# wrong constant name output=
+# wrong constant name prep
+# wrong constant name retrieve_keybuffer
+# wrong constant name scroll_down
+# wrong constant name set_screen_size
+# wrong constant name set_winch_handler
+# wrong constant name ungetc
+# wrong constant name win?
+# wrong constant name <Class:InvalidInputrc>
+# wrong constant name add_default_key_binding
+# wrong constant name bind_key
+# wrong constant name bind_tty_special_chars
+# wrong constant name bind_tty_special_chars=
+# wrong constant name bind_variable
+# wrong constant name blink_matching_paren
+# wrong constant name blink_matching_paren=
+# wrong constant name byte_oriented
+# wrong constant name byte_oriented=
+# wrong constant name completion_ignore_case
+# wrong constant name completion_ignore_case=
+# wrong constant name convert_meta
+# wrong constant name convert_meta=
+# wrong constant name disable_completion
+# wrong constant name disable_completion=
+# wrong constant name editing_mode
+# wrong constant name editing_mode=
+# wrong constant name editing_mode_is?
+# wrong constant name emacs_mode_string
+# wrong constant name emacs_mode_string=
+# wrong constant name enable_keypad
+# wrong constant name enable_keypad=
+# wrong constant name expand_tilde
+# wrong constant name expand_tilde=
+# wrong constant name handle_directive
+# wrong constant name history_preserve_point
+# wrong constant name history_preserve_point=
+# wrong constant name history_size
+# wrong constant name history_size=
+# wrong constant name horizontal_scroll_mode
+# wrong constant name horizontal_scroll_mode=
+# wrong constant name input_meta
+# wrong constant name input_meta=
+# wrong constant name inputrc_path
+# wrong constant name key_bindings
+# wrong constant name key_notation_to_code
+# wrong constant name keymap
+# wrong constant name keyseq_timeout
+# wrong constant name keyseq_timeout=
+# wrong constant name mark_directories
+# wrong constant name mark_directories=
+# wrong constant name mark_modified_lines
+# wrong constant name mark_modified_lines=
+# wrong constant name mark_symlinked_directories
+# wrong constant name mark_symlinked_directories=
+# wrong constant name match_hidden_files
+# wrong constant name match_hidden_files=
+# wrong constant name meta_flag
+# wrong constant name meta_flag=
+# wrong constant name output_meta
+# wrong constant name output_meta=
+# wrong constant name page_completions
+# wrong constant name page_completions=
+# wrong constant name parse_keyseq
+# wrong constant name prefer_visible_bell
+# wrong constant name prefer_visible_bell=
+# wrong constant name print_completions_horizontally
+# wrong constant name print_completions_horizontally=
+# wrong constant name read
+# wrong constant name read_lines
+# wrong constant name reset
+# wrong constant name reset_default_key_bindings
+# wrong constant name retrieve_string
+# wrong constant name show_all_if_ambiguous
+# wrong constant name show_all_if_ambiguous=
+# wrong constant name show_all_if_unmodified
+# wrong constant name show_all_if_unmodified=
+# wrong constant name show_mode_in_prompt
+# wrong constant name show_mode_in_prompt=
+# wrong constant name test_mode
+# wrong constant name vi_cmd_mode_icon
+# wrong constant name vi_cmd_mode_icon=
+# wrong constant name vi_ins_mode_icon
+# wrong constant name vi_ins_mode_icon=
+# wrong constant name visible_stats
+# wrong constant name visible_stats=
+# wrong constant name file
+# wrong constant name file=
+# wrong constant name lineno
+# wrong constant name lineno=
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name ambiguous_width
+# wrong constant name ambiguous_width=
+# wrong constant name auto_indent_proc
+# wrong constant name auto_indent_proc=
+# wrong constant name basic_quote_characters
+# wrong constant name basic_quote_characters=
+# wrong constant name basic_word_break_characters
+# wrong constant name basic_word_break_characters=
+# wrong constant name completer_quote_characters
+# wrong constant name completer_quote_characters=
+# wrong constant name completer_word_break_characters
+# wrong constant name completer_word_break_characters=
+# wrong constant name completion_append_character
+# wrong constant name completion_append_character=
+# wrong constant name completion_case_fold
+# wrong constant name completion_case_fold=
+# wrong constant name completion_proc
+# wrong constant name completion_proc=
+# wrong constant name completion_quote_character
+# wrong constant name config
+# wrong constant name config=
+# wrong constant name dig_perfect_match_proc
+# wrong constant name dig_perfect_match_proc=
+# wrong constant name emacs_editing_mode
+# wrong constant name emacs_editing_mode?
+# wrong constant name encoding
+# wrong constant name filename_quote_characters
+# wrong constant name filename_quote_characters=
+# wrong constant name get_screen_size
+# wrong constant name input=
+# wrong constant name key_stroke
+# wrong constant name key_stroke=
+# wrong constant name last_incremental_search
+# wrong constant name last_incremental_search=
+# wrong constant name line_editor
+# wrong constant name line_editor=
+# wrong constant name output
+# wrong constant name output=
+# wrong constant name output_modifier_proc
+# wrong constant name output_modifier_proc=
+# wrong constant name pre_input_hook
+# wrong constant name pre_input_hook=
+# wrong constant name prompt_proc
+# wrong constant name prompt_proc=
+# wrong constant name readline
+# wrong constant name readmultiline
+# wrong constant name special_prefixes
+# wrong constant name special_prefixes=
+# wrong constant name vi_editing_mode
+# wrong constant name vi_editing_mode?
+# wrong constant name <static-init>
+# uninitialized constant Reline::CursorPos::Elem
+# wrong constant name x
+# wrong constant name x=
+# wrong constant name y
+# wrong constant name y=
+# wrong constant name <static-init>
+# wrong constant name []
+# wrong constant name members
+# wrong constant name <static-init>
+# wrong constant name clear_screen
+# wrong constant name cursor_pos
+# wrong constant name deprep
+# wrong constant name encoding
+# wrong constant name erase_after_cursor
+# wrong constant name get_screen_size
+# wrong constant name getc
+# wrong constant name input=
+# wrong constant name move_cursor_column
+# wrong constant name move_cursor_down
+# wrong constant name move_cursor_up
+# wrong constant name prep
+# wrong constant name scroll_down
+# wrong constant name set_screen_size
+# wrong constant name set_winch_handler
+# wrong constant name ungetc
+# wrong constant name win?
+# wrong constant name <<
+# uninitialized constant Reline::History::Elem
+# wrong constant name []
+# wrong constant name []=
+# wrong constant name concat
+# wrong constant name delete_at
+# wrong constant name initialize
+# wrong constant name push
+# wrong constant name <static-init>
+# wrong constant name <Class:Base>
+# wrong constant name <Class:Emacs>
+# wrong constant name <Class:ViCommand>
+# wrong constant name <Class:ViInsert>
+# wrong constant name get_method
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name expand
+# wrong constant name initialize
+# wrong constant name match_status
+# wrong constant name <static-init>
+# wrong constant name <Class:RingBuffer>
+# wrong constant name <Class:RingPoint>
+# wrong constant name <Class:State>
+# wrong constant name append
+# wrong constant name initialize
+# wrong constant name process
+# wrong constant name yank
+# wrong constant name yank_pop
+# wrong constant name <<
+# wrong constant name empty?
+# wrong constant name head
+# wrong constant name initialize
+# wrong constant name size
+# wrong constant name <static-init>
+# wrong constant name ==
+# uninitialized constant Reline::KillRing::RingPoint::Elem
+# wrong constant name backward
+# wrong constant name backward=
+# wrong constant name forward
+# wrong constant name forward=
+# wrong constant name initialize
+# wrong constant name str
+# wrong constant name str=
+# wrong constant name <static-init>
+# wrong constant name []
+# wrong constant name members
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <Class:CompletionState>
+# wrong constant name auto_indent_proc
+# wrong constant name auto_indent_proc=
+# wrong constant name byte_pointer
+# wrong constant name byte_pointer=
+# wrong constant name call_completion_proc
+# wrong constant name completion_append_character
+# wrong constant name completion_append_character=
+# wrong constant name completion_proc
+# wrong constant name completion_proc=
+# wrong constant name confirm_multiline_termination
+# wrong constant name confirm_multiline_termination_proc
+# wrong constant name confirm_multiline_termination_proc=
+# wrong constant name delete_text
+# wrong constant name dig_perfect_match_proc
+# wrong constant name dig_perfect_match_proc=
+# wrong constant name editing_mode
+# wrong constant name eof?
+# wrong constant name finalize
+# wrong constant name finish
+# wrong constant name finished?
+# wrong constant name initialize
+# wrong constant name input_key
+# wrong constant name insert_text
+# wrong constant name line
+# wrong constant name multiline_off
+# wrong constant name multiline_on
+# wrong constant name output=
+# wrong constant name output_modifier_proc
+# wrong constant name output_modifier_proc=
+# wrong constant name pre_input_hook
+# wrong constant name pre_input_hook=
+# wrong constant name prompt_proc
+# wrong constant name prompt_proc=
+# wrong constant name rerender
+# wrong constant name reset
+# wrong constant name reset_line
+# wrong constant name reset_variables
+# wrong constant name retrieve_completion_block
+# wrong constant name whole_buffer
+# wrong constant name whole_lines
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <Class:EastAsianWidth>
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name calculate_width
+# wrong constant name ed_transpose_words
+# wrong constant name em_backward_word
+# wrong constant name em_big_backward_word
+# wrong constant name em_forward_word
+# wrong constant name em_forward_word_with_capitalization
+# wrong constant name escape_for_print
+# wrong constant name get_mbchar_byte_size_by_first_char
+# wrong constant name get_mbchar_width
+# wrong constant name get_next_mbchar_size
+# wrong constant name get_prev_mbchar_size
+# wrong constant name split_by_width
+# wrong constant name vi_backward_word
+# wrong constant name vi_big_backward_word
+# wrong constant name vi_big_forward_end_word
+# wrong constant name vi_big_forward_word
+# wrong constant name vi_first_print
+# wrong constant name vi_forward_end_word
+# wrong constant name vi_forward_word
+# wrong constant name <static-init>
+# wrong constant name ambiguous_width
+# wrong constant name auto_indent_proc
+# wrong constant name auto_indent_proc=
+# wrong constant name basic_quote_characters
+# wrong constant name basic_quote_characters=
+# wrong constant name basic_word_break_characters
+# wrong constant name basic_word_break_characters=
+# wrong constant name completer_quote_characters
+# wrong constant name completer_quote_characters=
+# wrong constant name completer_word_break_characters
+# wrong constant name completer_word_break_characters=
+# wrong constant name completion_append_character
+# wrong constant name completion_append_character=
+# wrong constant name completion_case_fold
+# wrong constant name completion_case_fold=
+# wrong constant name completion_proc
+# wrong constant name completion_proc=
+# wrong constant name completion_quote_character
+# wrong constant name core
+# wrong constant name delete_text
+# wrong constant name dig_perfect_match_proc
+# wrong constant name dig_perfect_match_proc=
+# wrong constant name emacs_editing_mode
+# wrong constant name emacs_editing_mode?
+# wrong constant name encoding_system_needs
+# wrong constant name eof?
+# wrong constant name filename_quote_characters
+# wrong constant name filename_quote_characters=
+# wrong constant name get_screen_size
+# wrong constant name input=
+# wrong constant name insert_text
+# wrong constant name last_incremental_search
+# wrong constant name last_incremental_search=
+# wrong constant name line_buffer
+# wrong constant name line_editor
+# wrong constant name output=
+# wrong constant name output_modifier_proc
+# wrong constant name output_modifier_proc=
+# wrong constant name point
+# wrong constant name point=
+# wrong constant name pre_input_hook
+# wrong constant name pre_input_hook=
+# wrong constant name prompt_proc
+# wrong constant name prompt_proc=
+# wrong constant name readline
+# wrong constant name readmultiline
+# wrong constant name redisplay
+# wrong constant name special_prefixes
+# wrong constant name special_prefixes=
+# wrong constant name vi_editing_mode
+# wrong constant name vi_editing_mode?
 # wrong constant name extract_resources
 # wrong constant name initialize
 # wrong constant name initialize
@@ -2869,6 +3656,8 @@
 # wrong constant name <Class:SexpBuilderPP>
 # wrong constant name <Class:TokenPattern>
 # wrong constant name column
+# wrong constant name debug_output
+# wrong constant name debug_output=
 # wrong constant name encoding
 # wrong constant name end_seen?
 # wrong constant name error?
@@ -2877,6 +3666,7 @@
 # wrong constant name lineno
 # wrong constant name parse
 # wrong constant name state
+# wrong constant name token
 # wrong constant name yydebug
 # wrong constant name yydebug=
 # wrong constant name initialize
@@ -2884,31 +3674,31 @@
 # Did you mean?  Ripper::EVENTS
 # uninitialized constant Ripper::Lexer::EXPR_ARG
 # Did you mean?  Ripper::EXPR_BEG
-#                Ripper::Lexer::EXPR_BEG
 #                Ripper::EXPR_ARG
+#                Ripper::Lexer::EXPR_BEG
 # uninitialized constant Ripper::Lexer::EXPR_ARG_ANY
-# Did you mean?  Ripper::Lexer::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
+# Did you mean?  Ripper::Lexer::EXPR_BEG_ANY
 #                Ripper::EXPR_END_ANY
+#                Ripper::EXPR_BEG_ANY
+#                Ripper::Lexer::EXPR_END_ANY
 #                Ripper::EXPR_ARG_ANY
-#                Ripper::Lexer::EXPR_BEG_ANY
 # uninitialized constant Ripper::Lexer::EXPR_BEG
-# Did you mean?  Ripper::EXPR_BEG
-#                Ripper::Lexer::EXPR_ARG
+# Did you mean?  Ripper::Lexer::EXPR_ARG
+#                Ripper::EXPR_BEG
 #                Ripper::EXPR_ARG
 # uninitialized constant Ripper::Lexer::EXPR_BEG_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
+# Did you mean?  Ripper::EXPR_BEG_ANY
 #                Ripper::Lexer::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_ARG_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
 # uninitialized constant Ripper::Lexer::EXPR_CLASS
 # Did you mean?  Ripper::EXPR_CLASS
 # uninitialized constant Ripper::Lexer::EXPR_CMDARG
 # Did you mean?  Ripper::Lexer::EXPR_ARG
 #                Ripper::EXPR_ARG
-#                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::EXPR_CMDARG
+#                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::Lexer::EXPR_DOT
 # Did you mean?  Ripper::EXPR_DOT
@@ -2920,10 +3710,10 @@
 #                Ripper::EXPR_ENDFN
 # uninitialized constant Ripper::Lexer::EXPR_ENDARG
 # Did you mean?  Ripper::Lexer::EXPR_ARG
-#                Ripper::EXPR_END
 #                Ripper::EXPR_ARG
-#                Ripper::Lexer::EXPR_ENDFN
+#                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
+#                Ripper::Lexer::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_CMDARG
 #                Ripper::EXPR_CMDARG
 #                Ripper::EXPR_ENDARG
@@ -2937,10 +3727,10 @@
 #                Ripper::Lexer::EXPR_END_ANY
 #                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::Lexer::EXPR_END_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
+# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_ARG_ANY
 #                Ripper::Lexer::EXPR_BEG_ANY
-#                Ripper::EXPR_END_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_BEG_ANY
 #                Ripper::Lexer::EXPR_ENDFN
 #                Ripper::EXPR_ENDFN
@@ -2949,12 +3739,12 @@
 # uninitialized constant Ripper::Lexer::EXPR_FITEM
 # Did you mean?  Ripper::EXPR_FITEM
 # uninitialized constant Ripper::Lexer::EXPR_FNAME
-# Did you mean?  Ripper::EXPR_NONE
-#                Ripper::Lexer::EXPR_NONE
+# Did you mean?  Ripper::Lexer::EXPR_NONE
+#                Ripper::EXPR_NONE
 #                Ripper::EXPR_FNAME
 # uninitialized constant Ripper::Lexer::EXPR_LABEL
-# Did you mean?  Ripper::Lexer::EXPR_BEG
-#                Ripper::EXPR_BEG
+# Did you mean?  Ripper::EXPR_BEG
+#                Ripper::Lexer::EXPR_BEG
 #                Ripper::EXPR_LABEL
 #                Ripper::Lexer::EXPR_LABELED
 #                Ripper::EXPR_LABELED
@@ -2966,10 +3756,10 @@
 #                Ripper::EXPR_MID
 #                Ripper::EXPR_END
 # uninitialized constant Ripper::Lexer::EXPR_NONE
-# Did you mean?  Ripper::EXPR_DOT
+# Did you mean?  Ripper::Lexer::EXPR_DOT
 #                Ripper::Lexer::EXPR_END
+#                Ripper::EXPR_DOT
 #                Ripper::EXPR_END
-#                Ripper::Lexer::EXPR_DOT
 #                Ripper::EXPR_NONE
 #                Ripper::Lexer::EXPR_FNAME
 #                Ripper::EXPR_FNAME
@@ -2987,12 +3777,16 @@
 # wrong constant name <Class:State>
 # uninitialized constant Ripper::Lexer::Version
 # Did you mean?  Ripper::Version
+# wrong constant name errors
 # wrong constant name lex
+# wrong constant name scan
 # wrong constant name tokenize
 # uninitialized constant Ripper::Lexer::Elem::Elem
 # wrong constant name event
 # wrong constant name event=
 # wrong constant name initialize
+# wrong constant name message
+# wrong constant name message=
 # wrong constant name pos
 # wrong constant name pos=
 # wrong constant name state
@@ -3023,31 +3817,31 @@
 # Did you mean?  Ripper::EVENTS
 # uninitialized constant Ripper::SexpBuilder::EXPR_ARG
 # Did you mean?  Ripper::EXPR_BEG
-#                Ripper::SexpBuilder::EXPR_BEG
 #                Ripper::EXPR_ARG
+#                Ripper::SexpBuilder::EXPR_BEG
 # uninitialized constant Ripper::SexpBuilder::EXPR_ARG_ANY
-# Did you mean?  Ripper::SexpBuilder::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
+# Did you mean?  Ripper::SexpBuilder::EXPR_BEG_ANY
 #                Ripper::EXPR_END_ANY
+#                Ripper::EXPR_BEG_ANY
+#                Ripper::SexpBuilder::EXPR_END_ANY
 #                Ripper::EXPR_ARG_ANY
-#                Ripper::SexpBuilder::EXPR_BEG_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_BEG
-# Did you mean?  Ripper::EXPR_BEG
-#                Ripper::SexpBuilder::EXPR_ARG
+# Did you mean?  Ripper::SexpBuilder::EXPR_ARG
+#                Ripper::EXPR_BEG
 #                Ripper::EXPR_ARG
 # uninitialized constant Ripper::SexpBuilder::EXPR_BEG_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
+# Did you mean?  Ripper::EXPR_BEG_ANY
 #                Ripper::SexpBuilder::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_ARG_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_CLASS
 # Did you mean?  Ripper::EXPR_CLASS
 # uninitialized constant Ripper::SexpBuilder::EXPR_CMDARG
 # Did you mean?  Ripper::SexpBuilder::EXPR_ARG
 #                Ripper::EXPR_ARG
-#                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::EXPR_CMDARG
+#                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::SexpBuilder::EXPR_DOT
 # Did you mean?  Ripper::EXPR_DOT
@@ -3059,10 +3853,10 @@
 #                Ripper::EXPR_ENDFN
 # uninitialized constant Ripper::SexpBuilder::EXPR_ENDARG
 # Did you mean?  Ripper::SexpBuilder::EXPR_ARG
-#                Ripper::EXPR_END
 #                Ripper::EXPR_ARG
-#                Ripper::SexpBuilder::EXPR_ENDFN
+#                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
+#                Ripper::SexpBuilder::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_CMDARG
 #                Ripper::EXPR_CMDARG
 #                Ripper::EXPR_ENDARG
@@ -3076,10 +3870,10 @@
 #                Ripper::SexpBuilder::EXPR_END_ANY
 #                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_END_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
+# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_ARG_ANY
 #                Ripper::SexpBuilder::EXPR_BEG_ANY
-#                Ripper::EXPR_END_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_BEG_ANY
 #                Ripper::SexpBuilder::EXPR_ENDFN
 #                Ripper::EXPR_ENDFN
@@ -3088,12 +3882,12 @@
 # uninitialized constant Ripper::SexpBuilder::EXPR_FITEM
 # Did you mean?  Ripper::EXPR_FITEM
 # uninitialized constant Ripper::SexpBuilder::EXPR_FNAME
-# Did you mean?  Ripper::EXPR_NONE
-#                Ripper::SexpBuilder::EXPR_NONE
+# Did you mean?  Ripper::SexpBuilder::EXPR_NONE
+#                Ripper::EXPR_NONE
 #                Ripper::EXPR_FNAME
 # uninitialized constant Ripper::SexpBuilder::EXPR_LABEL
-# Did you mean?  Ripper::SexpBuilder::EXPR_BEG
-#                Ripper::EXPR_BEG
+# Did you mean?  Ripper::EXPR_BEG
+#                Ripper::SexpBuilder::EXPR_BEG
 #                Ripper::EXPR_LABEL
 #                Ripper::SexpBuilder::EXPR_LABELED
 #                Ripper::EXPR_LABELED
@@ -3105,10 +3899,10 @@
 #                Ripper::EXPR_MID
 #                Ripper::EXPR_END
 # uninitialized constant Ripper::SexpBuilder::EXPR_NONE
-# Did you mean?  Ripper::EXPR_DOT
+# Did you mean?  Ripper::SexpBuilder::EXPR_DOT
 #                Ripper::SexpBuilder::EXPR_END
+#                Ripper::EXPR_DOT
 #                Ripper::EXPR_END
-#                Ripper::SexpBuilder::EXPR_DOT
 #                Ripper::EXPR_NONE
 #                Ripper::SexpBuilder::EXPR_FNAME
 #                Ripper::EXPR_FNAME
@@ -3137,8 +3931,10 @@
 # wrong constant name on_args_add
 # wrong constant name on_args_add_block
 # wrong constant name on_args_add_star
+# wrong constant name on_args_forward
 # wrong constant name on_args_new
 # wrong constant name on_array
+# wrong constant name on_aryptn
 # wrong constant name on_assign
 # wrong constant name on_assign_error
 # wrong constant name on_assoc_new
@@ -3192,6 +3988,7 @@
 # wrong constant name on_hash
 # wrong constant name on_heredoc_beg
 # wrong constant name on_heredoc_end
+# wrong constant name on_hshptn
 # wrong constant name on_ident
 # wrong constant name on_if
 # wrong constant name on_if_mod
@@ -3199,6 +3996,7 @@
 # wrong constant name on_ignored_nl
 # wrong constant name on_ignored_sp
 # wrong constant name on_imaginary
+# wrong constant name on_in
 # wrong constant name on_int
 # wrong constant name on_ivar
 # wrong constant name on_kw
@@ -3225,6 +4023,7 @@
 # wrong constant name on_mrhs_new_from_args
 # wrong constant name on_next
 # wrong constant name on_nl
+# wrong constant name on_nokw_param
 # wrong constant name on_op
 # wrong constant name on_opassign
 # wrong constant name on_operator_ambiguous
@@ -3312,31 +4111,31 @@
 # Did you mean?  Ripper::EVENTS
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_ARG
 # Did you mean?  Ripper::EXPR_BEG
-#                Ripper::SexpBuilderPP::EXPR_BEG
 #                Ripper::EXPR_ARG
+#                Ripper::SexpBuilderPP::EXPR_BEG
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_ARG_ANY
-# Did you mean?  Ripper::SexpBuilderPP::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
+# Did you mean?  Ripper::SexpBuilderPP::EXPR_BEG_ANY
 #                Ripper::EXPR_END_ANY
+#                Ripper::EXPR_BEG_ANY
+#                Ripper::SexpBuilderPP::EXPR_END_ANY
 #                Ripper::EXPR_ARG_ANY
-#                Ripper::SexpBuilderPP::EXPR_BEG_ANY
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_BEG
-# Did you mean?  Ripper::EXPR_BEG
-#                Ripper::SexpBuilderPP::EXPR_ARG
+# Did you mean?  Ripper::SexpBuilderPP::EXPR_ARG
+#                Ripper::EXPR_BEG
 #                Ripper::EXPR_ARG
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_BEG_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
+# Did you mean?  Ripper::EXPR_BEG_ANY
 #                Ripper::SexpBuilderPP::EXPR_END_ANY
 #                Ripper::SexpBuilderPP::EXPR_ARG_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_CLASS
 # Did you mean?  Ripper::EXPR_CLASS
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_CMDARG
 # Did you mean?  Ripper::SexpBuilderPP::EXPR_ARG
 #                Ripper::EXPR_ARG
-#                Ripper::SexpBuilderPP::EXPR_ENDARG
 #                Ripper::EXPR_CMDARG
+#                Ripper::SexpBuilderPP::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_DOT
 # Did you mean?  Ripper::EXPR_DOT
@@ -3348,10 +4147,10 @@
 #                Ripper::EXPR_ENDFN
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_ENDARG
 # Did you mean?  Ripper::SexpBuilderPP::EXPR_ARG
-#                Ripper::EXPR_END
 #                Ripper::EXPR_ARG
-#                Ripper::SexpBuilderPP::EXPR_ENDFN
+#                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
+#                Ripper::SexpBuilderPP::EXPR_ENDFN
 #                Ripper::SexpBuilderPP::EXPR_CMDARG
 #                Ripper::EXPR_CMDARG
 #                Ripper::EXPR_ENDARG
@@ -3365,10 +4164,10 @@
 #                Ripper::SexpBuilderPP::EXPR_END_ANY
 #                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_END_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
+# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilderPP::EXPR_ARG_ANY
 #                Ripper::SexpBuilderPP::EXPR_BEG_ANY
-#                Ripper::EXPR_END_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_BEG_ANY
 #                Ripper::SexpBuilderPP::EXPR_ENDFN
 #                Ripper::EXPR_ENDFN
@@ -3377,12 +4176,12 @@
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_FITEM
 # Did you mean?  Ripper::EXPR_FITEM
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_FNAME
-# Did you mean?  Ripper::EXPR_NONE
-#                Ripper::SexpBuilderPP::EXPR_NONE
+# Did you mean?  Ripper::SexpBuilderPP::EXPR_NONE
+#                Ripper::EXPR_NONE
 #                Ripper::EXPR_FNAME
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_LABEL
-# Did you mean?  Ripper::SexpBuilderPP::EXPR_BEG
-#                Ripper::EXPR_BEG
+# Did you mean?  Ripper::EXPR_BEG
+#                Ripper::SexpBuilderPP::EXPR_BEG
 #                Ripper::EXPR_LABEL
 #                Ripper::SexpBuilderPP::EXPR_LABELED
 #                Ripper::EXPR_LABELED
@@ -3394,10 +4193,10 @@
 #                Ripper::EXPR_MID
 #                Ripper::EXPR_END
 # uninitialized constant Ripper::SexpBuilderPP::EXPR_NONE
-# Did you mean?  Ripper::EXPR_DOT
+# Did you mean?  Ripper::SexpBuilderPP::EXPR_DOT
 #                Ripper::SexpBuilderPP::EXPR_END
+#                Ripper::EXPR_DOT
 #                Ripper::EXPR_END
-#                Ripper::SexpBuilderPP::EXPR_DOT
 #                Ripper::EXPR_NONE
 #                Ripper::SexpBuilderPP::EXPR_FNAME
 #                Ripper::EXPR_FNAME
@@ -3432,6 +4231,10 @@
 # wrong constant name dedent_string
 # wrong constant name lex_state_name
 # wrong constant name token_match
+# wrong constant name deconstruct
+# wrong constant name filter_map
+# wrong constant name intersection
+# wrong constant name tally
 # uninitialized constant RuboCop::AST::DstrNode::ARGUMENT_TYPES
 # uninitialized constant RuboCop::AST::DstrNode::ASSIGNMENTS
 # uninitialized constant RuboCop::AST::DstrNode::BASIC_CONDITIONALS
@@ -3569,79 +4372,79 @@
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
-# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
-# Did you mean?  RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
@@ -3650,15 +4453,15 @@
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
@@ -3667,8 +4470,8 @@
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
@@ -3677,10 +4480,10 @@
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Type
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_YY_Parse_Method
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_YY_Parse_Method
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_arg
@@ -3722,6 +4525,11 @@
 # uninitialized constant RuboCop::Cop::Bundler::DuplicatedGem::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Bundler::GemComment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::GemComment::NON_PUBLIC_MODIFIERS
+# uninitialized constant RuboCop::Cop::Bundler::GemVersion::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Bundler::GemVersion::RESTRICT_ON_SEND
+# wrong constant name includes_version_specification?
+# wrong constant name on_send
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Bundler::InsecureProtocolSource::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Bundler::InsecureProtocolSource::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::OrderedGems::LITERAL_REGEX
@@ -3732,6 +4540,8 @@
 # uninitialized constant RuboCop::Cop::Corrector::DEPRECATION_WARNING
 # uninitialized constant RuboCop::Cop::Corrector::POLICY_TO_LEVEL
 # uninitialized constant RuboCop::Cop::EndKeywordAlignment::BYTE_ORDER_MARK
+# wrong constant name gem_declaration?
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Gemspec::DateAssignment::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Gemspec::DateAssignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Gemspec::DateAssignment::RESTRICT_ON_SEND
@@ -3950,6 +4760,11 @@
 # uninitialized constant RuboCop::Cop::Layout::RescueEnsureAlignment::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::RescueEnsureAlignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::RescueEnsureAlignment::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Layout::SingleLineBlockChain::BYTE_ORDER_MARK
+# uninitialized constant RuboCop::Cop::Layout::SingleLineBlockChain::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Layout::SingleLineBlockChain::RESTRICT_ON_SEND
+# wrong constant name on_send
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterColon::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterColon::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterMethodName::BYTE_ORDER_MARK
@@ -4064,6 +4879,13 @@
 # wrong constant name kernel?
 # wrong constant name valid_receiver?
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedClassMethods::LITERAL_REGEX
+# wrong constant name <Class:Replacement>
+# wrong constant name correctable?
+# wrong constant name method
+# wrong constant name class_constant
+# wrong constant name initialize
+# wrong constant name method
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedConstants::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedConstants::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedOpenSSLConstant::BYTE_ORDER_MARK
@@ -4494,6 +5316,7 @@
 # uninitialized constant RuboCop::Cop::RSpec::EmptyLineAfterSubject::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::EmptyLineAfterSubject::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::ExampleLength::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::RSpec::ExampleLength::MSG
 # uninitialized constant RuboCop::Cop::RSpec::ExampleLength::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::ExampleWithoutDescription::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::ExampleWithoutDescription::RESTRICT_ON_SEND
@@ -4947,7 +5770,6 @@
 # uninitialized constant RuboCop::Cop::Style::NegatedIfElseCondition::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::NegatedIfElseCondition::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::NegatedIfElseCondition::RESTRICT_ON_SEND
-# uninitialized constant RuboCop::Cop::Style::NegatedIfElseCondition::VISIBILITY_SCOPES
 # uninitialized constant RuboCop::Cop::Style::NestedModifier::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::NestedModifier::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::NestedModifier::RESTRICT_ON_SEND
@@ -5131,6 +5953,13 @@
 # uninitialized constant RuboCop::Cop::Style::TernaryParentheses::SINGLE_SPACE_REGEXP
 # uninitialized constant RuboCop::Cop::Style::TernaryParentheses::SPACE_COMMAND
 # Did you mean?  RuboCop::Cop::Style::TernaryParentheses::NO_SPACE_COMMAND
+# uninitialized constant RuboCop::Cop::Style::TopLevelMethodDefinition::LITERAL_REGEX
+# wrong constant name define_method_block?
+# wrong constant name on_block
+# wrong constant name on_def
+# wrong constant name on_defs
+# wrong constant name on_send
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::SPACE
@@ -5181,6 +6010,12 @@
 # uninitialized constant RuboCop::Cop::Style::ZeroLengthPredicate::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::SurroundingSpace::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::TrailingComma::BYTE_ORDER_MARK
+# wrong constant name <Class:CaseMatch>
+# uninitialized constant RuboCop::Cop::VariableForce::Branch::CaseMatch::Elem
+# wrong constant name else_body?
+# wrong constant name in_pattern?
+# wrong constant name target?
+# wrong constant name <static-init>
 # wrong constant name all_cops?
 # wrong constant name cop_names
 # wrong constant name disabled?
@@ -5196,6 +6031,7 @@
 # uninitialized constant RuboCop::Formatter::ClangStyleFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::FuubarStyleFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::FuubarStyleFormatter::ELLIPSES
+# wrong constant name add_testcase_element_to_testsuite_element
 # uninitialized constant RuboCop::Formatter::PacmanFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::PacmanFormatter::ELLIPSES
 # uninitialized constant RuboCop::Formatter::ProgressFormatter::COLOR_FOR_SEVERITY
@@ -5211,365 +6047,38 @@
 #                RuboCop::MagicComment::TOKEN
 # wrong constant name <Class:Compiler>
 # wrong constant name <Class:Lexer>
-# wrong constant name disable_parallel_when_invalid_combo
+# wrong constant name disable_parallel_when_invalid_option_combo
 # uninitialized constant RuboCop::RSpec::Corrector::MoveNode::BYTE_ORDER_MARK
+# wrong constant name symlink_excluded_or_infinite_loop?
 # uninitialized constant RuboCop::TargetRuby::ToolVersionsFile::RUBY_VERSION_FILENAME
 # Did you mean?  RuboCop::TargetRuby::RubyVersionFile
 # uninitialized constant RuboCop::TargetRuby::ToolVersionsFile::RUBY_VERSION_PATTERN
-# wrong constant name <Class:AlreadyDefinedToken>
-# uninitialized constant RubyLex::EXPR_ARG
-# Did you mean?  RubyLex::EXPR_BEG
-# uninitialized constant RubyLex::EXPR_BEG
-# Did you mean?  RubyLex::EXPR_ARG
-# uninitialized constant RubyLex::EXPR_CLASS
-# uninitialized constant RubyLex::EXPR_DOT
-# uninitialized constant RubyLex::EXPR_END
-# Did you mean?  RubyLex::EXPR_MID
-# uninitialized constant RubyLex::EXPR_FNAME
-# uninitialized constant RubyLex::EXPR_MID
-# Did you mean?  RubyLex::EXPR_END
-# uninitialized constant RubyLex::Fail
-# Did you mean?  File
-# uninitialized constant RubyLex::Raise
-# wrong constant name <Class:SyntaxError>
 # wrong constant name <Class:TerminateLineInput>
-# uninitialized constant RubyLex::TkReading2Token
-# wrong constant name <Class:TkReading2TokenDuplicateError>
-# wrong constant name <Class:TkReading2TokenNoKey>
-# uninitialized constant RubyLex::TkSymbol2Token
-# wrong constant name <Class:TkSymbol2TokenNoKey>
-# uninitialized constant RubyLex::TokenDefinitions
-# wrong constant name char_no
+# wrong constant name check_code_block
+# wrong constant name check_corresponding_token_depth
+# wrong constant name check_newline_depth_difference
+# wrong constant name check_state
+# wrong constant name check_string_literal
 # wrong constant name each_top_level_statement
-# wrong constant name eof?
-# wrong constant name exception_on_syntax_error
-# wrong constant name exception_on_syntax_error=
-# wrong constant name get_readed
-# wrong constant name getc
-# wrong constant name getc_of_rests
-# wrong constant name gets
-# wrong constant name identify_comment
-# wrong constant name identify_gvar
-# wrong constant name identify_here_document
-# wrong constant name identify_identifier
-# wrong constant name identify_number
-# wrong constant name identify_quotation
-# wrong constant name identify_string
-# wrong constant name identify_string_dvar
-# wrong constant name indent
 # wrong constant name initialize_input
 # wrong constant name lex
-# wrong constant name lex_init
-# wrong constant name lex_int2
-# wrong constant name line_no
-# wrong constant name peek
-# wrong constant name peek_equal?
-# wrong constant name peek_match?
+# wrong constant name process_continue
+# wrong constant name process_literal_type
+# wrong constant name process_nesting_level
 # wrong constant name prompt
-# wrong constant name read_escape
-# wrong constant name readed_auto_clean_up
-# wrong constant name readed_auto_clean_up=
-# wrong constant name seek
+# wrong constant name ripper_lex_without_warning
+# wrong constant name set_auto_indent
 # wrong constant name set_input
 # wrong constant name set_prompt
-# wrong constant name skip_space
-# wrong constant name skip_space=
-# wrong constant name token
-# wrong constant name ungetc
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name debug?
-# wrong constant name debug_level
-# wrong constant name debug_level=
-# wrong constant name included
-# wrong constant name <Class:TkALIAS>
-# wrong constant name <Class:TkAMPER>
-# wrong constant name <Class:TkAND>
-# wrong constant name <Class:TkANDOP>
-# wrong constant name <Class:TkAREF>
-# wrong constant name <Class:TkASET>
-# wrong constant name <Class:TkASSIGN>
-# wrong constant name <Class:TkASSOC>
-# wrong constant name <Class:TkAT>
-# wrong constant name <Class:TkBACKQUOTE>
-# wrong constant name <Class:TkBACKSLASH>
-# wrong constant name <Class:TkBACK_REF>
-# wrong constant name <Class:TkBEGIN>
-# wrong constant name <Class:TkBITAND>
-# wrong constant name <Class:TkBITNOT>
-# wrong constant name <Class:TkBITOR>
-# wrong constant name <Class:TkBITXOR>
-# wrong constant name <Class:TkBREAK>
-# wrong constant name <Class:TkCASE>
-# wrong constant name <Class:TkCLASS>
-# wrong constant name <Class:TkCMP>
-# wrong constant name <Class:TkCOLON>
-# wrong constant name <Class:TkCOLON2>
-# wrong constant name <Class:TkCOLON3>
-# wrong constant name <Class:TkCOMMA>
-# wrong constant name <Class:TkCOMMENT>
-# wrong constant name <Class:TkCONSTANT>
-# wrong constant name <Class:TkCVAR>
-# wrong constant name <Class:TkDEF>
-# wrong constant name <Class:TkDEFINED>
-# wrong constant name <Class:TkDIV>
-# wrong constant name <Class:TkDO>
-# wrong constant name <Class:TkDOLLAR>
-# wrong constant name <Class:TkDOT>
-# wrong constant name <Class:TkDOT2>
-# wrong constant name <Class:TkDOT3>
-# wrong constant name <Class:TkDREGEXP>
-# wrong constant name <Class:TkDSTRING>
-# wrong constant name <Class:TkDXSTRING>
-# wrong constant name <Class:TkELSE>
-# wrong constant name <Class:TkELSIF>
-# wrong constant name <Class:TkEND>
-# wrong constant name <Class:TkEND_OF_SCRIPT>
-# wrong constant name <Class:TkENSURE>
-# wrong constant name <Class:TkEQ>
-# wrong constant name <Class:TkEQQ>
-# wrong constant name <Class:TkError>
-# wrong constant name <Class:TkFALSE>
-# wrong constant name <Class:TkFID>
-# wrong constant name <Class:TkFLOAT>
-# wrong constant name <Class:TkFOR>
-# wrong constant name <Class:TkGEQ>
-# wrong constant name <Class:TkGT>
-# wrong constant name <Class:TkGVAR>
-# wrong constant name <Class:TkIDENTIFIER>
-# wrong constant name <Class:TkIF>
-# wrong constant name <Class:TkIF_MOD>
-# wrong constant name <Class:TkIN>
-# wrong constant name <Class:TkINTEGER>
-# wrong constant name <Class:TkIVAR>
-# wrong constant name <Class:TkId>
-# wrong constant name <Class:TkLBRACE>
-# wrong constant name <Class:TkLBRACK>
-# wrong constant name <Class:TkLEQ>
-# wrong constant name <Class:TkLPAREN>
-# wrong constant name <Class:TkLSHFT>
-# wrong constant name <Class:TkLT>
-# wrong constant name <Class:TkMATCH>
-# wrong constant name <Class:TkMINUS>
-# wrong constant name <Class:TkMOD>
-# wrong constant name <Class:TkMODULE>
-# wrong constant name <Class:TkMULT>
-# wrong constant name <Class:TkNEQ>
-# wrong constant name <Class:TkNEXT>
-# wrong constant name <Class:TkNIL>
-# wrong constant name <Class:TkNL>
-# wrong constant name <Class:TkNMATCH>
-# wrong constant name <Class:TkNOT>
-# wrong constant name <Class:TkNOTOP>
-# wrong constant name <Class:TkNTH_REF>
-# wrong constant name <Class:TkNode>
-# wrong constant name <Class:TkOPASGN>
-# wrong constant name <Class:TkOR>
-# wrong constant name <Class:TkOROP>
-# wrong constant name <Class:TkOp>
-# wrong constant name <Class:TkPLUS>
-# wrong constant name <Class:TkPOW>
-# wrong constant name <Class:TkQUESTION>
-# wrong constant name <Class:TkRBRACE>
-# wrong constant name <Class:TkRBRACK>
-# wrong constant name <Class:TkRD_COMMENT>
-# wrong constant name <Class:TkREDO>
-# wrong constant name <Class:TkREGEXP>
-# wrong constant name <Class:TkRESCUE>
-# wrong constant name <Class:TkRETRY>
-# wrong constant name <Class:TkRETURN>
-# wrong constant name <Class:TkRPAREN>
-# wrong constant name <Class:TkRSHFT>
-# wrong constant name <Class:TkSELF>
-# wrong constant name <Class:TkSEMICOLON>
-# wrong constant name <Class:TkSPACE>
-# wrong constant name <Class:TkSTAR>
-# wrong constant name <Class:TkSTRING>
-# wrong constant name <Class:TkSUPER>
-# wrong constant name <Class:TkSYMBEG>
-# wrong constant name <Class:TkSYMBOL>
-# wrong constant name <Class:TkTHEN>
-# wrong constant name <Class:TkTRUE>
-# wrong constant name <Class:TkUMINUS>
-# wrong constant name <Class:TkUNDEF>
-# wrong constant name <Class:TkUNLESS>
-# wrong constant name <Class:TkUNLESS_MOD>
-# wrong constant name <Class:TkUNTIL>
-# wrong constant name <Class:TkUNTIL_MOD>
-# wrong constant name <Class:TkUPLUS>
-# wrong constant name <Class:TkUnknownChar>
-# wrong constant name <Class:TkVal>
-# wrong constant name <Class:TkWHEN>
-# wrong constant name <Class:TkWHILE>
-# wrong constant name <Class:TkWHILE_MOD>
-# wrong constant name <Class:TkXSTRING>
-# wrong constant name <Class:TkYIELD>
-# wrong constant name <Class:Tk__FILE__>
-# wrong constant name <Class:Tk__LINE__>
-# wrong constant name <Class:TkfLBRACE>
-# wrong constant name <Class:TkfLBRACK>
-# wrong constant name <Class:TkfLPAREN>
-# wrong constant name <Class:TklBEGIN>
-# wrong constant name <Class:TklEND>
-# wrong constant name <Class:Token>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
 # wrong constant name initialize
-# wrong constant name name
 # wrong constant name <static-init>
 # wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name node
-# wrong constant name <static-init>
-# wrong constant name initialize
-# wrong constant name op
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name name
-# wrong constant name name=
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name initialize
-# wrong constant name name
-# wrong constant name <static-init>
-# wrong constant name initialize
-# wrong constant name value
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name char_no
-# wrong constant name initialize
-# wrong constant name line_no
-# wrong constant name seek
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name def_token
+# wrong constant name compile_with_errors_suppressed
 # wrong constant name pretty_print_children
 # wrong constant name <static-init>
 # wrong constant name enabled?
 # wrong constant name pause
 # wrong constant name resume
-# wrong constant name resolve_feature_path
 # uninitialized constant SDBM
 # uninitialized constant SDBM
 # uninitialized constant SDBMError
@@ -5648,9 +6157,46 @@
 # wrong constant name setup
 # wrong constant name shellescape
 # wrong constant name shellsplit
+# wrong constant name set_encoding_by_bom
 # wrong constant name bol?
+# wrong constant name fixed_anchor?
 # wrong constant name initialize
+# wrong constant name <Class:CompletionJourneyData>
+# wrong constant name <Class:Key>
+# wrong constant name <Class:MenuInfo>
+# wrong constant name deconstruct
+# wrong constant name deconstruct_keys
 # wrong constant name filter
+# uninitialized constant Struct::CompletionJourneyData::Elem
+# wrong constant name list
+# wrong constant name list=
+# wrong constant name pointer
+# wrong constant name pointer=
+# wrong constant name postposing
+# wrong constant name postposing=
+# wrong constant name preposing
+# wrong constant name preposing=
+# wrong constant name <static-init>
+# wrong constant name []
+# wrong constant name members
+# uninitialized constant Struct::Key::Elem
+# wrong constant name char
+# wrong constant name char=
+# wrong constant name combined_char
+# wrong constant name combined_char=
+# wrong constant name with_meta
+# wrong constant name with_meta=
+# wrong constant name <static-init>
+# wrong constant name []
+# wrong constant name members
+# uninitialized constant Struct::MenuInfo::Elem
+# wrong constant name list
+# wrong constant name list=
+# wrong constant name target
+# wrong constant name target=
+# wrong constant name <static-init>
+# wrong constant name []
+# wrong constant name members
 # wrong constant name <Class:Struct>
 # uninitialized constant Sync
 # uninitialized constant Sync
@@ -5667,12 +6213,23 @@
 # wrong constant name call
 # wrong constant name initialize
 # wrong constant name <static-init>
+# uninitialized constant Thor::RakeCompat::DEFAULT
+# uninitialized constant Thor::RakeCompat::LN_SUPPORTED
+# uninitialized constant Thor::RakeCompat::LOW_METHODS
+# Did you mean?  Thor::RakeCompat::LowMethods
+# uninitialized constant Thor::RakeCompat::METHODS
+# Did you mean?  Method
+# uninitialized constant Thor::RakeCompat::OPT_TABLE
+# uninitialized constant Thor::RakeCompat::RUBY
+# uninitialized constant Thor::RakeCompat::VERSION
+# uninitialized constant Thor::Shell::Color::DEFAULT_TERMINAL_WIDTH
+# wrong constant name are_colors_supported?
 # uninitialized constant ThreadsWait
 # uninitialized constant ThreadsWait
-# wrong constant name __enable
 # wrong constant name eval_script
 # wrong constant name instruction_sequence
 # wrong constant name parameters
+# wrong constant name new
 # uninitialized constant Tracer
 # Did you mean?  TracePoint
 # uninitialized constant Tracer
@@ -5770,6 +6327,7 @@
 # wrong constant name split
 # wrong constant name make_components_hash
 # wrong constant name get_encoding
+# wrong constant name open
 # wrong constant name <static-init>
 # uninitialized constant Vector
 # uninitialized constant Vector
@@ -5858,7 +6416,6 @@
 # wrong constant name run
 # wrong constant name <static-init>
 # wrong constant name <Class:ClassVariableObject>
-# wrong constant name <Class:ConstantObject>
 # wrong constant name <Class:ExtendedMethodObject>
 # wrong constant name <Class:ExtraFileObject>
 # wrong constant name <Class:MacroObject>
@@ -5877,7 +6434,6 @@
 # wrong constant name <static-init>
 # wrong constant name value
 # wrong constant name value=
-# wrong constant name <static-init>
 # wrong constant name initialize
 # wrong constant name method_missing
 # wrong constant name scope
@@ -5971,14 +6527,14 @@
 # uninitialized constant YARD::Handlers::C::AliasHandler::CSEP
 # Did you mean?  YARD::Handlers::C::AliasHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::AliasHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::AliasHandler::ISEPQ
-#                YARD::Handlers::C::AliasHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::AliasHandler::NSEPQ
+#                YARD::Handlers::C::AliasHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::AliasHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::AliasHandler::ISEP
 # Did you mean?  YARD::Handlers::C::AliasHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::AliasHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::AliasHandler::CSEPQ
-#                YARD::Handlers::C::AliasHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::AliasHandler::NSEPQ
+#                YARD::Handlers::C::AliasHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::AliasHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::AliasHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::AliasHandler::METHODMATCH
@@ -6002,14 +6558,14 @@
 # uninitialized constant YARD::Handlers::C::AttributeHandler::CSEP
 # Did you mean?  YARD::Handlers::C::AttributeHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::AttributeHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::AttributeHandler::ISEPQ
-#                YARD::Handlers::C::AttributeHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::AttributeHandler::NSEPQ
+#                YARD::Handlers::C::AttributeHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::AttributeHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::AttributeHandler::ISEP
 # Did you mean?  YARD::Handlers::C::AttributeHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::AttributeHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::AttributeHandler::CSEPQ
-#                YARD::Handlers::C::AttributeHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::AttributeHandler::NSEPQ
+#                YARD::Handlers::C::AttributeHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::AttributeHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::AttributeHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::AttributeHandler::METHODMATCH
@@ -6033,13 +6589,13 @@
 # uninitialized constant YARD::Handlers::C::Base::CSEP
 # Did you mean?  YARD::Handlers::C::Base::CSEPQ
 # uninitialized constant YARD::Handlers::C::Base::CSEPQ
-# Did you mean?  YARD::Handlers::C::Base::ISEPQ
-#                YARD::Handlers::C::Base::NSEPQ
+# Did you mean?  YARD::Handlers::C::Base::NSEPQ
+#                YARD::Handlers::C::Base::ISEPQ
 # uninitialized constant YARD::Handlers::C::Base::ISEP
 # Did you mean?  YARD::Handlers::C::Base::ISEPQ
 # uninitialized constant YARD::Handlers::C::Base::ISEPQ
-# Did you mean?  YARD::Handlers::C::Base::CSEPQ
-#                YARD::Handlers::C::Base::NSEPQ
+# Did you mean?  YARD::Handlers::C::Base::NSEPQ
+#                YARD::Handlers::C::Base::CSEPQ
 # uninitialized constant YARD::Handlers::C::Base::METHODMATCH
 # uninitialized constant YARD::Handlers::C::Base::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::Base::METHODMATCH
@@ -6073,14 +6629,14 @@
 # uninitialized constant YARD::Handlers::C::ClassHandler::CSEP
 # Did you mean?  YARD::Handlers::C::ClassHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::ClassHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::ClassHandler::ISEPQ
-#                YARD::Handlers::C::ClassHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::ClassHandler::NSEPQ
+#                YARD::Handlers::C::ClassHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::ClassHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::ClassHandler::ISEP
 # Did you mean?  YARD::Handlers::C::ClassHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::ClassHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::ClassHandler::CSEPQ
-#                YARD::Handlers::C::ClassHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::ClassHandler::NSEPQ
+#                YARD::Handlers::C::ClassHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::ClassHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::ClassHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::ClassHandler::METHODMATCH
@@ -6104,14 +6660,14 @@
 # uninitialized constant YARD::Handlers::C::ConstantHandler::CSEP
 # Did you mean?  YARD::Handlers::C::ConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::ConstantHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::ConstantHandler::ISEPQ
-#                YARD::Handlers::C::ConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::ConstantHandler::NSEPQ
+#                YARD::Handlers::C::ConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::ConstantHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::ConstantHandler::ISEP
 # Did you mean?  YARD::Handlers::C::ConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::ConstantHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::ConstantHandler::CSEPQ
-#                YARD::Handlers::C::ConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::ConstantHandler::NSEPQ
+#                YARD::Handlers::C::ConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::ConstantHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::ConstantHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::ConstantHandler::METHODMATCH
@@ -6135,13 +6691,13 @@
 # uninitialized constant YARD::Handlers::C::HandlerMethods::CSEP
 # Did you mean?  YARD::Handlers::C::HandlerMethods::CSEPQ
 # uninitialized constant YARD::Handlers::C::HandlerMethods::CSEPQ
-# Did you mean?  YARD::Handlers::C::HandlerMethods::ISEPQ
-#                YARD::Handlers::C::HandlerMethods::NSEPQ
+# Did you mean?  YARD::Handlers::C::HandlerMethods::NSEPQ
+#                YARD::Handlers::C::HandlerMethods::ISEPQ
 # uninitialized constant YARD::Handlers::C::HandlerMethods::ISEP
 # Did you mean?  YARD::Handlers::C::HandlerMethods::ISEPQ
 # uninitialized constant YARD::Handlers::C::HandlerMethods::ISEPQ
-# Did you mean?  YARD::Handlers::C::HandlerMethods::CSEPQ
-#                YARD::Handlers::C::HandlerMethods::NSEPQ
+# Did you mean?  YARD::Handlers::C::HandlerMethods::NSEPQ
+#                YARD::Handlers::C::HandlerMethods::CSEPQ
 # uninitialized constant YARD::Handlers::C::HandlerMethods::METHODMATCH
 # uninitialized constant YARD::Handlers::C::HandlerMethods::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::HandlerMethods::METHODMATCH
@@ -6171,14 +6727,14 @@
 # uninitialized constant YARD::Handlers::C::InitHandler::CSEP
 # Did you mean?  YARD::Handlers::C::InitHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::InitHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::InitHandler::ISEPQ
-#                YARD::Handlers::C::InitHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::InitHandler::NSEPQ
+#                YARD::Handlers::C::InitHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::InitHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::InitHandler::ISEP
 # Did you mean?  YARD::Handlers::C::InitHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::InitHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::InitHandler::CSEPQ
-#                YARD::Handlers::C::InitHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::InitHandler::NSEPQ
+#                YARD::Handlers::C::InitHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::InitHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::InitHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::InitHandler::METHODMATCH
@@ -6202,14 +6758,14 @@
 # uninitialized constant YARD::Handlers::C::MethodHandler::CSEP
 # Did you mean?  YARD::Handlers::C::MethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::MethodHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::MethodHandler::ISEPQ
-#                YARD::Handlers::C::MethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::MethodHandler::NSEPQ
+#                YARD::Handlers::C::MethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::MethodHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::MethodHandler::ISEP
 # Did you mean?  YARD::Handlers::C::MethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::MethodHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::MethodHandler::CSEPQ
-#                YARD::Handlers::C::MethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::MethodHandler::NSEPQ
+#                YARD::Handlers::C::MethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::MethodHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::MethodHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::MethodHandler::METHODMATCH
@@ -6233,14 +6789,14 @@
 # uninitialized constant YARD::Handlers::C::MixinHandler::CSEP
 # Did you mean?  YARD::Handlers::C::MixinHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::MixinHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::MixinHandler::ISEPQ
-#                YARD::Handlers::C::MixinHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::MixinHandler::NSEPQ
+#                YARD::Handlers::C::MixinHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::MixinHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::MixinHandler::ISEP
 # Did you mean?  YARD::Handlers::C::MixinHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::MixinHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::MixinHandler::CSEPQ
-#                YARD::Handlers::C::MixinHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::MixinHandler::NSEPQ
+#                YARD::Handlers::C::MixinHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::MixinHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::MixinHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::MixinHandler::METHODMATCH
@@ -6264,14 +6820,14 @@
 # uninitialized constant YARD::Handlers::C::ModuleHandler::CSEP
 # Did you mean?  YARD::Handlers::C::ModuleHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::ModuleHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::ModuleHandler::ISEPQ
-#                YARD::Handlers::C::ModuleHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::ModuleHandler::NSEPQ
+#                YARD::Handlers::C::ModuleHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::ModuleHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::ModuleHandler::ISEP
 # Did you mean?  YARD::Handlers::C::ModuleHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::ModuleHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::ModuleHandler::CSEPQ
-#                YARD::Handlers::C::ModuleHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::ModuleHandler::NSEPQ
+#                YARD::Handlers::C::ModuleHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::ModuleHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::ModuleHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::ModuleHandler::METHODMATCH
@@ -6295,14 +6851,14 @@
 # uninitialized constant YARD::Handlers::C::OverrideCommentHandler::CSEP
 # Did you mean?  YARD::Handlers::C::OverrideCommentHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::OverrideCommentHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::OverrideCommentHandler::ISEPQ
-#                YARD::Handlers::C::OverrideCommentHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::OverrideCommentHandler::NSEPQ
+#                YARD::Handlers::C::OverrideCommentHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::OverrideCommentHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::OverrideCommentHandler::ISEP
 # Did you mean?  YARD::Handlers::C::OverrideCommentHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::OverrideCommentHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::OverrideCommentHandler::CSEPQ
-#                YARD::Handlers::C::OverrideCommentHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::OverrideCommentHandler::NSEPQ
+#                YARD::Handlers::C::OverrideCommentHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::OverrideCommentHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::OverrideCommentHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::OverrideCommentHandler::METHODMATCH
@@ -6326,14 +6882,14 @@
 # uninitialized constant YARD::Handlers::C::PathHandler::CSEP
 # Did you mean?  YARD::Handlers::C::PathHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::PathHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::PathHandler::ISEPQ
-#                YARD::Handlers::C::PathHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::PathHandler::NSEPQ
+#                YARD::Handlers::C::PathHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::PathHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::PathHandler::ISEP
 # Did you mean?  YARD::Handlers::C::PathHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::PathHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::PathHandler::CSEPQ
-#                YARD::Handlers::C::PathHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::PathHandler::NSEPQ
+#                YARD::Handlers::C::PathHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::PathHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::PathHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::PathHandler::METHODMATCH
@@ -6357,14 +6913,14 @@
 # uninitialized constant YARD::Handlers::C::StructHandler::CSEP
 # Did you mean?  YARD::Handlers::C::StructHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::StructHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::StructHandler::ISEPQ
-#                YARD::Handlers::C::StructHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::StructHandler::NSEPQ
+#                YARD::Handlers::C::StructHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::StructHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::StructHandler::ISEP
 # Did you mean?  YARD::Handlers::C::StructHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::StructHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::StructHandler::CSEPQ
-#                YARD::Handlers::C::StructHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::StructHandler::NSEPQ
+#                YARD::Handlers::C::StructHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::StructHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::StructHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::StructHandler::METHODMATCH
@@ -6388,14 +6944,14 @@
 # uninitialized constant YARD::Handlers::C::SymbolHandler::CSEP
 # Did you mean?  YARD::Handlers::C::SymbolHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::SymbolHandler::CSEPQ
-# Did you mean?  YARD::Handlers::C::SymbolHandler::ISEPQ
-#                YARD::Handlers::C::SymbolHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::SymbolHandler::NSEPQ
+#                YARD::Handlers::C::SymbolHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::SymbolHandler::ERROR_CLASS_NAMES
 # uninitialized constant YARD::Handlers::C::SymbolHandler::ISEP
 # Did you mean?  YARD::Handlers::C::SymbolHandler::ISEPQ
 # uninitialized constant YARD::Handlers::C::SymbolHandler::ISEPQ
-# Did you mean?  YARD::Handlers::C::SymbolHandler::CSEPQ
-#                YARD::Handlers::C::SymbolHandler::NSEPQ
+# Did you mean?  YARD::Handlers::C::SymbolHandler::NSEPQ
+#                YARD::Handlers::C::SymbolHandler::CSEPQ
 # uninitialized constant YARD::Handlers::C::SymbolHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::C::SymbolHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::C::SymbolHandler::METHODMATCH
@@ -6444,13 +7000,13 @@
 # uninitialized constant YARD::Handlers::Ruby::AliasHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::AliasHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::AliasHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::AliasHandler::ISEPQ
-#                YARD::Handlers::Ruby::AliasHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::AliasHandler::NSEPQ
+#                YARD::Handlers::Ruby::AliasHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::AliasHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::AliasHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::AliasHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::AliasHandler::CSEPQ
-#                YARD::Handlers::Ruby::AliasHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::AliasHandler::NSEPQ
+#                YARD::Handlers::Ruby::AliasHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::AliasHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::AliasHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::AliasHandler::METHODMATCH
@@ -6474,13 +7030,13 @@
 # uninitialized constant YARD::Handlers::Ruby::AttributeHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::AttributeHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::AttributeHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::AttributeHandler::ISEPQ
-#                YARD::Handlers::Ruby::AttributeHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::AttributeHandler::NSEPQ
+#                YARD::Handlers::Ruby::AttributeHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::AttributeHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::AttributeHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::AttributeHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::AttributeHandler::CSEPQ
-#                YARD::Handlers::Ruby::AttributeHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::AttributeHandler::NSEPQ
+#                YARD::Handlers::Ruby::AttributeHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::AttributeHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::AttributeHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::AttributeHandler::METHODMATCH
@@ -6493,7 +7049,6 @@
 #                YARD::Handlers::Ruby::AttributeHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::AttributeHandler::PROXY_MATCH
 # wrong constant name validated_attribute_names
-# wrong constant name <static-init>
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::BUILTIN_ALL
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::BUILTIN_CLASSES
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::BUILTIN_EXCEPTIONS
@@ -6505,13 +7060,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ClassConditionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ClassConditionHandler::ISEPQ
-#                YARD::Handlers::Ruby::ClassConditionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ClassConditionHandler::NSEPQ
+#                YARD::Handlers::Ruby::ClassConditionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ClassConditionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ClassConditionHandler::CSEPQ
-#                YARD::Handlers::Ruby::ClassConditionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ClassConditionHandler::NSEPQ
+#                YARD::Handlers::Ruby::ClassConditionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ClassConditionHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ClassConditionHandler::METHODMATCH
@@ -6538,13 +7093,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ClassHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ClassHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ClassHandler::ISEPQ
-#                YARD::Handlers::Ruby::ClassHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ClassHandler::NSEPQ
+#                YARD::Handlers::Ruby::ClassHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ClassHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ClassHandler::CSEPQ
-#                YARD::Handlers::Ruby::ClassHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ClassHandler::NSEPQ
+#                YARD::Handlers::Ruby::ClassHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ClassHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ClassHandler::METHODMATCH
@@ -6567,13 +7122,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ClassVariableHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ClassVariableHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassVariableHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ClassVariableHandler::ISEPQ
-#                YARD::Handlers::Ruby::ClassVariableHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ClassVariableHandler::NSEPQ
+#                YARD::Handlers::Ruby::ClassVariableHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassVariableHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ClassVariableHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassVariableHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ClassVariableHandler::CSEPQ
-#                YARD::Handlers::Ruby::ClassVariableHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ClassVariableHandler::NSEPQ
+#                YARD::Handlers::Ruby::ClassVariableHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ClassVariableHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ClassVariableHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ClassVariableHandler::METHODMATCH
@@ -6597,13 +7152,13 @@
 # uninitialized constant YARD::Handlers::Ruby::CommentHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::CommentHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::CommentHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::CommentHandler::ISEPQ
-#                YARD::Handlers::Ruby::CommentHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::CommentHandler::NSEPQ
+#                YARD::Handlers::Ruby::CommentHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::CommentHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::CommentHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::CommentHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::CommentHandler::CSEPQ
-#                YARD::Handlers::Ruby::CommentHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::CommentHandler::NSEPQ
+#                YARD::Handlers::Ruby::CommentHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::CommentHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::CommentHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::CommentHandler::METHODMATCH
@@ -6627,13 +7182,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ConstantHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ConstantHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ConstantHandler::ISEPQ
-#                YARD::Handlers::Ruby::ConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::ConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ConstantHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ConstantHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ConstantHandler::CSEPQ
-#                YARD::Handlers::Ruby::ConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::ConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ConstantHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ConstantHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ConstantHandler::METHODMATCH
@@ -6657,14 +7212,14 @@
 # uninitialized constant YARD::Handlers::Ruby::DSLHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::DSLHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::DSLHandler::ISEPQ
-#                YARD::Handlers::Ruby::DSLHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::DSLHandler::NSEPQ
+#                YARD::Handlers::Ruby::DSLHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandler::IGNORE_METHODS
 # uninitialized constant YARD::Handlers::Ruby::DSLHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::DSLHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::DSLHandler::CSEPQ
-#                YARD::Handlers::Ruby::DSLHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::DSLHandler::NSEPQ
+#                YARD::Handlers::Ruby::DSLHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::DSLHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::DSLHandler::METHODMATCH
@@ -6688,13 +7243,13 @@
 # uninitialized constant YARD::Handlers::Ruby::DSLHandlerMethods::CSEP
 # Did you mean?  YARD::Handlers::Ruby::DSLHandlerMethods::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandlerMethods::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::DSLHandlerMethods::ISEPQ
-#                YARD::Handlers::Ruby::DSLHandlerMethods::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::DSLHandlerMethods::NSEPQ
+#                YARD::Handlers::Ruby::DSLHandlerMethods::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandlerMethods::ISEP
 # Did you mean?  YARD::Handlers::Ruby::DSLHandlerMethods::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandlerMethods::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::DSLHandlerMethods::CSEPQ
-#                YARD::Handlers::Ruby::DSLHandlerMethods::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::DSLHandlerMethods::NSEPQ
+#                YARD::Handlers::Ruby::DSLHandlerMethods::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::DSLHandlerMethods::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::DSLHandlerMethods::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::DSLHandlerMethods::METHODMATCH
@@ -6722,13 +7277,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ExceptionHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ExceptionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExceptionHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ExceptionHandler::ISEPQ
-#                YARD::Handlers::Ruby::ExceptionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ExceptionHandler::NSEPQ
+#                YARD::Handlers::Ruby::ExceptionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExceptionHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ExceptionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExceptionHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ExceptionHandler::CSEPQ
-#                YARD::Handlers::Ruby::ExceptionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ExceptionHandler::NSEPQ
+#                YARD::Handlers::Ruby::ExceptionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExceptionHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ExceptionHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ExceptionHandler::METHODMATCH
@@ -6752,13 +7307,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ExtendHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ExtendHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExtendHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ExtendHandler::ISEPQ
-#                YARD::Handlers::Ruby::ExtendHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ExtendHandler::NSEPQ
+#                YARD::Handlers::Ruby::ExtendHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExtendHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ExtendHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExtendHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ExtendHandler::CSEPQ
-#                YARD::Handlers::Ruby::ExtendHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ExtendHandler::NSEPQ
+#                YARD::Handlers::Ruby::ExtendHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ExtendHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ExtendHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ExtendHandler::METHODMATCH
@@ -6782,8 +7337,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::AliasHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::AliasHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::EXPR_BEG
@@ -6798,8 +7353,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::AliasHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::AliasHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AliasHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AliasHandler::METHODMATCH
@@ -6827,8 +7382,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::AttributeHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::AttributeHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::EXPR_BEG
@@ -6843,8 +7398,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::AttributeHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::AttributeHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::AttributeHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::AttributeHandler::METHODMATCH
@@ -6872,8 +7427,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::Base::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::Base::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::Base::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::Base::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::Base::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::Base::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::EXPR_BEG
@@ -6888,8 +7443,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::Base::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::Base::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::Base::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::Base::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::Base::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::Base::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::Base::METHODMATCH
@@ -6919,8 +7474,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ClassConditionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ClassConditionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::EXPR_BEG
@@ -6935,8 +7490,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ClassConditionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ClassConditionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassConditionHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassConditionHandler::METHODMATCH
@@ -6967,8 +7522,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ClassHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ClassHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::EXPR_BEG
@@ -6983,8 +7538,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ClassHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ClassHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassHandler::METHODMATCH
@@ -7012,8 +7567,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ClassVariableHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ClassVariableHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::EXPR_BEG
@@ -7028,8 +7583,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ClassVariableHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ClassVariableHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ClassVariableHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ClassVariableHandler::METHODMATCH
@@ -7057,8 +7612,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::CommentHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::CommentHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::EXPR_BEG
@@ -7073,8 +7628,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::CommentHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::CommentHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::CommentHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::CommentHandler::METHODMATCH
@@ -7102,8 +7657,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::EXPR_BEG
@@ -7118,8 +7673,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ConstantHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ConstantHandler::METHODMATCH
@@ -7147,8 +7702,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::DSLHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::DSLHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::EXPR_BEG
@@ -7164,8 +7719,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::DSLHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::DSLHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::DSLHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::DSLHandler::METHODMATCH
@@ -7193,8 +7748,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ExceptionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ExceptionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::EXPR_BEG
@@ -7209,8 +7764,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ExceptionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ExceptionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExceptionHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExceptionHandler::METHODMATCH
@@ -7238,8 +7793,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ExtendHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ExtendHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::EXPR_BEG
@@ -7254,8 +7809,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ExtendHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ExtendHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ExtendHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ExtendHandler::METHODMATCH
@@ -7283,8 +7838,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::MethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::MethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::EXPR_BEG
@@ -7299,8 +7854,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::MethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::MethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MethodHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MethodHandler::METHODMATCH
@@ -7328,8 +7883,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::MixinHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::MixinHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::EXPR_BEG
@@ -7344,8 +7899,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::MixinHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::MixinHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::MixinHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::MixinHandler::METHODMATCH
@@ -7373,8 +7928,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::EXPR_BEG
@@ -7389,8 +7944,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleFunctionHandler::METHODMATCH
@@ -7418,8 +7973,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::ModuleHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ModuleHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::EXPR_BEG
@@ -7434,8 +7989,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::ModuleHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::ModuleHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::ModuleHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::ModuleHandler::METHODMATCH
@@ -7463,8 +8018,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::EXPR_BEG
@@ -7479,8 +8034,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateClassMethodHandler::METHODMATCH
@@ -7508,8 +8063,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::EXPR_BEG
@@ -7524,8 +8079,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::PrivateConstantHandler::METHODMATCH
@@ -7553,8 +8108,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::VisibilityHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::VisibilityHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::EXPR_BEG
@@ -7569,8 +8124,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::VisibilityHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::VisibilityHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::VisibilityHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::VisibilityHandler::METHODMATCH
@@ -7598,8 +8153,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::ISEPQ
-#                YARD::Handlers::Ruby::Legacy::YieldHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::YieldHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::EXPR_ARG
 # Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::EXPR_BEG
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::EXPR_BEG
@@ -7614,8 +8169,8 @@
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::CSEPQ
-#                YARD::Handlers::Ruby::Legacy::YieldHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::NSEPQ
+#                YARD::Handlers::Ruby::Legacy::YieldHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::Legacy::YieldHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::Legacy::YieldHandler::METHODMATCH
@@ -7643,13 +8198,13 @@
 # uninitialized constant YARD::Handlers::Ruby::MethodConditionHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::MethodConditionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodConditionHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::MethodConditionHandler::ISEPQ
-#                YARD::Handlers::Ruby::MethodConditionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::MethodConditionHandler::NSEPQ
+#                YARD::Handlers::Ruby::MethodConditionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodConditionHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::MethodConditionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodConditionHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::MethodConditionHandler::CSEPQ
-#                YARD::Handlers::Ruby::MethodConditionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::MethodConditionHandler::NSEPQ
+#                YARD::Handlers::Ruby::MethodConditionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodConditionHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::MethodConditionHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::MethodConditionHandler::METHODMATCH
@@ -7673,13 +8228,13 @@
 # uninitialized constant YARD::Handlers::Ruby::MethodHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::MethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::MethodHandler::ISEPQ
-#                YARD::Handlers::Ruby::MethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::MethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::MethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::MethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::MethodHandler::CSEPQ
-#                YARD::Handlers::Ruby::MethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::MethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::MethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::MethodHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::MethodHandler::METHODMATCH
@@ -7692,7 +8247,6 @@
 #                YARD::Handlers::Ruby::MethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::MethodHandler::PROXY_MATCH
 # wrong constant name format_args
-# wrong constant name <static-init>
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::BUILTIN_ALL
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::BUILTIN_CLASSES
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::BUILTIN_EXCEPTIONS
@@ -7704,13 +8258,13 @@
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::MixinHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::MixinHandler::ISEPQ
-#                YARD::Handlers::Ruby::MixinHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::MixinHandler::NSEPQ
+#                YARD::Handlers::Ruby::MixinHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::MixinHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::MixinHandler::CSEPQ
-#                YARD::Handlers::Ruby::MixinHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::MixinHandler::NSEPQ
+#                YARD::Handlers::Ruby::MixinHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::MixinHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::MixinHandler::METHODMATCH
@@ -7736,13 +8290,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ModuleFunctionHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ModuleFunctionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleFunctionHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ModuleFunctionHandler::ISEPQ
-#                YARD::Handlers::Ruby::ModuleFunctionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ModuleFunctionHandler::NSEPQ
+#                YARD::Handlers::Ruby::ModuleFunctionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleFunctionHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ModuleFunctionHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleFunctionHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ModuleFunctionHandler::CSEPQ
-#                YARD::Handlers::Ruby::ModuleFunctionHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ModuleFunctionHandler::NSEPQ
+#                YARD::Handlers::Ruby::ModuleFunctionHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleFunctionHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ModuleFunctionHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ModuleFunctionHandler::METHODMATCH
@@ -7766,13 +8320,13 @@
 # uninitialized constant YARD::Handlers::Ruby::ModuleHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::ModuleHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::ModuleHandler::ISEPQ
-#                YARD::Handlers::Ruby::ModuleHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ModuleHandler::NSEPQ
+#                YARD::Handlers::Ruby::ModuleHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::ModuleHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::ModuleHandler::CSEPQ
-#                YARD::Handlers::Ruby::ModuleHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::ModuleHandler::NSEPQ
+#                YARD::Handlers::Ruby::ModuleHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::ModuleHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::ModuleHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::ModuleHandler::METHODMATCH
@@ -7796,13 +8350,13 @@
 # uninitialized constant YARD::Handlers::Ruby::PrivateClassMethodHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::PrivateClassMethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateClassMethodHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::PrivateClassMethodHandler::ISEPQ
-#                YARD::Handlers::Ruby::PrivateClassMethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::PrivateClassMethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::PrivateClassMethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateClassMethodHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::PrivateClassMethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateClassMethodHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::PrivateClassMethodHandler::CSEPQ
-#                YARD::Handlers::Ruby::PrivateClassMethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::PrivateClassMethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::PrivateClassMethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateClassMethodHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::PrivateClassMethodHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::PrivateClassMethodHandler::METHODMATCH
@@ -7826,13 +8380,13 @@
 # uninitialized constant YARD::Handlers::Ruby::PrivateConstantHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::PrivateConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateConstantHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::PrivateConstantHandler::ISEPQ
-#                YARD::Handlers::Ruby::PrivateConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::PrivateConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::PrivateConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateConstantHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::PrivateConstantHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateConstantHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::PrivateConstantHandler::CSEPQ
-#                YARD::Handlers::Ruby::PrivateConstantHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::PrivateConstantHandler::NSEPQ
+#                YARD::Handlers::Ruby::PrivateConstantHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::PrivateConstantHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::PrivateConstantHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::PrivateConstantHandler::METHODMATCH
@@ -7856,13 +8410,13 @@
 # uninitialized constant YARD::Handlers::Ruby::PublicClassMethodHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::PublicClassMethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::PublicClassMethodHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::PublicClassMethodHandler::ISEPQ
-#                YARD::Handlers::Ruby::PublicClassMethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::PublicClassMethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::PublicClassMethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::PublicClassMethodHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::PublicClassMethodHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::PublicClassMethodHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::PublicClassMethodHandler::CSEPQ
-#                YARD::Handlers::Ruby::PublicClassMethodHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::PublicClassMethodHandler::NSEPQ
+#                YARD::Handlers::Ruby::PublicClassMethodHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::PublicClassMethodHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::PublicClassMethodHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::PublicClassMethodHandler::METHODMATCH
@@ -7886,13 +8440,13 @@
 # uninitialized constant YARD::Handlers::Ruby::VisibilityHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::VisibilityHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::VisibilityHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::VisibilityHandler::ISEPQ
-#                YARD::Handlers::Ruby::VisibilityHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::VisibilityHandler::NSEPQ
+#                YARD::Handlers::Ruby::VisibilityHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::VisibilityHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::VisibilityHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::VisibilityHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::VisibilityHandler::CSEPQ
-#                YARD::Handlers::Ruby::VisibilityHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::VisibilityHandler::NSEPQ
+#                YARD::Handlers::Ruby::VisibilityHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::VisibilityHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::VisibilityHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::VisibilityHandler::METHODMATCH
@@ -7916,13 +8470,13 @@
 # uninitialized constant YARD::Handlers::Ruby::YieldHandler::CSEP
 # Did you mean?  YARD::Handlers::Ruby::YieldHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::YieldHandler::CSEPQ
-# Did you mean?  YARD::Handlers::Ruby::YieldHandler::ISEPQ
-#                YARD::Handlers::Ruby::YieldHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::YieldHandler::NSEPQ
+#                YARD::Handlers::Ruby::YieldHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::YieldHandler::ISEP
 # Did you mean?  YARD::Handlers::Ruby::YieldHandler::ISEPQ
 # uninitialized constant YARD::Handlers::Ruby::YieldHandler::ISEPQ
-# Did you mean?  YARD::Handlers::Ruby::YieldHandler::CSEPQ
-#                YARD::Handlers::Ruby::YieldHandler::NSEPQ
+# Did you mean?  YARD::Handlers::Ruby::YieldHandler::NSEPQ
+#                YARD::Handlers::Ruby::YieldHandler::CSEPQ
 # uninitialized constant YARD::Handlers::Ruby::YieldHandler::METHODMATCH
 # uninitialized constant YARD::Handlers::Ruby::YieldHandler::METHODNAMEMATCH
 # Did you mean?  YARD::Handlers::Ruby::YieldHandler::METHODMATCH
@@ -8307,13 +8861,13 @@
 # uninitialized constant YARD::Tags::TypesExplainer::Parser::CSEP
 # Did you mean?  YARD::Tags::TypesExplainer::Parser::CSEPQ
 # uninitialized constant YARD::Tags::TypesExplainer::Parser::CSEPQ
-# Did you mean?  YARD::Tags::TypesExplainer::Parser::ISEPQ
-#                YARD::Tags::TypesExplainer::Parser::NSEPQ
+# Did you mean?  YARD::Tags::TypesExplainer::Parser::NSEPQ
+#                YARD::Tags::TypesExplainer::Parser::ISEPQ
 # uninitialized constant YARD::Tags::TypesExplainer::Parser::ISEP
 # Did you mean?  YARD::Tags::TypesExplainer::Parser::ISEPQ
 # uninitialized constant YARD::Tags::TypesExplainer::Parser::ISEPQ
-# Did you mean?  YARD::Tags::TypesExplainer::Parser::CSEPQ
-#                YARD::Tags::TypesExplainer::Parser::NSEPQ
+# Did you mean?  YARD::Tags::TypesExplainer::Parser::NSEPQ
+#                YARD::Tags::TypesExplainer::Parser::CSEPQ
 # uninitialized constant YARD::Tags::TypesExplainer::Parser::METHODMATCH
 # uninitialized constant YARD::Tags::TypesExplainer::Parser::METHODNAMEMATCH
 # Did you mean?  YARD::Tags::TypesExplainer::Parser::METHODMATCH
@@ -8419,442 +8973,10 @@
 # wrong constant name <static-init>
 # wrong constant name fix_typewriter
 # wrong constant name <static-init>
-# wrong constant name <Class:MARKUP>
 # wrong constant name from_path
 # wrong constant name from_path=
 # wrong constant name initialize
 # wrong constant name to_html
-# wrong constant name <Class:AttrChanger>
-# wrong constant name <Class:AttrSpan>
-# wrong constant name <Class:AttributeManager>
-# wrong constant name <Class:Attributes>
-# wrong constant name <Class:BlankLine>
-# wrong constant name <Class:BlockQuote>
-# wrong constant name <Class:Document>
-# wrong constant name <Class:Formatter>
-# wrong constant name <Class:HardBreak>
-# wrong constant name <Class:Heading>
-# wrong constant name <Class:Include>
-# wrong constant name <Class:IndentedParagraph>
-# wrong constant name <Class:List>
-# wrong constant name <Class:ListItem>
-# wrong constant name <Class:Paragraph>
-# wrong constant name <Class:Parser>
-# wrong constant name <Class:PreProcess>
-# wrong constant name <Class:Raw>
-# wrong constant name <Class:RegexpHandling>
-# wrong constant name <Class:Rule>
-# wrong constant name <Class:ToAnsi>
-# wrong constant name <Class:ToBs>
-# wrong constant name <Class:ToHtml>
-# wrong constant name <Class:ToHtmlCrossref>
-# wrong constant name <Class:ToHtmlSnippet>
-# wrong constant name <Class:ToJoinedParagraph>
-# wrong constant name <Class:ToLabel>
-# wrong constant name <Class:ToMarkdown>
-# wrong constant name <Class:ToRdoc>
-# wrong constant name <Class:ToTableOfContents>
-# wrong constant name <Class:ToTest>
-# wrong constant name <Class:ToTtOnly>
-# wrong constant name <Class:Verbatim>
-# wrong constant name add_html
-# wrong constant name add_regexp_handling
-# wrong constant name add_word_pair
-# wrong constant name attribute_manager
-# wrong constant name convert
-# wrong constant name initialize
-# uninitialized constant RDoc::Markup::AttrChanger::Elem
-# wrong constant name turn_off
-# wrong constant name turn_off=
-# wrong constant name turn_on
-# wrong constant name turn_on=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
-# wrong constant name []
-# wrong constant name initialize
-# wrong constant name set_attrs
-# wrong constant name <static-init>
-# wrong constant name add_html
-# wrong constant name add_regexp_handling
-# wrong constant name add_word_pair
-# wrong constant name attribute
-# wrong constant name attributes
-# wrong constant name change_attribute
-# wrong constant name changed_attribute_by_name
-# wrong constant name convert_attrs
-# wrong constant name convert_html
-# wrong constant name convert_regexp_handlings
-# wrong constant name copy_string
-# wrong constant name display_attributes
-# wrong constant name flow
-# wrong constant name html_tags
-# wrong constant name mask_protected_sequences
-# wrong constant name matching_word_pairs
-# wrong constant name protectable
-# wrong constant name regexp_handlings
-# wrong constant name split_into_flow
-# wrong constant name unmask_protected_sequences
-# wrong constant name word_pair_map
-# wrong constant name <static-init>
-# wrong constant name as_string
-# wrong constant name bitmap_for
-# wrong constant name each_name_of
-# wrong constant name regexp_handling
-# wrong constant name <static-init>
-# wrong constant name accept
-# wrong constant name <static-init>
-# wrong constant name new
-# wrong constant name <static-init>
-# wrong constant name <<
-# wrong constant name ==
-# uninitialized constant RDoc::Markup::Document::Elem
-# wrong constant name accept
-# wrong constant name concat
-# wrong constant name each
-# wrong constant name empty?
-# wrong constant name file
-# wrong constant name file=
-# wrong constant name initialize
-# wrong constant name merge
-# wrong constant name merged?
-# wrong constant name omit_headings_below
-# wrong constant name omit_headings_below=
-# wrong constant name parts
-# wrong constant name push
-# wrong constant name table_of_contents
-# wrong constant name <static-init>
-# wrong constant name <Class:InlineTag>
-# wrong constant name accept_document
-# wrong constant name add_regexp_handling_RDOCLINK
-# wrong constant name add_regexp_handling_TIDYLINK
-# wrong constant name add_tag
-# wrong constant name annotate
-# wrong constant name convert
-# wrong constant name convert_flow
-# wrong constant name convert_regexp_handling
-# wrong constant name convert_string
-# wrong constant name ignore
-# wrong constant name in_tt?
-# wrong constant name initialize
-# wrong constant name off_tags
-# wrong constant name on_tags
-# wrong constant name parse_url
-# wrong constant name tt?
-# uninitialized constant RDoc::Markup::Formatter::InlineTag::Elem
-# wrong constant name bit
-# wrong constant name bit=
-# wrong constant name off
-# wrong constant name off=
-# wrong constant name on
-# wrong constant name on=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
-# wrong constant name <static-init>
-# wrong constant name gen_relative_url
-# wrong constant name ==
-# wrong constant name accept
-# wrong constant name <static-init>
-# wrong constant name new
-# uninitialized constant RDoc::Markup::Heading::Elem
-# wrong constant name accept
-# wrong constant name aref
-# wrong constant name label
-# wrong constant name level
-# wrong constant name level=
-# wrong constant name plain_html
-# wrong constant name text
-# wrong constant name text=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
-# wrong constant name to_html
-# wrong constant name to_label
-# wrong constant name ==
-# wrong constant name file
-# wrong constant name include_path
-# wrong constant name initialize
-# wrong constant name <static-init>
-# wrong constant name indent
-# wrong constant name initialize
-# wrong constant name text
-# wrong constant name <static-init>
-# wrong constant name <<
-# wrong constant name ==
-# wrong constant name accept
-# wrong constant name empty?
-# wrong constant name initialize
-# wrong constant name items
-# wrong constant name last
-# wrong constant name push
-# wrong constant name type
-# wrong constant name type=
-# wrong constant name <static-init>
-# wrong constant name <<
-# wrong constant name ==
-# wrong constant name accept
-# wrong constant name empty?
-# wrong constant name initialize
-# wrong constant name label
-# wrong constant name label=
-# wrong constant name length
-# wrong constant name parts
-# wrong constant name push
-# wrong constant name <static-init>
-# wrong constant name text
-# wrong constant name <static-init>
-# wrong constant name <Class:Error>
-# uninitialized constant RDoc::Markup::Parser::MARKUP_FORMAT
-# wrong constant name <Class:ParseError>
-# uninitialized constant RDoc::Markup::Parser::TO_HTML_CHARACTERS
-# wrong constant name build_heading
-# wrong constant name build_list
-# wrong constant name build_paragraph
-# wrong constant name build_verbatim
-# wrong constant name char_pos
-# wrong constant name debug
-# wrong constant name debug=
-# wrong constant name get
-# wrong constant name parse
-# wrong constant name parse_text
-# wrong constant name peek_token
-# wrong constant name setup_scanner
-# wrong constant name skip
-# wrong constant name token_pos
-# wrong constant name tokenize
-# wrong constant name tokens
-# wrong constant name unget
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name parse
-# wrong constant name tokenize
-# wrong constant name find_include_file
-# wrong constant name handle
-# wrong constant name handle_directive
-# wrong constant name include_file
-# wrong constant name initialize
-# wrong constant name options
-# wrong constant name options=
-# wrong constant name <static-init>
-# wrong constant name post_process
-# wrong constant name post_processors
-# wrong constant name register
-# wrong constant name registered
-# wrong constant name reset
-# wrong constant name <<
-# wrong constant name ==
-# wrong constant name accept
-# wrong constant name initialize
-# wrong constant name merge
-# wrong constant name parts
-# wrong constant name push
-# wrong constant name text
-# wrong constant name <static-init>
-# wrong constant name ==
-# wrong constant name initialize
-# wrong constant name text
-# wrong constant name text=
-# wrong constant name type
-# wrong constant name <static-init>
-# wrong constant name accept
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# uninitialized constant RDoc::Markup::ToHtml::MARKUP_FORMAT
-# uninitialized constant RDoc::Markup::ToHtml::TO_HTML_CHARACTERS
-# wrong constant name accept_blank_line
-# wrong constant name accept_block_quote
-# wrong constant name accept_heading
-# wrong constant name accept_list_end
-# wrong constant name accept_list_item_end
-# wrong constant name accept_list_item_start
-# wrong constant name accept_list_start
-# wrong constant name accept_paragraph
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name accept_verbatim
-# wrong constant name code_object
-# wrong constant name code_object=
-# wrong constant name convert_string
-# wrong constant name end_accepting
-# wrong constant name from_path
-# wrong constant name from_path=
-# wrong constant name gen_url
-# wrong constant name handle_RDOCLINK
-# wrong constant name handle_regexp_HARD_BREAK
-# wrong constant name handle_regexp_HYPERLINK
-# wrong constant name handle_regexp_RDOCLINK
-# wrong constant name handle_regexp_TIDYLINK
-# wrong constant name html_list_name
-# wrong constant name in_list_entry
-# wrong constant name init_tags
-# wrong constant name list
-# wrong constant name list_end_for
-# wrong constant name list_item_start
-# wrong constant name parseable?
-# wrong constant name res
-# wrong constant name start_accepting
-# wrong constant name to_html
-# wrong constant name <static-init>
-# uninitialized constant RDoc::Markup::ToHtmlCrossref::LIST_TYPE_TO_HTML
-# uninitialized constant RDoc::Markup::ToHtmlCrossref::MARKUP_FORMAT
-# uninitialized constant RDoc::Markup::ToHtmlCrossref::TO_HTML_CHARACTERS
-# wrong constant name context
-# wrong constant name context=
-# wrong constant name cross_reference
-# wrong constant name handle_regexp_CROSSREF
-# wrong constant name initialize
-# wrong constant name link
-# wrong constant name show_hash
-# wrong constant name show_hash=
-# wrong constant name <static-init>
-# uninitialized constant RDoc::Markup::ToHtmlSnippet::LIST_TYPE_TO_HTML
-# uninitialized constant RDoc::Markup::ToHtmlSnippet::MARKUP_FORMAT
-# uninitialized constant RDoc::Markup::ToHtmlSnippet::TO_HTML_CHARACTERS
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name add_paragraph
-# wrong constant name character_limit
-# wrong constant name characters
-# wrong constant name handle_regexp_CROSSREF
-# wrong constant name initialize
-# wrong constant name mask
-# wrong constant name paragraph_limit
-# wrong constant name paragraphs
-# wrong constant name truncate
-# wrong constant name <static-init>
-# wrong constant name accept_block_quote
-# wrong constant name accept_heading
-# wrong constant name accept_list_end
-# wrong constant name accept_list_item_end
-# wrong constant name accept_list_item_start
-# wrong constant name accept_list_start
-# wrong constant name accept_paragraph
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name accept_verbatim
-# wrong constant name end_accepting
-# wrong constant name initialize
-# wrong constant name start_accepting
-# wrong constant name <static-init>
-# wrong constant name accept_blank_line
-# wrong constant name accept_block_quote
-# wrong constant name accept_heading
-# wrong constant name accept_list_end
-# wrong constant name accept_list_item_end
-# wrong constant name accept_list_item_start
-# wrong constant name accept_list_start
-# wrong constant name accept_paragraph
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name accept_verbatim
-# wrong constant name convert
-# wrong constant name end_accepting
-# wrong constant name handle_regexp_CROSSREF
-# wrong constant name handle_regexp_HARD_BREAK
-# wrong constant name handle_regexp_TIDYLINK
-# wrong constant name initialize
-# wrong constant name res
-# wrong constant name start_accepting
-# wrong constant name <static-init>
-# wrong constant name gen_url
-# wrong constant name handle_rdoc_link
-# wrong constant name handle_regexp_RDOCLINK
-# wrong constant name handle_regexp_TIDYLINK
-# wrong constant name <static-init>
-# wrong constant name accept_blank_line
-# wrong constant name accept_block_quote
-# wrong constant name accept_heading
-# wrong constant name accept_indented_paragraph
-# wrong constant name accept_list_end
-# wrong constant name accept_list_item_end
-# wrong constant name accept_list_item_start
-# wrong constant name accept_list_start
-# wrong constant name accept_paragraph
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name accept_verbatim
-# wrong constant name attributes
-# wrong constant name end_accepting
-# wrong constant name handle_regexp_HARD_BREAK
-# wrong constant name handle_regexp_SUPPRESSED_CROSSREF
-# wrong constant name indent
-# wrong constant name indent=
-# wrong constant name init_tags
-# wrong constant name initialize
-# wrong constant name list_index
-# wrong constant name list_type
-# wrong constant name list_width
-# wrong constant name prefix
-# wrong constant name res
-# wrong constant name start_accepting
-# wrong constant name use_prefix
-# wrong constant name width
-# wrong constant name width=
-# wrong constant name wrap
-# wrong constant name <static-init>
-# wrong constant name accept_blank_line
-# wrong constant name accept_block_quote
-# wrong constant name accept_heading
-# wrong constant name accept_list_end
-# wrong constant name accept_list_end_bullet
-# wrong constant name accept_list_item_end
-# wrong constant name accept_list_item_start
-# wrong constant name accept_list_start
-# wrong constant name accept_paragraph
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name accept_verbatim
-# wrong constant name end_accepting
-# wrong constant name initialize
-# wrong constant name omit_headings_below
-# wrong constant name omit_headings_below=
-# wrong constant name res
-# wrong constant name start_accepting
-# wrong constant name suppressed?
-# wrong constant name <static-init>
-# wrong constant name to_toc
-# wrong constant name accept_blank_line
-# wrong constant name accept_heading
-# wrong constant name accept_list_end
-# wrong constant name accept_list_item_end
-# wrong constant name accept_list_item_start
-# wrong constant name accept_list_start
-# wrong constant name accept_paragraph
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name accept_verbatim
-# wrong constant name end_accepting
-# wrong constant name start_accepting
-# wrong constant name <static-init>
-# wrong constant name accept_blank_line
-# wrong constant name accept_block_quote
-# wrong constant name accept_heading
-# wrong constant name accept_list_end
-# wrong constant name accept_list_item_end
-# wrong constant name accept_list_item_start
-# wrong constant name accept_list_start
-# wrong constant name accept_paragraph
-# wrong constant name accept_raw
-# wrong constant name accept_rule
-# wrong constant name accept_verbatim
-# wrong constant name do_nothing
-# wrong constant name end_accepting
-# wrong constant name initialize
-# wrong constant name list_type
-# wrong constant name res
-# wrong constant name start_accepting
-# wrong constant name tt_sections
-# wrong constant name <static-init>
-# wrong constant name format
-# wrong constant name format=
-# wrong constant name normalize
-# wrong constant name ruby?
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name parse
 # wrong constant name <static-init>
 # wrong constant name load_markup_provider
 # wrong constant name markup_class
