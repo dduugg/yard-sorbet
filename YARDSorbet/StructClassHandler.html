@@ -71,7 +71,7 @@
   
   <dl>
       <dt>Extended by:</dt>
-      <dd>T::Sig</dd>
+      <dd>T::Helpers, T::Sig</dd>
   </dl>
   
   
@@ -141,6 +141,7 @@
 
 
   
+  
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -170,9 +171,6 @@
       <pre class="lines">
 
 
-62
-63
-64
 65
 66
 67
@@ -215,21 +213,20 @@
 104
 105
 106
-107</pre>
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/struct_handler.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/struct_handler.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='id identifier rubyid_ret'>ret</span> <span class='op'>=</span> <span class='kw'>super</span>
 
-  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span> <span class='kw'>if</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_unsafe'>unsafe</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span> <span class='kw'>if</span> <span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='comment'># lookup the full YARD path for the current class
-</span>  <span class='id identifier rubyid_class_ns'>class_ns</span> <span class='op'>=</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CodeObjects</span><span class='op'>::</span><span class='const'>ClassObject</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
-    <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_unsafe'>unsafe</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_namespace'>namespace</span><span class='comma'>,</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_unsafe'>unsafe</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\s</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='rparen'>)</span>
-  <span class='id identifier rubyid_props'>props</span> <span class='op'>=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_unsafe'>unsafe</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span><span class='lbracket'>[</span><span class='id identifier rubyid_class_ns'>class_ns</span><span class='rbracket'>]</span>
+</span>  <span class='id identifier rubyid_class_ns'>class_ns</span> <span class='op'>=</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CodeObjects</span><span class='op'>::</span><span class='const'>ClassObject</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='comma'>,</span> <span class='id identifier rubyid_statement'>statement</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\s</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_props'>props</span> <span class='op'>=</span> <span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span><span class='lbracket'>[</span><span class='id identifier rubyid_class_ns'>class_ns</span><span class='rbracket'>]</span>
 
   <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span> <span class='kw'>if</span> <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
 
@@ -258,7 +255,7 @@
 </span>  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>||=</span> <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='symbol'>:source</span><span class='rbracket'>]</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_explicit'>explicit</span> <span class='op'>||=</span> <span class='kw'>false</span> <span class='comment'># not strictly necessary
 </span>
-  <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_unsafe'>unsafe</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span> <span class='op'>=</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_to_raw'>to_raw</span>
 
@@ -276,7 +273,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May 22 19:20:49 2021 by
+  Generated on Mon May 24 00:34:14 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
