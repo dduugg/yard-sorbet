@@ -63,15 +63,15 @@ module YARDSorbet::StructClassHandler
 
   sig { void }
   def process
-    ret = super
+    super
 
-    return ret if extra_state.prop_docs.nil?
+    return if extra_state.prop_docs.nil?
 
     # lookup the full YARD path for the current class
     class_ns = YARD::CodeObjects::ClassObject.new(namespace, statement[0].source.gsub(/\s/, ''))
     props = extra_state.prop_docs[class_ns]
 
-    return ret if props.empty?
+    return if props.empty?
 
     # Create a virtual `initialize` method with all the `prop`/`const` arguments
     # having the name :initialize & the scope :instance marks this as the constructor.
@@ -103,8 +103,6 @@ module YARDSorbet::StructClassHandler
     object.docstring = docstring.to_raw
 
     YARDSorbet::Directives.add_directives(object.docstring, directives)
-
-    ret
   end
 end
 
