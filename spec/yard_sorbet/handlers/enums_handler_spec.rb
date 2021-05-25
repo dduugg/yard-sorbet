@@ -3,9 +3,9 @@
 
 require 'yard'
 
-RSpec.describe YARDSorbet::EnumsHandler do
+RSpec.describe YARDSorbet::Handlers::EnumsHandler do
   path = File.join(
-    File.expand_path('../data', __dir__),
+    File.expand_path('../../data', __dir__),
     'enums_handler.rb'
   )
 
