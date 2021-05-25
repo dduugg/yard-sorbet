@@ -64,6 +64,17 @@
 
 <p>A YARD <a href="https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#Plugin_Support">plugin</a> that parses Sorbet type annotations</p>
 
+<h2 id="label-Features">Features</h2>
+<ul><li>
+<p>Attaches existing documentation to methods and attributs that follow <code>sig</code> declarations. (This information is otherwise discarded.)</p>
+</li><li>
+<p>Translates <code>sig</code> type signatures into corresponding YARD tags</p>
+</li><li>
+<p>Generates method definitions from <code>T::Struct</code> fields</p>
+</li><li>
+<p>Generates constant definitions from <code>T::Enum</code> enums</p>
+</li></ul>
+
 <h2 id="label-Install">Install</h2>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_yard'>yard</span><span class='op'>-</span><span class='id identifier rubyid_sorbet'>sorbet</span>
@@ -76,7 +87,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Tue May 25 14:52:26 2021 by
+  Generated on Tue May 25 21:07:48 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
