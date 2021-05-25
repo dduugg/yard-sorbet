@@ -14,11 +14,9 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
-  PROCESSABLE_NODES = T.let(%i[def defs command].freeze, T::Array[Symbol])
   SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
-  SIG_NODE_TYPES = T.let(%i[call fcall vcall].freeze, T::Array[Symbol])
 
-  private_constant :ParsedSig, :PARAM_EXCLUDES, :PROCESSABLE_NODES, :SIG_EXCLUDES, :SIG_NODE_TYPES
+  private_constant :ParsedSig, :PARAM_EXCLUDES, :SIG_EXCLUDES
 
   sig { void }
   def process
@@ -34,18 +32,11 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
         singleton_class_contents = child.children[1]
         process_class_contents(singleton_class_contents)
       end
-      next unless type_signature?(child)
+      next unless YARDSorbet::NodeUtils.type_signature?(child)
 
-      next_statement = class_contents[i + 1]
-      next unless processable_method?(next_statement)
-
-      process_method_definition(T.must(next_statement), child)
+      method_node = YARDSorbet::NodeUtils.get_method_node(class_contents.fetch(i + 1))
+      process_method_definition(method_node, child)
     end
-  end
-
-  sig { params(next_statement: T.nilable(YARD::Parser::Ruby::AstNode)).returns(T::Boolean) }
-  private def processable_method?(next_statement)
-    PROCESSABLE_NODES.include?(next_statement&.type)
   end
 
   # Swap the method definition docstring and the sig docstring.
@@ -105,13 +96,13 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     parsed = ParsedSig.new
     found_params = T.let(false, T::Boolean)
     found_return = T.let(false, T::Boolean)
-    bfs_traverse(sig_node, exclude: SIG_EXCLUDES) do |n|
+    YARDSorbet::NodeUtils.bfs_traverse(sig_node, exclude: SIG_EXCLUDES) do |n|
       if n.source == 'abstract'
         parsed.abstract = true
       elsif n.source == 'params' && !found_params
         found_params = true
-        sibling = sibling_node(n)
-        bfs_traverse(sibling, exclude: PARAM_EXCLUDES) do |p|
+        sibling = YARDSorbet::NodeUtils.sibling_node(n)
+        YARDSorbet::NodeUtils.bfs_traverse(sibling, exclude: PARAM_EXCLUDES) do |p|
           if p.type == :assoc
             param_name = p.children.first.source[0...-1]
             types = YARDSorbet::SigToYARD.convert(p.children.last)
@@ -120,50 +111,11 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
         end
       elsif n.source == 'returns' && !found_return
         found_return = true
-        parsed.return = YARDSorbet::SigToYARD.convert(sibling_node(n))
+        parsed.return = YARDSorbet::SigToYARD.convert(YARDSorbet::NodeUtils.sibling_node(n))
       elsif n.source == 'void'
         parsed.return ||= ['void']
       end
     end
     parsed
-  end
-
-  # Returns true if the given node is part of a type signature.
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
-  private def type_signature?(node)
-    SIG_NODE_TYPES.include?(node.type) && T.unsafe(node).method_name(true) == :sig
-  end
-
-  # Find and return the adjacent node (ascending)
-  # @raise [IndexError] if the node does not have an adjacent sibling (ascending)
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(YARD::Parser::Ruby::AstNode) }
-  private def sibling_node(node)
-    siblings = node.parent.children
-    siblings.each_with_index.find do |sibling, i|
-      if sibling == node
-        return siblings.fetch(i + 1)
-      end
-    end
-  end
-
-  # @yield [YARD::Parser::Ruby::AstNode]
-  sig do
-    params(
-      node: YARD::Parser::Ruby::AstNode,
-      exclude: T::Array[Symbol],
-      _blk: T.proc.params(n: YARD::Parser::Ruby::AstNode).void
-    ).void
-  end
-  private def bfs_traverse(node, exclude: [], &_blk)
-    queue = [node]
-    while !queue.empty?
-      n = T.must(queue.shift)
-      yield n
-      n.children.each do |c|
-        if !exclude.include?(c.type)
-          queue.push(c)
-        end
-      end
-    end
   end
 end
