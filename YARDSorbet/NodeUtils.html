@@ -357,11 +357,11 @@
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_bfs_traverse'>bfs_traverse</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='label'>exclude:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid__blk'>_blk</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_queue'>queue</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_node'>node</span><span class='rbracket'>]</span>
-  <span class='kw'>while</span> <span class='op'>!</span><span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='kw'>until</span> <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
     <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_must'>must</span><span class='lparen'>(</span><span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span><span class='rparen'>)</span>
     <span class='kw'>yield</span> <span class='id identifier rubyid_n'>n</span>
     <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
-      <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_exclude'>exclude</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_exclude'>exclude</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
@@ -618,7 +618,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue May 25 21:22:18 2021 by
+  Generated on Tue May 25 21:25:46 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
