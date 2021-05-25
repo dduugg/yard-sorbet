@@ -45,11 +45,5 @@ Style/AccessModifierDeclarations:
   EnforcedStyle: inline
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
-Style/NegatedIf:
-  Enabled: false
-Style/NegatedWhile:
-  Enabled: false
-Style/Next:
-  Enabled: false
 Style/IfUnlessModifier:
   Enabled: false

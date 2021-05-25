@@ -77,7 +77,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   sig { params(docstring: YARD::Docstring, type: Symbol, parsed_sig: ParsedSig).void }
   private def enhance_tag(docstring, type, parsed_sig)
     type_value = parsed_sig.public_send(type)
-    return if !type_value
+    return unless type_value
 
     tag = docstring.tags.find { |t| t.tag_name == type.to_s }
     if tag

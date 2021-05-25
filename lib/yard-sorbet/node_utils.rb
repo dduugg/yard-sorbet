@@ -24,11 +24,11 @@ module YARDSorbet::NodeUtils
   end
   def self.bfs_traverse(node, exclude: [], &_blk)
     queue = [node]
-    while !queue.empty?
+    until queue.empty?
       n = T.must(queue.shift)
       yield n
       n.children.each do |c|
-        if !exclude.include?(c.type)
+        unless exclude.include?(c.type)
           queue.push(c)
         end
       end
