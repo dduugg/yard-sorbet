@@ -11,7 +11,7 @@ class YARDSorbet::EnumsHandler < YARD::Handlers::Ruby::Base
   sig { void }
   def process
     statement.traverse do |node|
-      if node.type == :assign
+      if const_assign_node?(node)
         register YARD::CodeObjects::ConstantObject.new(namespace, node.first.source) do |obj|
           obj.docstring = node.docstring
           obj.source = node
@@ -19,5 +19,10 @@ class YARDSorbet::EnumsHandler < YARD::Handlers::Ruby::Base
         end
       end
     end
+  end
+
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
+  def const_assign_node?(node)
+    node.type == :assign && node.children.first.children.first.type == :const
   end
 end

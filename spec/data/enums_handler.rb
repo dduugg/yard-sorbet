@@ -10,6 +10,7 @@ class Suit < T::Enum
     # The hearts suit
     Hearts = new
     Clubs = new('Clubs')
-    Diamonds = new
+    diamonds_serialized_value = 'Diamonds'
+    Diamonds = new(diamonds_serialized_value)
   end
 end
