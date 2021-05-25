@@ -13,8 +13,10 @@
 ### Changes
 
 * Make `YARDSorbet::SigToYARD::IS_LEGACY_RUBY_VERSION` private
-* Minimum `sorbet` version increased to `0.5.6289`
-* Minimum `yard` version increased to `0.9.21`
+* Rename `YARDSorbet::SigHandler` to `YARDSorbet::Handlers::SigHandler`
+* Rename `YARDSorbet::StructHandler` to `YARDSorbet::Handlers::StructHandler`
+* Increase minimum `sorbet` version to `0.5.6289`
+* Increase minimum `yard` version to `0.9.21`
 
 ## 0.4.1 (2021-04-28)
 

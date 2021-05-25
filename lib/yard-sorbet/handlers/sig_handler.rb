@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 # A YARD Handler for Sorbet type declarations
-class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
+class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
   handles :class, :module, :singleton_class?
 

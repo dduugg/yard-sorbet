@@ -3,11 +3,11 @@
 
 require 'yard'
 
-RSpec.describe YARDSorbet::SigHandler do
+RSpec.describe YARDSorbet::Handlers::SigHandler do
   before do
     YARD::Registry.clear
     path = File.join(
-      File.expand_path('../data', __dir__),
+      File.expand_path('../../data', __dir__),
       'sig_handler.rb'
     )
     YARD::Parser::SourceParser.parse(path)
