@@ -322,7 +322,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Swap the method definition docstring and the sig docstring.</p>
+</div></span>
   
 </li>
 
@@ -808,6 +810,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note returns_void">This method returns an undefined value.</p>
+<p>Swap the method definition docstring and the sig docstring. Parse relevant parts of the <code>sig</code> and include them as well.</p>
+
 
   </div>
 </div>
@@ -820,8 +824,6 @@
       <pre class="lines">
 
 
-57
-58
 59
 60
 61
@@ -838,12 +840,10 @@
 72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/sig_handler.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/sig_handler.rb', line 59</span>
 
 <span class='id identifier rubyid_private'>private</span> <span class='kw'>def</span> <span class='id identifier rubyid_process_method_definition'>process_method_definition</span><span class='lparen'>(</span><span class='id identifier rubyid_method_node'>method_node</span><span class='comma'>,</span> <span class='id identifier rubyid_sig_node'>sig_node</span><span class='rparen'>)</span>
-  <span class='comment'># Swap the method definition docstring and the sig docstring.
-</span>  <span class='comment'># Parse relevant parts of the `sig` and include them as well.
-</span>  <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../YARDSorbet.html" title="YARDSorbet (module)">YARDSorbet</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Directives.html" title="YARDSorbet::Directives (module)">Directives</a></span></span><span class='period'>.</span><span class='id identifier rubyid_extract_directives'><span class='object_link'><a href="Directives.html#extract_directives-class_method" title="YARDSorbet::Directives.extract_directives (method)">extract_directives</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_sig_node'>sig_node</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../YARDSorbet.html" title="YARDSorbet (module)">YARDSorbet</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Directives.html" title="YARDSorbet::Directives (module)">Directives</a></span></span><span class='period'>.</span><span class='id identifier rubyid_extract_directives'><span class='object_link'><a href="Directives.html#extract_directives-class_method" title="YARDSorbet::Directives.extract_directives (method)">extract_directives</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_sig_node'>sig_node</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parsed_sig'>parsed_sig</span> <span class='op'>=</span> <span class='id identifier rubyid_parse_sig'>parse_sig</span><span class='lparen'>(</span><span class='id identifier rubyid_sig_node'>sig_node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_enhance_tag'>enhance_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='symbol'>:abstract</span><span class='comma'>,</span> <span class='id identifier rubyid_parsed_sig'>parsed_sig</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_enhance_tag'>enhance_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='symbol'>:return</span><span class='comma'>,</span> <span class='id identifier rubyid_parsed_sig'>parsed_sig</span><span class='rparen'>)</span>
@@ -1072,7 +1072,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon May 24 19:22:36 2021 by
+  Generated on Tue May 25 00:11:38 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
