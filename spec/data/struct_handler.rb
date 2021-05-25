@@ -1,4 +1,5 @@
 # typed: true
+# frozen_string_literal: true
 
 # Comment on PersonStruct
 class PersonStruct < T::Struct
