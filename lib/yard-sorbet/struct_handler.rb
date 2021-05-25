@@ -1,7 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Handles all `const`/`prop` calls, creating accessor methods, and compiles them for later usage at the class level
+# Handles all +const+/+prop+ calls, creating accessor methods, and compiles them for later usage at the class level
 # in creating a constructor
 class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
@@ -53,7 +53,7 @@ class YARDSorbet::StructHandler < YARD::Handlers::Ruby::Base
   end
 end
 
-# Class-level handler that folds all `const` and `prop` declarations into the constructor documentation
+# Class-level handler that folds all +const+ and +prop+ declarations into the constructor documentation
 # this needs to be injected as a module otherwise the default Class handler will overwrite documentation
 module YARDSorbet::StructClassHandler
   extend T::Helpers

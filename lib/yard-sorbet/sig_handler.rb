@@ -48,6 +48,8 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     PROCESSABLE_NODES.include?(next_statement&.type)
   end
 
+  # Swap the method definition docstring and the sig docstring.
+  # Parse relevant parts of the +sig+ and include them as well.
   sig do
     params(
       method_node: YARD::Parser::Ruby::AstNode,
@@ -55,8 +57,6 @@ class YARDSorbet::SigHandler < YARD::Handlers::Ruby::Base
     ).void
   end
   private def process_method_definition(method_node, sig_node)
-    # Swap the method definition docstring and the sig docstring.
-    # Parse relevant parts of the `sig` and include them as well.
     docstring, directives = YARDSorbet::Directives.extract_directives(sig_node.docstring)
     parsed_sig = parse_sig(sig_node)
     enhance_tag(docstring, :abstract, parsed_sig)
