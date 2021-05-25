@@ -8,6 +8,7 @@ require 'yard'
 module YARDSorbet; end
 
 require_relative 'yard-sorbet/directives'
+require_relative 'yard-sorbet/enums_handler'
 require_relative 'yard-sorbet/node_utils'
 require_relative 'yard-sorbet/sig_handler'
 require_relative 'yard-sorbet/sig_to_yard'

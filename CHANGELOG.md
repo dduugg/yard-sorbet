@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### New features
+
+* [#43](https://github.com/dduugg/yard-sorbet/issues/43) Add `T::Enum` support
+
 ### Bug fixes
 
 * [#41](https://github.com/dduugg/yard-sorbet/issues/41) Fix superfluous return type of boolean method definitions with inline modifiers
