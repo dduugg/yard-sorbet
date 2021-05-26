@@ -1,3 +1,4 @@
+--main README.md
 --private
 --plugin sorbet
 lib/**/*.rb

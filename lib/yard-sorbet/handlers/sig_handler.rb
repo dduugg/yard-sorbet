@@ -15,7 +15,9 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     prop :return, T.nilable(T::Array[String])
   end
 
+  # Skip these node types when parsing `sig` params
   PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
+  # Skip these node types when parsing `sig`s
   SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
 
   private_constant :ParsedSig, :PARAM_EXCLUDES, :SIG_EXCLUDES

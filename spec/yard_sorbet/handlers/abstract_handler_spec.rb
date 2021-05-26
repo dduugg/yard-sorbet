@@ -17,8 +17,11 @@ RSpec.describe YARDSorbet::Handlers::AbstractHandler do
   describe 'abstract classes' do
     it('have @abstract tags') do
       node = YARD::Registry.at('MyAbstractClass')
+      expect(node.docstring).to eq('An abstract class')
       expect(node.tags.size).to eq(2)
       expect(node.has_tag?(:abstract)).to be(true)
+      abstract_tag = node.tags.find { |tag| tag.tag_name == 'abstract' }
+      expect(abstract_tag.text).to eq(YARDSorbet::Handlers::AbstractHandler::TAG_TEXT)
     end
   end
 end
