@@ -4,7 +4,9 @@
 # A YARD Handler for Sorbet type declarations
 class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
+
   handles method_call(:sig)
+  namespace_only
 
   # A struct that holds the parsed contents of a Sorbet type signature
   class ParsedSig < T::Struct
