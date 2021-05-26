@@ -50,7 +50,7 @@ module YARDSorbet::NodeUtils
   def self.sibling_node(node)
     siblings = node.parent.children
     siblings.each_with_index.find do |sibling, i|
-      if sibling == node
+      if sibling.equal?(node)
         return siblings.fetch(i + 1)
       end
     end
