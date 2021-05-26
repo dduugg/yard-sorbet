@@ -4,7 +4,7 @@
 # A YARD Handler for Sorbet type declarations
 class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
-  handles :class, :module, :singleton_class?
+  handles :class, :module, :sclass
 
   # A struct that holds the parsed contents of a Sorbet type signature
   class ParsedSig < T::Struct
@@ -28,10 +28,6 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   sig { params(class_contents: T::Array[YARD::Parser::Ruby::MethodCallNode]).void }
   private def process_class_contents(class_contents)
     class_contents.each_with_index do |child, i|
-      if child.type == :sclass && child.children.size == 2 && child.children[1].type == :list
-        singleton_class_contents = child.children[1]
-        process_class_contents(singleton_class_contents)
-      end
       next unless YARDSorbet::NodeUtils.type_signature?(child)
 
       method_node = YARDSorbet::NodeUtils.get_method_node(class_contents.fetch(i + 1))
