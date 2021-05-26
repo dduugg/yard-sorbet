@@ -18,23 +18,13 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
 
   private_constant :ParsedSig, :PARAM_EXCLUDES, :SIG_EXCLUDES
 
+  # Swap the method definition docstring and the sig docstring.
+  # Parse relevant parts of the +sig+ and include them as well.
   sig { void }
   def process
     method_node = YARDSorbet::NodeUtils.get_method_node(YARDSorbet::NodeUtils.sibling_node(statement))
-    process_method_definition(method_node, statement)
-  end
-
-  # Swap the method definition docstring and the sig docstring.
-  # Parse relevant parts of the +sig+ and include them as well.
-  sig do
-    params(
-      method_node: YARD::Parser::Ruby::AstNode,
-      sig_node: YARD::Parser::Ruby::MethodCallNode
-    ).void
-  end
-  private def process_method_definition(method_node, sig_node)
-    docstring, directives = YARDSorbet::Directives.extract_directives(sig_node.docstring)
-    parsed_sig = parse_sig(sig_node)
+    docstring, directives = YARDSorbet::Directives.extract_directives(statement.docstring)
+    parsed_sig = parse_sig(statement)
     enhance_tag(docstring, :abstract, parsed_sig)
     enhance_tag(docstring, :return, parsed_sig)
     if method_node.type != :command
@@ -44,7 +34,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     end
     method_node.docstring = docstring.to_raw
     YARDSorbet::Directives.add_directives(method_node.docstring, directives)
-    sig_node.docstring = nil
+    statement.docstring = nil
   end
 
   sig { params(docstring: YARD::Docstring, name: String, types: T::Array[String]).void }
