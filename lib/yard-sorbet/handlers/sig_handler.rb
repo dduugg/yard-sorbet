@@ -4,7 +4,9 @@
 # A YARD Handler for Sorbet type declarations
 class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
-  handles :class, :module, :singleton_class?
+
+  handles method_call(:sig)
+  namespace_only
 
   # A struct that holds the parsed contents of a Sorbet type signature
   class ParsedSig < T::Struct
@@ -18,38 +20,13 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
 
   private_constant :ParsedSig, :PARAM_EXCLUDES, :SIG_EXCLUDES
 
-  sig { void }
-  def process
-    # Find the list of declarations inside the class
-    class_contents = statement.jump(:list).children
-    process_class_contents(class_contents)
-  end
-
-  sig { params(class_contents: T::Array[YARD::Parser::Ruby::MethodCallNode]).void }
-  private def process_class_contents(class_contents)
-    class_contents.each_with_index do |child, i|
-      if child.type == :sclass && child.children.size == 2 && child.children[1].type == :list
-        singleton_class_contents = child.children[1]
-        process_class_contents(singleton_class_contents)
-      end
-      next unless YARDSorbet::NodeUtils.type_signature?(child)
-
-      method_node = YARDSorbet::NodeUtils.get_method_node(class_contents.fetch(i + 1))
-      process_method_definition(method_node, child)
-    end
-  end
-
   # Swap the method definition docstring and the sig docstring.
   # Parse relevant parts of the +sig+ and include them as well.
-  sig do
-    params(
-      method_node: YARD::Parser::Ruby::AstNode,
-      sig_node: YARD::Parser::Ruby::MethodCallNode
-    ).void
-  end
-  private def process_method_definition(method_node, sig_node)
-    docstring, directives = YARDSorbet::Directives.extract_directives(sig_node.docstring)
-    parsed_sig = parse_sig(sig_node)
+  sig { void }
+  def process
+    method_node = YARDSorbet::NodeUtils.get_method_node(YARDSorbet::NodeUtils.sibling_node(statement))
+    docstring, directives = YARDSorbet::Directives.extract_directives(statement.docstring)
+    parsed_sig = parse_sig(statement)
     enhance_tag(docstring, :abstract, parsed_sig)
     enhance_tag(docstring, :return, parsed_sig)
     if method_node.type != :command
@@ -59,7 +36,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     end
     method_node.docstring = docstring.to_raw
     YARDSorbet::Directives.add_directives(method_node.docstring, directives)
-    sig_node.docstring = nil
+    statement.docstring = nil
   end
 
   sig { params(docstring: YARD::Docstring, name: String, types: T::Array[String]).void }
