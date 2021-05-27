@@ -3,10 +3,10 @@
 
 require 'yard'
 
-RSpec.describe YARDSorbet::Handlers::AbstractHandler do
+RSpec.describe YARDSorbet::Handlers::AbstractDSLHandler do
   path = File.join(
     File.expand_path('../../data', __dir__),
-    'abstract_handler.rb'
+    'abstract_dsl_handler.rb'
   )
 
   before do
@@ -14,20 +14,25 @@ RSpec.describe YARDSorbet::Handlers::AbstractHandler do
     YARD::Parser::SourceParser.parse(path)
   end
 
-  describe 'abstract classes' do
+  describe 'modules with abstract!/interface! declarations' do
     it('apply @abstract tags') do
+      node = YARD::Registry.at('MyInterface')
+      expect(node.tags.size).to eq(1)
+      expect(node.has_tag?(:abstract)).to be(true)
+      expect(node.tags.first.text).to eq(YARDSorbet::Handlers::AbstractDSLHandler::TAG_TEXT)
+    end
+
+    it('apply class text to abstract classes') do
       node = YARD::Registry.at('MyAbstractClass')
       expect(node.docstring).to eq('An abstract class')
       expect(node.tags.size).to eq(2)
       expect(node.has_tag?(:abstract)).to be(true)
       abstract_tag = node.tags.find { |tag| tag.tag_name == 'abstract' }
-      expect(abstract_tag.text).to eq(YARDSorbet::Handlers::AbstractHandler::TAG_TEXT)
+      expect(abstract_tag.text).to eq(YARDSorbet::Handlers::AbstractDSLHandler::CLASS_TAG_TEXT)
     end
-  end
 
-  describe 'interfaces' do
     it('keep existing @abstract tags') do
-      node = YARD::Registry.at('MyInterface')
+      node = YARD::Registry.at('MyTaggedAbstractModule')
       expect(node.has_tag?(:abstract)).to be(true)
       abstract_tag = node.tags.find { |tag| tag.tag_name == 'abstract' }
       expect(abstract_tag.text).to eq('Existing abstract tag')

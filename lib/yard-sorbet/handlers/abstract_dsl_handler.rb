@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 # Apllies an +@abstract+ tag to +abstract!+/+interface!+ modules (if not alerady present).
-class YARDSorbet::Handlers::AbstractHandler < YARD::Handlers::Ruby::Base
+class YARDSorbet::Handlers::AbstractDSLHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
 
   handles method_call(:abstract!), method_call(:interface!)
@@ -11,13 +11,16 @@ class YARDSorbet::Handlers::AbstractHandler < YARD::Handlers::Ruby::Base
   # The text accompanying the `@abstract` tag.
   # @see https://github.com/lsegal/yard/blob/main/templates/default/docstring/html/abstract.erb
   #   The `@abstract` tag template
-  TAG_TEXT = 'Descendants must implement the `abstract` methods below.'
+  TAG_TEXT = 'Subclasses must implement the `abstract` methods below.'
+  # Extra text for class namespaces
+  CLASS_TAG_TEXT = T.let("This class cannont be directly instantiated. #{TAG_TEXT}", String)
 
   sig { void }
   def process
     return if namespace.has_tag?(:abstract)
 
-    tag = YARD::Tags::Tag.new(:abstract, TAG_TEXT)
+    text = namespace.is_a?(YARD::CodeObjects::ClassObject) ? CLASS_TAG_TEXT : TAG_TEXT
+    tag = YARD::Tags::Tag.new(:abstract, text)
     namespace.add_tag(tag)
   end
 end
