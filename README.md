@@ -10,6 +10,7 @@ A YARD [plugin](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#Plugi
 - Translates `sig` type signatures into corresponding YARD tags
 - Generates method definitions from `T::Struct` fields
 - Generates constant definitions from `T::Enum` enums
+- Modules marked `abstract!` or `interface!` are tagged `@abstract`
 
 ## Install
 

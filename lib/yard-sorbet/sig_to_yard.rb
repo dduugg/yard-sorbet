@@ -5,6 +5,7 @@
 module YARDSorbet::SigToYARD
   extend T::Sig
 
+  # Ruby 2.5 parsed call nodes slightly differently
   IS_LEGACY_RUBY_VERSION = T.let(RUBY_VERSION.start_with?('2.5.'), T::Boolean)
   private_constant :IS_LEGACY_RUBY_VERSION
 
