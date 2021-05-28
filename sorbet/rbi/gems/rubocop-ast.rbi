@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-ast/all/rubocop-ast.rbi
 #
-# rubocop-ast-1.4.0
+# rubocop-ast-1.6.0
 
 module RuboCop
 end
@@ -630,6 +630,7 @@ module RuboCop::AST::CollectionNode
   def concat(*args, &block); end
   def count(*args, &block); end
   def cycle(*args, &block); end
+  def deconstruct(*args, &block); end
   def delete(*args, &block); end
   def delete_at(*args, &block); end
   def delete_if(*args, &block); end
@@ -651,6 +652,7 @@ module RuboCop::AST::CollectionNode
   def fill(*args, &block); end
   def filter!(*args, &block); end
   def filter(*args, &block); end
+  def filter_map(*args, &block); end
   def find(*args, &block); end
   def find_all(*args, &block); end
   def find_index(*args, &block); end
@@ -665,6 +667,7 @@ module RuboCop::AST::CollectionNode
   def index(*args, &block); end
   def inject(*args, &block); end
   def insert(*args, &block); end
+  def intersection(*args, &block); end
   def join(*args, &block); end
   def keep_if(*args, &block); end
   def last(*args, &block); end
@@ -721,6 +724,7 @@ module RuboCop::AST::CollectionNode
   def sum(*args, &block); end
   def take(*args, &block); end
   def take_while(*args, &block); end
+  def tally(*args, &block); end
   def to_ary(*args, &block); end
   def to_h(*args, &block); end
   def to_set(*args, &block); end
@@ -972,6 +976,11 @@ class RuboCop::AST::IfNode < RuboCop::AST::Node
   include RuboCop::AST::ConditionalNode
   include RuboCop::AST::ModifierNode
 end
+class RuboCop::AST::InPatternNode < RuboCop::AST::Node
+  def body; end
+  def branch_index; end
+  def then?; end
+end
 class RuboCop::AST::IndexNode < RuboCop::AST::Node
   def assignment_method?; end
   def attribute_accessor?; end
@@ -1084,6 +1093,9 @@ end
 class RuboCop::AST::StrNode < RuboCop::AST::Node
   def heredoc?; end
   include RuboCop::AST::BasicLiteralNode
+end
+class RuboCop::AST::DstrNode < RuboCop::AST::StrNode
+  def value; end
 end
 class RuboCop::AST::SuperNode < RuboCop::AST::Node
   def arguments; end

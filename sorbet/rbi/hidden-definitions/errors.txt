@@ -30,7 +30,6 @@
 # wrong constant name <todo sym>
 # wrong constant name <top>
 # wrong constant name <top>
-# wrong constant name deconstruct
 # wrong constant name connect_internal
 # wrong constant name abbrev
 # wrong constant name deconstruct
@@ -1742,32 +1741,6 @@
 # wrong constant name scanner
 # wrong constant name tokens
 # wrong constant name <static-init>
-# wrong constant name <Class:Configuration>
-# wrong constant name <Class:SimpleCov>
-# wrong constant name <Class:Uploader>
-# wrong constant name pass_ci_if_error
-# wrong constant name pass_ci_if_error=
-# wrong constant name <static-init>
-# wrong constant name <Class:Formatter>
-# wrong constant name format
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name black
-# wrong constant name build_params
-# wrong constant name detect_ci
-# wrong constant name display_header
-# wrong constant name green
-# wrong constant name gzip_report
-# wrong constant name handle_report_response
-# wrong constant name net_blockers
-# wrong constant name red
-# wrong constant name retry_request
-# wrong constant name upload
-# wrong constant name upload_to_codecov
-# wrong constant name upload_to_v2
-# wrong constant name upload_to_v4
-# wrong constant name <static-init>
 # uninitialized constant Continuation
 # uninitialized constant Continuation
 # uninitialized constant Coverage
@@ -2720,8 +2693,6 @@
 # Did you mean?  Parser::Ruby24::Racc_Runtime_Revision
 #                Parser::Ruby24::Racc_Runtime_Core_Version
 # uninitialized constant Parser::Ruby24::Racc_YY_Parse_Method
-# wrong constant name associate_by_identity
-# wrong constant name associate_by_identity
 # wrong constant name fnmatch?
 # wrong constant name glob
 # wrong constant name make_symlink
@@ -3122,8 +3093,6 @@
 # uninitialized constant RDoc::TopLevel::TO_HTML_CHARACTERS
 # uninitialized constant RDoc::TopLevel::TYPES
 # wrong constant name initialize
-# wrong constant name <static-init>
-# wrong constant name parent
 # uninitialized constant REXML::Parsers::XPathParser::NAME
 # Did you mean?  REXML::Parsers::XPathParser::QNAME
 # uninitialized constant REXML::Parsers::XPathParser::NAMECHAR
@@ -3143,9 +3112,6 @@
 # uninitialized constant REXML::Parsers::XPathParser::REFERENCE
 # uninitialized constant REXML::QuickPath
 # uninitialized constant REXML::QuickPath
-# wrong constant name initialize
-# wrong constant name write
-# wrong constant name <static-init>
 # uninitialized constant REXML::SAX2Listener
 # uninitialized constant REXML::SAX2Listener
 # uninitialized constant REXML::SyncEnumerator
@@ -3166,48 +3132,11 @@
 # uninitialized constant REXML::XPathParser::NMTOKENS
 # Did you mean?  REXML::XMLTokens
 # uninitialized constant REXML::XPathParser::REFERENCE
-# wrong constant name ruby2_keywords
 # uninitialized constant RSpec::Core::ExampleGroup::BE_PREDICATE_REGEX
 # uninitialized constant RSpec::Core::ExampleGroup::DYNAMIC_MATCHER_REGEX
 # uninitialized constant RSpec::Core::ExampleGroup::HAS_REGEX
 # uninitialized constant RSpec::Core::ExampleGroup::NOT_YET_IMPLEMENTED
 # uninitialized constant RSpec::Core::ExampleGroup::NO_REASON_GIVEN
-# wrong constant name deconstruct_keys
-# wrong constant name filter_map
-# wrong constant name tally
-# wrong constant name beep
-# wrong constant name check_winsize_changed
-# wrong constant name clear_screen
-# wrong constant name console_mode
-# wrong constant name console_mode=
-# wrong constant name cooked
-# wrong constant name cooked!
-# wrong constant name cursor
-# wrong constant name cursor=
-# wrong constant name cursor_down
-# wrong constant name cursor_left
-# wrong constant name cursor_right
-# wrong constant name cursor_up
-# wrong constant name echo=
-# wrong constant name echo?
-# wrong constant name erase_line
-# wrong constant name erase_screen
-# wrong constant name getch
-# wrong constant name getpass
-# wrong constant name goto
-# wrong constant name goto_column
-# wrong constant name iflush
-# wrong constant name ioflush
-# wrong constant name noecho
-# wrong constant name oflush
-# wrong constant name pressed?
-# wrong constant name raw
-# wrong constant name raw!
-# wrong constant name scroll_backward
-# wrong constant name scroll_forward
-# wrong constant name set_encoding_by_bom
-# wrong constant name winsize
-# wrong constant name winsize=
 # uninitialized constant RSpec::Matchers::BuiltIn::BePredicate::UNDEFINED
 # uninitialized constant RSpec::Matchers::BuiltIn::Equal::UNDEFINED
 # uninitialized constant RSpec::Matchers::BuiltIn::Has::UNDEFINED
@@ -3231,10 +3160,6 @@
 # uninitialized constant Rake::DSL::VERSION
 # Did you mean?  Rake::Version
 #                Rake::VERSION
-# wrong constant name deconstruct
-# wrong constant name filter_map
-# wrong constant name intersection
-# wrong constant name tally
 # uninitialized constant Rake::FileUtilsExt::LN_SUPPORTED
 # uninitialized constant Rake::FileUtilsExt::LOW_METHODS
 # Did you mean?  Rake::FileUtilsExt::LowMethods
@@ -3264,8 +3189,6 @@
 # wrong constant name fire_update!
 # wrong constant name ruby
 # wrong constant name completion_quote_character
-# wrong constant name <Class:Error>
-# wrong constant name <static-init>
 # wrong constant name <Class:ANSI>
 # wrong constant name <Class:Config>
 # wrong constant name <Class:Core>
@@ -4231,34 +4154,6 @@
 # wrong constant name dedent_string
 # wrong constant name lex_state_name
 # wrong constant name token_match
-# wrong constant name deconstruct
-# wrong constant name filter_map
-# wrong constant name intersection
-# wrong constant name tally
-# uninitialized constant RuboCop::AST::DstrNode::ARGUMENT_TYPES
-# uninitialized constant RuboCop::AST::DstrNode::ASSIGNMENTS
-# uninitialized constant RuboCop::AST::DstrNode::BASIC_CONDITIONALS
-# uninitialized constant RuboCop::AST::DstrNode::BASIC_LITERALS
-# uninitialized constant RuboCop::AST::DstrNode::COMPARISON_OPERATORS
-# uninitialized constant RuboCop::AST::DstrNode::COMPOSITE_LITERALS
-# uninitialized constant RuboCop::AST::DstrNode::CONDITIONALS
-# uninitialized constant RuboCop::AST::DstrNode::EQUALS_ASSIGNMENTS
-# uninitialized constant RuboCop::AST::DstrNode::FALSEY_LITERALS
-# uninitialized constant RuboCop::AST::DstrNode::IMMUTABLE_LITERALS
-# Did you mean?  RuboCop::AST::DstrNode::MUTABLE_LITERALS
-# uninitialized constant RuboCop::AST::DstrNode::KEYWORDS
-# uninitialized constant RuboCop::AST::DstrNode::LITERALS
-# uninitialized constant RuboCop::AST::DstrNode::LOOP_TYPES
-# uninitialized constant RuboCop::AST::DstrNode::MUTABLE_LITERALS
-# Did you mean?  RuboCop::AST::DstrNode::IMMUTABLE_LITERALS
-# uninitialized constant RuboCop::AST::DstrNode::OPERATOR_KEYWORDS
-# uninitialized constant RuboCop::AST::DstrNode::POST_CONDITION_LOOP_TYPES
-# uninitialized constant RuboCop::AST::DstrNode::REFERENCES
-# uninitialized constant RuboCop::AST::DstrNode::SHORTHAND_ASSIGNMENTS
-# uninitialized constant RuboCop::AST::DstrNode::SPECIAL_KEYWORDS
-# uninitialized constant RuboCop::AST::DstrNode::TRUTHY_LITERALS
-# uninitialized constant RuboCop::AST::DstrNode::VARIABLES
-# wrong constant name <static-init>
 # wrong constant name <Class:Colorizer>
 # wrong constant name <Class:InstrumentationSubcompiler>
 # wrong constant name <Class:NodePatternSubcompiler>
@@ -4514,12 +4409,7 @@
 # wrong constant name pos
 # wrong constant name <static-init>
 # wrong constant name <static-init>
-# wrong constant name fix_include_paths
-# wrong constant name unvalidated
-# wrong constant name validated
-# wrong constant name validated?
 # uninitialized constant RuboCop::Cop::Base::LITERAL_REGEX
-# wrong constant name parse
 # uninitialized constant RuboCop::Cop::Bundler::DuplicatedGem::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Bundler::DuplicatedGem::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::DuplicatedGem::RESTRICT_ON_SEND
@@ -4527,27 +4417,18 @@
 # uninitialized constant RuboCop::Cop::Bundler::GemComment::NON_PUBLIC_MODIFIERS
 # uninitialized constant RuboCop::Cop::Bundler::GemVersion::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::GemVersion::RESTRICT_ON_SEND
-# wrong constant name includes_version_specification?
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Bundler::InsecureProtocolSource::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Bundler::InsecureProtocolSource::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::OrderedGems::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::OrderedGems::RESTRICT_ON_SEND
-# wrong constant name max=
 # uninitialized constant RuboCop::Cop::Corrector::ACTIONS
 # Did you mean?  RuboCop::Cop::Corrector::Action
 # uninitialized constant RuboCop::Cop::Corrector::DEPRECATION_WARNING
 # uninitialized constant RuboCop::Cop::Corrector::POLICY_TO_LEVEL
 # uninitialized constant RuboCop::Cop::EndKeywordAlignment::BYTE_ORDER_MARK
-# wrong constant name gem_declaration?
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Gemspec::DateAssignment::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Gemspec::DateAssignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Gemspec::DateAssignment::RESTRICT_ON_SEND
-# wrong constant name gem_specification
-# wrong constant name on_block
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Gemspec::DuplicatedAssignment::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Gemspec::DuplicatedAssignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Gemspec::DuplicatedAssignment::RESTRICT_ON_SEND
@@ -4728,7 +4609,6 @@
 # uninitialized constant RuboCop::Cop::Layout::LineLength::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::LineLength::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::LineLength::RESTRICT_ON_SEND
-# wrong constant name max=
 # uninitialized constant RuboCop::Cop::Layout::MultilineArrayBraceLayout::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::MultilineArrayBraceLayout::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::MultilineArrayLineBreaks::LITERAL_REGEX
@@ -4754,17 +4634,12 @@
 # uninitialized constant RuboCop::Cop::Layout::ParameterAlignment::SPACE
 # uninitialized constant RuboCop::Cop::Layout::RedundantLineBreak::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::RedundantLineBreak::RESTRICT_ON_SEND
-# wrong constant name autocorrect
-# wrong constant name check_assignment
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Layout::RescueEnsureAlignment::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::RescueEnsureAlignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::RescueEnsureAlignment::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SingleLineBlockChain::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::SingleLineBlockChain::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::SingleLineBlockChain::RESTRICT_ON_SEND
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterColon::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterColon::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterMethodName::BYTE_ORDER_MARK
@@ -4876,16 +4751,7 @@
 # uninitialized constant RuboCop::Cop::Lint::ConstantResolution::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::ConstantResolution::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::Debugger::LITERAL_REGEX
-# wrong constant name kernel?
-# wrong constant name valid_receiver?
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedClassMethods::LITERAL_REGEX
-# wrong constant name <Class:Replacement>
-# wrong constant name correctable?
-# wrong constant name method
-# wrong constant name class_constant
-# wrong constant name initialize
-# wrong constant name method
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedConstants::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedConstants::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedOpenSSLConstant::BYTE_ORDER_MARK
@@ -4984,15 +4850,10 @@
 # uninitialized constant RuboCop::Cop::Lint::NonLocalExitFromIterator::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::NumberConversion::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::NumberConversion::RESTRICT_ON_SEND
-# wrong constant name to_method_symbol
 # uninitialized constant RuboCop::Cop::Lint::NumberedParameterAssignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::NumberedParameterAssignment::RESTRICT_ON_SEND
-# wrong constant name on_lvasgn
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Lint::OrAssignmentToConstant::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::OrAssignmentToConstant::RESTRICT_ON_SEND
-# wrong constant name on_or_asgn
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Lint::OrderedMagicComments::FROZEN_STRING_LITERAL
 # Did you mean?  RuboCop::Cop::FrozenStringLiteral
 #                RuboCop::Cop::Lint::OrderedMagicComments::FROZEN_STRING_LITERAL_TYPES
@@ -5075,10 +4936,6 @@
 # uninitialized constant RuboCop::Cop::Lint::SuppressedException::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::SuppressedException::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::SymbolConversion::LITERAL_REGEX
-# wrong constant name on_hash
-# wrong constant name on_send
-# wrong constant name on_sym
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Lint::ToEnumArguments::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::ToJSON::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::ToJSON::RESTRICT_ON_SEND
@@ -5089,8 +4946,6 @@
 # uninitialized constant RuboCop::Cop::Lint::TrailingCommaInAttributeDeclaration::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::TripleQuotes::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::TripleQuotes::RESTRICT_ON_SEND
-# wrong constant name on_dstr
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Lint::UnderscorePrefixedVariableName::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::UnderscorePrefixedVariableName::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::UnexpectedBlockArity::LITERAL_REGEX
@@ -5120,7 +4975,6 @@
 # uninitialized constant RuboCop::Cop::Lint::UselessTimes::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::Void::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::Void::RESTRICT_ON_SEND
-# wrong constant name max=
 # uninitialized constant RuboCop::Cop::Metrics::AbcSize::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Metrics::AbcSize::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Metrics::BlockLength::LITERAL_REGEX
@@ -5128,7 +4982,6 @@
 # uninitialized constant RuboCop::Cop::Metrics::BlockLength::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Metrics::BlockNesting::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Metrics::BlockNesting::RESTRICT_ON_SEND
-# wrong constant name max=
 # uninitialized constant RuboCop::Cop::Metrics::CyclomaticComplexity::KNOWN_ITERATING_METHODS
 # uninitialized constant RuboCop::Cop::Metrics::CyclomaticComplexity::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Metrics::CyclomaticComplexity::RESTRICT_ON_SEND
@@ -5137,8 +4990,6 @@
 # uninitialized constant RuboCop::Cop::Metrics::MethodLength::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Metrics::ParameterLists::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Metrics::ParameterLists::RESTRICT_ON_SEND
-# wrong constant name max=
-# wrong constant name max_optional_parameters=
 # uninitialized constant RuboCop::Cop::Metrics::PerceivedComplexity::KNOWN_ITERATING_METHODS
 # uninitialized constant RuboCop::Cop::Metrics::PerceivedComplexity::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Metrics::PerceivedComplexity::RESTRICT_ON_SEND
@@ -5214,26 +5065,18 @@
 # uninitialized constant RuboCop::Cop::Performance::IoReadlines::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::MapCompact::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Performance::MapCompact::LITERAL_REGEX
-# wrong constant name map_compact
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Performance::MethodObjectAsBlock::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::MethodObjectAsBlock::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Performance::OpenStruct::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::RangeInclude::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::RedundantEqualityComparisonBlock::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::RedundantEqualityComparisonBlock::RESTRICT_ON_SEND
-# wrong constant name on_block
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Performance::RedundantMatch::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::RedundantMerge::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::RedundantSortBlock::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Performance::RedundantSortBlock::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::RedundantSortBlock::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Performance::RedundantSplitRegexpArgument::LITERAL_REGEX
-# wrong constant name on_send
-# wrong constant name split_call_with_regexp?
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Performance::RedundantStringChars::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Performance::RedundantStringChars::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::ReverseEach::BYTE_ORDER_MARK
@@ -5242,9 +5085,6 @@
 # uninitialized constant RuboCop::Cop::Performance::ReverseFirst::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::SelectMap::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Performance::SelectMap::LITERAL_REGEX
-# wrong constant name bad_method?
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Performance::Size::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Performance::SortReverse::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Performance::SortReverse::LITERAL_REGEX
@@ -5274,12 +5114,6 @@
 # uninitialized constant RuboCop::Cop::RSpec::Capybara::FeatureMethods::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::Capybara::FeatureMethods::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::Capybara::VisibilityMatcher::LITERAL_REGEX
-# wrong constant name begin_pos_with_comment
-# wrong constant name buffer
-# wrong constant name end_line_position
-# wrong constant name source_range_with_comment
-# wrong constant name start_line_position
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::RSpec::ContextMethod::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::ContextMethod::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::ContextWording::LITERAL_REGEX
@@ -5434,8 +5268,6 @@
 # uninitialized constant RuboCop::Cop::Rake::DuplicateTask::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Rake::MethodDefinitionInTask::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Rake::MethodDefinitionInTask::RESTRICT_ON_SEND
-# wrong constant name department?
-# wrong constant name names_for_department
 # uninitialized constant RuboCop::Cop::Security::Eval::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Security::JSONLoad::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Security::MarshalLoad::LITERAL_REGEX
@@ -5446,16 +5278,8 @@
 # uninitialized constant RuboCop::Cop::Sorbet::EnforceSigilOrder::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Sorbet::EnforceSigilOrder::SIGIL_REGEX
 # uninitialized constant RuboCop::Cop::Sorbet::EnforceSigilOrder::STRICTNESS_LEVELS
-# uninitialized constant RuboCop::Cop::Sorbet::EnforceSignatures::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Sorbet::EnforceSignatures::RESTRICT_ON_SEND
-# wrong constant name scope
 # uninitialized constant RuboCop::Cop::Sorbet::ForbidExtendTSigHelpersInShims::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Sorbet::ForbidExtendTSigHelpersInShims::LITERAL_REGEX
-# wrong constant name autocorrect
-# wrong constant name extend_t_helpers?
-# wrong constant name extend_t_sig?
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Sorbet::ForbidIncludeConstLiteral::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Sorbet::ForbidIncludeConstLiteral::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Sorbet::ForbidSuperclassConstLiteral::LITERAL_REGEX
@@ -5464,23 +5288,10 @@
 # uninitialized constant RuboCop::Cop::Sorbet::ForbidUntypedStructProps::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Sorbet::OneAncestorPerLine::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Sorbet::OneAncestorPerLine::RESTRICT_ON_SEND
-# wrong constant name abstract?
-# wrong constant name autocorrect
-# wrong constant name more_than_one_ancestor
-# wrong constant name on_class
-# wrong constant name on_module
-# wrong constant name requires_ancestors
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Sorbet::SignatureBuildOrder::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Sorbet::SignatureBuildOrder::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Sorbet::SingleLineRbiClassModuleDefinitions::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Sorbet::SingleLineRbiClassModuleDefinitions::RESTRICT_ON_SEND
-# wrong constant name autocorrect
-# wrong constant name convert_newlines
-# wrong constant name on_class
-# wrong constant name on_module
-# wrong constant name process_node
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Sorbet::ValidSigil::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Sorbet::ValidSigil::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::SpaceBeforePunctuation::BYTE_ORDER_MARK
@@ -5511,26 +5322,7 @@
 # uninitialized constant RuboCop::Cop::Style::BeginBlock::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::BisectedAttrAccessor::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::BisectedAttrAccessor::LITERAL_REGEX
-# wrong constant name <Class:Macro>
 # uninitialized constant RuboCop::Cop::Style::BisectedAttrAccessor::RESTRICT_ON_SEND
-# wrong constant name after_class
-# wrong constant name after_module
-# wrong constant name after_sclass
-# uninitialized constant RuboCop::Cop::Style::BisectedAttrAccessor::Macro::VISIBILITY_SCOPES
-# wrong constant name all_bisected?
-# wrong constant name attr_names
-# wrong constant name attrs
-# wrong constant name bisect
-# wrong constant name bisected_names
-# wrong constant name bisection
-# wrong constant name initialize
-# wrong constant name node
-# wrong constant name reader?
-# wrong constant name rest
-# wrong constant name visibility
-# wrong constant name writer?
-# wrong constant name <static-init>
-# wrong constant name macro?
 # uninitialized constant RuboCop::Cop::Style::BlockComments::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::BlockComments::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::BlockComments::RESTRICT_ON_SEND
@@ -5636,7 +5428,6 @@
 # uninitialized constant RuboCop::Cop::Style::EndlessMethod::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::EndlessMethod::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::EvalWithLocation::LITERAL_REGEX
-# wrong constant name valid_eval_receiver?
 # uninitialized constant RuboCop::Cop::Style::EvenOdd::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::ExpandPathArguments::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::ExpandPathArguments::LITERAL_REGEX
@@ -5650,8 +5441,6 @@
 # uninitialized constant RuboCop::Cop::Style::For::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::For::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::FormatString::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Style::FormatStringToken::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Style::FormatStringToken::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::FrozenStringLiteralComment::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::FrozenStringLiteralComment::FROZEN_STRING_LITERAL
 # Did you mean?  RuboCop::Cop::FrozenStringLiteral
@@ -5669,9 +5458,6 @@
 # uninitialized constant RuboCop::Cop::Style::GuardClause::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::GuardClause::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::HashConversion::LITERAL_REGEX
-# wrong constant name hash_from_array?
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Style::HashEachMethods::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::HashEachMethods::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::HashExcept::BYTE_ORDER_MARK
@@ -5693,10 +5479,6 @@
 # uninitialized constant RuboCop::Cop::Style::IfUnlessModifierOfIfUnless::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::IfWithBooleanLiteralBranches::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::IfWithBooleanLiteralBranches::RESTRICT_ON_SEND
-# wrong constant name double_negative?
-# wrong constant name if_with_boolean_literal_branches?
-# wrong constant name on_if
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Style::IfWithSemicolon::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::IfWithSemicolon::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::ImplicitRuntimeError::LITERAL_REGEX
@@ -5792,7 +5574,6 @@
 # uninitialized constant RuboCop::Cop::Style::NumericLiteralPrefix::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::NumericLiterals::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::NumericLiterals::RESTRICT_ON_SEND
-# wrong constant name min_digits=
 # uninitialized constant RuboCop::Cop::Style::NumericPredicate::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::OneLineConditional::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::OneLineConditional::RESTRICT_ON_SEND
@@ -5920,8 +5701,6 @@
 # uninitialized constant RuboCop::Cop::Style::StderrPuts::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::StringChars::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::StringChars::LITERAL_REGEX
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Style::StringConcatenation::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::StringConcatenation::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::StringHashKeys::LITERAL_REGEX
@@ -5954,12 +5733,6 @@
 # uninitialized constant RuboCop::Cop::Style::TernaryParentheses::SPACE_COMMAND
 # Did you mean?  RuboCop::Cop::Style::TernaryParentheses::NO_SPACE_COMMAND
 # uninitialized constant RuboCop::Cop::Style::TopLevelMethodDefinition::LITERAL_REGEX
-# wrong constant name define_method_block?
-# wrong constant name on_block
-# wrong constant name on_def
-# wrong constant name on_defs
-# wrong constant name on_send
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::SPACE
@@ -5988,11 +5761,6 @@
 # uninitialized constant RuboCop::Cop::Style::UnlessElse::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::UnlessLogicalOperators::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::UnlessLogicalOperators::RESTRICT_ON_SEND
-# wrong constant name and_with_or?
-# wrong constant name logical_operator?
-# wrong constant name on_if
-# wrong constant name or_with_and?
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Style::UnpackFirst::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::VariableInterpolation::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::VariableInterpolation::RESTRICT_ON_SEND
@@ -6010,35 +5778,13 @@
 # uninitialized constant RuboCop::Cop::Style::ZeroLengthPredicate::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::SurroundingSpace::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::TrailingComma::BYTE_ORDER_MARK
-# wrong constant name <Class:CaseMatch>
-# uninitialized constant RuboCop::Cop::VariableForce::Branch::CaseMatch::Elem
-# wrong constant name else_body?
-# wrong constant name in_pattern?
-# wrong constant name target?
-# wrong constant name <static-init>
-# wrong constant name all_cops?
-# wrong constant name cop_names
-# wrong constant name disabled?
-# wrong constant name enabled?
-# wrong constant name enabled_all?
-# wrong constant name line_number
-# wrong constant name match_captures
-# wrong constant name mode
-# wrong constant name single_line?
-# wrong constant name before_comment
-# wrong constant name exclude_limit
-# wrong constant name <static-init>
 # uninitialized constant RuboCop::Formatter::ClangStyleFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::FuubarStyleFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::FuubarStyleFormatter::ELLIPSES
-# wrong constant name add_testcase_element_to_testsuite_element
 # uninitialized constant RuboCop::Formatter::PacmanFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::PacmanFormatter::ELLIPSES
 # uninitialized constant RuboCop::Formatter::ProgressFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::ProgressFormatter::ELLIPSES
-# wrong constant name shareable_constant_value
-# wrong constant name shareable_constant_value_specified?
-# wrong constant name valid_shareable_constant_value?
 # uninitialized constant RuboCop::MagicComment::EmacsComment::TOKEN
 # Did you mean?  RuboCop::Token
 #                RuboCop::MagicComment::TOKEN
@@ -6047,9 +5793,6 @@
 #                RuboCop::MagicComment::TOKEN
 # wrong constant name <Class:Compiler>
 # wrong constant name <Class:Lexer>
-# wrong constant name disable_parallel_when_invalid_option_combo
-# uninitialized constant RuboCop::RSpec::Corrector::MoveNode::BYTE_ORDER_MARK
-# wrong constant name symlink_excluded_or_infinite_loop?
 # uninitialized constant RuboCop::TargetRuby::ToolVersionsFile::RUBY_VERSION_FILENAME
 # Did you mean?  RuboCop::TargetRuby::RubyVersionFile
 # uninitialized constant RuboCop::TargetRuby::ToolVersionsFile::RUBY_VERSION_PATTERN
@@ -6213,6 +5956,10 @@
 # wrong constant name call
 # wrong constant name initialize
 # wrong constant name <static-init>
+# wrong constant name <Class:RakeCompat>
+# uninitialized constant Thor::SHELL_DELEGATED_METHODS
+# uninitialized constant Thor::Options::NUMERIC
+# Did you mean?  Numeric
 # uninitialized constant Thor::RakeCompat::DEFAULT
 # uninitialized constant Thor::RakeCompat::LN_SUPPORTED
 # uninitialized constant Thor::RakeCompat::LOW_METHODS
@@ -6222,8 +5969,66 @@
 # uninitialized constant Thor::RakeCompat::OPT_TABLE
 # uninitialized constant Thor::RakeCompat::RUBY
 # uninitialized constant Thor::RakeCompat::VERSION
+# wrong constant name <static-init>
+# wrong constant name included
+# wrong constant name rake_classes
+# wrong constant name <Class:Basic>
+# wrong constant name <Class:Color>
+# wrong constant name <Class:HTML>
+# wrong constant name answer_match
+# wrong constant name as_unicode
+# wrong constant name ask
+# wrong constant name ask_filtered
+# wrong constant name ask_simply
+# wrong constant name base
+# wrong constant name base=
+# wrong constant name can_display_colors?
+# wrong constant name dynamic_width
+# wrong constant name dynamic_width_stty
+# wrong constant name dynamic_width_tput
+# wrong constant name error
+# wrong constant name file_collision
+# wrong constant name file_collision_help
+# wrong constant name git_merge_tool
+# wrong constant name indent
+# wrong constant name is?
+# wrong constant name lookup_color
+# wrong constant name merge
+# wrong constant name merge_tool
+# wrong constant name mute
+# wrong constant name mute?
+# wrong constant name no?
+# wrong constant name padding
+# wrong constant name padding=
+# wrong constant name prepare_message
+# wrong constant name print_in_columns
+# wrong constant name print_table
+# wrong constant name print_wrapped
+# wrong constant name quiet?
+# wrong constant name say
+# wrong constant name say_status
+# wrong constant name set_color
+# wrong constant name show_diff
+# wrong constant name stderr
+# wrong constant name stdout
+# wrong constant name terminal_width
+# wrong constant name truncate
+# wrong constant name unix?
+# wrong constant name yes?
+# wrong constant name <static-init>
 # uninitialized constant Thor::Shell::Color::DEFAULT_TERMINAL_WIDTH
+# wrong constant name are_colors_disabled?
 # wrong constant name are_colors_supported?
+# wrong constant name diff_lcs_loaded?
+# wrong constant name output_diff_line
+# wrong constant name set_color
+# wrong constant name <static-init>
+# uninitialized constant Thor::Shell::HTML::DEFAULT_TERMINAL_WIDTH
+# wrong constant name ask
+# wrong constant name diff_lcs_loaded?
+# wrong constant name output_diff_line
+# wrong constant name set_color
+# wrong constant name <static-init>
 # uninitialized constant ThreadsWait
 # uninitialized constant ThreadsWait
 # wrong constant name eval_script

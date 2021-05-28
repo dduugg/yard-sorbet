@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/regexp_parser/all/regexp_parser.rbi
 #
-# regexp_parser-2.0.3
+# regexp_parser-2.1.1
 
 class Regexp
 end
@@ -36,6 +36,7 @@ class Regexp::Parser
   def intersection(token); end
   def interval(target_node, token); end
   def keep(token); end
+  def literal(token); end
   def meta(token); end
   def negate_set; end
   def nest(exp); end
@@ -67,7 +68,6 @@ class Regexp::Parser
   def update_transplanted_subtree(exp, new_parent); end
   include Regexp::Expression
   include Regexp::Expression::UnicodeProperty
-  include Regexp::Syntax
 end
 class Regexp::Token < Struct
   def conditional_level; end
@@ -96,6 +96,8 @@ class Regexp::Token < Struct
   def ts=(_); end
   def type; end
   def type=(_); end
+end
+class Regexp::Parser::Error < StandardError
 end
 class Regexp::Scanner
   def append_literal(data, ts, te); end
@@ -131,9 +133,9 @@ class Regexp::Scanner
   def tokens=(arg0); end
   def validation_error(type, what, reason); end
 end
-class Regexp::Scanner::ScannerError < StandardError
+class Regexp::Scanner::ScannerError < Regexp::Parser::Error
 end
-class Regexp::Scanner::ValidationError < StandardError
+class Regexp::Scanner::ValidationError < Regexp::Parser::Error
   def initialize(reason); end
 end
 class Regexp::Scanner::PrematureEndError < Regexp::Scanner::ScannerError
@@ -290,7 +292,7 @@ end
 class Regexp::Syntax::V2_6_3 < Regexp::Syntax::V2_6_2
   def initialize; end
 end
-class Regexp::Syntax::SyntaxError < StandardError
+class Regexp::Syntax::SyntaxError < Regexp::Parser::Error
 end
 class Regexp::Lexer
   def ascend(type, token); end
@@ -319,7 +321,7 @@ class Regexp::Expression::Quantifier
   def eq(other); end
   def greedy?; end
   def initialize(token, text, min, max, mode); end
-  def initialize_clone(orig); end
+  def initialize_copy(orig); end
   def lazy?; end
   def max; end
   def min; end
@@ -346,7 +348,7 @@ class Regexp::Expression::Subexpression < Regexp::Expression::Base
   def flat_map(include_self = nil); end
   def index(*args, &block); end
   def initialize(token, options = nil); end
-  def initialize_clone(orig); end
+  def initialize_copy(orig); end
   def inner_match_length; end
   def join(*args, &block); end
   def last(*args, &block); end
@@ -409,6 +411,7 @@ end
 module Regexp::Expression::Backreference
 end
 class Regexp::Expression::Backreference::Base < Regexp::Expression::Base
+  def initialize_copy(orig); end
   def match_length; end
   def referenced_expression; end
   def referenced_expression=(arg0); end
@@ -444,10 +447,11 @@ class Regexp::Expression::Backreference::NameRecursionLevel < Regexp::Expression
 end
 module Regexp::Expression::Conditional
 end
-class Regexp::Expression::Conditional::TooManyBranches < StandardError
+class Regexp::Expression::Conditional::TooManyBranches < Regexp::Parser::Error
   def initialize; end
 end
 class Regexp::Expression::Conditional::Condition < Regexp::Expression::Base
+  def initialize_copy(orig); end
   def match_length; end
   def reference; end
   def referenced_expression; end
@@ -462,6 +466,7 @@ class Regexp::Expression::Conditional::Expression < Regexp::Expression::Subexpre
   def branches; end
   def condition; end
   def condition=(exp); end
+  def initialize_copy(orig); end
   def match_length; end
   def reference; end
   def referenced_expression; end
@@ -550,6 +555,7 @@ end
 class Regexp::Expression::Group::Atomic < Regexp::Expression::Group::Base
 end
 class Regexp::Expression::Group::Options < Regexp::Expression::Group::Base
+  def initialize_copy(orig); end
   def option_changes; end
   def option_changes=(arg0); end
 end
@@ -564,7 +570,7 @@ end
 class Regexp::Expression::Group::Named < Regexp::Expression::Group::Capture
   def identifier; end
   def initialize(token, options = nil); end
-  def initialize_clone(orig); end
+  def initialize_copy(orig); end
   def name; end
 end
 class Regexp::Expression::Group::Comment < Regexp::Expression::Group::Base
@@ -835,7 +841,7 @@ class Regexp::Expression::Base
   def i?; end
   def ignore_case?; end
   def initialize(token, options = nil); end
-  def initialize_clone(orig); end
+  def initialize_copy(orig); end
   def is?(test_token, test_type = nil); end
   def lazy?; end
   def level; end
@@ -910,7 +916,7 @@ class Regexp::MatchLength
   def to_re; end
   include Enumerable
 end
-class Regexp::Parser::ParserError < StandardError
+class Regexp::Parser::ParserError < Regexp::Parser::Error
 end
 class Regexp::Parser::UnknownTokenTypeError < Regexp::Parser::ParserError
   def initialize(type, token); end

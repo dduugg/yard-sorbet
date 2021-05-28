@@ -7,29 +7,43 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/codecov/all/codecov.rbi
 #
-# codecov-0.2.12
+# codecov-0.5.2
 
-class SimpleCov::Formatter::Codecov
-  def black(str); end
-  def build_params(ci); end
-  def create_report(report); end
-  def detect_ci; end
-  def display_header; end
+module Codecov
+  extend Codecov::Configuration
+end
+module Codecov::SimpleCov
+end
+class Codecov::SimpleCov::Formatter
   def file_network; end
   def file_to_codecov(file); end
-  def format(result, disable_net_blockers = nil); end
-  def green(str); end
-  def gzip_report(report); end
-  def handle_report_response(report); end
-  def net_blockers(switch); end
-  def red(str); end
+  def format(report); end
   def result_to_codecov(result); end
   def result_to_codecov_coverage(result); end
   def result_to_codecov_messages(result); end
   def result_to_codecov_report(result); end
-  def retry_request(req, https); end
   def shortened_filename(file); end
-  def upload_to_codecov(ci, report); end
-  def upload_to_v2(url, report, query, query_without_token); end
-  def upload_to_v4(url, report, query, query_without_token); end
+end
+module Codecov::Configuration
+  def pass_ci_if_error; end
+  def pass_ci_if_error=(arg0); end
+end
+class Codecov::Uploader
+  def self.black(str); end
+  def self.build_params(ci); end
+  def self.detect_ci; end
+  def self.display_header; end
+  def self.green(str); end
+  def self.gzip_report(report); end
+  def self.handle_report_response(report); end
+  def self.net_blockers(switch); end
+  def self.red(str); end
+  def self.retry_request(req, https); end
+  def self.upload(report, disable_net_blockers = nil); end
+  def self.upload_to_codecov(ci, report); end
+  def self.upload_to_v2(url, report, query, query_without_token); end
+  def self.upload_to_v4(url, report, query, query_without_token); end
+end
+class SimpleCov::Formatter::Codecov
+  def format(result, disable_net_blockers = nil); end
 end

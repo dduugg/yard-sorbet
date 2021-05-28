@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-sorbet/all/rubocop-sorbet.rbi
 #
-# rubocop-sorbet-0.5.1
+# rubocop-sorbet-0.6.1
 
 module RuboCop
 end
@@ -41,6 +41,13 @@ class RuboCop::Cop::Sorbet::ConstantsFromStrings < RuboCop::Cop::Cop
   def constant_from_string?(param0 = nil); end
   def on_send(node); end
 end
+class RuboCop::Cop::Sorbet::ForbidExtendTSigHelpersInShims < RuboCop::Cop::Cop
+  def autocorrect(node); end
+  def extend_t_helpers?(param0 = nil); end
+  def extend_t_sig?(param0 = nil); end
+  def on_send(node); end
+  include RuboCop::Cop::RangeHelp
+end
 class RuboCop::Cop::Sorbet::ForbidSuperclassConstLiteral < RuboCop::Cop::Cop
   def not_lit_const_superclass?(param0 = nil); end
   def on_class(node); end
@@ -59,6 +66,23 @@ class RuboCop::Cop::Sorbet::ForbidUntypedStructProps < RuboCop::Cop::Cop
   def t_struct(param0 = nil); end
   def t_untyped(param0 = nil); end
   def untyped_props(param0); end
+end
+class RuboCop::Cop::Sorbet::SingleLineRbiClassModuleDefinitions < RuboCop::Cop::Cop
+  def autocorrect(node); end
+  def convert_newlines(source); end
+  def on_class(node); end
+  def on_module(node); end
+  def process_node(node); end
+end
+class RuboCop::Cop::Sorbet::OneAncestorPerLine < RuboCop::Cop::Cop
+  def abstract?(param0); end
+  def autocorrect(node); end
+  def more_than_one_ancestor(param0 = nil); end
+  def new_ra_line(indent_count); end
+  def on_class(node); end
+  def on_module(node); end
+  def process_node(node); end
+  def requires_ancestors(param0); end
 end
 class RuboCop::Cop::Sorbet::AllowIncompatibleOverride < RuboCop::Cop::Cop
   def allow_incompatible?(param0); end
@@ -91,20 +115,24 @@ class RuboCop::Cop::Sorbet::SignatureBuildOrder < RuboCop::Cop::Sorbet::Signatur
   def autocorrect(node); end
   def call_chain(sig_child_node); end
   def can_autocorrect?; end
-  def node_with_index_sends(node); end
+  def node_reparsed_with_modern_features(node); end
   def on_signature(node); end
   def root_call(param0); end
+end
+class RuboCop::Cop::Sorbet::SignatureBuildOrder::ModernBuilder < RuboCop::AST::Builder
 end
 class RuboCop::Cop::Sorbet::EnforceSignatures < RuboCop::Cop::Sorbet::SignatureCop
   def accessor?(param0 = nil); end
   def autocorrect(node); end
   def check_node(node); end
+  def initialize(config = nil, options = nil); end
+  def on_block(node); end
   def on_def(node); end
   def on_defs(node); end
   def on_send(node); end
   def param_type_placeholder; end
-  def previous_node(node); end
   def return_type_placeholder; end
+  def scope(node); end
 end
 class RuboCop::Cop::Sorbet::EnforceSignatures::SigSuggestion
   def generate_params; end

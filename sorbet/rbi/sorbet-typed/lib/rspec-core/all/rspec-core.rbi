@@ -5,7 +5,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/edit/master/lib/rspec-core/all/rspec-core.rbi
 #
-# typed: true
+# typed: false
 
 module RSpec
   def self.clear_examples; end
