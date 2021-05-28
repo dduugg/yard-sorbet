@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.5.0 (2021-05-28)
+
 ### New features
 
 * [#49](https://github.com/dduugg/yard-sorbet/issues/49) Apply `@abstract` tags to `abstact!`/`interface!` modules
@@ -9,13 +11,10 @@
 
 ### Bug fixes
 
-* [#41](https://github.com/dduugg/yard-sorbet/issues/41) Fix superfluous return type of boolean method definitions with inline modifiers
+* [#41](https://github.com/dduugg/yard-sorbet/issues/41) Fix superfluous return type of boolean methods with inline modifiers
 
 ### Changes
 
-* Make `YARDSorbet::SigToYARD::IS_LEGACY_RUBY_VERSION` private
-* Rename `YARDSorbet::SigHandler` to `YARDSorbet::Handlers::SigHandler`
-* Rename `YARDSorbet::StructHandler` to `YARDSorbet::Handlers::StructHandler`
 * Increase minimum `sorbet` version to `0.5.6289`
 * Increase minimum `yard` version to `0.9.21`
 

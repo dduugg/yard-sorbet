@@ -13,7 +13,7 @@ class YARDSorbet::Handlers::AbstractDSLHandler < YARD::Handlers::Ruby::Base
   #   The `@abstract` tag template
   TAG_TEXT = 'Subclasses must implement the `abstract` methods below.'
   # Extra text for class namespaces
-  CLASS_TAG_TEXT = T.let("This class cannont be directly instantiated. #{TAG_TEXT}", String)
+  CLASS_TAG_TEXT = T.let("It cannont be directly instantiated. #{TAG_TEXT}", String)
 
   sig { void }
   def process
