@@ -250,7 +250,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/abstract_dsl_handler.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_process'><span class='object_link'><a href="../StructClassHandler.html#process-instance_method" title="YARDSorbet::StructClassHandler#process (method)">process</a></span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_has_tag?'>has_tag?</span><span class='lparen'>(</span><span class='symbol'>:abstract</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>CodeObjects</span><span class='op'>::</span><span class='const'>ClassObject</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='const'><span class='object_link'><a href="#CLASS_TAG_TEXT-constant" title="YARDSorbet::Handlers::AbstractDSLHandler::CLASS_TAG_TEXT (constant)">CLASS_TAG_TEXT</a></span></span> <span class='op'>:</span> <span class='const'><span class='object_link'><a href="#TAG_TEXT-constant" title="YARDSorbet::Handlers::AbstractDSLHandler::TAG_TEXT (constant)">TAG_TEXT</a></span></span>
@@ -267,7 +267,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  1 13:08:12 2021 by
+  Generated on Tue Jun  1 16:04:16 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
