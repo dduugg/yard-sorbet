@@ -4,11 +4,9 @@
 require 'sorbet-runtime'
 require 'yard'
 
-# top-level namespace
-module YARDSorbet; end
+require_relative 'yard-sorbet/version'
 
 require_relative 'yard-sorbet/directives'
 require_relative 'yard-sorbet/handlers'
 require_relative 'yard-sorbet/node_utils'
 require_relative 'yard-sorbet/sig_to_yard'
-require_relative 'yard-sorbet/version'

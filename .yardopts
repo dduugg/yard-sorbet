@@ -1,3 +1,4 @@
+--load yard/ignore_monkey_patch_mixins.rb
 --main README.md
 --private
 --plugin sorbet

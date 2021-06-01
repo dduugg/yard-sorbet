@@ -14,6 +14,7 @@ module YARDSorbet::NodeUtils
 
   private_constant :ATTRIBUTE_METHODS, :SIGABLE_NODE
 
+  # Traverese AST nodes in breadth-first order
   # @yield [YARD::Parser::Ruby::AstNode]
   sig do
     params(
