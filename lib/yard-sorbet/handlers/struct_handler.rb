@@ -55,7 +55,9 @@ end
 
 # Class-level handler that folds all +const+ and +prop+ declarations into the constructor documentation
 # this needs to be injected as a module otherwise the default Class handler will overwrite documentation
-module YARDSorbet::StructClassHandler
+#
+# @note this modules is included in +YARD::Handlers::Ruby::ClassHandler+
+module YARDSorbet::Handlers::StructClassHandler
   extend T::Helpers
   extend T::Sig
 
@@ -106,4 +108,4 @@ module YARDSorbet::StructClassHandler
   end
 end
 
-YARD::Handlers::Ruby::ClassHandler.include YARDSorbet::StructClassHandler
+YARD::Handlers::Ruby::ClassHandler.include YARDSorbet::Handlers::StructClassHandler

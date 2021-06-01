@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-ast/all/rubocop-ast.rbi
 #
-# rubocop-ast-1.6.0
+# rubocop-ast-1.7.0
 
 module RuboCop
 end
@@ -775,7 +775,8 @@ module RuboCop::AST::MethodDispatchNode
   def block_node; end
   def command?(name); end
   def const_receiver?; end
-  def def_modifier?; end
+  def def_modifier(node = nil); end
+  def def_modifier?(node = nil); end
   def dot?; end
   def double_colon?; end
   def implicit_call?; end
@@ -979,6 +980,7 @@ end
 class RuboCop::AST::InPatternNode < RuboCop::AST::Node
   def body; end
   def branch_index; end
+  def pattern; end
   def then?; end
 end
 class RuboCop::AST::IndexNode < RuboCop::AST::Node

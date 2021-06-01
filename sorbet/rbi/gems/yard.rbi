@@ -1215,3 +1215,11 @@ class YARD::Tags::Library
   def yieldparam_tag(text); end
   def yieldreturn_tag(text); end
 end
+class YARD::Handlers::Ruby::MixinHandler < YARD::Handlers::Ruby::Base
+  def process_mixin(mixin); end
+  def recipient(*args, &blk); end
+  include Anonymous_Module_7
+end
+module Anonymous_Module_7
+  def process; end
+end

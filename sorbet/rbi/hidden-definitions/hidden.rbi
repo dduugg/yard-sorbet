@@ -4629,6 +4629,11 @@ module IRB
   def self.setup(ap_path, argv: T.unsafe(nil)); end
 end
 
+module IgnoreMonkeyPatchMixins
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class Integer
   include ::JSON::Ext::Generator::GeneratorMethods::Integer
   def to_bn(); end
@@ -9018,6 +9023,10 @@ class RuboCop::Cop::Lint::EmptyFile
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Lint::EmptyInPattern
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Lint::EmptyInterpolation
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -10714,6 +10723,10 @@ class RuboCop::Cop::Style::ImplicitRuntimeError
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Style::InPatternThen
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Style::InfiniteLoop
   LEADING_SPACE = ::T.let(nil, ::T.untyped)
   MSG = ::T.let(nil, ::T.untyped)
@@ -10818,6 +10831,10 @@ end
 class RuboCop::Cop::Style::MultilineIfThen
   MSG = ::T.let(nil, ::T.untyped)
   NON_MODIFIER_THEN = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Style::MultilineInPatternThen
+  MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::MultilineMemoization
@@ -10955,6 +10972,11 @@ end
 
 class RuboCop::Cop::Style::Proc
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Style::QuotedSymbols
+  MSG_DOUBLE = ::T.let(nil, ::T.untyped)
+  MSG_SINGLE = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::RaiseArgs
@@ -13030,7 +13052,7 @@ class YARD::Handlers::Ruby::ClassConditionHandler
 end
 
 class YARD::Handlers::Ruby::ClassHandler
-  include ::YARDSorbet::StructClassHandler
+  include ::YARDSorbet::Handlers::StructClassHandler
 end
 
 class YARD::Handlers::Ruby::ClassVariableHandler
@@ -13229,12 +13251,7 @@ class YARD::Handlers::Ruby::MethodHandler
 end
 
 class YARD::Handlers::Ruby::MixinHandler
-  def process_mixin(mixin); end
-
-  def recipient(mixin); end
-end
-
-class YARD::Handlers::Ruby::MixinHandler
+  include ::IgnoreMonkeyPatchMixins
 end
 
 class YARD::Handlers::Ruby::ModuleFunctionHandler
@@ -14546,6 +14563,11 @@ class YARDSorbet::Handlers::SigHandler
   extend ::T::Private::Methods::SingletonMethodHooks
 end
 
+module YARDSorbet::Handlers::StructClassHandler
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class YARDSorbet::Handlers::StructHandler
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
@@ -14557,11 +14579,6 @@ module YARDSorbet::NodeUtils
 end
 
 module YARDSorbet::SigToYARD
-  extend ::T::Private::Methods::MethodHooks
-  extend ::T::Private::Methods::SingletonMethodHooks
-end
-
-module YARDSorbet::StructClassHandler
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
 end

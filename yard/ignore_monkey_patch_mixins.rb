@@ -3,12 +3,10 @@
 
 require 'sorbet-runtime'
 
-# The Layout/EmptyLines Cop doesn't allow multiple empty lines.
-# YARD, however, requires multiple empty lines in order to detach a comment from a subsequent code object.
-# Neither of these are configurable, so this custom YARD docstring parser uses a single empty line to detach a comment
-#   from a code object.
-# @see https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylines
-# @see https://github.com/lsegal/yard/issues/484
+# YARD erroneously attaches some +include+ invocations to the root level, so we omit them instead. (The resulting
+# documentation would not be helpful anyway.)
+#
+# @see https://github.com/lsegal/yard/issues/1386
 module IgnoreMonkeyPatchMixins
   extend T::Helpers
   extend T::Sig
