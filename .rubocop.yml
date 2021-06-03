@@ -13,7 +13,7 @@ inherit_mode:
 
 AllCops:
   Exclude:
-    - 'sorbet/**/*'  # VSCode plugin workaround
+    - '**/*.rbi'  # VSCode plugin workaround
     - 'spec/data/**/*'
   NewCops: enable
   TargetRubyVersion: 2.5
@@ -37,10 +37,6 @@ RSpec/MultipleExpectations:
   Enabled: false
 Sorbet/StrictSigil:
   Enabled: true
-  Exclude:
-    - Gemfile
-    - Rakefile
-    - spec/yard_sorbet/**/*
 Style/AccessModifierDeclarations:
   EnforcedStyle: inline
 Style/ClassAndModuleChildren:

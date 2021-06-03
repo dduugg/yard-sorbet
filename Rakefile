@@ -1,4 +1,4 @@
-# typed: false
+# typed: strict
 # frozen_string_literal: true
 
 require 'bundler/audit/task'
@@ -24,15 +24,36 @@ task :rbi do
 end
 
 desc 'Typecheck files with sorbet'
-task :typecheck do
-  # data files for tests should individually typecheck
-  Dir.glob('spec/data/*.rb') do |file|
-    sh "bundle exec srb typecheck #{file}"
+namespace :typecheck do |typecheck_namespace|
+  desc 'Typecheck Gemfile'
+  task :gemfile do
+    sh 'bundle exec srb typecheck Gemfile rbi/gemfile.rbi'
   end
-  sh 'bundle exec srb typecheck'
+
+  desc 'Typecheck Rakefile'
+  task :rakefile do
+    sh 'bundle exec srb typecheck Rakefile rbi/rakefile.rbi'
+  end
+
+  desc 'Typecheck spec/ files'
+  task :spec do
+    sh 'bundle exec srb typecheck spec/ rbi/spec.rbi'
+  end
+
+  desc 'Typecheck library files'
+  task :lib do
+    sh 'bundle exec srb typecheck'
+  end
+
+  desc 'Run all typecheck tasks'
+  task :all do
+    typecheck_namespace.tasks.each do |typecheck_task|
+      Rake::Task[typecheck_task].invoke
+    end
+  end
 end
 
-task default: %i[typecheck rubocop spec]
+task default: %i[typecheck:all rubocop spec]
 
 desc 'Tasks to run in CI'
 task ci: %i[bundle:audit default]

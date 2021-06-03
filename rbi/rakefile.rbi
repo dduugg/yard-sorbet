@@ -1,0 +1,1 @@
+extend Rake::DSL

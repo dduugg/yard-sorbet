@@ -1,8 +1,7 @@
 bin/console
-Gemfile
-Rakefile
 yard-sorbet.gemspec
 --dir=.
 --enable-experimental-requires-ancestor
---ignore=/spec/data
+--ignore=/rbi
+--ignore=/spec
 --ignore=/vendor/bundle
