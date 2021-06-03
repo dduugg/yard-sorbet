@@ -12,13 +12,12 @@ A YARD [plugin](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#Plugi
 - Generates constant definitions from `T::Enum` enums
 - Modules marked `abstract!` or `interface!` are tagged `@abstract`
 
-## Install
-
-```shell
-gem install yard-sorbet
-```
-
 ## Usage
-```bash
-yard doc --plugin sorbet
-```
+
+See the Plugin Support [section](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#plugin-support) of the YARD docs.
+
+## Used By
+
+This plugin is used in generating docs for:
+- The [Homebrew Ruby API](https://rubydoc.brew.sh/index.html)
+- `yard-sorbet` [itself](https://dduugg.github.io/yard-sorbet/)
