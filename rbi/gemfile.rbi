@@ -1,3 +1,4 @@
+# typed: strict
 # This may include Gem::RequestSet::GemDependencyAPI methods from
 # https://github.com/sorbet/sorbet/blob/master/rbi/stdlib/rubygems.rbi
 

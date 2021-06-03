@@ -1,3 +1,4 @@
+# typed: strict
 extend RSpec::SharedContext
 extend RSpec::Matchers
 extend RSpec::Mocks::ExampleMethods

@@ -1683,6 +1683,16 @@ class RSpec::Core::Time
   def self.now(*arg0); end
 end
 class Module
+  def context(*a, &b); end
+  def describe(*a, &b); end
+  def example_group(*a, &b); end
+  def fcontext(*a, &b); end
+  def fdescribe(*a, &b); end
+  def shared_context(name, *args, &block); end
+  def shared_examples(name, *args, &block); end
+  def shared_examples_for(name, *args, &block); end
+  def xcontext(*a, &b); end
+  def xdescribe(*a, &b); end
 end
 module RSpec::Core::SharedContext
   def __shared_context_recordings; end
@@ -1911,15 +1921,4 @@ class RSpec::Core::Formatters::FailureListFormatter < RSpec::Core::Formatters::B
   def dump_profile(_profile); end
   def example_failed(failure); end
   def message(_message); end
-end
-module RSpec::Core::MockingAdapters
-end
-module RSpec::Core::MockingAdapters::RSpec
-  def self.configuration; end
-  def self.framework_name; end
-  def setup_mocks_for_rspec; end
-  def teardown_mocks_for_rspec; end
-  def verify_mocks_for_rspec; end
-  include RSpec::Mocks::ExampleMethods
-  include RSpec::Mocks::ExampleMethods::ExpectHost
 end

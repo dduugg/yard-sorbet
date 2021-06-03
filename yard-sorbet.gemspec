@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler-audit'
   spec.add_development_dependency 'codecov'
   spec.add_development_dependency 'rake', '~> 13.0'
+  spec.add_development_dependency 'redcarpet', '~> 3.5'
   spec.add_development_dependency 'rspec', '~> 3.10'
   spec.add_development_dependency 'rubocop', '~> 1.16.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.11.0'

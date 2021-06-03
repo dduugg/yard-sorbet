@@ -1,5 +1,7 @@
 --load yard/ignore_monkey_patch_mixins.rb
 --main README.md
+--markup-provider=redcarpet
+--markup=markdown
 --private
 --plugin sorbet
 lib/**/*.rb

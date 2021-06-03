@@ -11,8 +11,6 @@ module IgnoreMonkeyPatchMixins
   extend T::Helpers
   extend T::Sig
 
-  requires_ancestor YARD::Handlers::Ruby::MixinHandler
-
   sig { params(content: YARD::Parser::Ruby::AstNode).returns(T.nilable(YARD::CodeObjects::Base)) }
   def recipient(content)
     return unless namespace.to_s.start_with?('YARDSorbet')
