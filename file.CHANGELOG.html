@@ -57,117 +57,124 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'>
-<h1 id="label-Changelog">Changelog</h1>
+      <div id="content"><div id='filecontents'><h1 id="changelog">Changelog</h1>
 
-<h2 id="label-master+-28unreleased-29">master (unreleased)</h2>
+<h2 id="master-unreleased">master (unreleased)</h2>
 
-<h2 id="label-0.5.0+-282021-05-28-29">0.5.0 (2021-05-28)</h2>
+<h2 id="0-5-0-2021-05-28">0.5.0 (2021-05-28)</h2>
 
-<h3 id="label-New+features">New features</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/issues/49">#49</a> Apply <code>@abstract</code> tags to <code>abstact!</code>/<code>interface!</code> modules</p>
-</li><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/issues/43">#43</a> Add <code>T::Enum</code> support</p>
-</li></ul>
+<h3 id="new-features">New features</h3>
 
-<h3 id="label-Bug+fixes">Bug fixes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/issues/41">#41</a> Fix superfluous return type of boolean methods with inline modifiers</p>
-</li></ul>
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/issues/49">#49</a> Apply <code>@abstract</code> tags to <code>abstact!</code>/<code>interface!</code> modules</li>
+<li><a href="https://github.com/dduugg/yard-sorbet/issues/43">#43</a> Add <code>T::Enum</code> support</li>
+</ul>
 
-<h3 id="label-Changes">Changes</h3>
-<ul><li>
-<p>Increase minimum <code>sorbet</code> version to <code>0.5.6289</code></p>
-</li><li>
-<p>Increase minimum <code>yard</code> version to <code>0.9.21</code></p>
-</li></ul>
+<h3 id="bug-fixes">Bug fixes</h3>
 
-<h2 id="label-0.4.1+-282021-04-28-29">0.4.1 (2021-04-28)</h2>
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/issues/41">#41</a> Fix superfluous return type of boolean methods with inline modifiers</li>
+</ul>
 
-<h3 id="label-Bug+fixes">Bug fixes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/issues/32">#32</a> Fix processing of <code>T::Struct</code> field names that are ruby keywords or capitalized</p>
-</li></ul>
+<h3 id="changes">Changes</h3>
 
-<h2 id="label-0.4.0+-282021-04-02-29">0.4.0 (2021-04-02)</h2>
+<ul>
+<li>Increase minimum <code>sorbet</code> version to <code>0.5.6289</code></li>
+<li>Increase minimum <code>yard</code> version to <code>0.9.21</code></li>
+</ul>
 
-<h3 id="label-New+features">New features</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/issues/15">#15</a> Add support for <code>T::Struct</code> <code>prop</code> declarations</p>
-</li></ul>
+<h2 id="0-4-1-2021-04-28">0.4.1 (2021-04-28)</h2>
 
-<h2 id="label-0.3.0+-282021-03-11-29">0.3.0 (2021-03-11)</h2>
+<h3 id="bug-fixes">Bug fixes</h3>
 
-<h3 id="label-New+features">New features</h3>
-<ul><li>
-<p>Add <code>YARDSorbet::VERSION</code></p>
-</li></ul>
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/issues/32">#32</a> Fix processing of <code>T::Struct</code> field names that are ruby keywords or capitalized</li>
+</ul>
 
-<h3 id="label-Bug+fixes">Bug fixes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/26">#26</a>: Remove sorbet <code>default_checked_level</code></p>
-</li></ul>
+<h2 id="0-4-0-2021-04-02">0.4.0 (2021-04-02)</h2>
 
-<h2 id="label-0.2.0+-282021-01-14-29">0.2.0 (2021-01-14)</h2>
+<h3 id="new-features">New features</h3>
 
-<h3 id="label-Bug+fixes">Bug fixes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/17">#17</a>: Fix docstrings for methods that contain a comment on method definition line</p>
-</li></ul>
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/issues/15">#15</a> Add support for <code>T::Struct</code> <code>prop</code> declarations</li>
+</ul>
 
-<h3 id="label-Changes">Changes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/16">#16</a>: Enforce strict typing in non-spec code.</p>
-</li><li>
-<p>Require yard &gt;= 0.9.16 and sorbet-runtime &gt;= 0.5.5845</p>
-</li></ul>
+<h2 id="0-3-0-2021-03-11">0.3.0 (2021-03-11)</h2>
 
-<h2 id="label-0.1.0+-282020-12-01-29">0.1.0 (2020-12-01)</h2>
+<h3 id="new-features">New features</h3>
 
-<h3 id="label-New+features">New features</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/8">#8</a>: Add support for singleton class syntax.</p>
-</li><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/7">#7</a>: Add support for top-level constants in sigs.</p>
-</li></ul>
+<ul>
+<li>Add <code>YARDSorbet::VERSION</code></li>
+</ul>
 
-<h3 id="label-Bug+fixes">Bug fixes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/9">#9</a>: Remove warning for use of <code>T.attached_class</code>.</p>
-</li><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/11">#11</a>: Fix parsing of custom parameterized types.</p>
-</li><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/12">#12</a>: Fix parsing of recursive custom parameterized types.</p>
-</li></ul>
+<h3 id="bug-fixes">Bug fixes</h3>
 
-<h3 id="label-Changes">Changes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/10">#10</a>: Downgrade log level of unsupported <code>sig</code> <code>aref</code> nodes.</p>
-</li><li>
-<p>Drop Ruby 2.4 support</p>
-</li></ul>
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/26">#26</a>: Remove sorbet <code>default_checked_level</code></li>
+</ul>
 
-<h2 id="label-0.0.1+-282020-01-24-29">0.0.1 (2020-01-24)</h2>
+<h2 id="0-2-0-2021-01-14">0.2.0 (2021-01-14)</h2>
 
-<h3 id="label-New+Features">New Features</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/1">#1</a>: Add <code>T::Struct</code> support.</p>
-</li></ul>
+<h3 id="bug-fixes">Bug fixes</h3>
 
-<h3 id="label-Changes">Changes</h3>
-<ul><li>
-<p><a href="https://github.com/dduugg/yard-sorbet/pull/3">#3</a>: Rename require path to be conistent with gem name.</p>
-</li></ul>
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/17">#17</a>: Fix docstrings for methods that contain a comment on method definition line</li>
+</ul>
 
-<h2 id="label-0.0.0+-282020-01-05-29">0.0.0 (2020-01-05)</h2>
-<ul><li>
-<p>Initial Release</p>
-</li></ul>
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/16">#16</a>: Enforce strict typing in non-spec code.</li>
+<li>Require yard &gt;= 0.9.16 and sorbet-runtime &gt;= 0.5.5845</li>
+</ul>
+
+<h2 id="0-1-0-2020-12-01">0.1.0 (2020-12-01)</h2>
+
+<h3 id="new-features">New features</h3>
+
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/8">#8</a>: Add support for singleton class syntax.</li>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/7">#7</a>: Add support for top-level constants in sigs.</li>
+</ul>
+
+<h3 id="bug-fixes">Bug fixes</h3>
+
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/9">#9</a>: Remove warning for use of <code>T.attached_class</code>.</li>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/11">#11</a>: Fix parsing of custom parameterized types.</li>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/12">#12</a>: Fix parsing of recursive custom parameterized types.</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/10">#10</a>: Downgrade log level of unsupported <code>sig</code> <code>aref</code> nodes.</li>
+<li>Drop Ruby 2.4 support</li>
+</ul>
+
+<h2 id="0-0-1-2020-01-24">0.0.1 (2020-01-24)</h2>
+
+<h3 id="new-features">New Features</h3>
+
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/1">#1</a>: Add <code>T::Struct</code> support.</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><a href="https://github.com/dduugg/yard-sorbet/pull/3">#3</a>: Rename require path to be conistent with gem name.</li>
+</ul>
+
+<h2 id="0-0-0-2020-01-05">0.0.0 (2020-01-05)</h2>
+
+<ul>
+<li>Initial Release</li>
+</ul>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Jun  3 16:00:31 2021 by
+  Generated on Thu Jun  3 16:13:01 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
