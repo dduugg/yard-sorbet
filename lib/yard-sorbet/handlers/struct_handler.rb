@@ -61,8 +61,6 @@ module YARDSorbet::Handlers::StructClassHandler
   extend T::Helpers
   extend T::Sig
 
-  requires_ancestor YARD::Handlers::Ruby::ClassHandler
-
   sig { void }
   def process
     super
