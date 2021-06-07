@@ -57,7 +57,7 @@ RSpec.describe YARDSorbet::Handlers::StructHandler do
 
     it('creates a docstring if it does not exist') do
       node = YARD::Registry.at('PersonStruct#mystery')
-      expect(node.docstring).to eq('Returns the value of attribute +mystery+.')
+      expect(node.docstring).to eq('Returns the value of attribute `mystery`.')
     end
 
     it('handles default values appropriately') do
