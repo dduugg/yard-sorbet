@@ -15,12 +15,14 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     prop :return, T.nilable(T::Array[String])
   end
 
+  # These node types attached to sigs represent attr_* declarations
+  ATTR_NODE_TYPES = T.let(%i[command fcall], T::Array[Symbol])
   # Skip these node types when parsing `sig` params
   PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
   # Skip these node types when parsing `sig`s
   SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
 
-  private_constant :ParsedSig, :PARAM_EXCLUDES, :SIG_EXCLUDES
+  private_constant :ParsedSig, :ATTR_NODE_TYPES, :PARAM_EXCLUDES, :SIG_EXCLUDES
 
   # Swap the method definition docstring and the sig docstring.
   # Parse relevant parts of the `sig` and include them as well.
@@ -31,7 +33,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     parsed_sig = parse_sig(statement)
     enhance_tag(docstring, :abstract, parsed_sig)
     enhance_tag(docstring, :return, parsed_sig)
-    if method_node.type != :command
+    unless ATTR_NODE_TYPES.include?(method_node.type)
       parsed_sig.params.each do |name, types|
         enhance_param(docstring, name, types)
       end

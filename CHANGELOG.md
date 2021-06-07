@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+* [#52](https://github.com/dduugg/yard-sorbet/issues/52) Fix `sig` parsing of attr_* methods that use parens
+
 ## 0.5.0 (2021-05-28)
 
 ### New features
