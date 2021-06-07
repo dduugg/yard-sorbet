@@ -295,6 +295,9 @@ class AttrSigs
 
   sig {params(my_writer: T.nilable(Symbol)).returns(T.nilable(Symbol))}
   attr_writer :my_writer
+
+  sig {params(with_parens: T::Boolean).returns(T::Boolean)}
+  attr_writer(:with_parens)
 end
 
 class SigInlineVisibility

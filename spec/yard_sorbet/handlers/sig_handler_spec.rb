@@ -368,5 +368,10 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       node = YARD::Registry.at('AttrSigs#my_writer=')
       expect(node.tag(:return).types).to eq(%w[Symbol nil])
     end
+
+    it 'handles parens' do
+      node = YARD::Registry.at('AttrSigs#with_parens=')
+      expect(node.tag(:return).types).to eq(%w[Boolean])
+    end
   end
 end
