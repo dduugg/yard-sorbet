@@ -1,7 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Translate +sig+ type syntax to +YARD+ type syntax.
+# Translate `sig` type syntax to `YARD` type syntax.
 module YARDSorbet::SigToYARD
   extend T::Sig
 

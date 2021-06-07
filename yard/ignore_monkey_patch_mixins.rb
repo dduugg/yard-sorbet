@@ -3,7 +3,7 @@
 
 require 'sorbet-runtime'
 
-# YARD erroneously attaches some +include+ invocations to the root level, so we omit them instead. (The resulting
+# YARD erroneously attaches some `include` invocations to the root level, so we omit them instead. (The resulting
 # documentation would not be helpful anyway.)
 #
 # @see https://github.com/lsegal/yard/issues/1386

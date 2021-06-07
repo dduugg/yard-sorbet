@@ -1,7 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Handle +enums+ calls, registering enum values as constants
+# Handle `enums` calls, registering enum values as constants
 class YARDSorbet::Handlers::EnumsHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
 

@@ -1,7 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Handles all +const+/+prop+ calls, creating accessor methods, and compiles them for later usage at the class level
+# Handles all `const`/`prop` calls, creating accessor methods, and compiles them for later usage at the class level
 # in creating a constructor
 class YARDSorbet::Handlers::StructHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
@@ -39,7 +39,8 @@ class YARDSorbet::Handlers::StructHandler < YARD::Handlers::Ruby::Base
     object = MethodObject.new(namespace, name, scope)
     object.source = source
 
-    reader_docstring = doc.empty? ? "Returns the value of attribute +#{name}+." : doc
+    # TODO: this should use `+` to delimit the attribute name when markdown is disabled
+    reader_docstring = doc.empty? ? "Returns the value of attribute `#{name}`." : doc
     docstring = YARD::DocstringParser.new.parse(reader_docstring).to_docstring
     docstring.add_tag(YARD::Tags::Tag.new(:return, '', types))
     object.docstring = docstring.to_raw
@@ -53,12 +54,11 @@ class YARDSorbet::Handlers::StructHandler < YARD::Handlers::Ruby::Base
   end
 end
 
-# Class-level handler that folds all +const+ and +prop+ declarations into the constructor documentation
+# Class-level handler that folds all `const` and `prop` declarations into the constructor documentation
 # this needs to be injected as a module otherwise the default Class handler will overwrite documentation
 #
-# @note this modules is included in +YARD::Handlers::Ruby::ClassHandler+
+# @note this modules is included in `YARD::Handlers::Ruby::ClassHandler`
 module YARDSorbet::Handlers::StructClassHandler
-  extend T::Helpers
   extend T::Sig
 
   sig { void }

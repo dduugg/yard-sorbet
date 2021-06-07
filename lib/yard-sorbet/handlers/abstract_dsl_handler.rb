@@ -1,7 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Apllies an +@abstract+ tag to +abstract!+/+interface!+ modules (if not alerady present).
+# Apllies an `@abstract` tag to `abstract!`/`interface!` modules (if not alerady present).
 class YARDSorbet::Handlers::AbstractDSLHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
 

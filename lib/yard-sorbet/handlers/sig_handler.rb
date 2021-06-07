@@ -23,7 +23,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   private_constant :ParsedSig, :PARAM_EXCLUDES, :SIG_EXCLUDES
 
   # Swap the method definition docstring and the sig docstring.
-  # Parse relevant parts of the +sig+ and include them as well.
+  # Parse relevant parts of the `sig` and include them as well.
   sig { void }
   def process
     method_node = YARDSorbet::NodeUtils.get_method_node(YARDSorbet::NodeUtils.sibling_node(statement))
