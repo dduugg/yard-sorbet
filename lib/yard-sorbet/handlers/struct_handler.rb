@@ -25,13 +25,13 @@ class YARDSorbet::Handlers::StructHandler < YARD::Handlers::Ruby::Base
     default = default_node.parent[1].source if default_node
 
     extra_state.prop_docs ||= Hash.new { |h, k| h[k] = [] }
-    extra_state.prop_docs[namespace] << {
+    extra_state.prop_docs[namespace] << YARDSorbet::TStructProp.new(
+      default: default,
       doc: doc,
       prop_name: name,
-      types: types,
       source: source,
-      default: default
-    }
+      types: types
+    )
 
     # Create the virtual method in our current scope
     namespace.attributes[scope][name] ||= SymbolHash[read: nil, write: nil]
@@ -81,21 +81,13 @@ module YARDSorbet::Handlers::StructClassHandler
 
     docstring, directives = YARDSorbet::Directives.extract_directives(object.docstring || '')
 
-    # Annotate the parameters of the constructor with the prop docs
-    props.each do |prop|
-      docstring.add_tag(YARD::Tags::Tag.new(:param, prop[:doc], prop[:types], prop[:prop_name]))
-    end
-
-    docstring.add_tag(YARD::Tags::Tag.new(:return, '', class_ns))
+    add_t_struct_constructor_tags(docstring, props, class_ns)
 
     # Use kwarg style arguments, with optionals being marked with a default (unless an actual default was specified)
-    object.parameters = props.map do |prop|
-      default = prop[:default] || (prop[:types].include?('nil') ? 'nil' : nil)
-      ["#{prop[:prop_name]}:", default]
-    end
+    object.parameters = props.map { |prop| t_struct_prop_parameter(prop) }
 
     # The "source" of our constructor is compromised with the props/consts
-    object.source ||= props.map { |p| p[:source] }.join("\n")
+    object.source ||= props.map(&:source).join("\n")
     object.explicit ||= false # not strictly necessary
 
     register(object)
@@ -103,6 +95,28 @@ module YARDSorbet::Handlers::StructClassHandler
     object.docstring = docstring.to_raw
 
     YARDSorbet::Directives.add_directives(object.docstring, directives)
+  end
+
+  sig { params(prop: YARDSorbet::TStructProp).returns([String, T.nilable(String)]) }
+  private def t_struct_prop_parameter(prop)
+    default = prop.default || (prop.types.include?('nil') ? 'nil' : nil)
+    ["#{prop.prop_name}:", default]
+  end
+
+  # Annotate the parameters of the constructor with the prop docs
+  sig do
+    params(
+      docstring: YARD::Docstring,
+      props: T::Array[YARDSorbet::TStructProp],
+      class_ns: YARD::CodeObjects::ClassObject
+    ).void
+  end
+  private def add_t_struct_constructor_tags(docstring, props, class_ns)
+    props.each do |prop|
+      docstring.add_tag(YARD::Tags::Tag.new(:param, prop.doc, prop.types, prop.prop_name))
+    end
+
+    docstring.add_tag(YARD::Tags::Tag.new(:return, '', class_ns))
   end
 end
 
