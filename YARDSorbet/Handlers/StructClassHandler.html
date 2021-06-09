@@ -83,7 +83,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/yard-sorbet/handlers/struct_handler.rb</dd>
+    <dd>lib/yard-sorbet/handlers/struct_class_handler.rb</dd>
   </dl>
   
 </div>
@@ -260,16 +260,16 @@ this needs to be injected as a module otherwise the default Class handler will o
       <pre class="lines">
 
 
-114
-115
-116
-117
-118
-119
-120</pre>
+61
+62
+63
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_handler.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 61</span>
 
 <span class='id identifier rubyid_private'>private</span> <span class='kw'>def</span> <span class='id identifier rubyid_add_t_struct_constructor_tags'>add_t_struct_constructor_tags</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_props'>props</span><span class='comma'>,</span> <span class='id identifier rubyid_class_ns'>class_ns</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prop'>prop</span><span class='op'>|</span>
@@ -307,43 +307,43 @@ this needs to be injected as a module otherwise the default Class handler will o
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98</pre>
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_handler.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='kw'>super</span>
@@ -436,13 +436,13 @@ this needs to be injected as a module otherwise the default Class handler will o
       <pre class="lines">
 
 
-101
-102
-103
-104</pre>
+48
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_handler.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 48</span>
 
 <span class='id identifier rubyid_private'>private</span> <span class='kw'>def</span> <span class='id identifier rubyid_t_struct_prop_parameter'>t_struct_prop_parameter</span><span class='lparen'>(</span><span class='id identifier rubyid_prop'>prop</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_types'>types</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -458,7 +458,7 @@ this needs to be injected as a module otherwise the default Class handler will o
 </div>
 
       <div id="footer">
-  Generated on Wed Jun  9 15:58:45 2021 by
+  Generated on Wed Jun  9 17:46:28 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
