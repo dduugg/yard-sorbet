@@ -250,13 +250,13 @@ in creating a constructor</p>
   <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='id identifier rubyid_default_node'>default_node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='kw'>if</span> <span class='id identifier rubyid_default_node'>default_node</span>
 
   <span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span> <span class='op'>||=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_h'>h</span><span class='comma'>,</span> <span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span><span class='lbracket'>[</span><span class='id identifier rubyid_namespace'>namespace</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span>
+  <span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span><span class='lbracket'>[</span><span class='id identifier rubyid_namespace'>namespace</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="../../YARDSorbet.html" title="YARDSorbet (module)">YARDSorbet</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../TStructProp.html" title="YARDSorbet::TStructProp (class)">TStructProp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../TStructProp.html#initialize-instance_method" title="YARDSorbet::TStructProp#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>default:</span> <span class='id identifier rubyid_default'>default</span><span class='comma'>,</span>
     <span class='label'>doc:</span> <span class='id identifier rubyid_doc'>doc</span><span class='comma'>,</span>
     <span class='label'>prop_name:</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
-    <span class='label'>types:</span> <span class='id identifier rubyid_types'>types</span><span class='comma'>,</span>
     <span class='label'>source:</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span>
-    <span class='label'>default:</span> <span class='id identifier rubyid_default'>default</span>
-  <span class='rbrace'>}</span>
+    <span class='label'>types:</span> <span class='id identifier rubyid_types'>types</span>
+  <span class='rparen'>)</span>
 
   <span class='comment'># Create the virtual method in our current scope
 </span>  <span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_attributes'>attributes</span><span class='lbracket'>[</span><span class='id identifier rubyid_scope'>scope</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>SymbolHash</span><span class='lbracket'>[</span><span class='label'>read:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>write:</span> <span class='kw'>nil</span><span class='rbracket'>]</span>
@@ -287,7 +287,7 @@ in creating a constructor</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Jun  8 17:51:11 2021 by
+  Generated on Wed Jun  9 15:58:46 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
