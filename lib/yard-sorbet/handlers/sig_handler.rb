@@ -78,22 +78,27 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     found_params = T.let(false, T::Boolean)
     found_return = T.let(false, T::Boolean)
     YARDSorbet::NodeUtils.bfs_traverse(sig_node, exclude: SIG_EXCLUDES) do |n|
-      if n.source == 'abstract'
+      case n.source
+      when 'abstract'
         parsed.abstract = true
-      elsif n.source == 'params' && !found_params
-        found_params = true
-        sibling = YARDSorbet::NodeUtils.sibling_node(n)
-        YARDSorbet::NodeUtils.bfs_traverse(sibling, exclude: PARAM_EXCLUDES) do |p|
-          if p.type == :assoc
-            param_name = p.children.first.source[0...-1]
-            types = YARDSorbet::SigToYARD.convert(p.children.last)
-            parsed.params[param_name] = types
+      when 'params'
+        unless found_params
+          found_params = true
+          sibling = YARDSorbet::NodeUtils.sibling_node(n)
+          YARDSorbet::NodeUtils.bfs_traverse(sibling, exclude: PARAM_EXCLUDES) do |p|
+            if p.type == :assoc
+              param_name = p.children.first.source[0...-1]
+              types = YARDSorbet::SigToYARD.convert(p.children.last)
+              parsed.params[param_name] = types
+            end
           end
         end
-      elsif n.source == 'returns' && !found_return
-        found_return = true
-        parsed.return = YARDSorbet::SigToYARD.convert(YARDSorbet::NodeUtils.sibling_node(n))
-      elsif n.source == 'void'
+      when 'returns'
+        unless found_return
+          found_return = true
+          parsed.return = YARDSorbet::SigToYARD.convert(YARDSorbet::NodeUtils.sibling_node(n))
+        end
+      when 'void'
         parsed.return ||= ['void']
       end
     end
