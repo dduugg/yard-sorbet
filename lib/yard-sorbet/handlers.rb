@@ -8,4 +8,5 @@ module YARDSorbet::Handlers; end
 require_relative 'handlers/abstract_dsl_handler'
 require_relative 'handlers/enums_handler'
 require_relative 'handlers/sig_handler'
-require_relative 'handlers/struct_handler'
+require_relative 'handlers/struct_class_handler'
+require_relative 'handlers/struct_prop_handler'
