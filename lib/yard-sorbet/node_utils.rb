@@ -19,19 +19,16 @@ module YARDSorbet::NodeUtils
   sig do
     params(
       node: YARD::Parser::Ruby::AstNode,
-      exclude: T::Array[Symbol],
       _blk: T.proc.params(n: YARD::Parser::Ruby::AstNode).void
     ).void
   end
-  def self.bfs_traverse(node, exclude: [], &_blk)
+  def self.bfs_traverse(node, &_blk)
     queue = [node]
     until queue.empty?
       n = T.must(queue.shift)
       yield n
       n.children.each do |c|
-        unless exclude.include?(c.type)
-          queue.push(c)
-        end
+        queue.push(c)
       end
     end
   end
