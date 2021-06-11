@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Changes
+
+* Bump required ruby version to `>= 2.6.0`
+
 ## 0.5.1 (2021-06-08)
 
 ### Bug fixes
