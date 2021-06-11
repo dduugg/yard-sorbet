@@ -17,12 +17,8 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
 
   # These node types attached to sigs represent attr_* declarations
   ATTR_NODE_TYPES = T.let(%i[command fcall], T::Array[Symbol])
-  # Skip these node types when parsing `sig` params
-  PARAM_EXCLUDES = T.let(%i[array call hash].freeze, T::Array[Symbol])
-  # Skip these node types when parsing `sig`s
-  SIG_EXCLUDES = T.let(%i[array hash].freeze, T::Array[Symbol])
 
-  private_constant :ParsedSig, :ATTR_NODE_TYPES, :PARAM_EXCLUDES, :SIG_EXCLUDES
+  private_constant :ParsedSig, :ATTR_NODE_TYPES
 
   # Swap the method definition docstring and the sig docstring.
   # Parse relevant parts of the `sig` and include them as well.
@@ -30,7 +26,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   def process
     method_node = YARDSorbet::NodeUtils.get_method_node(YARDSorbet::NodeUtils.sibling_node(statement))
     docstring, directives = YARDSorbet::Directives.extract_directives(statement.docstring)
-    parsed_sig = parse_sig(statement)
+    parsed_sig = parse_sig
     enhance_tag(docstring, :abstract, parsed_sig)
     enhance_tag(docstring, :return, parsed_sig)
     unless ATTR_NODE_TYPES.include?(method_node.type)
@@ -72,12 +68,12 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     docstring.add_tag(tag)
   end
 
-  sig { params(sig_node: YARD::Parser::Ruby::MethodCallNode).returns(ParsedSig) }
-  private def parse_sig(sig_node)
+  sig { returns(ParsedSig) }
+  private def parse_sig
     parsed = ParsedSig.new
     found_params = T.let(false, T::Boolean)
     found_return = T.let(false, T::Boolean)
-    YARDSorbet::NodeUtils.bfs_traverse(sig_node, exclude: SIG_EXCLUDES) do |n|
+    YARDSorbet::NodeUtils.bfs_traverse(statement) do |n|
       case n.source
       when 'abstract'
         parsed.abstract = true
@@ -85,12 +81,10 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
         unless found_params
           found_params = true
           sibling = YARDSorbet::NodeUtils.sibling_node(n)
-          YARDSorbet::NodeUtils.bfs_traverse(sibling, exclude: PARAM_EXCLUDES) do |p|
-            if p.type == :assoc
-              param_name = p.children.first.source[0...-1]
-              types = YARDSorbet::SigToYARD.convert(p.children.last)
-              parsed.params[param_name] = types
-            end
+          sibling[0][0].each do |p|
+            param_name = p[0][0]
+            types = YARDSorbet::SigToYARD.convert(p.last)
+            parsed.params[param_name] = types
           end
         end
       when 'returns'
