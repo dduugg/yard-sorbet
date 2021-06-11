@@ -31,7 +31,7 @@ module YARDSorbet::SigToYARD
     when :var_ref then handle_var_ref(node)
     # A top-level constant reference, such as ::Klass
     # It contains a child node of type :const
-    when :top_const_ref then convert(node.children.first)
+    when :top_const_ref then convert(node.first)
     else
       log.warn("Unsupported sig #{node.type} node #{node.source}")
       [node.source]
@@ -40,26 +40,24 @@ module YARDSorbet::SigToYARD
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(String) }
   private_class_method def self.build_generic_type(node)
-    children = node.children
-    return node.source if children.empty? || node.type != :aref
+    return node.source if node.empty? || node.type != :aref
 
-    collection_type = children.first.source
-    member_type = children.last.children.map { |child| build_generic_type(child) }.join(', ')
+    collection_type = node.first.source
+    member_type = node.last.children.map { |child| build_generic_type(child) }.join(', ')
 
     "#{collection_type}[#{member_type}]"
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   private_class_method def self.handle_aref(node)
-    children = node.children
     # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Parametrized_Types
-    case children.first.source
+    case node.first.source
     when 'T::Array', 'T::Enumerable', 'T::Range', 'T::Set'
-      collection_type = children.first.source.split('::').last
-      member_type = convert(children.last.children.first).join(', ')
+      collection_type = node.first.source.split('::').last
+      member_type = convert(node.last.first).join(', ')
       ["#{collection_type}<#{member_type}>"]
     when 'T::Hash'
-      kv = children.last.children
+      kv = node.last.children
       key_type = convert(kv.first).join(', ')
       value_type = convert(kv.last).join(', ')
       ["Hash{#{key_type} => #{value_type}}"]
@@ -71,13 +69,13 @@ module YARDSorbet::SigToYARD
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   private_class_method def self.handle_arg_paren(node)
-    convert(node.children.first.children.first)
+    convert(node.first.first)
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   private_class_method def self.handle_array(node)
     # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
-    member_types = node.children.first.children.map { |n| convert(n) }.join(', ')
+    member_types = node.first.children.map { |n| convert(n) }.join(', ')
     ["Array(#{member_types})"]
   end
 
