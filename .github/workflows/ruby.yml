@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.5', '2.6', '2.7', '3.0', head]
-    continue-on-error: ${{ matrix.ruby == 'head' || matrix.ruby == '2.5' }}
+        ruby-version: ['2.6', '2.7', '3.0', head]
+    continue-on-error: ${{ matrix.ruby == 'head' }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
