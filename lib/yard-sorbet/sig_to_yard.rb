@@ -5,10 +5,6 @@
 module YARDSorbet::SigToYARD
   extend T::Sig
 
-  # Ruby 2.5 parsed call nodes slightly differently
-  IS_LEGACY_RUBY_VERSION = T.let(RUBY_VERSION.start_with?('2.5.'), T::Boolean)
-  private_constant :IS_LEGACY_RUBY_VERSION
-
   # @see https://yardoc.org/types.html
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   def self.convert(node)
@@ -19,11 +15,12 @@ module YARDSorbet::SigToYARD
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   private_class_method def self.convert_type(node)
+    return handle_call(node) if node.is_a? YARD::Parser::Ruby::MethodCallNode
+
     case node.type
     when :aref then handle_aref(node)
     when :arg_paren then handle_arg_paren(node)
     when :array then handle_array(node)
-    when :call then handle_call(node)
     when :const_path_ref, :const then handle_const(node)
     # Fixed hashes as return values are unsupported:
     # https://github.com/lsegal/yard/issues/425
@@ -94,27 +91,25 @@ module YARDSorbet::SigToYARD
     end
   end
 
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+  sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
   private_class_method def self.handle_call(node)
-    children = node.children
-    if children[0].source == 'T'
-      t_method = IS_LEGACY_RUBY_VERSION ? children[1].source : children[2].source
-      handle_t_method(t_method, node)
+    if node.namespace.source == 'T'
+      handle_t_method(node.method_name(true), node)
     else
       [node.source]
     end
   end
 
-  sig { params(method_name: String, node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+  sig { params(method_name: Symbol, node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   private_class_method def self.handle_t_method(method_name, node)
     case method_name
-    # YARD doesn't have equivalent notions, so we just use the raw source
-    when 'all', 'attached_class', 'class_of', 'enum', 'noreturn', 'self_type', 'type_parameter', 'untyped'
-      [node.source]
-    when 'any' then node.children.last.children.first.children.map { |n| convert(n) }.flatten
+    when :any then node.last.first.children.map { |n| convert(n) }.flatten
     # Order matters here, putting `nil` last results in a more concise
     # return syntax in the UI (superscripted `?`)
-    when 'nilable' then convert(node.children.last) + ['nil']
+    when :nilable then convert(node.last) + ['nil']
+    when :all, :attached_class, :class_of, :enum, :noreturn, :self_type, :type_parameter, :untyped
+      # YARD doesn't have equivalent notions, so we just use the raw source
+      [node.source]
     else
       log.warn("Unsupported T method #{node.source}")
       [node.source]
