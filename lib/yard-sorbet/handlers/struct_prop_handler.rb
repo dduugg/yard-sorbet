@@ -11,45 +11,56 @@ class YARDSorbet::Handlers::StructPropHandler < YARD::Handlers::Ruby::Base
 
   sig { void }
   def process
-    # Store the property for use in the constructor definition
-    name = statement.parameters[0].jump(
-      :ident, # handles most "normal" identifiers
-      :kw,    # handles prop names using reserved words like `end` or `def`
-      :const  # handles capitalized prop names like Foo
-    ).source
+    name = statement.parameters.first.last.last.source
+    prop = make_prop(name)
+    update_state(prop)
+    object = YARD::CodeObjects::MethodObject.new(namespace, name, scope)
+    decorate_object(object, prop)
+    register_attrs(object, name)
+  end
 
-    doc = statement.docstring.to_s
-    source = statement.source
-    types = YARDSorbet::SigToYARD.convert(statement.parameters[1])
-    default_node = statement.traverse { |n| break n if n.source == 'default:' && n.type == :label }
-    default = default_node.parent[1].source if default_node
-
-    extra_state.prop_docs ||= Hash.new { |h, k| h[k] = [] }
-    extra_state.prop_docs[namespace] << YARDSorbet::TStructProp.new(
-      default: default,
-      doc: doc,
-      prop_name: name,
-      source: source,
-      types: types
-    )
-
-    # Create the virtual method in our current scope
-    namespace.attributes[scope][name] ||= SymbolHash[read: nil, write: nil]
-
-    object = MethodObject.new(namespace, name, scope)
-    object.source = source
-
+  # Add the source and docstring to method object
+  sig { params(object: YARD::CodeObjects::MethodObject, prop: YARDSorbet::TStructProp).void }
+  private def decorate_object(object, prop)
+    object.source = prop.source
     # TODO: this should use `+` to delimit the attribute name when markdown is disabled
-    reader_docstring = doc.empty? ? "Returns the value of attribute `#{name}`." : doc
+    reader_docstring = prop.doc.empty? ? "Returns the value of attribute `#{prop.prop_name}`." : prop.doc
     docstring = YARD::DocstringParser.new.parse(reader_docstring).to_docstring
-    docstring.add_tag(YARD::Tags::Tag.new(:return, '', types))
+    docstring.add_tag(YARD::Tags::Tag.new(:return, '', prop.types))
     object.docstring = docstring.to_raw
+  end
 
-    # Register the object explicitly as an attribute.
-    # While `const` attributes are immutable, `prop` attributes may be reassigned.
-    if statement.method_name.source == 'prop'
-      namespace.attributes[scope][name][:write] = object
-    end
-    namespace.attributes[scope][name][:read] = object
+  # Get the default prop value
+  sig { returns(T.nilable(String)) }
+  private def default_value
+    default_node = statement.traverse { |n| break n if n.type == :label && n.source == 'default:' }
+    default_node.parent[1].source if default_node
+  end
+
+  sig { params(name: String).returns(YARDSorbet::TStructProp) }
+  private def make_prop(name)
+    YARDSorbet::TStructProp.new(
+      default: default_value,
+      doc: statement.docstring.to_s,
+      prop_name: name,
+      source: statement.source,
+      types: YARDSorbet::SigToYARD.convert(statement.parameters[1])
+    )
+  end
+
+  # Register the field explicitly as an attribute.
+  # While `const` attributes are immutable, `prop` attributes may be reassigned.
+  sig { params(object: YARD::CodeObjects::MethodObject, name: String).void }
+  private def register_attrs(object, name)
+    # Create the virtual method in our current scope
+    write = statement.method_name.source == 'prop' ? object : nil
+    namespace.attributes[scope][name] ||= SymbolHash[read: object, write: write]
+  end
+
+  # Store the prop for use in the constructor definition
+  sig { params(prop: YARDSorbet::TStructProp).void }
+  private def update_state(prop)
+    extra_state.prop_docs ||= Hash.new { |h, k| h[k] = [] }
+    extra_state.prop_docs[namespace] << prop
   end
 end
