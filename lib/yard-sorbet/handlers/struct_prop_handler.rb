@@ -19,7 +19,7 @@ class YARDSorbet::Handlers::StructPropHandler < YARD::Handlers::Ruby::Base
     register_attrs(object, name)
   end
 
-  # Add the source and docstring to method object
+  # Add the source and docstring to the method object
   sig { params(object: YARD::CodeObjects::MethodObject, prop: YARDSorbet::TStructProp).void }
   private def decorate_object(object, prop)
     object.source = prop.source
