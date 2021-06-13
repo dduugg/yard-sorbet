@@ -1,7 +1,7 @@
 # typed: strict
 # frozen_string_literal: true
 
-# Helper methods for working with YARD AST Nodes
+# Helper methods for working with `YARD` AST Nodes
 module YARDSorbet::NodeUtils
   extend T::Sig
 
@@ -11,10 +11,13 @@ module YARDSorbet::NodeUtils
   SIGABLE_NODE = T.type_alias do
     T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)
   end
+  # Skip these method contents during BFS node traversal, they can have their own nested types via `T.Proc`
+  SKIP_METHOD_CONTENTS = T.let(%i[params returns], T::Array[Symbol])
 
   private_constant :ATTRIBUTE_METHODS, :SIGABLE_NODE
 
   # Traverese AST nodes in breadth-first order
+  # @note This will skip over some node types.
   # @yield [YARD::Parser::Ruby::AstNode]
   sig do
     params(
@@ -27,8 +30,9 @@ module YARDSorbet::NodeUtils
     until queue.empty?
       n = T.must(queue.shift)
       yield n
-      n.children.each do |c|
-        queue.push(c)
+      n.children.each { |c| queue.push(c) }
+      if n.is_a?(YARD::Parser::Ruby::MethodCallNode) && SKIP_METHOD_CONTENTS.include?(n.method_name(true))
+        queue.pop
       end
     end
   end

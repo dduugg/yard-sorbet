@@ -346,6 +346,13 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(return_tags.size).to eq(1)
       expect(return_tags.first.types).to eq(['Boolean'])
     end
+
+    it 'handles void methods with proc params' do
+      node = YARD::Registry.at('BlockDSL#initialize')
+      expect(node.tag(:return).types).to eq(['void'])
+      block_param_node = node.tags.find { |t| t.name == 'block' }
+      expect(block_param_node.types).to eq(['T.proc.params(arg0: T.all(String, PageWithURL)).returns(T.untyped)'])
+    end
   end
 
   describe 'attributes' do

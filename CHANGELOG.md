@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+### Bug fixes
+
+* [#61](https://github.com/dduugg/yard-sorbet/pull/61) Fix parsing of `sig` with nested return types
+
 ### Changes
 
 * Bump required ruby version to `>= 2.6.0`

@@ -306,3 +306,21 @@ class SigInlineVisibility
     true
   end
 end
+
+module Cask; class DSL; end; end
+class BlockDSL
+  module PageWithURL; end
+
+  sig {
+    params(
+      uri:   T.nilable(T.any(URI::Generic, String)),
+      dsl:   T.nilable(Cask::DSL),
+      block: T.proc.params(arg0: T.all(String, PageWithURL)).returns(T.untyped),
+    ).void
+  }
+  def initialize(uri, dsl: nil, &block)
+    @uri = uri
+    @dsl = dsl
+    @block = block
+  end
+end
