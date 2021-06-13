@@ -61,10 +61,4 @@ module YARDSorbet::NodeUtils
       end
     end
   end
-
-  # Returns true if the given node represents a type signature.
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
-  def self.type_signature?(node)
-    node.is_a?(YARD::Parser::Ruby::MethodCallNode) && node.method_name(true) == :sig
-  end
 end
