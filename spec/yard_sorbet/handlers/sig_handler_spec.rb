@@ -337,7 +337,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'top_const_ref' do
       node = YARD::Registry.at('VariousTypedSigs#top_const_ref')
-      expect(node.tag(:return).types).to eq(['Foo'])
+      expect(node.tag(:return).types).to eq(['::Foo'])
     end
 
     it 'handles inline visibility modifiers' do
