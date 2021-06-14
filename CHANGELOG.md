@@ -5,6 +5,7 @@
 ### Bug fixes
 
 * [#61](https://github.com/dduugg/yard-sorbet/pull/61) Fix parsing of `sig` with nested return types
+* [#62](https://github.com/dduugg/yard-sorbet/pull/61) Fix parsing of `top_const_ref` nodes (e.g. `::Foo`)
 
 ### Changes
 
