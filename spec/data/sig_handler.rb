@@ -135,6 +135,9 @@ class SigReturn
   sig {void}
   def self.class_method_definition_contains_comment # rubocop:disable ...
   end
+
+  sig {returns Integer}
+  def no_parens; end
 end
 
 class SigAbstract

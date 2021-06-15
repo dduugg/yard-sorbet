@@ -353,6 +353,11 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       block_param_node = node.tags.find { |t| t.name == 'block' }
       expect(block_param_node.types).to eq(['T.proc.params(arg0: T.all(String, PageWithURL)).returns(T.untyped)'])
     end
+
+    it 'handles omitting parens' do
+      node = YARD::Registry.at('SigReturn#no_parens')
+      expect(node.tag(:return).types).to eq(['Integer'])
+    end
   end
 
   describe 'attributes' do
