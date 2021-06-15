@@ -113,6 +113,28 @@
 
     <ul class="summary">
       
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#find_tag-class_method" title="find_tag (class method)">.<strong>find_tag</strong>(docstring, tag_name, name)  &#x21d2; YARD::Tags::Tag<sup>?</sup> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
         <li class="public ">
   <span class="summary_signature">
     
@@ -147,7 +169,96 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="upsert_tag-class_method">
+  <h3 class="signature first" id="find_tag-class_method">
+  
+    .<strong>find_tag</strong>(docstring, tag_name, name)  &#x21d2; <tt>YARD::Tags::Tag</tt><sup>?</sup>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>docstring</span>
+      
+      
+        <span class='type'>(<tt>YARD::Docstring</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tag_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>YARD::Tags::Tag</tt>, <tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/tag_utils.rb', line 36</span>
+
+<span class='id identifier rubyid_private_class_method'>private_class_method</span> <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_find_tag'>find_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_tag_name'>tag_name</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_tags'>tags</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>==</span> <span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="upsert_tag-class_method">
   
     .<strong>upsert_tag</strong>(docstring, tag_name, types = nil, name = nil)  &#x21d2; <tt>void</tt> 
   
@@ -242,7 +353,7 @@
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/tag_utils.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_upsert_tag'>upsert_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_tag_name'>tag_name</span><span class='comma'>,</span> <span class='id identifier rubyid_types'>types</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_tag'>tag</span> <span class='op'>=</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_tags'>tags</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>==</span> <span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_tag'>tag</span> <span class='op'>=</span> <span class='id identifier rubyid_find_tag'>find_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_tag_name'>tag_name</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_tag'>tag</span>
     <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_types'>types</span>
 
@@ -265,7 +376,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jun 15 00:46:25 2021 by
+  Generated on Tue Jun 15 01:00:51 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

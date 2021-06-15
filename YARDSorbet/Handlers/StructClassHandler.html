@@ -124,7 +124,7 @@ this needs to be injected as a module otherwise the default Class handler will o
         <li class="private ">
   <span class="summary_signature">
     
-      <a href="#decortate_t_struct_init-instance_method" title="#decortate_t_struct_init (instance method)">#<strong>decortate_t_struct_init</strong>(object, props, docstring, directives)  &#x21d2; void </a>
+      <a href="#decorate_t_struct_init-instance_method" title="#decorate_t_struct_init (instance method)">#<strong>decorate_t_struct_init</strong>(object, props, docstring, directives)  &#x21d2; void </a>
     
 
     
@@ -188,6 +188,28 @@ this needs to be injected as a module otherwise the default Class handler will o
 </li>
 
       
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#to_object_parameters-instance_method" title="#to_object_parameters (instance method)">#<strong>to_object_parameters</strong>(props)  &#x21d2; Array&lt;Array(String, String, nil)&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -199,9 +221,9 @@ this needs to be injected as a module otherwise the default Class handler will o
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="decortate_t_struct_init-instance_method">
+  <h3 class="signature first" id="decorate_t_struct_init-instance_method">
   
-    #<strong>decortate_t_struct_init</strong>(object, props, docstring, directives)  &#x21d2; <tt>void</tt>  <span class="extras">(private)</span>
+    #<strong>decorate_t_struct_init</strong>(object, props, docstring, directives)  &#x21d2; <tt>void</tt>  <span class="extras">(private)</span>
   
 
   
@@ -277,25 +299,17 @@ this needs to be injected as a module otherwise the default Class handler will o
 52
 53
 54
-55
-56
-57
-58
-59</pre>
+55</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 48</span>
 
-<span class='id identifier rubyid_private'>private</span> <span class='kw'>def</span> <span class='id identifier rubyid_decortate_t_struct_init'>decortate_t_struct_init</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_props'>props</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_private'>private</span> <span class='kw'>def</span> <span class='id identifier rubyid_decorate_t_struct_init'>decorate_t_struct_init</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_props'>props</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
   <span class='comment'># Use kwarg style arguments, with optionals being marked with a default (unless an actual default was specified)
-</span>  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prop'>prop</span><span class='op'>|</span>
-    <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_types'>types</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_prop_name'>prop_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_default'>default</span><span class='rbracket'>]</span>
-  <span class='kw'>end</span>
+</span>  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_to_object_parameters'>to_object_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_props'>props</span><span class='rparen'>)</span>
   <span class='comment'># The &quot;source&quot; of our constructor is the field declarations
 </span>  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>||=</span> <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:source</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_explicit'>explicit</span> <span class='op'>||=</span> <span class='kw'>false</span> <span class='comment'># not strictly necessary
-</span>  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span> <span class='op'>=</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_to_raw'>to_raw</span>
+  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span> <span class='op'>=</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_to_raw'>to_raw</span>
   <span class='const'><span class='object_link'><a href="../../YARDSorbet.html" title="YARDSorbet (module)">YARDSorbet</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Directives.html" title="YARDSorbet::Directives (module)">Directives</a></span></span><span class='period'>.</span><span class='id identifier rubyid_add_directives'><span class='object_link'><a href="../Directives.html#add_directives-class_method" title="YARDSorbet::Directives.add_directives (method)">add_directives</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -436,8 +450,81 @@ this needs to be injected as a module otherwise the default Class handler will o
     <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_add_tag'>add_tag</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Tags</span><span class='op'>::</span><span class='const'>Tag</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:param</span><span class='comma'>,</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_doc'>doc</span><span class='comma'>,</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_types'>types</span><span class='comma'>,</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_prop_name'>prop_name</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_add_tag'>add_tag</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Tags</span><span class='op'>::</span><span class='const'>Tag</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:return</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_class_ns'>class_ns</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_decortate_t_struct_init'>decortate_t_struct_init</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_props'>props</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_decorate_t_struct_init'>decorate_t_struct_init</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_props'>props</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_object_parameters-instance_method">
+  
+    #<strong>to_object_parameters</strong>(props)  &#x21d2; <tt>Array&lt;Array(String, String, nil)&gt;</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>props</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../TStructProp.html" title="YARDSorbet::TStructProp (class)">YARDSorbet::TStructProp</a></span>&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array(String, String, nil)&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 58</span>
+
+<span class='id identifier rubyid_private'>private</span> <span class='kw'>def</span> <span class='id identifier rubyid_to_object_parameters'>to_object_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_props'>props</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prop'>prop</span><span class='op'>|</span>
+    <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span> <span class='op'>||</span> <span class='lparen'>(</span><span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_types'>types</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>nil</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_prop_name'>prop_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_default'>default</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -449,7 +536,7 @@ this needs to be injected as a module otherwise the default Class handler will o
 </div>
 
       <div id="footer">
-  Generated on Tue Jun 15 00:46:25 2021 by
+  Generated on Tue Jun 15 01:00:51 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
