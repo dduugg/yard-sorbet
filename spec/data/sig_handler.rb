@@ -287,6 +287,9 @@ class VariousTypedSigs
 
   sig { returns(::Foo) }
   def top_const_ref; end
+
+  sig { params(props: T::Array[String]).returns(T::Array[[String, T.nilable(String)]]) }
+  private def nested_array_return(props); end
 end
 
 class AttrSigs

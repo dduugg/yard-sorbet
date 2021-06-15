@@ -7,6 +7,7 @@
 * [#61](https://github.com/dduugg/yard-sorbet/pull/61) Fix parsing of `sig` with nested return types
 * [#63](https://github.com/dduugg/yard-sorbet/pull/63) Fix parsing of `top_const_ref` nodes (e.g. `::Foo`)
 * [#64](https://github.com/dduugg/yard-sorbet/pull/64) Fix parsing of `list` nodes
+* [#65](https://github.com/dduugg/yard-sorbet/pull/65) Fix parsing of nested `array` nodes
 
 ### Changes
 
