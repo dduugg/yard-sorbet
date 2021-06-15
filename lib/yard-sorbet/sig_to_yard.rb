@@ -8,16 +8,15 @@ module YARDSorbet::SigToYARD
   # @see https://yardoc.org/types.html
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   def self.convert(node)
-    types = convert_node(node)
     # scrub newlines, as they break the YARD parser
-    types.map { |type| type.gsub(/\n\s*/, ' ') }
+    convert_node(node).map { |type| type.gsub(/\n\s*/, ' ') }
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   private_class_method def self.convert_node(node)
     case node
-    when YARD::Parser::Ruby::MethodCallNode then handle_call(node)
-    when YARD::Parser::Ruby::ReferenceNode then handle_ref(node)
+    when YARD::Parser::Ruby::MethodCallNode then convert_call(node)
+    when YARD::Parser::Ruby::ReferenceNode then convert_ref(node)
     else convert_node_type(node)
     end
   end
@@ -25,10 +24,10 @@ module YARDSorbet::SigToYARD
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
   private_class_method def self.convert_node_type(node)
     case node.type
-    when :aref then handle_aref(node)
-    when :arg_paren then convert(node.first.first)
-    when :array then handle_array(node)
-    when :const then handle_ref(node)
+    when :aref then convert_aref(node)
+    when :arg_paren then convert_node(node.first.first)
+    when :array then convert_array(node)
+    when :const then convert_ref(node)
     # Fixed hashes as return values are unsupported:
     # https://github.com/lsegal/yard/issues/425
     #
@@ -36,14 +35,9 @@ module YARDSorbet::SigToYARD
     # sig translation is currently unsupported.
     when :hash then ['Hash']
     # seen when sig methods omit parentheses
-    when :list then handle_list(node)
-    else handle_unknown(node)
+    when :list then convert_list(node)
+    else convert_unknown(node)
     end
-  end
-
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_list(node)
-    node.children.size == 1 ? convert_node(node.children.first) : [node.source]
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(String) }
@@ -57,11 +51,11 @@ module YARDSorbet::SigToYARD
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_aref(node)
+  private_class_method def self.convert_aref(node)
     # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Parametrized_Types
     case node.first.source
-    when 'T::Array', 'T::Enumerable', 'T::Range', 'T::Set' then handle_collection(node)
-    when 'T::Hash' then handle_hash(node)
+    when 'T::Array', 'T::Enumerable', 'T::Range', 'T::Set' then convert_collection(node)
+    when 'T::Hash' then convert_hash(node)
     else
       log.info("Unsupported sig aref node #{node.source}")
       [build_generic_type(node)]
@@ -69,35 +63,40 @@ module YARDSorbet::SigToYARD
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_array(node)
+  private_class_method def self.convert_array(node)
     # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
-    member_types = node.first.children.map { |n| convert(n) }
+    member_types = node.first.children.map { |n| convert_node(n) }
     sequence = member_types.map { |mt| mt.size == 1 ? mt[0] : mt.to_s.tr('"', '') }.join(', ')
     ["Array(#{sequence})"]
   end
 
   sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
-  private_class_method def self.handle_call(node)
-    node.namespace.source == 'T' ? handle_t_method(node.method_name(true), node) : [node.source]
+  private_class_method def self.convert_call(node)
+    node.namespace.source == 'T' ? convert_t_method(node.method_name(true), node) : [node.source]
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_collection(node)
+  private_class_method def self.convert_collection(node)
     collection_type = node.first.source.split('::').last
-    member_type = convert(node.last.first).join(', ')
+    member_type = convert_node(node.last.first).join(', ')
     ["#{collection_type}<#{member_type}>"]
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_hash(node)
+  private_class_method def self.convert_hash(node)
     kv = node.last.children
-    key_type = convert(kv.first).join(', ')
-    value_type = convert(kv.last).join(', ')
+    key_type = convert_node(kv.first).join(', ')
+    value_type = convert_node(kv.last).join(', ')
     ["Hash{#{key_type} => #{value_type}}"]
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_ref(node)
+  private_class_method def self.convert_list(node)
+    node.children.size == 1 ? convert_node(node.children.first) : [node.source]
+  end
+
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+  private_class_method def self.convert_ref(node)
     source = node.source
     case source
     when 'T::Boolean' then ['Boolean'] # YARD convention for booleans
@@ -111,12 +110,12 @@ module YARDSorbet::SigToYARD
   end
 
   sig { params(method_name: Symbol, node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_t_method(method_name, node)
+  private_class_method def self.convert_t_method(method_name, node)
     case method_name
-    when :any then node.last.first.children.map { |n| convert(n) }.flatten
+    when :any then node.last.first.children.map { |n| convert_node(n) }.flatten
     # Order matters here, putting `nil` last results in a more concise
     # return syntax in the UI (superscripted `?`)
-    when :nilable then convert(node.last) + ['nil']
+    when :nilable then convert_node(node.last) + ['nil']
     # YARD doesn't have equivalent notions, so we just use the raw source
     when :all, :attached_class, :class_of, :enum, :noreturn, :self_type, :type_parameter, :untyped then [node.source]
     else
@@ -126,7 +125,7 @@ module YARDSorbet::SigToYARD
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_unknown(node)
+  private_class_method def self.convert_unknown(node)
     log.warn("Unsupported sig #{node.type} node #{node.source}")
     [node.source]
   end
