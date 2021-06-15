@@ -34,11 +34,16 @@ module YARDSorbet::SigToYARD
     #
     # Hash key params can be individually documented with `@option`, but
     # sig translation is currently unsupported.
-    when :hash, :list then ['Hash']
-    else
-      log.warn("Unsupported sig #{node.type} node #{node.source}")
-      [node.source]
+    when :hash then ['Hash']
+    # seen when sig methods omit parentheses
+    when :list then handle_list(node)
+    else handle_unknown(node)
     end
+  end
+
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+  private_class_method def self.handle_list(node)
+    node.children.size == 1 ? convert_node(node.children.first) : [node.source]
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(String) }
@@ -116,9 +121,8 @@ module YARDSorbet::SigToYARD
     # Order matters here, putting `nil` last results in a more concise
     # return syntax in the UI (superscripted `?`)
     when :nilable then convert(node.last) + ['nil']
-    when :all, :attached_class, :class_of, :enum, :noreturn, :self_type, :type_parameter, :untyped
-      # YARD doesn't have equivalent notions, so we just use the raw source
-      [node.source]
+    # YARD doesn't have equivalent notions, so we just use the raw source
+    when :all, :attached_class, :class_of, :enum, :noreturn, :self_type, :type_parameter, :untyped then [node.source]
     else
       log.warn("Unsupported T method #{node.source}")
       [node.source]
