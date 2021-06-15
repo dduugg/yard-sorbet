@@ -15,7 +15,7 @@ module YARDSorbet::TagUtils
     ).void
   end
   def self.upsert_tag(docstring, tag_name, types = nil, name = nil)
-    tag = docstring.tags.find { |t| t.tag_name == tag_name && t.name == name }
+    tag = find_tag(docstring, tag_name, name)
     if tag
       return unless types
 
@@ -27,5 +27,13 @@ module YARDSorbet::TagUtils
       tag = YARD::Tags::Tag.new(tag_name, '', types, name)
     end
     docstring.add_tag(tag)
+  end
+
+  sig do
+    params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String))
+      .returns(T.nilable(YARD::Tags::Tag))
+  end
+  private_class_method def self.find_tag(docstring, tag_name, name)
+    docstring.tags.find { |t| t.tag_name == tag_name && t.name == name }
   end
 end

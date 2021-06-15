@@ -33,7 +33,7 @@ module YARDSorbet::Handlers::StructClassHandler
       docstring.add_tag(YARD::Tags::Tag.new(:param, prop.doc, prop.types, prop.prop_name))
     end
     docstring.add_tag(YARD::Tags::Tag.new(:return, '', class_ns))
-    decortate_t_struct_init(object, props, docstring, directives)
+    decorate_t_struct_init(object, props, docstring, directives)
     register(object)
   end
 
@@ -45,17 +45,21 @@ module YARDSorbet::Handlers::StructClassHandler
       directives: T::Array[String]
     ).void
   end
-  private def decortate_t_struct_init(object, props, docstring, directives)
+  private def decorate_t_struct_init(object, props, docstring, directives)
     # Use kwarg style arguments, with optionals being marked with a default (unless an actual default was specified)
-    object.parameters = props.map do |prop|
+    object.parameters = to_object_parameters(props)
+    # The "source" of our constructor is the field declarations
+    object.source ||= props.map(&:source).join("\n")
+    object.docstring = docstring.to_raw
+    YARDSorbet::Directives.add_directives(object.docstring, directives)
+  end
+
+  sig { params(props: T::Array[YARDSorbet::TStructProp]).returns(T::Array[[String, T.nilable(String)]]) }
+  private def to_object_parameters(props)
+    props.map do |prop|
       default = prop.default || (prop.types.include?('nil') ? 'nil' : nil)
       ["#{prop.prop_name}:", default]
     end
-    # The "source" of our constructor is the field declarations
-    object.source ||= props.map(&:source).join("\n")
-    object.explicit ||= false # not strictly necessary
-    object.docstring = docstring.to_raw
-    YARDSorbet::Directives.add_directives(object.docstring, directives)
   end
 end
 
