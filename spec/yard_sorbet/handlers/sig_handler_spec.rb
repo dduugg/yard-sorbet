@@ -340,6 +340,11 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:return).types).to eq(['::Foo'])
     end
 
+    it 'renders nested array types' do
+      node = YARD::Registry.at('VariousTypedSigs#nested_array_return')
+      expect(node.tag(:return).types).to eq(['Array<Array(String, [String, nil])>'])
+    end
+
     it 'handles inline visibility modifiers' do
       node = YARD::Registry.at('SigInlineVisibility#boolean_method?')
       return_tags = node.tags.select { |tag| tag.tag_name == 'return' }
