@@ -26,7 +26,7 @@ module YARDSorbet::SigToYARD
   private_class_method def self.convert_node_type(node)
     case node.type
     when :aref then handle_aref(node)
-    when :arg_paren then handle_arg_paren(node)
+    when :arg_paren then convert(node.first.first)
     when :array then handle_array(node)
     when :const then handle_ref(node)
     # Fixed hashes as return values are unsupported:
@@ -68,6 +68,14 @@ module YARDSorbet::SigToYARD
     end
   end
 
+  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+  private_class_method def self.handle_array(node)
+    # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
+    member_types = node.first.children.map { |n| convert(n) }
+    sequence = member_types.map { |mt| mt.size == 1 ? mt[0] : mt.to_s.tr('"', '') }.join(', ')
+    ["Array(#{sequence})"]
+  end
+
   sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
   private_class_method def self.handle_call(node)
     node.namespace.source == 'T' ? handle_t_method(node.method_name(true), node) : [node.source]
@@ -86,18 +94,6 @@ module YARDSorbet::SigToYARD
     key_type = convert(kv.first).join(', ')
     value_type = convert(kv.last).join(', ')
     ["Hash{#{key_type} => #{value_type}}"]
-  end
-
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_arg_paren(node)
-    convert(node.first.first)
-  end
-
-  sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.handle_array(node)
-    # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
-    member_types = node.first.children.map { |n| convert(n) }.join(', ')
-    ["Array(#{member_types})"]
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
