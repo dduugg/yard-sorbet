@@ -25,9 +25,8 @@ module YARDSorbet::SigToYARD
   private_class_method def self.convert_node_type(node)
     case node.type
     when :aref then convert_aref(node)
-    when :arg_paren then convert_node(node.first.first)
+    when :arg_paren then convert_node(node.first)
     when :array then convert_array(node)
-    when :const then convert_ref(node)
     # Fixed hashes as return values are unsupported:
     # https://github.com/lsegal/yard/issues/425
     #

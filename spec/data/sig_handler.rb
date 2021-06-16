@@ -330,3 +330,10 @@ class BlockDSL
     @block = block
   end
 end
+
+class Nodes
+  INT = Integer
+
+  sig { returns(INT) }
+  def returns_const; 1; end
+end

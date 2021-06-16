@@ -363,6 +363,11 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       node = YARD::Registry.at('SigReturn#no_parens')
       expect(node.tag(:return).types).to eq(['Integer'])
     end
+
+    it 'parses const nodes' do
+      node = YARD::Registry.at('Nodes#returns_const')
+      expect(node.tag(:return).types).to eq(['INT'])
+    end
   end
 
   describe 'attributes' do
