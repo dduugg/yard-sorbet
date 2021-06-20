@@ -114,12 +114,9 @@ module YARDSorbet::SigToYARD
     when :any then node.last.first.children.map { |n| convert_node(n) }.flatten
     # Order matters here, putting `nil` last results in a more concise
     # return syntax in the UI (superscripted `?`)
+    # https://github.com/lsegal/yard/blob/cfa62ae/lib/yard/templates/helpers/html_helper.rb#L499-L500
     when :nilable then convert_node(node.last) + ['nil']
-    # YARD doesn't have equivalent notions, so we just use the raw source
-    when :all, :attached_class, :class_of, :enum, :noreturn, :self_type, :type_parameter, :untyped then [node.source]
-    else
-      log.warn("Unsupported T method #{node.source}")
-      [node.source]
+    else [node.source]
     end
   end
 
