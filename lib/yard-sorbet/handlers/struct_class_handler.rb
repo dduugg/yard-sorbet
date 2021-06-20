@@ -21,9 +21,11 @@ module YARDSorbet::Handlers::StructClassHandler
     process_t_struct_props(props, class_ns)
   end
 
+  private
+
   # Create a virtual `initialize` method with all the `prop`/`const` arguments
   sig { params(props: T::Array[YARDSorbet::TStructProp], class_ns: YARD::CodeObjects::ClassObject).void }
-  private def process_t_struct_props(props, class_ns)
+  def process_t_struct_props(props, class_ns)
     # having the name :initialize & the scope :instance marks this as the constructor.
     object = YARD::CodeObjects::MethodObject.new(class_ns, :initialize, :instance)
     # There is a chance that there is a custom initializer, so make sure we steal the existing docstring
@@ -45,7 +47,7 @@ module YARDSorbet::Handlers::StructClassHandler
       directives: T::Array[String]
     ).void
   end
-  private def decorate_t_struct_init(object, props, docstring, directives)
+  def decorate_t_struct_init(object, props, docstring, directives)
     # Use kwarg style arguments, with optionals being marked with a default (unless an actual default was specified)
     object.parameters = to_object_parameters(props)
     # The "source" of our constructor is the field declarations
@@ -55,7 +57,7 @@ module YARDSorbet::Handlers::StructClassHandler
   end
 
   sig { params(props: T::Array[YARDSorbet::TStructProp]).returns(T::Array[[String, T.nilable(String)]]) }
-  private def to_object_parameters(props)
+  def to_object_parameters(props)
     props.map do |prop|
       default = prop.default || (prop.types.include?('nil') ? 'nil' : nil)
       ["#{prop.prop_name}:", default]

@@ -24,8 +24,10 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
     statement.docstring = nil
   end
 
+  private
+
   sig { params(method_node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
-  private def parse_sig(method_node, docstring)
+  def parse_sig(method_node, docstring)
     YARDSorbet::NodeUtils.bfs_traverse(statement) do |n|
       case n.source
       when 'abstract'
@@ -45,7 +47,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
       docstring: YARD::Docstring
     ).void
   end
-  private def parse_params(method_node, node, docstring)
+  def parse_params(method_node, node, docstring)
     return if ATTR_NODE_TYPES.include?(method_node.type)
 
     sibling = YARDSorbet::NodeUtils.sibling_node(node)
@@ -57,7 +59,7 @@ class YARDSorbet::Handlers::SigHandler < YARD::Handlers::Ruby::Base
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
-  private def parse_return(node, docstring)
+  def parse_return(node, docstring)
     type = node.source == 'void' ? ['void'] : YARDSorbet::SigToYARD.convert(YARDSorbet::NodeUtils.sibling_node(node))
     YARDSorbet::TagUtils.upsert_tag(docstring, 'return', type)
   end

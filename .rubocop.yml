@@ -35,8 +35,6 @@ RSpec/MultipleExpectations:
   Enabled: false
 Sorbet/StrictSigil:
   Enabled: true
-Style/AccessModifierDeclarations:
-  EnforcedStyle: inline
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 Style/IfUnlessModifier:

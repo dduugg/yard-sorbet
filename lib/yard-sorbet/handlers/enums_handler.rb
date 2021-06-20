@@ -21,8 +21,10 @@ class YARDSorbet::Handlers::EnumsHandler < YARD::Handlers::Ruby::Base
     end
   end
 
+  private
+
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
-  private def const_assign_node?(node)
+  def const_assign_node?(node)
     node.type == :assign && node[0][0].type == :const
   end
 end
