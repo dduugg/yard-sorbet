@@ -71,7 +71,7 @@ module YARDSorbet::SigToYARD
 
   sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
   private_class_method def self.convert_call(node)
-    node.namespace.source == 'T' ? convert_t_method(node.method_name(true), node) : [node.source]
+    node.namespace.source == 'T' ? convert_t_method(node) : [node.source]
   end
 
   sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
@@ -108,9 +108,9 @@ module YARDSorbet::SigToYARD
     end
   end
 
-  sig { params(method_name: Symbol, node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-  private_class_method def self.convert_t_method(method_name, node)
-    case method_name
+  sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
+  private_class_method def self.convert_t_method(node)
+    case node.method_name(true)
     when :any then node.last.first.children.map { |n| convert_node(n) }.flatten
     # Order matters here, putting `nil` last results in a more concise
     # return syntax in the UI (superscripted `?`)

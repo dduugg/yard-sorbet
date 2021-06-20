@@ -21,8 +21,6 @@ Layout/ClassStructure:
 # doesn't recognize sorbet magic comments
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
-Metrics:
-  Severity: info
 Metrics/BlockLength:
   Exclude:
     - spec/yard_sorbet/**/*
