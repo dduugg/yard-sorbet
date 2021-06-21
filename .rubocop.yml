@@ -18,9 +18,6 @@ AllCops:
 
 Layout/ClassStructure:
   Enabled: true
-# doesn't recognize sorbet magic comments
-Layout/EmptyLineAfterMagicComment:
-  Enabled: false
 Metrics/BlockLength:
   Exclude:
     - spec/yard_sorbet/**/*
@@ -35,5 +32,3 @@ Sorbet/StrictSigil:
   Enabled: true
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
-Style/IfUnlessModifier:
-  Enabled: false

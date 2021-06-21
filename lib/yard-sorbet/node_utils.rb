@@ -31,9 +31,7 @@ module YARDSorbet::NodeUtils
       n = T.must(queue.shift)
       yield n
       n.children.each { |c| queue.push(c) }
-      if n.is_a?(YARD::Parser::Ruby::MethodCallNode) && SKIP_METHOD_CONTENTS.include?(n.method_name(true))
-        queue.pop
-      end
+      queue.pop if n.is_a?(YARD::Parser::Ruby::MethodCallNode) && SKIP_METHOD_CONTENTS.include?(n.method_name(true))
     end
   end
 
@@ -56,9 +54,7 @@ module YARDSorbet::NodeUtils
   def self.sibling_node(node)
     siblings = node.parent.children
     siblings.each_with_index.find do |sibling, i|
-      if sibling.equal?(node)
-        return siblings.fetch(i + 1)
-      end
+      return siblings.fetch(i + 1) if sibling.equal?(node)
     end
   end
 end
