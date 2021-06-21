@@ -329,9 +329,7 @@
 33
 34
 35
-36
-37
-38</pre>
+36</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 28</span>
@@ -342,9 +340,7 @@
     <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_must'>must</span><span class='lparen'>(</span><span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span><span class='rparen'>)</span>
     <span class='kw'>yield</span> <span class='id identifier rubyid_n'>n</span>
     <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span> <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='const'><span class='object_link'><a href="#SKIP_METHOD_CONTENTS-constant" title="YARDSorbet::NodeUtils::SKIP_METHOD_CONTENTS (constant)">SKIP_METHOD_CONTENTS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
-    <span class='kw'>end</span>
+    <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='const'><span class='object_link'><a href="#SKIP_METHOD_CONTENTS-constant" title="YARDSorbet::NodeUtils::SKIP_METHOD_CONTENTS (constant)">SKIP_METHOD_CONTENTS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -405,6 +401,8 @@
       <pre class="lines">
 
 
+40
+41
 42
 43
 44
@@ -412,12 +410,10 @@
 46
 47
 48
-49
-50
-51</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_method_node'>get_method_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_node'>node</span>
@@ -504,24 +500,20 @@
       <pre class="lines">
 
 
+54
+55
 56
 57
 58
-59
-60
-61
-62
-63</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sibling_node'>sibling_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_siblings'>siblings</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span>
   <span class='id identifier rubyid_siblings'>siblings</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_sibling'>sibling</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_sibling'>sibling</span><span class='period'>.</span><span class='id identifier rubyid_equal?'>equal?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
-      <span class='kw'>return</span> <span class='id identifier rubyid_siblings'>siblings</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_siblings'>siblings</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_sibling'>sibling</span><span class='period'>.</span><span class='id identifier rubyid_equal?'>equal?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -534,7 +526,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jun 20 16:11:51 2021 by
+  Generated on Mon Jun 21 01:15:54 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
