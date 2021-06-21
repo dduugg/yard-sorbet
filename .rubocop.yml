@@ -25,9 +25,9 @@ Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
 RSpec/ExampleLength:
-  Enabled: false
+  Max: 10
 RSpec/MultipleExpectations:
-  Enabled: false
+  Max: 4
 Sorbet/StrictSigil:
   Enabled: true
 Style/ClassAndModuleChildren:
