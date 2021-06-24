@@ -601,7 +601,7 @@ While <code>const</code> attributes are immutable, <code>prop</code> attributes 
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_attrs'>register_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='comment'># Create the virtual method in our current scope
-</span>  <span class='id identifier rubyid_write'>write</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>prop</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='id identifier rubyid_object'>object</span> <span class='op'>:</span> <span class='kw'>nil</span>
+</span>  <span class='id identifier rubyid_write'>write</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='symbol'>:prop</span> <span class='op'>?</span> <span class='id identifier rubyid_object'>object</span> <span class='op'>:</span> <span class='kw'>nil</span>
   <span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_attributes'>attributes</span><span class='lbracket'>[</span><span class='id identifier rubyid_scope'>scope</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>SymbolHash</span><span class='lbracket'>[</span><span class='label'>read:</span> <span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='label'>write:</span> <span class='id identifier rubyid_write'>write</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -671,7 +671,7 @@ While <code>const</code> attributes are immutable, <code>prop</code> attributes 
 </div>
 
       <div id="footer">
-  Generated on Mon Jun 21 01:31:15 2021 by
+  Generated on Thu Jun 24 00:27:01 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
