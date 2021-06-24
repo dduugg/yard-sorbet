@@ -55,7 +55,7 @@ class YARDSorbet::Handlers::StructPropHandler < YARD::Handlers::Ruby::Base
   sig { params(object: YARD::CodeObjects::MethodObject, name: String).void }
   def register_attrs(object, name)
     # Create the virtual method in our current scope
-    write = statement.method_name.source == 'prop' ? object : nil
+    write = statement.method_name(true) == :prop ? object : nil
     namespace.attributes[scope][name] ||= SymbolHash[read: object, write: write]
   end
 

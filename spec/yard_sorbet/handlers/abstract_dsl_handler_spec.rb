@@ -27,8 +27,7 @@ RSpec.describe YARDSorbet::Handlers::AbstractDSLHandler do
       expect(node.docstring).to eq('An abstract class')
       expect(node.tags.size).to eq(2)
       expect(node.has_tag?(:abstract)).to be(true)
-      abstract_tag = node.tags.find { |tag| tag.tag_name == 'abstract' }
-      expect(abstract_tag.text).to eq(YARDSorbet::Handlers::AbstractDSLHandler::CLASS_TAG_TEXT)
+      expect(node.tag(:abstract).text).to eq(YARDSorbet::Handlers::AbstractDSLHandler::CLASS_TAG_TEXT)
     end
 
     it('keep existing @abstract tags') do

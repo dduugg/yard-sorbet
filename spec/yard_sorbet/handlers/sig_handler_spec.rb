@@ -55,14 +55,9 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     end
 
     it 'handles nested classes' do
-      node = YARD::Registry.at('Outer#outer')
-      expect(node.docstring).to eq('outer method')
-
-      node = YARD::Registry.at('Outer#outer2')
-      expect(node.docstring).to eq('outer method 2')
-
-      node = YARD::Registry.at('Outer::Inner#inner')
-      expect(node.docstring).to eq('inner method')
+      expect(YARD::Registry.at('Outer#outer').docstring).to eq('outer method')
+      expect(YARD::Registry.at('Outer#outer2').docstring).to eq('outer method 2')
+      expect(YARD::Registry.at('Outer::Inner#inner').docstring).to eq('inner method')
     end
 
     it 'handles modules' do
@@ -157,11 +152,15 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:return).types).to eq(['void'])
     end
 
-    it 'params' do
+    it 'with T.any param type' do
       node = YARD::Registry.at('SigParams#foo')
       bar_tag = node.tags.find { |t| t.name == 'bar' }
       expect(bar_tag.text).to eq('the thing')
       expect(bar_tag.types).to eq(%w[String Symbol])
+    end
+
+    it 'with T.nilable param type' do
+      node = YARD::Registry.at('SigParams#foo')
       baz_tag = node.tags.find { |t| t.name == 'baz' }
       expect(baz_tag.text).to eq('the other thing')
       expect(baz_tag.types).to eq(%w[String nil])
@@ -170,18 +169,14 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     it 'block param' do
       node = YARD::Registry.at('SigParams#blk_method')
       blk_tag = node.tags.find { |t| t.name == 'blk' }
-      expect(blk_tag.types).to eq(
-        ['T.proc.params(arg0: String).returns(T::Array[Hash])']
-      )
+      expect(blk_tag.types).to eq(['T.proc.params(arg0: String).returns(T::Array[Hash])'])
       expect(node.tag(:return).types).to eq(['nil'])
     end
 
     it 'block param with newlines' do
       node = YARD::Registry.at('SigParams#impl_blk_method')
       blk_tag = node.tags.find { |t| t.name == 'block' }
-      expect(blk_tag.types).to eq(
-        ['T.proc.params( model: EmailConversation, mutator: T.untyped, ).void']
-      )
+      expect(blk_tag.types).to eq(['T.proc.params( model: EmailConversation, mutator: T.untyped, ).void'])
       expect(node.tag(:return).types).to eq(['void'])
     end
 

@@ -18,13 +18,7 @@ RSpec.describe YARDSorbet::Handlers::StructPropHandler do
     it('has the appropriate parameters') do
       node = YARD::Registry.at('PersonStruct#initialize')
       expect(node.parameters).to eq(
-        [
-          ['name:', nil],
-          ['age:', nil],
-          ['optional:', 'nil'],
-          ['writable:', nil],
-          ['mystery:', nil]
-        ]
+        [['name:', nil], ['age:', nil], ['optional:', 'nil'], ['writable:', nil], ['mystery:', nil]]
       )
     end
 
@@ -35,12 +29,7 @@ RSpec.describe YARDSorbet::Handlers::StructPropHandler do
 
     it('handles exceptional prop names') do
       node = YARD::Registry.at('ExceptionalPersonStruct#initialize')
-      expect(node.parameters).to eq(
-        [
-          ['end:', nil],
-          ['Foo:', nil]
-        ]
-      )
+      expect(node.parameters).to eq([['end:', nil], ['Foo:', nil]])
     end
   end
 
