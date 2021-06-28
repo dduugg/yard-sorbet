@@ -4,12 +4,10 @@
 require 'yard'
 
 RSpec.describe YARDSorbet::Handlers::SigHandler do
+  path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.rb')
+
   before do
     YARD::Registry.clear
-    path = File.join(
-      File.expand_path('../../data', __dir__),
-      'sig_handler.rb'
-    )
     YARD::Parser::SourceParser.parse(path)
   end
 
@@ -54,16 +52,12 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.docstring).to eq('foo')
     end
 
-    it 'handles nested classes' do
-      expect(YARD::Registry.at('Outer#outer').docstring).to eq('outer method')
-      expect(YARD::Registry.at('Outer#outer2').docstring).to eq('outer method 2')
-      expect(YARD::Registry.at('Outer::Inner#inner').docstring).to eq('inner method')
-    end
-
-    it 'handles modules' do
+    it 'handles module singleton methods' do
       node = YARD::Registry.at('MyModule.foo')
       expect(node.docstring).to eq('module function')
+    end
 
+    it 'handles module instance methods' do
       node = YARD::Registry.at('MyModule#bar')
       expect(node.docstring).to eq('module instance method')
     end
@@ -74,16 +68,32 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     end
   end
 
+  describe 'nested classes' do
+    it 'keep docstrings for outer class methods preceding inner classe' do
+      expect(YARD::Registry.at('Outer#outer').docstring).to eq('outer method')
+    end
+
+    it 'keep docstrings for inner class methods' do
+      expect(YARD::Registry.at('Outer#outer2').docstring).to eq('outer method 2')
+    end
+
+    it 'keep docstrings for outer class methods following inner class' do
+      expect(YARD::Registry.at('Outer::Inner#inner').docstring).to eq('inner method')
+    end
+  end
+
   describe 'sig parsing' do
     it 'parses return types' do
       node = YARD::Registry.at('SigReturn#one')
       expect(node.tag(:return).types).to eq(['Integer'])
     end
 
-    it 'merges tags' do
-      node = YARD::Registry.at('SigReturn#two')
-      expect(node.tag(:return).types).to eq(['Integer'])
-      expect(node.tag(:deprecated).text).to eq('do not use')
+    it 'merges docstring tags' do
+      expect(YARD::Registry.at('SigReturn#two').tag(:deprecated).text).to eq('do not use')
+    end
+
+    it 'merges sig tags' do
+      expect(YARD::Registry.at('SigReturn#two').tag(:return).types).to eq(['Integer'])
     end
 
     it 'overrides explicit tag' do
@@ -91,10 +101,12 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:return).types).to eq(['Integer'])
     end
 
-    it 'merges comment' do
-      node = YARD::Registry.at('SigReturn#four')
-      expect(node.tag(:return).types).to eq(['Integer'])
-      expect(node.tag(:return).text).to eq('the number four')
+    it 'merges sig return type with return tag' do
+      expect(YARD::Registry.at('SigReturn#four').tag(:return).types).to eq(['Integer'])
+    end
+
+    it 'merges return tag comment with sig return type' do
+      expect(YARD::Registry.at('SigReturn#four').tag(:return).text).to eq('the number four')
     end
 
     it 'with params' do
@@ -112,24 +124,6 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:return).types).to eq(['void'])
     end
 
-    it 'with trailing comment on attr declaration' do
-      node = YARD::Registry.at('SigReturn#attr_contains_comment')
-      expect(node.tag(:return).types).to eq(['String'])
-      expect(node.docstring).to eq('attr has trailing comment')
-    end
-
-    it 'with trailing comment on the method definition line' do
-      node = YARD::Registry.at('SigReturn#method_definition_contains_comment')
-      expect(node.tag(:return).types).to eq(['void'])
-      expect(node.docstring).to eq('method definition contains comment')
-    end
-
-    it 'with trailing comment on the class method definition line' do
-      node = YARD::Registry.at('SigReturn.class_method_definition_contains_comment')
-      expect(node.tag(:return).types).to eq(['void'])
-      expect(node.docstring).to eq('class method definition contains comment')
-    end
-
     it 'with abstract sig' do
       node = YARD::Registry.at('SigAbstract#one')
       expect(node.tag(:abstract).text).to eq('')
@@ -140,44 +134,58 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:abstract).text).to eq('subclass must implement')
     end
 
-    it 'with returns' do
-      node = YARD::Registry.at('SigAbstract#with_return')
-      expect(node.tag(:abstract).text).to eq('')
-      expect(node.tag(:return).types).to eq(['Boolean'])
+    it 'merges abstract tag with returns type' do
+      expect(YARD::Registry.at('SigAbstract#with_return').tag(:abstract).text).to eq('')
     end
 
-    it 'with void' do
-      node = YARD::Registry.at('SigAbstract#with_void')
-      expect(node.tag(:abstract).text).to eq('')
-      expect(node.tag(:return).types).to eq(['void'])
+    it 'merges return type with abstract tag' do
+      expect(YARD::Registry.at('SigAbstract#with_return').tag(:return).types).to eq(['Boolean'])
     end
 
-    it 'with T.any param type' do
-      node = YARD::Registry.at('SigParams#foo')
-      bar_tag = node.tags.find { |t| t.name == 'bar' }
+    it 'merges abstract tag with void' do
+      expect(YARD::Registry.at('SigAbstract#with_void').tag(:abstract).text).to eq('')
+    end
+
+    it 'merges void return type with abstract tag' do
+      expect(YARD::Registry.at('SigAbstract#with_void').tag(:return).types).to eq(['void'])
+    end
+
+    it 'parses T.any param text' do
+      bar_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'bar' }
       expect(bar_tag.text).to eq('the thing')
+    end
+
+    it 'parses T.any param types' do
+      bar_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'bar' }
       expect(bar_tag.types).to eq(%w[String Symbol])
     end
 
-    it 'with T.nilable param type' do
-      node = YARD::Registry.at('SigParams#foo')
-      baz_tag = node.tags.find { |t| t.name == 'baz' }
+    it 'parses T.nilable param text' do
+      baz_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'baz' }
       expect(baz_tag.text).to eq('the other thing')
+    end
+
+    it 'parses T.nilable param type' do
+      baz_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'baz' }
       expect(baz_tag.types).to eq(%w[String nil])
     end
 
-    it 'block param' do
-      node = YARD::Registry.at('SigParams#blk_method')
-      blk_tag = node.tags.find { |t| t.name == 'blk' }
+    it 'parses block param type' do
+      blk_tag = YARD::Registry.at('SigParams#blk_method').tags.find { |t| t.name == 'blk' }
       expect(blk_tag.types).to eq(['T.proc.params(arg0: String).returns(T::Array[Hash])'])
-      expect(node.tag(:return).types).to eq(['nil'])
     end
 
-    it 'block param with newlines' do
-      node = YARD::Registry.at('SigParams#impl_blk_method')
-      blk_tag = node.tags.find { |t| t.name == 'block' }
+    it 'parses return type of method with block param' do
+      expect(YARD::Registry.at('SigParams#blk_method').tag(:return).types).to eq(['nil'])
+    end
+
+    it 'parses type of block param with newlines' do
+      blk_tag = YARD::Registry.at('SigParams#impl_blk_method').tags.find { |t| t.name == 'block' }
       expect(blk_tag.types).to eq(['T.proc.params( model: EmailConversation, mutator: T.untyped, ).void'])
-      expect(node.tag(:return).types).to eq(['void'])
+    end
+
+    it 'parses return type of method with block param type with newlines' do
+      expect(YARD::Registry.at('SigParams#impl_blk_method').tag(:return).types).to eq(['void'])
     end
 
     it 'T::Array' do
@@ -228,10 +236,14 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:return).types).to eq(['Array(String, Integer)'])
     end
 
-    it 'fixed Hash' do
-      node = YARD::Registry.at('CollectionSigs#fixed_hash')
-      expect(node.tag(:return).types).to eq(['Hash'])
-      expect(node.visibility).to eq(:protected)
+    describe 'of fixed Hash' do
+      it 'has Hash return type' do
+        expect(YARD::Registry.at('CollectionSigs#fixed_hash').tag(:return).types).to eq(['Hash'])
+      end
+
+      it 'preserves visibility modifier' do
+        expect(YARD::Registry.at('CollectionSigs#fixed_hash').visibility).to eq(:protected)
+      end
     end
 
     it 'fixed param Hash' do
@@ -340,18 +352,19 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:return).types).to eq(['Array<Array(String, [String, nil])>'])
     end
 
-    it 'handles inline visibility modifiers' do
+    it 'has single return tag when inline modifier exists' do
       node = YARD::Registry.at('SigInlineVisibility#boolean_method?')
       return_tags = node.tags.select { |tag| tag.tag_name == 'return' }
       expect(return_tags.size).to eq(1)
-      expect(return_tags.first.types).to eq(['Boolean'])
     end
 
-    it 'handles void methods with proc params' do
-      node = YARD::Registry.at('BlockDSL#initialize')
-      expect(node.tag(:return).types).to eq(['void'])
-      block_param_node = node.tags.find { |t| t.name == 'block' }
-      expect(block_param_node.types).to eq(['T.proc.params(arg0: T.all(String, PageWithURL)).returns(T.untyped)'])
+    it 'parses return type with inline modifier' do
+      node = YARD::Registry.at('SigInlineVisibility#boolean_method?')
+      expect(node.tag(:return).types).to eq(['Boolean'])
+    end
+
+    it 'parses void methods with proc params' do
+      expect(YARD::Registry.at('BlockDSL#initialize').tag(:return).types).to eq(['void'])
     end
 
     it 'handles omitting parens' do
@@ -389,6 +402,44 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     it 'handles parens' do
       node = YARD::Registry.at('AttrSigs#with_parens=')
       expect(node.tag(:return).types).to eq(%w[Boolean])
+    end
+  end
+
+  describe 'parsing with trailing comments' do
+    describe 'on attr declaration' do
+      it 'preserves return type' do
+        node = YARD::Registry.at('SigReturn#attr_contains_comment')
+        expect(node.tag(:return).types).to eq(['String'])
+      end
+
+      it 'preserves docstring' do
+        node = YARD::Registry.at('SigReturn#attr_contains_comment')
+        expect(node.docstring).to eq('attr has trailing comment')
+      end
+    end
+
+    describe 'on the method definition line' do
+      it 'preserves return type' do
+        node = YARD::Registry.at('SigReturn#method_definition_contains_comment')
+        expect(node.tag(:return).types).to eq(['void'])
+      end
+
+      it 'preserves docstring' do
+        node = YARD::Registry.at('SigReturn#method_definition_contains_comment')
+        expect(node.docstring).to eq('method definition contains comment')
+      end
+    end
+
+    describe 'with trailing comment on the class method definition line' do
+      it 'preserves return type' do
+        node = YARD::Registry.at('SigReturn.class_method_definition_contains_comment')
+        expect(node.tag(:return).types).to eq(['void'])
+      end
+
+      it 'preserves docstring' do
+        node = YARD::Registry.at('SigReturn.class_method_definition_contains_comment')
+        expect(node.docstring).to eq('class method definition contains comment')
+      end
     end
   end
 end
