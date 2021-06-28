@@ -24,8 +24,6 @@ Metrics/BlockLength:
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
-RSpec/MultipleExpectations:
-  Max: 4
 Sorbet/StrictSigil:
   Enabled: true
 Style/ClassAndModuleChildren:

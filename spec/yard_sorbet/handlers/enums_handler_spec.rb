@@ -4,10 +4,7 @@
 require 'yard'
 
 RSpec.describe YARDSorbet::Handlers::EnumsHandler do
-  path = File.join(
-    File.expand_path('../../data', __dir__),
-    'enums_handler.rb'
-  )
+  path = File.join(File.expand_path('../../data', __dir__), 'enums_handler.rb')
 
   before do
     YARD::Registry.clear
@@ -15,24 +12,27 @@ RSpec.describe YARDSorbet::Handlers::EnumsHandler do
   end
 
   describe 'T::Enum subclass' do
-    it('registers constants') do
+    it 'registers constants' do
       node = YARD::Registry.at('Suit')
       expect(node.constants.size).to eq(4) # rubocop:disable Sorbet/ConstantsFromStrings
     end
 
     describe 'enums' do
-      it('attaches tags') do
-        node = YARD::Registry.at('Suit::Spades')
-        expect(node.tags.size).to eq(1)
-        expect(node.tags.first.tag_name).to eq('see')
+      it 'keep existing tag count' do
+        expect(YARD::Registry.at('Suit::Spades').tags.size).to be(1)
       end
 
-      it('attaches docstrings') do
+      it 'attach existing tags' do
+        node = YARD::Registry.at('Suit::Spades')
+        expect(node.tag(:see).name).to eq('https://en.wikipedia.org/wiki/Spades_(suit)')
+      end
+
+      it 'attach docstrings' do
         node = YARD::Registry.at('Suit::Hearts')
         expect(node.docstring).to eq('The hearts suit')
       end
 
-      it('includes serialized value') do
+      it 'include serialized values' do
         node = YARD::Registry.at('Suit::Clubs')
         expect(node.value).to eq("new('Clubs')")
       end
