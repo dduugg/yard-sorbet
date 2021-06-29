@@ -2,7 +2,7 @@
 name: Ruby
 'on': push
 jobs:
-  test:
+  'Ruby CI':
     runs-on: ubuntu-latest
     strategy:
       matrix:

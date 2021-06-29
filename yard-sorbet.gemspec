@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
     'bug_tracker_uri' => "#{spec.homepage}/issues",
-    'changelog_uri' => "#{spec.homepage}/blob/master/CHANGELOG.md",
+    'changelog_uri' => "#{spec.homepage}/blob/main/CHANGELOG.md",
     'documentation_uri' => 'https://dduugg.github.io/yard-sorbet/',
     'homepage_uri' => spec.homepage,
     'source_code_uri' => spec.homepage,

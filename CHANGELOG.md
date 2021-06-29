@@ -1,6 +1,6 @@
 # Changelog
 
-## master (unreleased)
+## main (unreleased)
 
 ### Bug fixes
 
