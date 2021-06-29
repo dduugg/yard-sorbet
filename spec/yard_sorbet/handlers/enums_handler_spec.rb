@@ -1,8 +1,6 @@
 # typed: strict
 # frozen_string_literal: true
 
-require 'yard'
-
 RSpec.describe YARDSorbet::Handlers::EnumsHandler do
   path = File.join(File.expand_path('../../data', __dir__), 'enums_handler.rb')
 
