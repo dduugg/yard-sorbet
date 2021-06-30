@@ -26,5 +26,3 @@ Naming/FileName:
     - lib/yard-sorbet.rb
 Sorbet/StrictSigil:
   Enabled: true
-Style/ClassAndModuleChildren:
-  EnforcedStyle: compact

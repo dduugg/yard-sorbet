@@ -1,9 +1,11 @@
 # typed: strong
 # frozen_string_literal: true
 
-# Custom YARD Handlers
-# @see https://rubydoc.info/gems/yard/YARD/Handlers/Base YARD Base Handler documentation
-module YARDSorbet::Handlers; end
+module YARDSorbet
+  # Custom YARD Handlers
+  # @see https://rubydoc.info/gems/yard/YARD/Handlers/Base YARD Base Handler documentation
+  module Handlers; end
+end
 
 require_relative 'handlers/abstract_dsl_handler'
 require_relative 'handlers/enums_handler'
