@@ -238,12 +238,12 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/enums_handler.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/enums_handler.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_const_assign_node?'>const_assign_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:assign</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_node'>node</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:const</span>
@@ -277,8 +277,6 @@
       <pre class="lines">
 
 
-12
-13
 14
 15
 16
@@ -287,10 +285,12 @@
 19
 20
 21
-22</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/enums_handler.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/enums_handler.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_traverse'>traverse</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span>
@@ -313,7 +313,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jun 29 18:49:55 2021 by
+  Generated on Wed Jun 30 23:43:27 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
