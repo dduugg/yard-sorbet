@@ -9,10 +9,6 @@
 * [#64](https://github.com/dduugg/yard-sorbet/pull/64) Fix parsing of `list` nodes
 * [#65](https://github.com/dduugg/yard-sorbet/pull/65) Fix parsing of nested `array` nodes
 
-### Changes
-
-* Bump required ruby version to `>= 2.6.0`
-
 ## 0.5.1 (2021-06-08)
 
 ### Bug fixes
