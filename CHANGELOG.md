@@ -2,6 +2,8 @@
 
 ## main (unreleased)
 
+## 0.5.2 (2021-07-01)
+
 ### Bug fixes
 
 * [#61](https://github.com/dduugg/yard-sorbet/pull/61) Fix parsing of `sig` with nested return types
