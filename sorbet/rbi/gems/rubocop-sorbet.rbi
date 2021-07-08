@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-sorbet/all/rubocop-sorbet.rbi
 #
-# rubocop-sorbet-0.6.1
+# rubocop-sorbet-0.6.2
 
 module RuboCop
 end
@@ -41,13 +41,6 @@ class RuboCop::Cop::Sorbet::ConstantsFromStrings < RuboCop::Cop::Cop
   def constant_from_string?(param0 = nil); end
   def on_send(node); end
 end
-class RuboCop::Cop::Sorbet::ForbidExtendTSigHelpersInShims < RuboCop::Cop::Cop
-  def autocorrect(node); end
-  def extend_t_helpers?(param0 = nil); end
-  def extend_t_sig?(param0 = nil); end
-  def on_send(node); end
-  include RuboCop::Cop::RangeHelp
-end
 class RuboCop::Cop::Sorbet::ForbidSuperclassConstLiteral < RuboCop::Cop::Cop
   def not_lit_const_superclass?(param0 = nil); end
   def on_class(node); end
@@ -67,13 +60,6 @@ class RuboCop::Cop::Sorbet::ForbidUntypedStructProps < RuboCop::Cop::Cop
   def t_untyped(param0 = nil); end
   def untyped_props(param0); end
 end
-class RuboCop::Cop::Sorbet::SingleLineRbiClassModuleDefinitions < RuboCop::Cop::Cop
-  def autocorrect(node); end
-  def convert_newlines(source); end
-  def on_class(node); end
-  def on_module(node); end
-  def process_node(node); end
-end
 class RuboCop::Cop::Sorbet::OneAncestorPerLine < RuboCop::Cop::Cop
   def abstract?(param0); end
   def autocorrect(node); end
@@ -83,6 +69,32 @@ class RuboCop::Cop::Sorbet::OneAncestorPerLine < RuboCop::Cop::Cop
   def on_module(node); end
   def process_node(node); end
   def requires_ancestors(param0); end
+end
+class RuboCop::Cop::Sorbet::CallbackConditionalsBinding < RuboCop::Cop::Cop
+  def autocorrect(node); end
+  def on_send(node); end
+end
+class RuboCop::Cop::Sorbet::ForbidTUnsafe < RuboCop::Cop::Cop
+  def on_send(node); end
+  def t_unsafe?(param0 = nil); end
+end
+class RuboCop::Cop::Sorbet::ForbidExtendTSigHelpersInShims < RuboCop::Cop::Cop
+  def autocorrect(node); end
+  def extend_t_helpers?(param0 = nil); end
+  def extend_t_sig?(param0 = nil); end
+  def on_send(node); end
+  include RuboCop::Cop::RangeHelp
+end
+class RuboCop::Cop::Sorbet::ForbidRBIOutsideOfSorbetDir < RuboCop::Cop::Cop
+  def investigate(processed_source); end
+  include RuboCop::Cop::RangeHelp
+end
+class RuboCop::Cop::Sorbet::SingleLineRbiClassModuleDefinitions < RuboCop::Cop::Cop
+  def autocorrect(node); end
+  def convert_newlines(source); end
+  def on_class(node); end
+  def on_module(node); end
+  def process_node(node); end
 end
 class RuboCop::Cop::Sorbet::AllowIncompatibleOverride < RuboCop::Cop::Cop
   def allow_incompatible?(param0); end

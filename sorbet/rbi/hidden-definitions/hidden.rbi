@@ -19,7 +19,7 @@ class Array
 end
 
 class Array
-  def self.try_convert(_); end
+  def self.try_convert(arg); end
 end
 
 BasicObject::BasicObject = BasicObject
@@ -31,7 +31,7 @@ class BigDecimal
 end
 
 class BigDecimal
-  def self.interpret_loosely(_); end
+  def self.interpret_loosely(arg); end
 end
 
 class Binding
@@ -184,7 +184,7 @@ class Bundler::Fetcher::CompactIndex::ClientFetcher
 end
 
 class Bundler::Fetcher::CompactIndex::ClientFetcher
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -501,7 +501,7 @@ module Bundler::Plugin::API::Source
 
   def dependency_names=(dependency_names); end
 
-  def double_check_for(*_); end
+  def double_check_for(*arg); end
 
   def eql?(other); end
 
@@ -1062,11 +1062,11 @@ module Bundler::Thor::Base::ClassMethods
 
   def arguments(); end
 
-  def attr_accessor(*_); end
+  def attr_accessor(*arg); end
 
-  def attr_reader(*_); end
+  def attr_reader(*arg); end
 
-  def attr_writer(*_); end
+  def attr_writer(*arg); end
 
   def baseclass(); end
 
@@ -1296,9 +1296,9 @@ class Bundler::Thor::Group
 
   def self.invoke_from_option(*names, &block); end
 
-  def self.printable_commands(*_); end
+  def self.printable_commands(*arg); end
 
-  def self.printable_tasks(*_); end
+  def self.printable_tasks(*arg); end
 
   def self.remove_invocation(*names); end
 
@@ -1616,7 +1616,7 @@ class Bundler::Thor::Shell::Basic
 
   def say_status(status, message, log_status=T.unsafe(nil)); end
 
-  def set_color(string, *_); end
+  def set_color(string, *arg); end
 
   def show_diff(destination, content); end
 
@@ -2371,7 +2371,7 @@ class Bundler::VersionRanges::NEq
 end
 
 class Bundler::VersionRanges::NEq
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -2406,13 +2406,13 @@ class Bundler::VersionRanges::ReqR::Endpoint
 end
 
 class Bundler::VersionRanges::ReqR::Endpoint
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
 
 class Bundler::VersionRanges::ReqR
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -2603,7 +2603,7 @@ class CodeRay::Duo
 end
 
 class CodeRay::Duo
-  def self.[](*_); end
+  def self.[](*arg); end
 end
 
 class CodeRay::Encoders::Encoder
@@ -2764,9 +2764,9 @@ class CodeRay::Tokens
 
   def split_into_parts(*sizes); end
 
-  def text_token(*_); end
+  def text_token(*arg); end
 
-  def tokens(*_); end
+  def tokens(*arg); end
 end
 
 class CodeRay::Tokens
@@ -3119,7 +3119,7 @@ end
 class DidYouMean::NullChecker
   def corrections(); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class DidYouMean::ParseDimensions
@@ -3191,7 +3191,7 @@ module Dir::Tmpname
 end
 
 class Dir
-  def self.exists?(_); end
+  def self.exists?(arg); end
 end
 
 module Docile
@@ -3220,24 +3220,24 @@ class ERB::Compiler::Scanner
 end
 
 class Encoding
-  def _dump(*_); end
+  def _dump(*arg); end
   CESU_8 = ::T.let(nil, ::T.untyped)
 end
 
 class Encoding::Converter
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class Encoding
-  def self._load(_); end
+  def self._load(arg); end
 end
 
 module Enumerable
-  def sum(*_); end
+  def sum(*arg); end
 end
 
 class Enumerator
-  def +(_); end
+  def +(arg); end
 
   def each_with_index(); end
 end
@@ -3251,7 +3251,7 @@ class Enumerator::ArithmeticSequence
 
   def exclude_end?(); end
 
-  def last(*_); end
+  def last(*arg); end
 
   def step(); end
 end
@@ -3266,9 +3266,9 @@ class Enumerator::Chain
 end
 
 class Enumerator::Generator
-  def each(*_, &blk); end
+  def each(*arg, &blk); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class Enumerator::Lazy
@@ -3287,7 +3287,7 @@ class Enumerator::Yielder
 end
 
 class Enumerator
-  def self.produce(*_); end
+  def self.produce(*arg); end
 end
 
 class Errno::EAUTH
@@ -3459,7 +3459,7 @@ end
 
 class Etc::Group
   extend ::Enumerable
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.each(&blk); end
 
@@ -3498,7 +3498,7 @@ end
 
 class Etc::Passwd
   extend ::Enumerable
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.each(&blk); end
 
@@ -3516,7 +3516,7 @@ class FalseClass
 end
 
 class Fiber
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class File
@@ -3525,9 +3525,9 @@ class File
 end
 
 class File
-  def self.absolute_path?(_); end
+  def self.absolute_path?(arg); end
 
-  def self.exists?(_); end
+  def self.exists?(arg); end
 
   def self.read_binary(file); end
 end
@@ -4224,17 +4224,21 @@ Gem::UnsatisfiableDepedencyError = Gem::UnsatisfiableDependencyError
 
 Gem::Version::Requirement = Gem::Requirement
 
-class Hash
-  include ::JSON::Ext::Generator::GeneratorMethods::Hash
-  def deconstruct_keys(_); end
+module Gem
+  def self.activated_gem_paths(); end
 end
 
 class Hash
-  def self.ruby2_keywords_hash(_); end
+  include ::JSON::Ext::Generator::GeneratorMethods::Hash
+  def deconstruct_keys(arg); end
+end
 
-  def self.ruby2_keywords_hash?(_); end
+class Hash
+  def self.ruby2_keywords_hash(arg); end
 
-  def self.try_convert(_); end
+  def self.ruby2_keywords_hash?(arg); end
+
+  def self.try_convert(arg); end
 end
 
 class IO
@@ -4256,29 +4260,29 @@ class IO
 
   def cursor=(cursor); end
 
-  def cursor_down(_); end
+  def cursor_down(arg); end
 
-  def cursor_left(_); end
+  def cursor_left(arg); end
 
-  def cursor_right(_); end
+  def cursor_right(arg); end
 
-  def cursor_up(_); end
+  def cursor_up(arg); end
 
   def echo=(echo); end
 
   def echo?(); end
 
-  def erase_line(_); end
+  def erase_line(arg); end
 
-  def erase_screen(_); end
+  def erase_screen(arg); end
 
-  def getch(*_); end
+  def getch(*arg); end
 
-  def getpass(*_); end
+  def getpass(*arg); end
 
-  def goto(_, _1); end
+  def goto(arg, arg1); end
 
-  def goto_column(_); end
+  def goto_column(arg); end
 
   def iflush(); end
 
@@ -4286,7 +4290,7 @@ class IO
 
   def noecho(); end
 
-  def nonblock(*_); end
+  def nonblock(*arg); end
 
   def nonblock=(nonblock); end
 
@@ -4296,27 +4300,27 @@ class IO
 
   def oflush(); end
 
-  def pathconf(_); end
+  def pathconf(arg); end
 
   def pressed?(); end
 
-  def raw(*_); end
+  def raw(*arg); end
 
-  def raw!(*_); end
+  def raw!(*arg); end
 
   def ready?(); end
 
-  def scroll_backward(_); end
+  def scroll_backward(arg); end
 
-  def scroll_forward(_); end
+  def scroll_forward(arg); end
 
   def set_encoding_by_bom(); end
 
-  def wait(*_); end
+  def wait(*arg); end
 
-  def wait_readable(*_); end
+  def wait_readable(*arg); end
 
-  def wait_writable(*_); end
+  def wait_writable(*arg); end
 
   def winsize(); end
 
@@ -4326,9 +4330,9 @@ end
 class IO::ConsoleMode
   def echo=(echo); end
 
-  def raw(*_); end
+  def raw(*arg); end
 
-  def raw!(*_); end
+  def raw!(*arg); end
 end
 
 class IO::ConsoleMode
@@ -4339,7 +4343,7 @@ IO::EWOULDBLOCKWaitReadable = IO::EAGAINWaitReadable
 IO::EWOULDBLOCKWaitWritable = IO::EAGAINWaitWritable
 
 class IO
-  def self.console(*_); end
+  def self.console(*arg); end
 
   def self.console_size(); end
 
@@ -4385,7 +4389,7 @@ module IRB::Color
 end
 
 class IRB::Context
-  def __exit__(*_); end
+  def __exit__(*arg); end
 
   def __inspect__(); end
 
@@ -4446,7 +4450,7 @@ class IRB::DefaultEncodings
 end
 
 class IRB::DefaultEncodings
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -4641,11 +4645,11 @@ class Integer
 end
 
 class JSON::Ext::Generator::State
-  def self.from_state(_); end
+  def self.from_state(arg); end
 end
 
 class JSON::Ext::Parser
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 JSON::Parser = JSON::Ext::Parser
@@ -4699,6 +4703,13 @@ module Logger::Period
   SiD = ::T.let(nil, ::T.untyped)
 end
 
+class MagicCommentHandler
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
+Markdown = RedcarpetCompat
+
 module MethodSource
   VERSION = ::T.let(nil, ::T.untyped)
 end
@@ -4735,7 +4746,7 @@ class Monitor
 
   def try_mon_enter(); end
 
-  def wait_for_cond(_, _1); end
+  def wait_for_cond(arg, arg1); end
 end
 
 module MonitorMixin
@@ -4951,7 +4962,7 @@ class OpenSSL::BN
 
   def -@(); end
 
-  def /(_); end
+  def /(arg); end
 
   def negative?(); end
 end
@@ -4966,11 +4977,11 @@ class OpenSSL::KDF::KDFError
 end
 
 module OpenSSL::KDF
-  def self.hkdf(*_); end
+  def self.hkdf(*arg); end
 
-  def self.pbkdf2_hmac(*_); end
+  def self.pbkdf2_hmac(*arg); end
 
-  def self.scrypt(*_); end
+  def self.scrypt(*arg); end
 end
 
 class OpenSSL::OCSP::Request
@@ -4984,7 +4995,7 @@ class OpenSSL::PKey::EC
 end
 
 class OpenSSL::PKey::EC::Point
-  def to_octet_string(_); end
+  def to_octet_string(arg); end
 end
 
 module OpenSSL::SSL
@@ -5163,17 +5174,17 @@ class Parser::StaticEnvironment
 end
 
 class Pathname
-  def fnmatch?(*_); end
+  def fnmatch?(*arg); end
 
-  def glob(*_); end
+  def glob(*arg); end
 
-  def make_symlink(_); end
+  def make_symlink(arg); end
 end
 
 class Proc
-  def <<(_); end
+  def <<(arg); end
 
-  def >>(_); end
+  def >>(arg); end
 
   def clone(); end
 end
@@ -5723,7 +5734,7 @@ class RDoc::Parser::RipperStateLex::Token
 end
 
 class RDoc::Parser::RipperStateLex::Token
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -5920,11 +5931,6 @@ end
 RSpec::Core::Example::AllExceptionsExcludingDangerousOnesOnRubiesThatAllowIt = RSpec::Support::AllExceptionsExceptOnesWeMustNotRescue
 
 class RSpec::Core::ExampleGroup
-  include ::RSpec::Core::MockingAdapters::RSpec
-  include ::RSpec::Mocks::ExampleMethods
-  include ::RSpec::Mocks::ArgumentMatchers
-  include ::RSpec::Mocks::ExampleMethods::ExpectHost
-  include ::RSpec::Matchers
   INSTANCE_VARIABLE_TO_IGNORE = ::T.let(nil, ::T.untyped)
 end
 
@@ -6014,10 +6020,6 @@ end
 
 RSpec::Expectations::LegacyMacherAdapter = RSpec::Expectations::LegacyMatcherAdapter
 
-class RSpec::Expectations::MultipleExpectationsNotMetError
-  include ::RSpec::Core::MultipleExceptionError::InterfaceTag
-end
-
 module RSpec::Expectations::Version
   STRING = ::T.let(nil, ::T.untyped)
 end
@@ -6083,6 +6085,22 @@ end
 
 class RSpec::Mocks::ArgumentListMatcher
   MATCH_ALL = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::ArgumentMatchers::AnyArgMatcher
+  INSTANCE = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::ArgumentMatchers::AnyArgsMatcher
+  INSTANCE = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::ArgumentMatchers::BooleanMatcher
+  INSTANCE = ::T.let(nil, ::T.untyped)
+end
+
+class RSpec::Mocks::ArgumentMatchers::NoArgsMatcher
+  INSTANCE = ::T.let(nil, ::T.untyped)
 end
 
 class RSpec::Mocks::Matchers::HaveReceived
@@ -6283,11 +6301,11 @@ end
 RakeFileUtils = Rake::FileUtilsExt
 
 class Random
-  def self.bytes(_); end
+  def self.bytes(arg); end
 end
 
 class Range
-  def %(_); end
+  def %(arg); end
 
   def entries(); end
 
@@ -6304,6 +6322,15 @@ end
 
 module Readline
   def self.completion_quote_character(); end
+end
+
+module Redcarpet
+  VERSION = ::T.let(nil, ::T.untyped)
+end
+
+class RedcarpetCompat
+  EXTENSION_MAP = ::T.let(nil, ::T.untyped)
+  RENDERER_OPTIONS = ::T.let(nil, ::T.untyped)
 end
 
 class Regexp
@@ -6885,7 +6912,7 @@ class Reline::CursorPos
 end
 
 class Reline::CursorPos
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -7045,7 +7072,7 @@ class Reline::KillRing::RingPoint
 end
 
 class Reline::KillRing::RingPoint
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -7412,7 +7439,7 @@ class Ripper
 
   def filename(); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
 
   def lineno(); end
 
@@ -7487,7 +7514,7 @@ class Ripper::Lexer::Elem
 end
 
 class Ripper::Lexer::Elem
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -7517,7 +7544,7 @@ class Ripper::Lexer::State
 end
 
 class Ripper::Lexer::State
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -7949,13 +7976,13 @@ class Ripper::TokenPattern::MatchError
 end
 
 class Ripper::TokenPattern
-  def self.compile(*_); end
+  def self.compile(*arg); end
 end
 
 class Ripper
-  def self.dedent_string(_, _1); end
+  def self.dedent_string(arg, arg1); end
 
-  def self.lex_state_name(_); end
+  def self.lex_state_name(arg); end
 
   def self.token_match(src, pattern); end
 end
@@ -8040,7 +8067,7 @@ class RuboCop::AST::NodePattern::Compiler::Debug::Colorizer::Result
 end
 
 class RuboCop::AST::NodePattern::Compiler::Debug::Colorizer::Result
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -8161,6 +8188,7 @@ module RuboCop::AST::NodePattern::Sets
   SET_BEFORE_AFTER = ::T.let(nil, ::T.untyped)
   SET_BE_EQ_EQL_EQUAL = ::T.let(nil, ::T.untyped)
   SET_BE_TRUTHY_BE_FALSEY_BE_FALSY_ETC = ::T.let(nil, ::T.untyped)
+  SET_BRANCH_REF_TAG = ::T.let(nil, ::T.untyped)
   SET_CALLER_CALLER_LOCATIONS = ::T.let(nil, ::T.untyped)
   SET_CALL_RUN = ::T.let(nil, ::T.untyped)
   SET_CAPTURE2_CAPTURE2E_CAPTURE3_ETC = ::T.let(nil, ::T.untyped)
@@ -8181,6 +8209,7 @@ module RuboCop::AST::NodePattern::Sets
   SET_EACH_WITH_INDEX_WITH_INDEX = ::T.let(nil, ::T.untyped)
   SET_EACH_WITH_OBJECT_WITH_OBJECT = ::T.let(nil, ::T.untyped)
   SET_ENUMERATOR_RATIONAL_COMPLEX_THREAD = ::T.let(nil, ::T.untyped)
+  SET_EQL_EQ_BE = ::T.let(nil, ::T.untyped)
   SET_ESCAPE_ENCODE_UNESCAPE_DECODE = ::T.let(nil, ::T.untyped)
   SET_EXACTLY_AT_LEAST_AT_MOST = ::T.let(nil, ::T.untyped)
   SET_EXPECT_ALLOW = ::T.let(nil, ::T.untyped)
@@ -8695,6 +8724,12 @@ end
 
 class RuboCop::Cop::Layout::LeadingEmptyLines
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Layout::LineEndStringConcatenationIndentation
+  MSG_ALIGN = ::T.let(nil, ::T.untyped)
+  MSG_INDENT = ::T.let(nil, ::T.untyped)
+  PARENT_TYPES_FOR_INDENTED = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Layout::LineLength
@@ -9230,6 +9265,7 @@ end
 
 class RuboCop::Cop::Lint::RedundantCopDisableDirective
   COP_NAME = ::T.let(nil, ::T.untyped)
+  DEPARTMENT_MARKER = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Lint::RedundantCopEnableDirective
@@ -9553,6 +9589,10 @@ end
 
 class RuboCop::Cop::Naming::HeredocDelimiterNaming
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Naming::InclusiveLanguage
+  EMPTY_ARRAY = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Naming::MemoizedInstanceVariableName
@@ -9976,6 +10016,11 @@ class RuboCop::Cop::RSpec::HooksBeforeExamples
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::RSpec::IdenticalEqualityAssertion
+  MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::RSpec::ImplicitBlockExpectation
   MSG = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
@@ -10089,6 +10134,10 @@ class RuboCop::Cop::RSpec::OverwritingSetup
 end
 
 class RuboCop::Cop::RSpec::Pending
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::RSpec::Rails::AvoidSetupHook
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -10257,6 +10306,10 @@ class RuboCop::Cop::Severity
   NAMES = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Sorbet::CallbackConditionalsBinding
+  CALLBACKS = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Sorbet::EnforceSigilOrder
   CODING_REGEX = ::T.let(nil, ::T.untyped)
   FROZEN_REGEX = ::T.let(nil, ::T.untyped)
@@ -10272,6 +10325,10 @@ end
 
 class RuboCop::Cop::Sorbet::ForbidIncludeConstLiteral
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Sorbet::ForbidRBIOutsideOfSorbetDir
+  PATH_REGEXP = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Sorbet::ForbidSuperclassConstLiteral
@@ -10457,7 +10514,8 @@ end
 
 class RuboCop::Cop::Style::CommentAnnotation
   MISSING_NOTE = ::T.let(nil, ::T.untyped)
-  MSG = ::T.let(nil, ::T.untyped)
+  MSG_COLON_STYLE = ::T.let(nil, ::T.untyped)
+  MSG_SPACE_STYLE = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::CommentedKeyword
@@ -11150,6 +11208,7 @@ end
 
 class RuboCop::Cop::Style::SingleLineMethods
   MSG = ::T.let(nil, ::T.untyped)
+  NOT_SUPPORTED_ENDLESS_METHOD_BODY_TYPES = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::SlicingWithRange
@@ -11411,7 +11470,8 @@ class RuboCop::DirectiveComment
   COP_NAMES_PATTERN = ::T.let(nil, ::T.untyped)
   COP_NAME_PATTERN = ::T.let(nil, ::T.untyped)
   DIRECTIVE_COMMENT_REGEXP = ::T.let(nil, ::T.untyped)
-  REDUNDANT_COP = ::T.let(nil, ::T.untyped)
+  REDUNDANT_DIRECTIVE_COP = ::T.let(nil, ::T.untyped)
+  REDUNDANT_DIRECTIVE_COP_DEPARTMENT = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Formatter::ClangStyleFormatter
@@ -11625,7 +11685,7 @@ end
 module RubyVM::MJIT
   def self.enabled?(); end
 
-  def self.pause(*_); end
+  def self.pause(*arg); end
 
   def self.resume(); end
 end
@@ -11931,7 +11991,7 @@ class StringScanner
 
   def fixed_anchor?(); end
 
-  def initialize(*_); end
+  def initialize(*arg); end
   Id = ::T.let(nil, ::T.untyped)
   Version = ::T.let(nil, ::T.untyped)
 end
@@ -11939,9 +11999,9 @@ end
 class Struct
   def deconstruct(); end
 
-  def deconstruct_keys(_); end
+  def deconstruct_keys(arg); end
 
-  def filter(*_); end
+  def filter(*arg); end
 end
 
 class Struct::CompletionJourneyData
@@ -11963,7 +12023,7 @@ class Struct::CompletionJourneyData
 end
 
 class Struct::CompletionJourneyData
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -11985,7 +12045,7 @@ class Struct::Key
 end
 
 class Struct::Key
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -12001,7 +12061,7 @@ class Struct::MenuInfo
 end
 
 class Struct::MenuInfo
-  def self.[](*_); end
+  def self.[](*arg); end
 
   def self.members(); end
 end
@@ -12151,7 +12211,7 @@ class Thor::Shell::Basic
 
   def say_status(status, message, log_status=T.unsafe(nil)); end
 
-  def set_color(string, *_); end
+  def set_color(string, *arg); end
 
   def show_diff(destination, content); end
 
@@ -12600,213 +12660,6 @@ module YARD::CodeObjects
   NSEP = ::T.let(nil, ::T.untyped)
   NSEPQ = ::T.let(nil, ::T.untyped)
   PROXY_MATCH = ::T.let(nil, ::T.untyped)
-end
-
-class YARD::CodeObjects::ClassObject
-  def inheritance_tree(include_mods=T.unsafe(nil)); end
-
-  def inherited_constants(); end
-
-  def inherited_meths(opts=T.unsafe(nil)); end
-
-  def is_exception?(); end
-
-  def superclass(); end
-
-  def superclass=(object); end
-end
-
-class YARD::CodeObjects::ClassVariableObject
-  def value(); end
-
-  def value=(value); end
-end
-
-class YARD::CodeObjects::ClassVariableObject
-end
-
-class YARD::CodeObjects::ConstantObject
-  def value(); end
-
-  def value=(value); end
-end
-
-class YARD::CodeObjects::ExtendedMethodObject
-  def initialize(obj); end
-
-  def method_missing(sym, *args, &block); end
-
-  def scope(); end
-end
-
-class YARD::CodeObjects::ExtendedMethodObject
-end
-
-class YARD::CodeObjects::ExtraFileObject
-  def ==(other); end
-
-  def attributes(); end
-
-  def attributes=(attributes); end
-
-  def contents(); end
-
-  def contents=(contents); end
-
-  def eql?(other); end
-
-  def equal?(other); end
-
-  def filename(); end
-
-  def filename=(filename); end
-
-  def initialize(filename, contents=T.unsafe(nil)); end
-
-  def locale(); end
-
-  def locale=(locale); end
-
-  def name(); end
-
-  def name=(name); end
-
-  def path(); end
-
-  def title(); end
-
-  def type(); end
-end
-
-class YARD::CodeObjects::ExtraFileObject
-end
-
-class YARD::CodeObjects::MacroObject
-  def attached?(); end
-
-  def expand(call_params=T.unsafe(nil), full_source=T.unsafe(nil), block_source=T.unsafe(nil)); end
-
-  def macro_data(); end
-
-  def macro_data=(macro_data); end
-
-  def method_object(); end
-
-  def method_object=(method_object); end
-  MACRO_MATCH = ::T.let(nil, ::T.untyped)
-end
-
-class YARD::CodeObjects::MacroObject
-  def self.apply(docstring, call_params=T.unsafe(nil), full_source=T.unsafe(nil), block_source=T.unsafe(nil), _method_object=T.unsafe(nil)); end
-
-  def self.apply_macro(macro, docstring, call_params=T.unsafe(nil), full_source=T.unsafe(nil), block_source=T.unsafe(nil)); end
-
-  def self.create(macro_name, data, method_object=T.unsafe(nil)); end
-
-  def self.create_docstring(macro_name, data, method_object=T.unsafe(nil)); end
-
-  def self.expand(macro_data, call_params=T.unsafe(nil), full_source=T.unsafe(nil), block_source=T.unsafe(nil)); end
-
-  def self.find(macro_name); end
-
-  def self.find_or_create(macro_name, data, method_object=T.unsafe(nil)); end
-end
-
-class YARD::CodeObjects::ModuleObject
-  def inheritance_tree(include_mods=T.unsafe(nil)); end
-end
-
-class YARD::CodeObjects::ModuleObject
-end
-
-class YARD::CodeObjects::NamespaceObject
-  def aliases(); end
-
-  def attributes(); end
-
-  def child(opts=T.unsafe(nil)); end
-
-  def children(); end
-
-  def class_attributes(); end
-
-  def class_mixins(); end
-
-  def constants(opts=T.unsafe(nil)); end
-
-  def cvars(); end
-
-  def groups(); end
-
-  def groups=(groups); end
-
-  def included_constants(); end
-
-  def included_meths(opts=T.unsafe(nil)); end
-
-  def initialize(namespace, name, *args, &block); end
-
-  def instance_attributes(); end
-
-  def instance_mixins(); end
-
-  def meths(opts=T.unsafe(nil)); end
-
-  def mixins(*scopes); end
-end
-
-class YARD::CodeObjects::Proxy
-  def ==(other); end
-
-  def ===(other); end
-
-  def equal?(other); end
-
-  def initialize(namespace, name, type=T.unsafe(nil)); end
-
-  def instance_of?(klass); end
-
-  def is_a?(klass); end
-
-  def kind_of?(klass); end
-
-  def method_missing(meth, *args, &block); end
-
-  def name(prefix=T.unsafe(nil)); end
-
-  def namespace(); end
-
-  def parent(); end
-
-  def path(); end
-
-  def respond_to?(meth, include_private=T.unsafe(nil)); end
-
-  def root?(); end
-
-  def title(); end
-
-  def to_str(); end
-
-  def type(); end
-
-  def type=(type); end
-end
-
-class YARD::CodeObjects::Proxy
-  def self.===(other); end
-end
-
-class YARD::CodeObjects::ProxyMethodError
-end
-
-class YARD::CodeObjects::ProxyMethodError
-end
-
-class YARD::CodeObjects::RootObject
-end
-
-class YARD::CodeObjects::RootObject
 end
 
 class YARD::Config
@@ -13399,14 +13252,6 @@ end
 
 module YARD::Parser::Ruby::Legacy::RubyToken
   def self.def_token(token_n, super_token=T.unsafe(nil), reading=T.unsafe(nil), *opts); end
-end
-
-class YARD::Parser::SourceParser
-  DEFAULT_PATH_GLOB = ::T.let(nil, ::T.untyped)
-  ENCODING_BYTE_ORDER_MARKS = ::T.let(nil, ::T.untyped)
-  ENCODING_LINE = ::T.let(nil, ::T.untyped)
-  FROZEN_STRING_LINE = ::T.let(nil, ::T.untyped)
-  SHEBANG_LINE = ::T.let(nil, ::T.untyped)
 end
 
 class YARD::Rake::YardocTask
@@ -14443,7 +14288,7 @@ module YARD::Templates::Template
 
   def class(); end
 
-  def class=(_); end
+  def class=(arg); end
 
   def erb(section, &block); end
 
@@ -14568,7 +14413,7 @@ module YARDSorbet::Handlers::StructClassHandler
   extend ::T::Private::Methods::SingletonMethodHooks
 end
 
-class YARDSorbet::Handlers::StructHandler
+class YARDSorbet::Handlers::StructPropHandler
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
 end
@@ -14583,18 +14428,27 @@ module YARDSorbet::SigToYARD
   extend ::T::Private::Methods::SingletonMethodHooks
 end
 
+class YARDSorbet::TStructProp
+  def self.inherited(s); end
+end
+
+module YARDSorbet::TagUtils
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class Zlib::Deflate
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class Zlib::GzipReader
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class Zlib::GzipWriter
-  def initialize(*_); end
+  def initialize(*arg); end
 end
 
 class Zlib::Inflate
-  def initialize(*_); end
+  def initialize(*arg); end
 end

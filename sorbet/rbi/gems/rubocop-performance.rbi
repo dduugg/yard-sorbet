@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-performance/all/rubocop-performance.rbi
 #
-# rubocop-performance-1.11.3
+# rubocop-performance-1.11.4
 
 module RuboCop
 end
@@ -230,10 +230,10 @@ class RuboCop::Cop::Performance::InefficientHashSearch < RuboCop::Cop::Base
   extend RuboCop::Cop::AutoCorrector
 end
 class RuboCop::Cop::Performance::MapCompact < RuboCop::Cop::Base
-  def compact_method_range(compact_node); end
   def invoke_method_after_map_compact_on_same_line?(compact_node, chained_method); end
   def map_compact(param0 = nil); end
   def on_send(node); end
+  def remove_compact_method(corrector, compact_node); end
   extend RuboCop::Cop::AutoCorrector
   extend RuboCop::Cop::TargetRubyVersion
   include RuboCop::Cop::RangeHelp

@@ -21,6 +21,8 @@ task :rbi do
   sh 'bundle exec srb rbi gems'
   sh 'bundle exec srb rbi hidden-definitions'
   sh 'bundle exec srb rbi todo'
+  # sadly, the above commands don't limit themselves to sorbet/ changes
+  sh 'git checkout -- rbi/'
 end
 
 desc 'Typecheck files with sorbet'

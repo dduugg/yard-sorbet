@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-rake/all/rubocop-rake.rbi
 #
-# rubocop-rake-0.5.1
+# rubocop-rake-0.6.0
 
 module RuboCop
 end
@@ -50,19 +50,20 @@ module RuboCop::Cop::Rake::Helper::OnNamespace
   def on_send(node); end
   extend RuboCop::AST::NodePattern::Macros
 end
-class RuboCop::Cop::Rake::ClassDefinitionInTask < RuboCop::Cop::Cop
-  def message(node); end
+class RuboCop::Cop::Rake::ClassDefinitionInTask < RuboCop::Cop::Base
   def on_class(node); end
   def on_module(node); end
 end
-class RuboCop::Cop::Rake::Desc < RuboCop::Cop::Cop
+class RuboCop::Cop::Rake::Desc < RuboCop::Cop::Base
   def can_insert_desc_to?(parent); end
   def on_task(node); end
   def parent_and_task(task_node); end
+  def prerequisites(param0 = nil); end
   def task_with_desc?(node); end
+  extend RuboCop::Cop::AutoCorrector
   include RuboCop::Cop::Rake::Helper::OnTask
 end
-class RuboCop::Cop::Rake::DuplicateTask < RuboCop::Cop::Cop
+class RuboCop::Cop::Rake::DuplicateTask < RuboCop::Cop::Base
   def initialize(*arg0); end
   def message_for_dup(previous:, current:, task_name:); end
   def namespaces(node); end
@@ -70,7 +71,7 @@ class RuboCop::Cop::Rake::DuplicateTask < RuboCop::Cop::Cop
   def source_location(node); end
   include RuboCop::Cop::Rake::Helper::OnTask
 end
-class RuboCop::Cop::Rake::DuplicateNamespace < RuboCop::Cop::Cop
+class RuboCop::Cop::Rake::DuplicateNamespace < RuboCop::Cop::Base
   def initialize(*arg0); end
   def message_for_dup(previous:, current:, namespace:); end
   def namespaces(node); end
@@ -78,7 +79,7 @@ class RuboCop::Cop::Rake::DuplicateNamespace < RuboCop::Cop::Cop
   def source_location(node); end
   include RuboCop::Cop::Rake::Helper::OnNamespace
 end
-class RuboCop::Cop::Rake::MethodDefinitionInTask < RuboCop::Cop::Cop
+class RuboCop::Cop::Rake::MethodDefinitionInTask < RuboCop::Cop::Base
   def on_def(node); end
   def on_defs(node); end
 end
