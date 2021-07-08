@@ -1,4 +1,5 @@
 --load yard/ignore_monkey_patch_mixins.rb
+--load yard/magic_comment_handler.rb
 --main README.md
 --markup-provider=redcarpet
 --markup=markdown
