@@ -34,7 +34,7 @@ module YARDSorbet
       params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String))
         .returns(T.nilable(YARD::Tags::Tag))
     end
-    private_class_method def self.find_tag(docstring, tag_name, name)
+    def self.find_tag(docstring, tag_name, name)
       docstring.tags.find { |t| t.tag_name == tag_name && t.name == name }
     end
   end
