@@ -2,6 +2,10 @@
 
 ## main (unreleased)
 
+### Bug fixes
+
+* [#71](https://github.com/dduugg/yard-sorbet/pull/71) Fix `T::Struct` constructor object creation
+
 ## 0.5.2 (2021-07-01)
 
 ### Bug fixes

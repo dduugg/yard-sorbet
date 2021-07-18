@@ -33,12 +33,12 @@ module YARDSorbet
         # There is a chance that there is a custom initializer, so make sure we steal the existing docstring
         # and source
         docstring, directives = Directives.extract_directives(object.docstring)
+        # These should probably check for existing tags, and merge with any existing documentation:
         props.each do |prop|
           docstring.add_tag(YARD::Tags::Tag.new(:param, prop.doc, prop.types, prop.prop_name))
         end
-        docstring.add_tag(YARD::Tags::Tag.new(:return, '', class_ns))
+        docstring.add_tag(YARD::Tags::Tag.new(:return, '', 'void'))
         decorate_t_struct_init(object, props, docstring, directives)
-        register(object)
       end
 
       sig do
@@ -54,7 +54,7 @@ module YARDSorbet
         object.parameters = to_object_parameters(props)
         # The "source" of our constructor is the field declarations
         object.source ||= props.map(&:source).join("\n")
-        object.docstring = docstring.to_raw
+        object.docstring = docstring
         Directives.add_directives(object.docstring, directives)
       end
 
