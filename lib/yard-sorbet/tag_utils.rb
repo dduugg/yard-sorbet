@@ -6,16 +6,26 @@ module YARDSorbet
   module TagUtils
     extend T::Sig
 
+    # @return the tag with the matching `tag_name` and `name`, or `nil`
+    sig do
+      params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String))
+        .returns(T.nilable(YARD::Tags::Tag))
+    end
+    def self.find_tag(docstring, tag_name, name)
+      docstring.tags.find { |t| t.tag_name == tag_name && t.name == name }
+    end
+
     # Create or update a `YARD` tag with type information
     sig do
       params(
         docstring: YARD::Docstring,
         tag_name: String,
         types: T.nilable(T::Array[String]),
-        name: T.nilable(String)
+        name: T.nilable(String),
+        text: String
       ).void
     end
-    def self.upsert_tag(docstring, tag_name, types = nil, name = nil)
+    def self.upsert_tag(docstring, tag_name, types = nil, name = nil, text = '')
       tag = find_tag(docstring, tag_name, name)
       if tag
         return unless types
@@ -24,18 +34,11 @@ module YARDSorbet
         docstring.delete_tag_if { |t| t == tag }
         # overwrite any existing type annotation (sigs should win)
         tag.types = types
+        tag.text = text unless text.empty?
       else
-        tag = YARD::Tags::Tag.new(tag_name, '', types, name)
+        tag = YARD::Tags::Tag.new(tag_name, text, types, name)
       end
       docstring.add_tag(tag)
-    end
-
-    sig do
-      params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String))
-        .returns(T.nilable(YARD::Tags::Tag))
-    end
-    def self.find_tag(docstring, tag_name, name)
-      docstring.tags.find { |t| t.tag_name == tag_name && t.name == name }
     end
   end
 end

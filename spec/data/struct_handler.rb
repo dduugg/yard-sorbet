@@ -18,6 +18,8 @@ class SpecializedPersonStruct < T::Struct
   const :special, String
 
   # This is a special intializer
+  # @param special a very special param
+  # @return an initialized struct
   def initialize(special:)
     raise ArgumentError.new("bad human") if special != "special"
     super
