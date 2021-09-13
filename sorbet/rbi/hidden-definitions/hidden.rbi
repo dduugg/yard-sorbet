@@ -60,6 +60,8 @@ end
 class Bundler::Definition
   def dependencies_for(groups); end
 
+  def disable_multisource?(); end
+
   def most_specific_locked_platform(); end
 
   def requested_dependencies(); end
@@ -82,6 +84,10 @@ class Bundler::Dependency
 end
 
 Bundler::Deprecate = Gem::Deprecate
+
+class Bundler::Dsl
+  def check_primary_source_safety(); end
+end
 
 class Bundler::Env
 end
@@ -293,6 +299,8 @@ class Bundler::GemHelper
 
   def committed?(); end
 
+  def current_branch(); end
+
   def default_remote(); end
 
   def gem_command(); end
@@ -466,20 +474,12 @@ end
 
 class Bundler::LazySpecification
   def eql?(other); end
+
+  def platform_string(); end
 end
 
-class Bundler::Molinillo::DependencyGraph
-  include ::Enumerable
-end
-
-class Bundler::Molinillo::DependencyGraph::Log
-  extend ::Enumerable
-end
-
-class Bundler::Molinillo::DependencyGraph::Vertex
-  def _recursive_predecessors(vertices=T.unsafe(nil)); end
-
-  def _recursive_successors(vertices=T.unsafe(nil)); end
+module Bundler::Molinillo::SpecificationProvider
+  def dependencies_equal?(dependencies, other_dependencies); end
 end
 
 module Bundler::Plugin::API::Source
@@ -520,6 +520,8 @@ module Bundler::Plugin::API::Source
   def install_path(); end
 
   def installed?(); end
+
+  def local!(); end
 
   def name(); end
 
@@ -621,14 +623,25 @@ class Bundler::ProcessLock
   def self.lock(bundle_path=T.unsafe(nil)); end
 end
 
+class Bundler::Resolver
+  include ::Bundler::GemHelpers
+  def results_for(dependency, base); end
+end
+
 class Bundler::Resolver::SpecGroup
+  def activate_all_platforms!(); end
+
   def activated_platforms(); end
 
   def activated_platforms=(activated_platforms); end
 
-  def copy_for(platforms); end
+  def partitioned_dependency_names_for_activated_platforms(); end
 
   def sorted_activated_platforms(); end
+end
+
+class Bundler::Resolver::SpecGroup
+  def self.create_for(specs, all_platforms, specific_platform); end
 end
 
 class Bundler::Retry
@@ -746,10 +759,30 @@ class Bundler::Settings::Validator
   def self.validate!(key, value, settings); end
 end
 
+class Bundler::Source
+  def cached!(); end
+
+  def local!(); end
+
+  def remote!(); end
+end
+
 class Bundler::Source::Git
   def glob(); end
 
   def local?(); end
+end
+
+class Bundler::Source::Rubygems
+  def disable_multisource?(); end
+end
+
+class Bundler::SourceList
+  def disable_multisource?(); end
+
+  def global_path_source(); end
+
+  def merged_gem_lockfile_sections!(); end
 end
 
 class Bundler::SpecSet
@@ -762,6 +795,8 @@ class Bundler::StubSpecification
   def extensions(); end
 
   def gem_build_complete_path(); end
+
+  def manually_installed?(); end
 end
 
 class Bundler::Thor
@@ -1639,6 +1674,8 @@ end
 
 class Bundler::Thor::Shell::Color
   def are_colors_disabled?(); end
+
+  def are_colors_supported?(); end
 
   def diff_lcs_loaded?(); end
 
@@ -4799,8 +4836,6 @@ end
 class Net::HTTPAlreadyReported
 end
 
-Net::HTTPClientError::EXCEPTION_TYPE = Net::HTTPServerException
-
 Net::HTTPClientErrorCode = Net::HTTPClientError
 
 class Net::HTTPEarlyHints
@@ -4860,8 +4895,6 @@ end
 class Net::HTTPRangeNotSatisfiable
 end
 
-Net::HTTPRedirection::EXCEPTION_TYPE = Net::HTTPRetriableError
-
 Net::HTTPRedirectionCode = Net::HTTPRedirection
 
 Net::HTTPRequestURITooLarge = Net::HTTPURITooLong
@@ -4869,8 +4902,6 @@ Net::HTTPRequestURITooLarge = Net::HTTPURITooLong
 Net::HTTPResponceReceiver = Net::HTTPResponse
 
 Net::HTTPRetriableCode = Net::HTTPRedirection
-
-Net::HTTPServerError::EXCEPTION_TYPE = Net::HTTPFatalError
 
 Net::HTTPServerErrorCode = Net::HTTPServerError
 
@@ -8312,6 +8343,7 @@ module RuboCop::AST::Version
 end
 
 class RuboCop::CLI
+  DEFAULT_PARALLEL_OPTIONS = ::T.let(nil, ::T.untyped)
   STATUS_ERROR = ::T.let(nil, ::T.untyped)
   STATUS_INTERRUPTED = ::T.let(nil, ::T.untyped)
   STATUS_OFFENSES = ::T.let(nil, ::T.untyped)
@@ -8413,6 +8445,15 @@ class RuboCop::Cop::Bundler::GemComment
   VERSION_SPECIFIERS_OPTION = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Bundler::GemFilename
+  GEMFILE_FILES = ::T.let(nil, ::T.untyped)
+  GEMS_RB_FILES = ::T.let(nil, ::T.untyped)
+  MSG_GEMFILE_MISMATCHED = ::T.let(nil, ::T.untyped)
+  MSG_GEMFILE_REQUIRED = ::T.let(nil, ::T.untyped)
+  MSG_GEMS_RB_MISMATCHED = ::T.let(nil, ::T.untyped)
+  MSG_GEMS_RB_REQUIRED = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Bundler::GemVersion
   FORBIDDEN_MSG = ::T.let(nil, ::T.untyped)
   REQUIRED_MSG = ::T.let(nil, ::T.untyped)
@@ -8464,7 +8505,6 @@ end
 module RuboCop::Cop::FrozenStringLiteral
   FROZEN_STRING_LITERAL = ::T.let(nil, ::T.untyped)
   FROZEN_STRING_LITERAL_ENABLED = ::T.let(nil, ::T.untyped)
-  FROZEN_STRING_LITERAL_TYPES = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Gemspec::DateAssignment
@@ -8801,7 +8841,6 @@ class RuboCop::Cop::Layout::RescueEnsureAlignment
   ANCESTOR_TYPES = ::T.let(nil, ::T.untyped)
   ANCESTOR_TYPES_WITH_ACCESS_MODIFIERS = ::T.let(nil, ::T.untyped)
   MSG = ::T.let(nil, ::T.untyped)
-  RUBY_2_5_ANCESTOR_TYPES = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Layout::SingleLineBlockChain
@@ -8924,6 +8963,10 @@ end
 class RuboCop::Cop::Lint::AmbiguousOperator
   AMBIGUITIES = ::T.let(nil, ::T.untyped)
   MSG_FORMAT = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Lint::AmbiguousRange
+  MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Lint::AmbiguousRegexpLiteral
@@ -10637,7 +10680,7 @@ end
 
 class RuboCop::Cop::Style::Encoding
   ENCODING_PATTERN = ::T.let(nil, ::T.untyped)
-  MSG_UNNECESSARY = ::T.let(nil, ::T.untyped)
+  MSG = ::T.let(nil, ::T.untyped)
   SHEBANG = ::T.let(nil, ::T.untyped)
 end
 
@@ -11139,6 +11182,10 @@ class RuboCop::Cop::Style::RedundantSelfAssignment
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Style::RedundantSelfAssignmentBranch
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Style::RedundantSort
   MSG = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
@@ -11222,6 +11269,7 @@ end
 
 class RuboCop::Cop::Style::SpecialGlobalVars
   ENGLISH_VARS = ::T.let(nil, ::T.untyped)
+  LIBRARY_NAME = ::T.let(nil, ::T.untyped)
   MSG_BOTH = ::T.let(nil, ::T.untyped)
   MSG_ENGLISH = ::T.let(nil, ::T.untyped)
   MSG_REGULAR = ::T.let(nil, ::T.untyped)
@@ -11521,18 +11569,22 @@ class RuboCop::Formatter::SimpleTextFormatter
 end
 
 class RuboCop::MagicComment
+  KEYWORDS = ::T.let(nil, ::T.untyped)
   TOKEN = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::MagicComment::EmacsComment
   FORMAT = ::T.let(nil, ::T.untyped)
   OPERATOR = ::T.let(nil, ::T.untyped)
+  REGEXP = ::T.let(nil, ::T.untyped)
   SEPARATOR = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::MagicComment::VimComment
   FORMAT = ::T.let(nil, ::T.untyped)
+  KEYWORDS = ::T.let(nil, ::T.untyped)
   OPERATOR = ::T.let(nil, ::T.untyped)
+  REGEXP = ::T.let(nil, ::T.untyped)
   SEPARATOR = ::T.let(nil, ::T.untyped)
 end
 

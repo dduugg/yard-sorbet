@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/bundler-audit/all/bundler-audit.rbi
 #
-# bundler-audit-0.8.0
+# bundler-audit-0.9.0.1
 
 module Bundler
 end
@@ -54,6 +54,7 @@ class Bundler::Audit::Advisory < Anonymous_Struct_1
   def osvdb_id; end
   def patched?(version); end
   def self.load(path); end
+  def to_h; end
   def to_s; end
   def unaffected?(version); end
   def vulnerable?(version); end
@@ -62,6 +63,7 @@ class Bundler::Audit::Database
   def advisories(&block); end
   def advisories_for(name); end
   def check_gem(gem); end
+  def commit_id; end
   def each_advisory_path(&block); end
   def each_advisory_path_for(name, &block); end
   def git?; end

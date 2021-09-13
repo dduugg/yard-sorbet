@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/parallel/all/parallel.rbi
 #
-# parallel-1.20.1
+# parallel-1.21.0
 
 module Parallel
   def self.add_progress_bar!(job_factory, options); end
@@ -24,7 +24,7 @@ module Parallel
   def self.map(source, options = nil, &block); end
   def self.map_with_index(array, options = nil, &block); end
   def self.process_incoming_jobs(read, write, job_factory, options, &block); end
-  def self.replace_worker(job_factory, workers, i, options, blk); end
+  def self.replace_worker(job_factory, workers, index, options, blk); end
   def self.with_instrumentation(item, index, options); end
   def self.work_direct(job_factory, options, &block); end
   def self.work_in_processes(job_factory, options, &blk); end

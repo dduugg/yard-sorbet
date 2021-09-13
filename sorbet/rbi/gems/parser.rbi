@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/parser/all/parser.rbi
 #
-# parser-3.0.1.1
+# parser-3.0.2.0
 
 module Parser
 end
