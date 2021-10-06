@@ -223,15 +223,6 @@
 # wrong constant name <static-init>
 # wrong constant name inject
 # wrong constant name remove
-# wrong constant name generate_bundler_executable_stubs
-# wrong constant name generate_standalone_bundler_executable_stubs
-# wrong constant name initialize
-# wrong constant name post_install_messages
-# wrong constant name run
-# wrong constant name <static-init>
-# wrong constant name ambiguous_gems
-# wrong constant name ambiguous_gems=
-# wrong constant name install
 # uninitialized constant Bundler::LazySpecification::GENERICS
 # uninitialized constant Bundler::LazySpecification::GENERIC_CACHE
 # wrong constant name eql?
@@ -1985,8 +1976,11 @@
 # uninitialized constant Fiddle
 # Did you mean?  File
 # wrong constant name absolute_path?
+# wrong constant name cleanpath
 # wrong constant name exists?
+# wrong constant name open!
 # wrong constant name read_binary
+# wrong constant name relative_path
 # uninitialized constant FileUtils::DryRun::LN_SUPPORTED
 # Did you mean?  FileUtils::LN_SUPPORTED
 # uninitialized constant FileUtils::DryRun::RUBY
@@ -4673,7 +4667,6 @@
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterMethodName::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterNot::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::SpaceAfterNot::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Layout::SpaceAfterNot::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SpaceAroundEqualsInParameterDefault::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::SpaceAroundEqualsInParameterDefault::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::SpaceAroundEqualsInParameterDefault::NO_SPACE_COMMAND
@@ -4695,7 +4688,6 @@
 # uninitialized constant RuboCop::Cop::Layout::SpaceBeforeBlockBraces::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SpaceBeforeBrackets::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::SpaceBeforeBrackets::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Layout::SpaceBeforeBrackets::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SpaceBeforeComment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::SpaceBeforeComment::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::SpaceBeforeFirstArg::BYTE_ORDER_MARK
@@ -4762,6 +4754,7 @@
 # uninitialized constant RuboCop::Cop::Lint::AmbiguousBlockAssociation::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::AmbiguousOperator::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::AmbiguousOperator::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Lint::AmbiguousOperatorPrecedence::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::AmbiguousRange::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::AmbiguousRange::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::AmbiguousRegexpLiteral::LITERAL_REGEX
@@ -4780,6 +4773,7 @@
 # uninitialized constant RuboCop::Cop::Lint::ConstantResolution::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::ConstantResolution::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::Debugger::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Lint::Debugger::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedClassMethods::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedConstants::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::DeprecatedConstants::RESTRICT_ON_SEND
@@ -4844,6 +4838,7 @@
 # uninitialized constant RuboCop::Cop::Lint::IdentityComparison::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::ImplicitStringConcatenation::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::ImplicitStringConcatenation::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Lint::IncompatibleIoSelectWithFiberScheduler::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::IneffectiveAccessModifier::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::IneffectiveAccessModifier::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::InheritException::LITERAL_REGEX
@@ -4934,6 +4929,8 @@
 # uninitialized constant RuboCop::Cop::Lint::RequireParentheses::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Lint::RequireParentheses::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::RequireParentheses::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Lint::RequireRelativeSelfPath::BYTE_ORDER_MARK
+# uninitialized constant RuboCop::Cop::Lint::RequireRelativeSelfPath::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::RescueException::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::RescueException::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::RescueType::LITERAL_REGEX
@@ -5186,6 +5183,8 @@
 # uninitialized constant RuboCop::Cop::RSpec::ExampleWithoutDescription::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::ExampleWording::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::ExampleWording::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::RSpec::ExcessiveDocstringSpacing::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::RSpec::ExcessiveDocstringSpacing::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::ExpectActual::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::ExpectActual::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::ExpectChange::LITERAL_REGEX
@@ -5274,6 +5273,8 @@
 # uninitialized constant RuboCop::Cop::RSpec::SingleArgumentMessageChain::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::StubbedMock::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::StubbedMock::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::RSpec::SubjectDeclaration::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::RSpec::SubjectDeclaration::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::SubjectStub::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::RSpec::SubjectStub::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::RSpec::UnspecifiedException::LITERAL_REGEX
@@ -5302,6 +5303,7 @@
 # uninitialized constant RuboCop::Cop::Rake::MethodDefinitionInTask::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Rake::MethodDefinitionInTask::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Security::Eval::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Security::IoMethods::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Security::JSONLoad::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Security::MarshalLoad::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Security::Open::LITERAL_REGEX
@@ -5423,6 +5425,7 @@
 # uninitialized constant RuboCop::Cop::Style::DisableCopsWithinSourceCodeDirective::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::DisableCopsWithinSourceCodeDirective::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::DocumentDynamicEvalDefinition::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::Documentation::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::Documentation::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::Documentation::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::DocumentationMethod::LITERAL_REGEX
@@ -5603,6 +5606,10 @@
 # uninitialized constant RuboCop::Cop::Style::NonNilCheck::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::Not::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::Not::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::NumberedParameters::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::NumberedParameters::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Style::NumberedParametersLimit::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::NumberedParametersLimit::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::NumericLiteralPrefix::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::NumericLiteralPrefix::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::NumericLiterals::LITERAL_REGEX
@@ -5656,6 +5663,7 @@
 # uninitialized constant RuboCop::Cop::Style::RedundantFetchBlock::FROZEN_STRING_LITERAL_ENABLED
 # uninitialized constant RuboCop::Cop::Style::RedundantFetchBlock::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::RedundantFetchBlock::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Style::RedundantFileExtensionInRequire::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::RedundantFileExtensionInRequire::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::RedundantFreeze::FROZEN_STRING_LITERAL
 # Did you mean?  RuboCop::Cop::FrozenStringLiteral
@@ -5703,6 +5711,8 @@
 # uninitialized constant RuboCop::Cop::Style::SafeNavigation::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::SafeNavigation::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::Sample::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::SelectByRegexp::BYTE_ORDER_MARK
+# uninitialized constant RuboCop::Cop::Style::SelectByRegexp::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::SelfAssignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::SelfAssignment::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::Semicolon::BYTE_ORDER_MARK
@@ -5805,7 +5815,6 @@
 # uninitialized constant RuboCop::Cop::Style::WordArray::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::YodaCondition::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::YodaCondition::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Style::YodaCondition::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::ZeroLengthPredicate::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::SurroundingSpace::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::TrailingComma::BYTE_ORDER_MARK

@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-rspec/all/rubocop-rspec.rbi
 #
-# rubocop-rspec-2.4.0
+# rubocop-rspec-2.5.0
 
 module RuboCop
 end
@@ -485,6 +485,16 @@ class RuboCop::Cop::RSpec::ExampleWording < RuboCop::Cop::RSpec::Base
   def text(node); end
   extend RuboCop::Cop::AutoCorrector
 end
+class RuboCop::Cop::RSpec::ExcessiveDocstringSpacing < RuboCop::Cop::RSpec::Base
+  def add_whitespace_offense(node, text); end
+  def docstring(node); end
+  def example_description(param0 = nil); end
+  def excessive_whitespace?(text); end
+  def on_send(node); end
+  def strip_excessive_whitespace(text); end
+  def text(node); end
+  extend RuboCop::Cop::AutoCorrector
+end
 class RuboCop::Cop::RSpec::ExpectActual < RuboCop::Cop::RSpec::Base
   def complex_literal?(node); end
   def expect_literal(param0 = nil); end
@@ -942,6 +952,11 @@ class RuboCop::Cop::RSpec::StubbedMock < RuboCop::Cop::RSpec::Base
   def on_expectation(expectation, method_name, matcher); end
   def on_send(node); end
   def replacement(method_name); end
+end
+class RuboCop::Cop::RSpec::SubjectDeclaration < RuboCop::Cop::RSpec::Base
+  def message_for(offense); end
+  def offensive_subject_declaration?(param0 = nil); end
+  def on_send(node); end
 end
 class RuboCop::Cop::RSpec::SubjectStub < RuboCop::Cop::RSpec::Base
   def find_all_explicit_subjects(node); end
