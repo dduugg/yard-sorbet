@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec', '~> 2.5.0'
   spec.add_development_dependency 'rubocop-sorbet', '~> 0.6.0'
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'sorbet', '~> 0.5.6289'
+  spec.add_development_dependency 'sorbet', '~> 0.5.9204'
   spec.add_runtime_dependency 'sorbet-runtime', '>= 0.5'
   spec.add_runtime_dependency 'yard', '>= 0.9'
 end
