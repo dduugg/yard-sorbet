@@ -11,6 +11,7 @@ A YARD [plugin](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#Plugi
 - Generates method definitions from `T::Struct` fields
 - Generates constant definitions from `T::Enum` enums
 - Modules marked `abstract!` or `interface!` are tagged `@abstract`
+- Modules using `mixes_in_class_methods` will attach class methods
 
 ## Usage
 
