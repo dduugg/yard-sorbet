@@ -4,6 +4,8 @@
 
 ## 0.6.0 (2021-10-13)
 
+### New features
+
 * [#77](https://github.com/dduugg/yard-sorbet/pull/77) Add `mixes_in_class_methods` support
 
 ## 0.5.3 (2021-08-01)
