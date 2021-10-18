@@ -14,11 +14,9 @@ module YARDSorbet
 
       sig { void }
       def process
-        return unless extra_state.mix_in_class_methods
-
         statement.parameters(false).each do |mixin|
           obj = YARD::CodeObjects::Proxy.new(namespace, mixin.source)
-          class_methods_namespace = extra_state.mix_in_class_methods[obj.to_s]
+          class_methods_namespace = MixesInClassMethodsHandler.mixed_in_class_methods(obj.to_s)
           next unless class_methods_namespace
 
           included_in.mixins(:class) << YARD::CodeObjects::Proxy.new(obj, class_methods_namespace)
