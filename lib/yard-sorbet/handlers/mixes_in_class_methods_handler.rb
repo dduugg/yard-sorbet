@@ -12,10 +12,16 @@ module YARDSorbet
       handles method_call(:mixes_in_class_methods)
       namespace_only
 
+      @@mix_in_class_methods = T.let({}, T::Hash[String, String]) # rubocop:disable Style/ClassVars
+
+      sig { params(code_obj: String).returns(T.nilable(String)) }
+      def self.mixed_in_class_methods(code_obj)
+        @@mix_in_class_methods[code_obj]
+      end
+
       sig { void }
       def process
-        extra_state.mix_in_class_methods ||= {}
-        extra_state.mix_in_class_methods[namespace.to_s] = statement.parameters(false)[0].source
+        @@mix_in_class_methods[namespace.to_s] = statement.parameters(false)[0].source
       end
     end
   end

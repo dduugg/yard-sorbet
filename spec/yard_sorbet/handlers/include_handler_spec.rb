@@ -2,11 +2,13 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::IncludeHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'include_handler.rb')
+  mixes_in_path = File.join(File.expand_path('../../data', __dir__), 'mixes_in_class_methods_handler.rb')
+  include_path = File.join(File.expand_path('../../data', __dir__), 'include_handler.rb')
 
   before do
     YARD::Registry.clear
-    YARD::Parser::SourceParser.parse(path)
+    YARD::Parser::SourceParser.parse(mixes_in_path)
+    YARD::Parser::SourceParser.parse(include_path)
   end
 
   describe 'including a module with `mixes_in_class_methods`' do
@@ -27,6 +29,11 @@ RSpec.describe YARDSorbet::Handlers::IncludeHandler do
 
     it 'handles multiple parameters to include' do
       node = YARD::Registry.at('C')
+      expect(node.class_mixins.map(&:to_s)).to include('M::ClassMethods')
+    end
+
+    it 'includes class methods from another file' do
+      node = YARD::Registry.at('C2')
       expect(node.class_mixins.map(&:to_s)).to include('M::ClassMethods')
     end
   end
