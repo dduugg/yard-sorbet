@@ -2,6 +2,8 @@
 
 ## main
 
+## 0.6.1 (2021-11-01)
+
 ### Bug fixes
 
 * [#78](https://github.com/dduugg/yard-sorbet/pull/78) Fix `mixes_in_class_methods` across files
