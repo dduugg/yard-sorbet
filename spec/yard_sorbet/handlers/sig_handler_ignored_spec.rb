@@ -16,7 +16,6 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     end
 
     it 'handles unsupported node types' do
-      YARD::Parser::SourceParser.parse(path)
       node = YARD::Registry.at('Weird#one')
       expect(node.tag(:return).type).to eq('1')
     end
