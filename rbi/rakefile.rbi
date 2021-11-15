@@ -1,2 +1,4 @@
 # typed: strict
-extend Rake::DSL
+# frozen_string_literal: true
+
+extend Rake::DSL # rubocop:disable Style/MixinUsage

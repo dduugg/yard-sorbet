@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
     'changelog_uri' => "#{spec.homepage}/blob/main/CHANGELOG.md",
     'documentation_uri' => 'https://dduugg.github.io/yard-sorbet/',
     'homepage_uri' => spec.homepage,
+    'rubygems_mfa_required' => 'true',
     'source_code_uri' => spec.homepage,
     'wiki_uri' => "#{spec.homepage}/wiki"
   }

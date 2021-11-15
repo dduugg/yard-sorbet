@@ -11,7 +11,6 @@ inherit_mode:
 
 AllCops:
   Exclude:
-    - '**/*.rbi'  # VSCode plugin workaround
     - 'spec/data/**/*'
   NewCops: enable
   TargetRubyVersion: 2.5

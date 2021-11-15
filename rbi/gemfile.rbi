@@ -1,4 +1,6 @@
 # typed: strict
+# frozen_string_literal: true
+
 # This may include Gem::RequestSet::GemDependencyAPI methods from
 # https://github.com/sorbet/sorbet/blob/master/rbi/stdlib/rubygems.rbi
 
@@ -24,7 +26,7 @@
 # development\_group:
 # :   The group to add development dependencies to. By default this is
 #     :development. Only one group may be specified.
-def gemspec(options=T.unsafe(nil)); end
+def gemspec(options = T.unsafe(nil)); end
 
 # Sets `url` as a source for gems for this dependency API. RubyGems uses the
 # default configured sources if no source was given. If a source is set only
