@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-performance/all/rubocop-performance.rbi
 #
-# rubocop-performance-1.11.5
+# rubocop-performance-1.12.0
 
 module RuboCop
 end
@@ -138,6 +138,11 @@ class RuboCop::Cop::Performance::CompareWithBlock < RuboCop::Cop::Base
   extend RuboCop::Cop::AutoCorrector
   include RuboCop::Cop::RangeHelp
 end
+class RuboCop::Cop::Performance::ConcurrentMonotonicTime < RuboCop::Cop::Base
+  def concurrent_monotonic_time?(param0 = nil); end
+  def on_send(node); end
+  extend RuboCop::Cop::AutoCorrector
+end
 class RuboCop::Cop::Performance::ConstantRegexp < RuboCop::Cop::Base
   def include_interpolated_const?(node); end
   def on_regexp(node); end
@@ -158,14 +163,12 @@ class RuboCop::Cop::Performance::DeletePrefix < RuboCop::Cop::Base
   def delete_prefix_candidate?(param0 = nil); end
   def on_send(node); end
   extend RuboCop::Cop::AutoCorrector
-  extend RuboCop::Cop::TargetRubyVersion
   include RuboCop::Cop::RegexpMetacharacter
 end
 class RuboCop::Cop::Performance::DeleteSuffix < RuboCop::Cop::Base
   def delete_suffix_candidate?(param0 = nil); end
   def on_send(node); end
   extend RuboCop::Cop::AutoCorrector
-  extend RuboCop::Cop::TargetRubyVersion
   include RuboCop::Cop::RegexpMetacharacter
 end
 class RuboCop::Cop::Performance::Detect < RuboCop::Cop::Base
@@ -272,6 +275,7 @@ class RuboCop::Cop::Performance::RedundantBlockCall < RuboCop::Cop::Base
   def blockarg_def(param0 = nil); end
   def calls_to_report(argname, body); end
   def on_def(node); end
+  def on_defs(node); end
   def shadowed_block_argument?(body, block_argument_of_method_signature); end
   extend RuboCop::Cop::AutoCorrector
 end
@@ -284,7 +288,6 @@ class RuboCop::Cop::Performance::RedundantEqualityComparisonBlock < RuboCop::Cop
   def use_block_argument_in_method_argument_of_operand?(block_argument, operand); end
   def use_equality_comparison_block?(block_body); end
   extend RuboCop::Cop::AutoCorrector
-  extend RuboCop::Cop::TargetRubyVersion
 end
 class RuboCop::Cop::Performance::RedundantMatch < RuboCop::Cop::Base
   def autocorrect(corrector, node); end

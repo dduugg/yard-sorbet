@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-rspec/all/rubocop-rspec.rbi
 #
-# rubocop-rspec-2.5.0
+# rubocop-rspec-2.6.0
 
 module RuboCop
 end
@@ -194,6 +194,7 @@ class RuboCop::RSpec::AlignLetBrace
   def single_line_lets; end
   def target_column_for(let); end
   def token; end
+  include RuboCop::Cop::Util
   include RuboCop::RSpec::Language
 end
 module RuboCop::RSpec::FactoryBot
@@ -974,10 +975,12 @@ class RuboCop::Cop::RSpec::UnspecifiedException < RuboCop::Cop::RSpec::Base
   def on_send(node); end
 end
 class RuboCop::Cop::RSpec::VariableDefinition < RuboCop::Cop::RSpec::Base
+  def correct_variable(variable); end
   def on_send(node); end
   def string?(node); end
   def style_violation?(variable); end
   def symbol?(node); end
+  extend RuboCop::Cop::AutoCorrector
   include RuboCop::Cop::ConfigurableEnforcedStyle
   include RuboCop::Cop::RSpec::Variable
 end

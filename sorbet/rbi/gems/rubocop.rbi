@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop/all/rubocop.rbi
 #
-# rubocop-1.22.1
+# rubocop-1.22.3
 
 module RuboCop
 end
@@ -138,6 +138,7 @@ module RuboCop::Cop::Util
   def first_part_of_call_chain(node); end
   def indent(node, offset: nil); end
   def interpret_string_escapes(string); end
+  def line(node_or_range); end
   def line_range(node); end
   def needs_escaping?(string); end
   def on_node(syms, sexp, excludes = nil, &block); end
@@ -154,6 +155,7 @@ module RuboCop::Cop::Util
   def self.first_part_of_call_chain(node); end
   def self.indent(node, offset: nil); end
   def self.interpret_string_escapes(string); end
+  def self.line(node_or_range); end
   def self.line_range(node); end
   def self.needs_escaping?(string); end
   def self.on_node(syms, sexp, excludes = nil, &block); end
@@ -1935,10 +1937,12 @@ class RuboCop::Cop::Gemspec::OrderedDependencies < RuboCop::Cop::Base
 end
 class RuboCop::Cop::Gemspec::RequiredRubyVersion < RuboCop::Cop::Base
   def defined_ruby_version(param0 = nil); end
+  def dynamic_version?(node); end
   def extract_ruby_version(required_ruby_version); end
   def not_equal_message(required_ruby_version, target_ruby_version); end
   def on_new_investigation; end
-  def required_ruby_version(param0); end
+  def on_send(node); end
+  def required_ruby_version?(param0); end
   include RuboCop::Cop::RangeHelp
 end
 class RuboCop::Cop::Gemspec::RubyVersionGlobalsUsage < RuboCop::Cop::Base
@@ -2143,6 +2147,7 @@ class RuboCop::Cop::Layout::DotPosition < RuboCop::Cop::Base
   def ampersand_dot?(node); end
   def autocorrect(corrector, dot, node); end
   def correct_dot_position_style?(dot_line, selector_line); end
+  def end_range(node); end
   def heredoc?(node); end
   def last_heredoc_line(node); end
   def line_between?(first_line, second_line); end
@@ -2327,7 +2332,7 @@ class RuboCop::Cop::Layout::EmptyLinesAroundClassBody < RuboCop::Cop::Base
   include RuboCop::Cop::Layout::EmptyLinesAroundBody
 end
 class RuboCop::Cop::Layout::EmptyLinesAroundExceptionHandlingKeywords < RuboCop::Cop::Base
-  def check_body(node); end
+  def check_body(body, line_of_def_or_kwbegin); end
   def keyword_locations(node); end
   def keyword_locations_in_ensure(node); end
   def keyword_locations_in_rescue(node); end
@@ -3213,7 +3218,6 @@ class RuboCop::Cop::Layout::SpaceInsideParens < RuboCop::Cop::Base
   def process_with_compact_style(tokens); end
   def process_with_space_style(tokens); end
   def right_parens?(token1, token2); end
-  def same_line?(token1, token2); end
   extend RuboCop::Cop::AutoCorrector
   include RuboCop::Cop::ConfigurableEnforcedStyle
   include RuboCop::Cop::RangeHelp
@@ -5081,10 +5085,10 @@ class RuboCop::Cop::Style::CommentAnnotation < RuboCop::Cop::Base
   include RuboCop::Cop::RangeHelp
 end
 class RuboCop::Cop::Style::CommentedKeyword < RuboCop::Cop::Base
-  def line(comment); end
   def offensive?(comment); end
   def on_new_investigation; end
   def register_offense(comment, matched_keyword); end
+  def source_line(comment); end
   extend RuboCop::Cop::AutoCorrector
   include RuboCop::Cop::RangeHelp
 end
@@ -6964,7 +6968,8 @@ class RuboCop::Cop::Style::SelectByRegexp < RuboCop::Cop::Base
   def calls_lvar?(param0 = nil, param1); end
   def creates_hash?(param0 = nil); end
   def extract_send_node(block_node); end
-  def find_regexp(node); end
+  def find_regexp(node, block); end
+  def match_predicate_without_receiver?(node); end
   def on_send(node); end
   def receiver_allowed?(node); end
   def regexp_match?(param0 = nil); end
