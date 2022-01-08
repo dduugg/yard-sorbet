@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-ast/all/rubocop-ast.rbi
 #
-# rubocop-ast-1.13.0
+# rubocop-ast-1.15.1
 
 module RuboCop
 end
@@ -1061,6 +1061,7 @@ class RuboCop::AST::PairNode < RuboCop::AST::Node
   def delimiter(*deprecated, with_spacing: nil); end
   def hash_rocket?; end
   def inverse_delimiter(*deprecated, with_spacing: nil); end
+  def value_omission?; end
   def value_on_new_line?; end
   include RuboCop::AST::HashElementNode
 end

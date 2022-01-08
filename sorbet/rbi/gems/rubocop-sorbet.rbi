@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-sorbet/all/rubocop-sorbet.rbi
 #
-# rubocop-sorbet-0.6.2
+# rubocop-sorbet-0.6.5
 
 module RuboCop
 end
@@ -46,6 +46,7 @@ class RuboCop::Cop::Sorbet::ForbidSuperclassConstLiteral < RuboCop::Cop::Cop
   def on_class(node); end
 end
 class RuboCop::Cop::Sorbet::ForbidIncludeConstLiteral < RuboCop::Cop::Cop
+  def autocorrect(node); end
   def initialize(*arg0); end
   def not_lit_const_include?(param0 = nil); end
   def on_send(node); end
@@ -85,7 +86,8 @@ class RuboCop::Cop::Sorbet::ForbidExtendTSigHelpersInShims < RuboCop::Cop::Cop
   def on_send(node); end
   include RuboCop::Cop::RangeHelp
 end
-class RuboCop::Cop::Sorbet::ForbidRBIOutsideOfSorbetDir < RuboCop::Cop::Cop
+class RuboCop::Cop::Sorbet::ForbidRBIOutsideOfAllowedPaths < RuboCop::Cop::Cop
+  def allowed_paths; end
   def investigate(processed_source); end
   include RuboCop::Cop::RangeHelp
 end
@@ -104,9 +106,12 @@ class RuboCop::Cop::Sorbet::AllowIncompatibleOverride < RuboCop::Cop::Cop
   def sig?(param0); end
 end
 class RuboCop::Cop::Sorbet::SignatureCop < RuboCop::Cop::Cop
+  def allowed_recv(recv); end
   def on_block(node); end
   def on_signature(_); end
   def signature?(param0 = nil); end
+  def with_runtime?(param0 = nil); end
+  def without_runtime?(param0 = nil); end
 end
 class RuboCop::Cop::Sorbet::CheckedTrueInSignature < RuboCop::Cop::Sorbet::SignatureCop
   def offending_node(param0); end
@@ -116,12 +121,6 @@ end
 class RuboCop::Cop::Sorbet::KeywordArgumentOrdering < RuboCop::Cop::Sorbet::SignatureCop
   def check_order_for_kwoptargs(parameters); end
   def on_signature(node); end
-end
-class RuboCop::Cop::Sorbet::ParametersOrderingInSignature < RuboCop::Cop::Sorbet::SignatureCop
-  def check_for_inconsistent_param_ordering(sig_params_order, parameters); end
-  def extract_parameters(sig_params); end
-  def on_signature(node); end
-  def signature_params(param0); end
 end
 class RuboCop::Cop::Sorbet::SignatureBuildOrder < RuboCop::Cop::Sorbet::SignatureCop
   def autocorrect(node); end
@@ -138,10 +137,10 @@ class RuboCop::Cop::Sorbet::EnforceSignatures < RuboCop::Cop::Sorbet::SignatureC
   def autocorrect(node); end
   def check_node(node); end
   def initialize(config = nil, options = nil); end
-  def on_block(node); end
   def on_def(node); end
   def on_defs(node); end
   def on_send(node); end
+  def on_signature(node); end
   def param_type_placeholder; end
   def return_type_placeholder; end
   def scope(node); end
@@ -192,6 +191,12 @@ class RuboCop::Cop::Sorbet::EnforceSigilOrder < RuboCop::Cop::Sorbet::ValidSigil
   def autocorrect(_node); end
   def check_magic_comments_order(tokens); end
   def extract_magic_comments(processed_source); end
+  def investigate(processed_source); end
+  include RuboCop::Cop::RangeHelp
+end
+class RuboCop::Cop::Sorbet::EnforceSingleSigil < RuboCop::Cop::Sorbet::ValidSigil
+  def autocorrect(_node); end
+  def extract_all_sigils(processed_source); end
   def investigate(processed_source); end
   include RuboCop::Cop::RangeHelp
 end

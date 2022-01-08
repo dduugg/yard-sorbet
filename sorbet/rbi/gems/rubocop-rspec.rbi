@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-rspec/all/rubocop-rspec.rbi
 #
-# rubocop-rspec-2.6.0
+# rubocop-rspec-2.7.0
 
 module RuboCop
 end
@@ -98,6 +98,14 @@ end
 module RuboCop::RSpec::Language::ALL
   def self.all(element); end
 end
+module RuboCop::RSpec::FactoryBot
+  def self.attribute_defining_methods; end
+  def self.reserved_methods; end
+end
+module RuboCop::RSpec::FactoryBot::Language
+  def factory_bot?(param0 = nil); end
+  extend RuboCop::AST::NodePattern::Macros
+end
 module RuboCop::Cop
 end
 module RuboCop::Cop::RSpec
@@ -134,6 +142,11 @@ module RuboCop::Cop::RSpec::EmptyLineSeparation
   def offending_loc(last_line); end
   include RuboCop::Cop::RSpec::FinalEndLocation
   include RuboCop::Cop::RangeHelp
+end
+module RuboCop::Cop::RSpec::InsideExampleGroup
+  def example_group_root?(node); end
+  def example_group_root_with_siblings?(node); end
+  def inside_example_group?(node); end
 end
 class RuboCop::RSpec::Concept
   def ==(other); end
@@ -197,10 +210,6 @@ class RuboCop::RSpec::AlignLetBrace
   include RuboCop::Cop::Util
   include RuboCop::RSpec::Language
 end
-module RuboCop::RSpec::FactoryBot
-  def self.attribute_defining_methods; end
-  def self.reserved_methods; end
-end
 module RuboCop::RSpec::Corrector
 end
 class RuboCop::RSpec::Corrector::MoveNode
@@ -235,13 +244,10 @@ class RuboCop::Cop::RSpec::Capybara::FeatureMethods < RuboCop::Cop::RSpec::Base
   def enabled?(method_name); end
   def enabled_methods; end
   def feature_method(param0 = nil); end
-  def inside_spec?(node); end
   def message(range); end
   def on_block(node); end
-  def root_node?(node); end
-  def root_with_siblings?(node); end
-  def spec?(param0 = nil); end
   extend RuboCop::Cop::AutoCorrector
+  include RuboCop::Cop::RSpec::InsideExampleGroup
 end
 class RuboCop::Cop::RSpec::Capybara::VisibilityMatcher < RuboCop::Cop::RSpec::Base
   def capybara_matcher?(method_name); end
@@ -277,6 +283,7 @@ class RuboCop::Cop::RSpec::FactoryBot::CreateList < RuboCop::Cop::RSpec::Base
   def on_send(node); end
   extend RuboCop::Cop::AutoCorrector
   include RuboCop::Cop::ConfigurableEnforcedStyle
+  include RuboCop::RSpec::FactoryBot::Language
 end
 module RuboCop::Cop::RSpec::FactoryBot::CreateList::Corrector
   def build_options_string(options); end
@@ -307,6 +314,15 @@ class RuboCop::Cop::RSpec::FactoryBot::FactoryClassName < RuboCop::Cop::RSpec::B
   def class_name(param0 = nil); end
   def on_send(node); end
   extend RuboCop::Cop::AutoCorrector
+end
+class RuboCop::Cop::RSpec::FactoryBot::SyntaxMethods < RuboCop::Cop::RSpec::Base
+  def crime_scene(node); end
+  def offense(node); end
+  def on_send(node); end
+  extend RuboCop::Cop::AutoCorrector
+  include RuboCop::Cop::RSpec::InsideExampleGroup
+  include RuboCop::Cop::RangeHelp
+  include RuboCop::RSpec::FactoryBot::Language
 end
 module RuboCop::Cop::RSpec::Rails
 end

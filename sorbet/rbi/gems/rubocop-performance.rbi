@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-performance/all/rubocop-performance.rbi
 #
-# rubocop-performance-1.12.0
+# rubocop-performance-1.13.1
 
 module RuboCop
 end
@@ -60,7 +60,7 @@ end
 class RuboCop::Cop::Performance::BigDecimalWithNumericArgument < RuboCop::Cop::Base
   def big_decimal_with_numeric_argument?(param0 = nil); end
   def on_send(node); end
-  def specifies_precision?(node); end
+  def to_d?(param0 = nil); end
   extend RuboCop::Cop::AutoCorrector
 end
 class RuboCop::Cop::Performance::BindCall < RuboCop::Cop::Base
@@ -233,10 +233,12 @@ class RuboCop::Cop::Performance::InefficientHashSearch < RuboCop::Cop::Base
   extend RuboCop::Cop::AutoCorrector
 end
 class RuboCop::Cop::Performance::MapCompact < RuboCop::Cop::Base
+  def compact_method_with_final_newline_range(compact_method_range); end
   def invoke_method_after_map_compact_on_same_line?(compact_node, chained_method); end
   def map_compact(param0 = nil); end
+  def map_method_and_compact_method_on_same_line?(compact_node); end
   def on_send(node); end
-  def remove_compact_method(corrector, compact_node); end
+  def remove_compact_method(corrector, compact_node, chained_method); end
   extend RuboCop::Cop::AutoCorrector
   extend RuboCop::Cop::TargetRubyVersion
   include RuboCop::Cop::RangeHelp
@@ -343,6 +345,7 @@ class RuboCop::Cop::Performance::RedundantStringChars < RuboCop::Cop::Base
   def build_bad_method(method, args); end
   def build_call_args(call_args_node); end
   def build_good_method(method, args); end
+  def build_good_method_for_brackets_or_first_method(method, args); end
   def build_message(method, args); end
   def correction_range(receiver, node); end
   def offense_range(receiver, node); end
@@ -430,6 +433,10 @@ class RuboCop::Cop::Performance::StartWith < RuboCop::Cop::Base
   def redundant_regex?(param0 = nil); end
   extend RuboCop::Cop::AutoCorrector
   include RuboCop::Cop::RegexpMetacharacter
+end
+class RuboCop::Cop::Performance::StringIdentifierArgument < RuboCop::Cop::Base
+  def on_send(node); end
+  extend RuboCop::Cop::AutoCorrector
 end
 class RuboCop::Cop::Performance::StringInclude < RuboCop::Cop::Base
   def literal?(regex_str); end
