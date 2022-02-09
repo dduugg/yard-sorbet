@@ -8,16 +8,16 @@ module YARDSorbet
 
     # Command node types that can have type signatures
     ATTRIBUTE_METHODS = T.let(%i[attr attr_accessor attr_reader attr_writer].freeze, T::Array[Symbol])
-    # Node types that can have type signatures
-    SIGABLE_NODE = T.type_alias do
-      T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)
-    end
     # Skip these method contents during BFS node traversal, they can have their own nested types via `T.Proc`
     SKIP_METHOD_CONTENTS = T.let(%i[params returns], T::Array[Symbol])
+    # Node types that can have type signatures
+    SigableNode = T.type_alias do
+      T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)
+    end
 
-    private_constant :ATTRIBUTE_METHODS, :SIGABLE_NODE
+    private_constant :ATTRIBUTE_METHODS, :SigableNode
 
-    # Traverese AST nodes in breadth-first order
+    # Traverse AST nodes in breadth-first order
     # @note This will skip over some node types.
     # @yield [YARD::Parser::Ruby::AstNode]
     sig do
@@ -37,7 +37,7 @@ module YARDSorbet
     end
 
     # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(SIGABLE_NODE) }
+    sig { params(node: YARD::Parser::Ruby::AstNode).returns(SigableNode) }
     def self.get_method_node(node)
       case node
       when YARD::Parser::Ruby::MethodDefinitionNode
