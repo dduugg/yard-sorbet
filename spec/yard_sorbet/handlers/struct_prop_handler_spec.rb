@@ -32,12 +32,12 @@ RSpec.describe YARDSorbet::Handlers::StructPropHandler do
 
     it 'marks `const` attributes read-only' do
       node = YARD::Registry.at('PersonStruct#age')
-      expect(node.writer?).to eq(false)
+      expect(node.writer?).to be(false)
     end
 
     it 'does not mark `prop` attributes read-only' do
       node = YARD::Registry.at('PersonStruct#writable')
-      expect(node.writer?).to eq(true)
+      expect(node.writer?).to be(true)
     end
 
     it 'does not trigger a redundant call to `register`' do
