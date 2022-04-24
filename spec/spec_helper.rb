@@ -5,7 +5,7 @@ require 'sorbet-runtime'
 
 T::Configuration.enable_checking_for_sigs_marked_checked_tests
 
-if ENV['CI'] == 'true'
+if ENV.fetch('CI', nil) == 'true'
   require 'simplecov'
   require 'codecov'
   SimpleCov.start
