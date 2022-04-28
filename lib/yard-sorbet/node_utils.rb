@@ -9,7 +9,7 @@ module YARDSorbet
     # Command node types that can have type signatures
     ATTRIBUTE_METHODS = T.let(%i[attr attr_accessor attr_reader attr_writer].freeze, T::Array[Symbol])
     # Skip these method contents during BFS node traversal, they can have their own nested types via `T.Proc`
-    SKIP_METHOD_CONTENTS = T.let(%i[params returns], T::Array[Symbol])
+    SKIP_METHOD_CONTENTS = T.let(%i[params returns].freeze, T::Array[Symbol])
     # Node types that can have type signatures
     SigableNode = T.type_alias do
       T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)

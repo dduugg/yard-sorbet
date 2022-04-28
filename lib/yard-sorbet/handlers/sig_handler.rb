@@ -11,7 +11,7 @@ module YARDSorbet
       namespace_only
 
       # These node types attached to sigs represent attr_* declarations
-      ATTR_NODE_TYPES = T.let(%i[command fcall], T::Array[Symbol])
+      ATTR_NODE_TYPES = T.let(%i[command fcall].freeze, T::Array[Symbol])
       private_constant :ATTR_NODE_TYPES
 
       # Swap the method definition docstring and the sig docstring.
