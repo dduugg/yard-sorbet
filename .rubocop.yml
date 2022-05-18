@@ -17,9 +17,6 @@ AllCops:
 
 Layout/ClassStructure:
   Enabled: true
-Metrics/BlockLength:
-  Exclude:
-    - spec/yard_sorbet/**/*
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
