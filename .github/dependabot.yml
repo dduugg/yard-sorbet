@@ -1,11 +1,10 @@
 ---
 version: 2
 updates:
-  - package-ecosystem: bundler
+  - package-ecosystem: "bundler"
     directory: "/"
     schedule:
-      interval: daily
-      time: "13:00"
+      interval: "daily"
     open-pull-requests-limit: 10
     labels:
       - "automerge"
