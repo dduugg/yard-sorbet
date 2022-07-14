@@ -11,21 +11,14 @@ module YARDSorbet
     # Skip these method contents during BFS node traversal, they can have their own nested types via `T.Proc`
     SKIP_METHOD_CONTENTS = T.let(%i[params returns].freeze, T::Array[Symbol])
     # Node types that can have type signatures
-    SigableNode = T.type_alias do
-      T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode)
-    end
+    SigableNode = T.type_alias { T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode) }
 
-    private_constant :ATTRIBUTE_METHODS, :SigableNode
+    private_constant :ATTRIBUTE_METHODS, :SKIP_METHOD_CONTENTS, :SigableNode
 
     # Traverse AST nodes in breadth-first order
     # @note This will skip over some node types.
     # @yield [YARD::Parser::Ruby::AstNode]
-    sig do
-      params(
-        node: YARD::Parser::Ruby::AstNode,
-        _blk: T.proc.params(n: YARD::Parser::Ruby::AstNode).void
-      ).void
-    end
+    sig { params(node: YARD::Parser::Ruby::AstNode, _blk: T.proc.params(n: YARD::Parser::Ruby::AstNode).void).void }
     def self.bfs_traverse(node, &_blk)
       queue = [node]
       until queue.empty?
@@ -54,9 +47,8 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(YARD::Parser::Ruby::AstNode) }
     def self.sibling_node(node)
       siblings = node.parent.children
-      siblings.each_with_index.find do |sibling, i|
-        return siblings.fetch(i + 1) if sibling.equal?(node)
-      end
+      node_index = siblings.find_index { |sibling| sibling.equal?(node) }
+      siblings.fetch(node_index + 1)
     end
   end
 end
