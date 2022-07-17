@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-performance/all/rubocop-performance.rbi
 #
-# rubocop-performance-1.13.1
+# rubocop-performance-1.14.3
 
 module RuboCop
 end
@@ -105,8 +105,8 @@ class RuboCop::Cop::Performance::CaseWhenSplat < RuboCop::Cop::Base
   include RuboCop::Cop::RangeHelp
 end
 class RuboCop::Cop::Performance::Casecmp < RuboCop::Cop::Base
-  def build_good_method(arg, variable); end
-  def correction(corrector, node, method, arg, variable); end
+  def autocorrect(corrector, node, replacement); end
+  def build_good_method(method, arg, variable); end
   def downcase_downcase(param0 = nil); end
   def downcase_eq(param0 = nil); end
   def eq_downcase(param0 = nil); end
@@ -163,12 +163,14 @@ class RuboCop::Cop::Performance::DeletePrefix < RuboCop::Cop::Base
   def delete_prefix_candidate?(param0 = nil); end
   def on_send(node); end
   extend RuboCop::Cop::AutoCorrector
+  extend RuboCop::Cop::TargetRubyVersion
   include RuboCop::Cop::RegexpMetacharacter
 end
 class RuboCop::Cop::Performance::DeleteSuffix < RuboCop::Cop::Base
   def delete_suffix_candidate?(param0 = nil); end
   def on_send(node); end
   extend RuboCop::Cop::AutoCorrector
+  extend RuboCop::Cop::TargetRubyVersion
   include RuboCop::Cop::RegexpMetacharacter
 end
 class RuboCop::Cop::Performance::Detect < RuboCop::Cop::Base
@@ -236,9 +238,9 @@ class RuboCop::Cop::Performance::MapCompact < RuboCop::Cop::Base
   def compact_method_with_final_newline_range(compact_method_range); end
   def invoke_method_after_map_compact_on_same_line?(compact_node, chained_method); end
   def map_compact(param0 = nil); end
-  def map_method_and_compact_method_on_same_line?(compact_node); end
+  def map_method_and_compact_method_on_same_line?(map_node, compact_node); end
   def on_send(node); end
-  def remove_compact_method(corrector, compact_node, chained_method); end
+  def remove_compact_method(corrector, map_node, compact_node, chained_method); end
   extend RuboCop::Cop::AutoCorrector
   extend RuboCop::Cop::TargetRubyVersion
   include RuboCop::Cop::RangeHelp
@@ -290,6 +292,7 @@ class RuboCop::Cop::Performance::RedundantEqualityComparisonBlock < RuboCop::Cop
   def use_block_argument_in_method_argument_of_operand?(block_argument, operand); end
   def use_equality_comparison_block?(block_body); end
   extend RuboCop::Cop::AutoCorrector
+  extend RuboCop::Cop::TargetRubyVersion
 end
 class RuboCop::Cop::Performance::RedundantMatch < RuboCop::Cop::Base
   def autocorrect(corrector, node); end
@@ -381,6 +384,7 @@ class RuboCop::Cop::Performance::RegexpMatch < RuboCop::Cop::Base
   def search_match_nodes(param0); end
   def swap_receiver_and_arg(corrector, recv, arg); end
   extend RuboCop::Cop::AutoCorrector
+  extend RuboCop::Cop::TargetRubyVersion
 end
 class RuboCop::Cop::Performance::ReverseEach < RuboCop::Cop::Base
   def offense_range(node); end

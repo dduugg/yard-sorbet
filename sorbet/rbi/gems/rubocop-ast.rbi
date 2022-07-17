@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-ast/all/rubocop-ast.rbi
 #
-# rubocop-ast-1.15.1
+# rubocop-ast-1.19.1
 
 module RuboCop
 end
@@ -1230,6 +1230,7 @@ class RuboCop::AST::Token
   def left_ref_bracket?; end
   def line; end
   def pos; end
+  def regexp_dots?; end
   def rescue_modifier?; end
   def right_bracket?; end
   def right_curly_brace?; end

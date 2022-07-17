@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/yard/all/yard.rbi
 #
-# yard-0.9.27
+# yard-0.9.28
 
 module YARD
   def self.load_plugins; end
@@ -16,6 +16,7 @@ module YARD
   def self.ruby18?; end
   def self.ruby19?; end
   def self.ruby2?; end
+  def self.ruby31?; end
   def self.ruby3?; end
   def self.windows?; end
 end
@@ -409,6 +410,7 @@ class YARD::Parser::Ruby::KeywordNode < YARD::Parser::Ruby::AstNode
   def kw?; end
 end
 class YARD::Parser::Ruby::ParameterNode < YARD::Parser::Ruby::AstNode
+  def args_forward; end
   def block_param; end
   def double_splat_param; end
   def named_params; end

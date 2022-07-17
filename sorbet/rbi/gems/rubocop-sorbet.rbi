@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rubocop-sorbet/all/rubocop-sorbet.rbi
 #
-# rubocop-sorbet-0.6.5
+# rubocop-sorbet-0.6.11
 
 module RuboCop
 end
@@ -26,7 +26,8 @@ class RuboCop::Cop::Sorbet::BindingConstantWithoutTypeAlias < RuboCop::Cop::Cop
   def autocorrect(node); end
   def binding_unaliased_type?(param0 = nil); end
   def dynamic_type_creation_with_block?(param0 = nil); end
-  def generic_parameter_decl?(param0 = nil); end
+  def generic_parameter_decl_block_call?(param0 = nil); end
+  def generic_parameter_decl_call?(param0 = nil); end
   def method_needing_aliasing_on_t?(param0); end
   def not_dynamic_type_creation_with_block?(node); end
   def not_generic_parameter_decl?(node); end
@@ -78,6 +79,14 @@ end
 class RuboCop::Cop::Sorbet::ForbidTUnsafe < RuboCop::Cop::Cop
   def on_send(node); end
   def t_unsafe?(param0 = nil); end
+end
+class RuboCop::Cop::Sorbet::ForbidTUntyped < RuboCop::Cop::Cop
+  def on_send(node); end
+  def t_untyped?(param0 = nil); end
+end
+class RuboCop::Cop::Sorbet::TypeAliasName < RuboCop::Cop::Cop
+  def casgn_type_alias?(param0 = nil); end
+  def on_casgn(node); end
 end
 class RuboCop::Cop::Sorbet::ForbidExtendTSigHelpersInShims < RuboCop::Cop::Cop
   def autocorrect(node); end
@@ -199,4 +208,11 @@ class RuboCop::Cop::Sorbet::EnforceSingleSigil < RuboCop::Cop::Sorbet::ValidSigi
   def extract_all_sigils(processed_source); end
   def investigate(processed_source); end
   include RuboCop::Cop::RangeHelp
+end
+module RuboCop::Cop::Sorbet::MutableConstantSorbetAwareBehaviour
+  def on_assignment(value); end
+  def self.prepended(base); end
+end
+class RuboCop::Cop::Style::MutableConstant < RuboCop::Cop::Base
+  def t_let(param0 = nil); end
 end

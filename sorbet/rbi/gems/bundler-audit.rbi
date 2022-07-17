@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/bundler-audit/all/bundler-audit.rbi
 #
-# bundler-audit-0.9.0.1
+# bundler-audit-0.9.1
 
 module Bundler
 end

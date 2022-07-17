@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/regexp_parser/all/regexp_parser.rbi
 #
-# regexp_parser-2.2.0
+# regexp_parser-2.5.0
 
 class Regexp
 end
@@ -32,9 +32,8 @@ class Regexp::Parser
   def extract_options(input, options); end
   def free_space(token); end
   def group(token); end
-  def increase_level(exp); end
+  def increase_group_level(exp); end
   def intersection(token); end
-  def interval(target_node, token); end
   def keep(token); end
   def literal(token); end
   def meta(token); end
@@ -65,7 +64,6 @@ class Regexp::Parser
   def switching_options=(arg0); end
   def total_captured_group_count; end
   def type(token); end
-  def update_transplanted_subtree(exp, new_parent); end
   include Regexp::Expression
   include Regexp::Expression::UnicodeProperty
 end
@@ -123,6 +121,8 @@ class Regexp::Scanner
   def literal=(arg0); end
   def scan(input_object, options: nil, &block); end
   def self.long_prop_map; end
+  def self.parse_prop_map(name); end
+  def self.posix_classes; end
   def self.scan(input_object, options: nil, &block); end
   def self.short_prop_map; end
   def set_depth; end
@@ -131,7 +131,7 @@ class Regexp::Scanner
   def spacing_stack=(arg0); end
   def tokens; end
   def tokens=(arg0); end
-  def validation_error(type, what, reason); end
+  def validation_error(type, what, reason = nil); end
 end
 class Regexp::Scanner::ScannerError < Regexp::Parser::Error
 end
@@ -156,26 +156,27 @@ end
 class Regexp::Scanner::UnknownUnicodePropertyError < Regexp::Scanner::ValidationError
   def initialize(name); end
 end
+class Regexp::Scanner::UnknownPosixClassError < Regexp::Scanner::ValidationError
+  def initialize(text); end
+end
 module Regexp::Syntax
-  def comparable_version(name); end
+  def comparable(name); end
   def const_missing(const_name); end
   def fallback_version_class(version); end
-  def inherit_from_version(parent_version, new_version); end
+  def for(name); end
   def new(name); end
-  def self.comparable_version(name); end
+  def self.comparable(name); end
   def self.const_missing(const_name); end
   def self.fallback_version_class(version); end
-  def self.inherit_from_version(parent_version, new_version); end
+  def self.for(name); end
   def self.new(name); end
   def self.specified_versions; end
   def self.supported?(name); end
   def self.version_class(version); end
-  def self.version_const_name(version_string); end
   def self.warn_if_future_version(const_name); end
   def specified_versions; end
   def supported?(name); end
   def version_class(version); end
-  def version_const_name(version_string); end
   def warn_if_future_version(const_name); end
 end
 module Regexp::Syntax::Token
@@ -218,25 +219,28 @@ class Regexp::Syntax::NotImplementedError < Regexp::Syntax::SyntaxError
   def initialize(syntax, type, token); end
 end
 class Regexp::Syntax::Base
-  def check!(type, token); end
-  def check?(type, token); end
-  def excludes(type, tokens); end
-  def features; end
-  def implementations(type); end
-  def implements!(type, token); end
-  def implements(type, tokens); end
-  def implements?(type, token); end
   def initialize; end
-  def normalize(type, token); end
-  def normalize_backref(type, token); end
-  def normalize_group(type, token); end
-  def self.inspect; end
+  def method_missing(name, *args); end
+  def respond_to_missing?(name, include_private = nil); end
+  def self.added_features; end
+  def self.check!(type, token); end
+  def self.check?(type, token); end
+  def self.excludes(type, tokens); end
+  def self.features; end
+  def self.features=(arg0); end
+  def self.implementations(type); end
+  def self.implements!(type, token); end
+  def self.implements(type, tokens); end
+  def self.implements?(type, token); end
+  def self.inherited(subclass); end
+  def self.normalize(type, token); end
+  def self.normalize_backref(type, token); end
+  def self.normalize_group(type, token); end
+  def self.removed_features; end
   include Regexp::Syntax::Token
 end
 class Regexp::Syntax::Any < Regexp::Syntax::Base
-  def implements!(_type, _token); end
-  def implements?(_type, _token); end
-  def initialize; end
+  def self.implements?(_type, _token); end
 end
 class Regexp::Syntax::InvalidVersionNameError < Regexp::Syntax::SyntaxError
   def initialize(name); end
@@ -245,55 +249,32 @@ class Regexp::Syntax::UnknownSyntaxNameError < Regexp::Syntax::SyntaxError
   def initialize(name); end
 end
 class Regexp::Syntax::V1_8_6 < Regexp::Syntax::Base
-  def initialize; end
 end
 class Regexp::Syntax::V1_9_1 < Regexp::Syntax::V1_8_6
-  def initialize; end
 end
 class Regexp::Syntax::V1_9_3 < Regexp::Syntax::V1_9_1
-  def initialize; end
 end
-class Regexp::Syntax::V1_9 < Regexp::Syntax::V1_9_3
+class Regexp::Syntax::V2_0_0 < Regexp::Syntax::V1_9_3
 end
-class Regexp::Syntax::V2_0_0 < Regexp::Syntax::V1_9
-  def initialize; end
+class Regexp::Syntax::V2_2_0 < Regexp::Syntax::V2_0_0
 end
-class Regexp::Syntax::V2_1 < Regexp::Syntax::V2_0_0
+class Regexp::Syntax::V2_3_0 < Regexp::Syntax::V2_2_0
 end
-class Regexp::Syntax::V2_2_0 < Regexp::Syntax::V2_1
-  def initialize; end
-end
-class Regexp::Syntax::V2_2 < Regexp::Syntax::V2_2_0
-end
-class Regexp::Syntax::V2_3_0 < Regexp::Syntax::V2_2
-  def initialize; end
-end
-class Regexp::Syntax::V2_3 < Regexp::Syntax::V2_3_0
-end
-class Regexp::Syntax::V2_4_0 < Regexp::Syntax::V2_3
-  def initialize; end
+class Regexp::Syntax::V2_4_0 < Regexp::Syntax::V2_3_0
 end
 class Regexp::Syntax::V2_4_1 < Regexp::Syntax::V2_4_0
-  def initialize; end
 end
-class Regexp::Syntax::V2_4 < Regexp::Syntax::V2_4_1
+class Regexp::Syntax::V2_5_0 < Regexp::Syntax::V2_4_1
 end
-class Regexp::Syntax::V2_5_0 < Regexp::Syntax::V2_4
-  def initialize; end
-end
-class Regexp::Syntax::V2_5 < Regexp::Syntax::V2_5_0
-end
-class Regexp::Syntax::V2_6_0 < Regexp::Syntax::V2_5
-  def initialize; end
+class Regexp::Syntax::V2_6_0 < Regexp::Syntax::V2_5_0
 end
 class Regexp::Syntax::V2_6_2 < Regexp::Syntax::V2_6_0
-  def initialize; end
 end
 class Regexp::Syntax::V2_6_3 < Regexp::Syntax::V2_6_2
-  def initialize; end
 end
 class Regexp::Syntax::V3_1_0 < Regexp::Syntax::V2_6_3
-  def initialize; end
+end
+class Regexp::Syntax::V3_2_0 < Regexp::Syntax::V3_1_0
 end
 class Regexp::Syntax::SyntaxError < Regexp::Parser::Error
 end
@@ -319,27 +300,52 @@ class Regexp::Lexer
 end
 module Regexp::Expression
 end
+module Regexp::Expression::Shared
+  def ==(other); end
+  def ===(other); end
+  def base_length; end
+  def coded_offset; end
+  def eql?(other); end
+  def full_length; end
+  def init_from_token_and_options(token, options = nil); end
+  def initialize_copy(orig); end
+  def is?(test_token, test_type = nil); end
+  def nesting_level=(lvl); end
+  def offset; end
+  def one_of?(scope, top = nil); end
+  def parts; end
+  def quantified?; end
+  def quantifier_affix(expression_format); end
+  def self.included(mod); end
+  def starts_at; end
+  def terminal?; end
+  def to_s(format = nil); end
+  def to_str(format = nil); end
+  def token_class; end
+  def type?(test_type); end
+end
+module Regexp::Expression::Shared::ClassMethods
+  def construct(params = nil); end
+  def construct_defaults; end
+  def token_class; end
+end
 class Regexp::Expression::Base
   def =~(string, offset = nil); end
   def a?; end
   def ascii_classes?; end
   def attributes; end
-  def base_length; end
   def case_insensitive?; end
-  def coded_offset; end
   def conditional_level; end
   def conditional_level=(arg0); end
   def d?; end
   def default_classes?; end
   def extended?; end
   def free_spacing?; end
-  def full_length; end
   def greedy?; end
   def i?; end
   def ignore_case?; end
   def initialize(token, options = nil); end
   def initialize_copy(orig); end
-  def is?(test_token, test_type = nil); end
   def lazy?; end
   def level; end
   def level=(arg0); end
@@ -349,60 +355,73 @@ class Regexp::Expression::Base
   def matches?(string); end
   def multiline?; end
   def nesting_level; end
-  def nesting_level=(arg0); end
-  def offset; end
-  def one_of?(scope, top = nil); end
   def options; end
   def options=(arg0); end
   def possessive?; end
-  def quantified?; end
   def quantifier; end
   def quantifier=(arg0); end
-  def quantifier_affix(expression_format); end
-  def quantify(token, text, min = nil, max = nil, mode = nil); end
+  def quantify(*args); end
   def quantity; end
   def reluctant?; end
   def repetitions; end
   def set_level; end
   def set_level=(arg0); end
-  def starts_at; end
   def strfre(format = nil, indent_offset = nil, index = nil); end
   def strfregexp(format = nil, indent_offset = nil, index = nil); end
-  def terminal?; end
+  def te; end
+  def te=(arg0); end
   def text; end
   def text=(arg0); end
   def to_h; end
   def to_re(format = nil); end
-  def to_s(format = nil); end
   def token; end
   def token=(arg0); end
   def ts; end
   def ts=(arg0); end
   def type; end
   def type=(arg0); end
-  def type?(test_type); end
   def u?; end
   def unicode_classes?; end
   def unquantified_clone; end
   def x?; end
+  extend Regexp::Expression::Shared::ClassMethods
+  include Regexp::Expression::Shared
 end
 class Regexp::Expression::Quantifier
-  def ==(other); end
-  def eq(other); end
+  def conditional_level; end
+  def conditional_level=(arg0); end
+  def deprecated_old_init(token, text, min, max, mode = nil); end
   def greedy?; end
-  def initialize(token, text, min, max, mode); end
-  def initialize_copy(orig); end
+  def initialize(*args); end
   def lazy?; end
+  def level; end
+  def level=(arg0); end
   def max; end
   def min; end
+  def minmax; end
   def mode; end
+  def nesting_level; end
+  def options; end
+  def options=(arg0); end
   def possessive?; end
+  def quantifier; end
+  def quantifier=(arg0); end
   def reluctant?; end
+  def set_level; end
+  def set_level=(arg0); end
+  def te; end
+  def te=(arg0); end
   def text; end
+  def text=(arg0); end
   def to_h; end
-  def to_s; end
-  def to_str; end
   def token; end
+  def token=(arg0); end
+  def ts; end
+  def ts=(arg0); end
+  def type; end
+  def type=(arg0); end
+  extend Regexp::Expression::Shared::ClassMethods
+  include Regexp::Expression::Shared
 end
 class Regexp::Expression::Subexpression < Regexp::Expression::Base
   def <<(exp); end
@@ -420,24 +439,24 @@ class Regexp::Expression::Subexpression < Regexp::Expression::Base
   def initialize(token, options = nil); end
   def initialize_copy(orig); end
   def inner_match_length; end
+  def intersperse(expressions, separator); end
   def join(*args, &block); end
   def last(*args, &block); end
   def length(*args, &block); end
   def match_length; end
+  def parts; end
   def strfre_tree(format = nil, include_self = nil, separator = nil); end
   def strfregexp_tree(format = nil, include_self = nil, separator = nil); end
   def te; end
   def to_h; end
-  def to_s(format = nil); end
   def traverse(include_self = nil, &block); end
   def values_at(*args, &block); end
   def walk(include_self = nil, &block); end
   include Enumerable
 end
 class Regexp::Expression::Sequence < Regexp::Expression::Subexpression
-  def quantify(token, text, min = nil, max = nil, mode = nil); end
-  def self.add_to(subexpression, params = nil, active_opts = nil); end
-  def self.at_levels(level, set_level, conditional_level); end
+  def quantify(*args); end
+  def self.add_to(exp, params = nil, active_opts = nil); end
   def starts_at; end
   def ts; end
 end
@@ -446,9 +465,9 @@ class Regexp::Expression::SequenceOperation < Regexp::Expression::Subexpression
   def add_sequence(active_opts = nil); end
   def operands; end
   def operator; end
+  def parts; end
   def sequences; end
   def starts_at; end
-  def to_s(format = nil); end
   def ts; end
 end
 class Regexp::Expression::Alternative < Regexp::Expression::Sequence
@@ -527,7 +546,7 @@ class Regexp::Expression::CharacterSet < Regexp::Expression::Subexpression
   def negative; end
   def negative=(arg0); end
   def negative?; end
-  def to_s(format = nil); end
+  def parts; end
 end
 class Regexp::Expression::CharacterSet::IntersectedSequence < Regexp::Expression::Sequence
   def match_length; end
@@ -539,9 +558,36 @@ class Regexp::Expression::CharacterSet::Range < Regexp::Expression::Subexpressio
   def <<(exp); end
   def complete?; end
   def match_length; end
+  def parts; end
   def starts_at; end
-  def to_s(_format = nil); end
   def ts; end
+end
+module Regexp::Expression::CharacterType
+end
+class Regexp::Expression::CharacterType::Base < Regexp::Expression::Base
+  def match_length; end
+end
+class Regexp::Expression::CharacterType::Any < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::Digit < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::NonDigit < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::Hex < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::NonHex < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::Word < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::NonWord < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::Space < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::NonSpace < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::Linebreak < Regexp::Expression::CharacterType::Base
+end
+class Regexp::Expression::CharacterType::ExtendedGrapheme < Regexp::Expression::CharacterType::Base
 end
 module Regexp::Expression::Conditional
 end
@@ -566,10 +612,10 @@ class Regexp::Expression::Conditional::Expression < Regexp::Expression::Subexpre
   def condition=(exp); end
   def initialize_copy(orig); end
   def match_length; end
+  def parts; end
   def reference; end
   def referenced_expression; end
   def referenced_expression=(arg0); end
-  def to_s(format = nil); end
 end
 module Regexp::Expression::EscapeSequence
 end
@@ -627,7 +673,7 @@ class Regexp::Expression::EscapeSequence::MetaControl < Regexp::Expression::Esca
 end
 class Regexp::Expression::FreeSpace < Regexp::Expression::Base
   def match_length; end
-  def quantify(_token, _text, _min = nil, _max = nil, _mode = nil); end
+  def quantify(*_args); end
 end
 class Regexp::Expression::Comment < Regexp::Expression::FreeSpace
 end
@@ -639,13 +685,13 @@ end
 class Regexp::Expression::Group::Base < Regexp::Expression::Subexpression
   def capturing?; end
   def comment?; end
-  def to_s(format = nil); end
+  def parts; end
 end
 class Regexp::Expression::Group::Passive < Regexp::Expression::Group::Base
   def implicit=(arg0); end
   def implicit?; end
   def initialize(*arg0); end
-  def to_s(format = nil); end
+  def parts; end
 end
 class Regexp::Expression::Group::Absence < Regexp::Expression::Group::Base
   def match_length; end
@@ -673,7 +719,7 @@ class Regexp::Expression::Group::Named < Regexp::Expression::Group::Capture
 end
 class Regexp::Expression::Group::Comment < Regexp::Expression::Group::Base
   def comment?; end
-  def to_s(_format = nil); end
+  def parts; end
 end
 module Regexp::Expression::Assertion
 end
@@ -700,6 +746,9 @@ class Regexp::Expression::PosixClass < Regexp::Expression::Base
   def match_length; end
   def name; end
   def negative?; end
+end
+class Regexp::Expression::Root < Regexp::Expression::Subexpression
+  def self.build(options = nil); end
 end
 module Regexp::Expression::UnicodeProperty
 end
@@ -860,37 +909,6 @@ end
 class Regexp::Expression::UnicodeProperty::Script < Regexp::Expression::UnicodeProperty::Base
 end
 class Regexp::Expression::UnicodeProperty::Block < Regexp::Expression::UnicodeProperty::Base
-end
-class Regexp::Expression::Root < Regexp::Expression::Subexpression
-  def self.build(options = nil); end
-  def self.build_token; end
-end
-module Regexp::Expression::CharacterType
-end
-class Regexp::Expression::CharacterType::Base < Regexp::Expression::Base
-  def match_length; end
-end
-class Regexp::Expression::CharacterType::Any < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::Digit < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::NonDigit < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::Hex < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::NonHex < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::Word < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::NonWord < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::Space < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::NonSpace < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::Linebreak < Regexp::Expression::CharacterType::Base
-end
-class Regexp::Expression::CharacterType::ExtendedGrapheme < Regexp::Expression::CharacterType::Base
 end
 class Regexp::MatchLength
   def base_max; end

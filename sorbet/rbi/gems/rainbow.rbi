@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rainbow/all/rainbow.rbi
 #
-# rainbow-3.0.0
+# rainbow-3.1.1
 
 module Rainbow
   def self.enabled; end
@@ -61,6 +61,7 @@ class Rainbow::Presenter < String
   def bold; end
   def bright; end
   def color(*values); end
+  def cross_out; end
   def cyan; end
   def dark; end
   def faint; end
@@ -75,6 +76,7 @@ class Rainbow::Presenter < String
   def red; end
   def reset; end
   def respond_to_missing?(method_name, *args); end
+  def strike; end
   def underline; end
   def white; end
   def wrap_with_sgr(codes); end
@@ -89,6 +91,7 @@ class Rainbow::NullPresenter < String
   def bold; end
   def bright; end
   def color(*_values); end
+  def cross_out; end
   def cyan; end
   def dark; end
   def faint; end
@@ -103,6 +106,7 @@ class Rainbow::NullPresenter < String
   def red; end
   def reset; end
   def respond_to_missing?(method_name, *args); end
+  def strike; end
   def underline; end
   def white; end
   def yellow; end
