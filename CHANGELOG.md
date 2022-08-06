@@ -4,6 +4,14 @@
 
 ## 0.6.1 (2021-11-01)
 
+### Bug Fixes
+
+* [#98](https://github.com/dduugg/yard-sorbet/pull/98) Fix typo in abstract tag text
+
+### Changes
+
+* Increase minimum required ruby version to `2.7.0`
+
 ### Bug fixes
 
 * [#78](https://github.com/dduugg/yard-sorbet/pull/78) Fix `mixes_in_class_methods` across files
