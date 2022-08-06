@@ -12,8 +12,7 @@ inherit_mode:
 AllCops:
   Exclude:
     - spec/data/**/*
-  NewCops: enable
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7
 
 Layout/ClassStructure:
   Enabled: true

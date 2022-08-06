@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
     A YARD plugin that incorporates Sorbet type information
   DESC
   spec.homepage = 'https://github.com/dduugg/yard-sorbet'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.6.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
 
   spec.metadata = {
     'bug_tracker_uri' => "#{spec.homepage}/issues",
