@@ -9233,15 +9233,6 @@ class RSpec::Core::OutputWrapper
   def method_missing(name, *args, &block); end
 
   # source://rspec-core-3.11.0/lib/rspec/core/output_wrapper.rb:23
-  def nonblock(*args, &block); end
-
-  # source://rspec-core-3.11.0/lib/rspec/core/output_wrapper.rb:23
-  def nonblock=(*args, &block); end
-
-  # source://rspec-core-3.11.0/lib/rspec/core/output_wrapper.rb:23
-  def nonblock?(*args, &block); end
-
-  # source://rspec-core-3.11.0/lib/rspec/core/output_wrapper.rb:23
   def nread(*args, &block); end
 
   # @private
@@ -9560,6 +9551,167 @@ end
 
 # source://rspec-core-3.11.0/lib/rspec/core/profiler.rb:5
 RSpec::Core::Profiler::NOTIFICATIONS = T.let(T.unsafe(nil), Array)
+
+# RSpec rake task
+#
+# @see Rakefile
+#
+# source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:20
+class RSpec::Core::RakeTask < ::Rake::TaskLib
+  include ::RSpec::Core::ShellEscape
+
+  # @return [RakeTask] a new instance of RakeTask
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:77
+  def initialize(*args, &task_block); end
+
+  # Files matching this pattern will be excluded.
+  # Defaults to `nil`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:39
+  def exclude_pattern; end
+
+  # Files matching this pattern will be excluded.
+  # Defaults to `nil`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:39
+  def exclude_pattern=(_arg0); end
+
+  # Whether or not to fail Rake when an error occurs (typically when
+  # examples fail). Defaults to `true`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:43
+  def fail_on_error; end
+
+  # Whether or not to fail Rake when an error occurs (typically when
+  # examples fail). Defaults to `true`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:43
+  def fail_on_error=(_arg0); end
+
+  # A message to print to stderr when there are failures.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:46
+  def failure_message; end
+
+  # A message to print to stderr when there are failures.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:46
+  def failure_message=(_arg0); end
+
+  # Name of task. Defaults to `:spec`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:31
+  def name; end
+
+  # Name of task. Defaults to `:spec`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:31
+  def name=(_arg0); end
+
+  # Files matching this pattern will be loaded.
+  # Defaults to `'spec/**{,/*/**}/*_spec.rb'`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:35
+  def pattern; end
+
+  # Files matching this pattern will be loaded.
+  # Defaults to `'spec/**{,/*/**}/*_spec.rb'`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:35
+  def pattern=(_arg0); end
+
+  # Command line options to pass to RSpec. Defaults to `nil`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:75
+  def rspec_opts; end
+
+  # Command line options to pass to RSpec. Defaults to `nil`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:75
+  def rspec_opts=(_arg0); end
+
+  # Path to RSpec. Defaults to the absolute path to the
+  # rspec binary from the loaded rspec-core gem.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:72
+  def rspec_path; end
+
+  # Path to RSpec. Defaults to the absolute path to the
+  # rspec binary from the loaded rspec-core gem.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:72
+  def rspec_path=(_arg0); end
+
+  # Command line options to pass to ruby. Defaults to `nil`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:68
+  def ruby_opts; end
+
+  # Command line options to pass to ruby. Defaults to `nil`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:68
+  def ruby_opts=(_arg0); end
+
+  # @private
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:90
+  def run_task(verbose); end
+
+  # Use verbose output. If this is set to true, the task will print the
+  # executed spec command to stdout. Defaults to `true`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:65
+  def verbose; end
+
+  # Use verbose output. If this is set to true, the task will print the
+  # executed spec command to stdout. Defaults to `true`.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:65
+  def verbose=(_arg0); end
+
+  # Run RSpec with a clean (empty) environment.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:60
+  def with_clean_environment; end
+
+  # Run RSpec with a clean (empty) environment.
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:60
+  def with_clean_environment=(_arg0); end
+
+  private
+
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:173
+  def blank; end
+
+  # @private
+  #
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:110
+  def define(args, &task_block); end
+
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:157
+  def file_exclusion_specification; end
+
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:121
+  def file_inclusion_specification; end
+
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:177
+  def rspec_load_path; end
+
+  # source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:161
+  def spec_command; end
+end
+
+# Default pattern for spec files.
+#
+# source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:28
+RSpec::Core::RakeTask::DEFAULT_PATTERN = T.let(T.unsafe(nil), String)
+
+# Default path to the RSpec executable.
+#
+# source://rspec-core-3.11.0/lib/rspec/core/rake_task.rb:25
+RSpec::Core::RakeTask::DEFAULT_RSPEC_PATH = T.let(T.unsafe(nil), String)
 
 # A reporter will send notifications to listeners, usually formatters for the
 # spec suite run.
