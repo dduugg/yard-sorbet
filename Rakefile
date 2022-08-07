@@ -12,21 +12,6 @@ RSpec::Core::RakeTask.new(:spec)
 RuboCop::RakeTask.new(:rubocop)
 YARD::Rake::YardocTask.new
 
-desc 'Update sorbet rbi files'
-task :rbi do
-  sh 'bundle update'
-  sh 'bundle clean'
-  sh 'rm -r sorbet/rbi/{gems,hidden-definitions,sorbet-typed,todo.rbi}'
-  sh 'bundle exec srb rbi sorbet-typed'
-  sh 'bundle exec srb rbi gems'
-  sh 'bundle exec srb rbi hidden-definitions'
-  sh 'bundle exec srb rbi todo'
-  # sadly, the above commands don't limit themselves to the files/folders that they describe
-  sh 'git checkout -- sorbet/rbi/contexts'
-  # this is a weird and unnecessary artifact, just delete it
-  sh 'rm sorbet/rbi/gems/yard-sorbet.rbi'
-end
-
 desc 'Typecheck files with sorbet'
 namespace :typecheck do |typecheck_namespace|
   desc 'Typecheck Gemfile'
