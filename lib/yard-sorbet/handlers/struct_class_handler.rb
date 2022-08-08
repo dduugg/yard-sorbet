@@ -34,9 +34,7 @@ module YARDSorbet
         # and source
         docstring, directives = Directives.extract_directives(object.docstring)
         object.tags.each { docstring.add_tag(_1) }
-        props.each do |prop|
-          TagUtils.upsert_tag(docstring, 'param', prop.types, prop.prop_name, prop.doc)
-        end
+        props.each { TagUtils.upsert_tag(docstring, 'param', _1.types, _1.prop_name, _1.doc) }
         TagUtils.upsert_tag(docstring, 'return', ['void'])
         decorate_t_struct_init(object, props, docstring, directives)
       end
