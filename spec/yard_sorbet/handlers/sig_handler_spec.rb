@@ -149,27 +149,27 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     end
 
     it 'parses T.any param text' do
-      bar_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'bar' }
+      bar_tag = YARD::Registry.at('SigParams#foo').tags.find { _1.name == 'bar' }
       expect(bar_tag.text).to eq('the thing')
     end
 
     it 'parses T.any param types' do
-      bar_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'bar' }
+      bar_tag = YARD::Registry.at('SigParams#foo').tags.find { _1.name == 'bar' }
       expect(bar_tag.types).to eq(%w[String Symbol])
     end
 
     it 'parses T.nilable param text' do
-      baz_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'baz' }
+      baz_tag = YARD::Registry.at('SigParams#foo').tags.find { _1.name == 'baz' }
       expect(baz_tag.text).to eq('the other thing')
     end
 
     it 'parses T.nilable param type' do
-      baz_tag = YARD::Registry.at('SigParams#foo').tags.find { |t| t.name == 'baz' }
+      baz_tag = YARD::Registry.at('SigParams#foo').tags.find { _1.name == 'baz' }
       expect(baz_tag.types).to eq(%w[String nil])
     end
 
     it 'parses block param type' do
-      blk_tag = YARD::Registry.at('SigParams#blk_method').tags.find { |t| t.name == 'blk' }
+      blk_tag = YARD::Registry.at('SigParams#blk_method').tags.find { _1.name == 'blk' }
       expect(blk_tag.types).to eq(['T.proc.params(arg0: String).returns(T::Array[Hash])'])
     end
 
@@ -178,7 +178,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     end
 
     it 'parses type of block param with newlines' do
-      blk_tag = YARD::Registry.at('SigParams#impl_blk_method').tags.find { |t| t.name == 'block' }
+      blk_tag = YARD::Registry.at('SigParams#impl_blk_method').tags.find { _1.name == 'block' }
       expect(blk_tag.types).to eq(['T.proc.params( model: EmailConversation, mutator: T.untyped, ).void'])
     end
 
@@ -188,19 +188,19 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'T::Array' do
       node = YARD::Registry.at('CollectionSigs#collection')
-      param_tag = node.tags.find { |t| t.name == 'arr' }
+      param_tag = node.tags.find { _1.name == 'arr' }
       expect(param_tag.types).to eq(['Array<String>'])
     end
 
     it 'nested T::Array' do
       node = YARD::Registry.at('CollectionSigs#nested_collection')
-      param_tag = node.tags.find { |t| t.name == 'arr' }
+      param_tag = node.tags.find { _1.name == 'arr' }
       expect(param_tag.types).to eq(['Array<Array<String>>'])
     end
 
     it 'mixed T::Array' do
       node = YARD::Registry.at('CollectionSigs#mixed_collection')
-      param_tag = node.tags.find { |t| t.name == 'arr' }
+      param_tag = node.tags.find { _1.name == 'arr' }
       expect(param_tag.types).to eq(['Array<String, Symbol>'])
     end
 
@@ -211,13 +211,13 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'custom collection' do
       node = YARD::Registry.at('CollectionSigs#custom_collection')
-      param_tag = node.tags.find { |t| t.name == 'arr' }
+      param_tag = node.tags.find { _1.name == 'arr' }
       expect(param_tag.types).to eq(['Custom[String]'])
     end
 
     it 'nested custom collection' do
       node = YARD::Registry.at('CollectionSigs#nested_custom_collection')
-      param_tag = node.tags.find { |t| t.name == 'arr' }
+      param_tag = node.tags.find { _1.name == 'arr' }
       expect(param_tag.types).to eq(
         ['Array<Custom1[Custom2[String, Integer, T::Boolean], T.any(Custom3[String], Custom4[Integer])]>']
       )
@@ -225,7 +225,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'custom collection with inner nodes' do
       node = YARD::Registry.at('CollectionSigs#custom_collection_with_inner_nodes')
-      param_tag = node.tags.find { |t| t.name == 'arr' }
+      param_tag = node.tags.find { _1.name == 'arr' }
       expect(param_tag.types).to eq(['Custom[T.all(T.any(Foo, Bar), T::Array[String], T::Hash[Integer, Symbol])]'])
     end
 
@@ -246,7 +246,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'fixed param Hash' do
       node = YARD::Registry.at('CollectionSigs#fixed_param_hash')
-      param_tag = node.tags.find { |t| t.name == 'tos_acceptance' }
+      param_tag = node.tags.find { _1.name == 'tos_acceptance' }
       expect(param_tag.types).to eq(%w[Hash nil])
     end
 
@@ -352,7 +352,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'has single return tag when inline modifier exists' do
       node = YARD::Registry.at('SigInlineVisibility#boolean_method?')
-      return_tags = node.tags.select { |tag| tag.tag_name == 'return' }
+      return_tags = node.tags.select { _1.tag_name == 'return' }
       expect(return_tags.size).to eq(1)
     end
 

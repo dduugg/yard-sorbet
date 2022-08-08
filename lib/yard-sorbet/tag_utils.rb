@@ -12,7 +12,7 @@ module YARDSorbet
         .returns(T.nilable(YARD::Tags::Tag))
     end
     def self.find_tag(docstring, tag_name, name)
-      docstring.tags.find { |t| t.tag_name == tag_name && t.name == name }
+      docstring.tags.find { _1.tag_name == tag_name && _1.name == name }
     end
 
     # Create or update a `YARD` tag with type information
@@ -31,7 +31,7 @@ module YARDSorbet
         return unless types
 
         # Updating a tag in place doesn't seem to work, so we'll delete it, add the types, and re-add it
-        docstring.delete_tag_if { |t| t == tag }
+        docstring.delete_tag_if { _1 == tag }
         # overwrite any existing type annotation (sigs should win)
         tag.types = types
         tag.text = text unless text.empty?

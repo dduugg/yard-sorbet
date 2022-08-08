@@ -10,7 +10,7 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     def self.convert(node)
       # scrub newlines, as they break the YARD parser
-      convert_node(node).map { |type| type.gsub(/\n\s*/, ' ') }
+      convert_node(node).map { _1.gsub(/\n\s*/, ' ') }
     end
 
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
@@ -45,7 +45,7 @@ module YARDSorbet
       return node.source if node.empty? || node.type != :aref
 
       collection_type = node.first.source
-      member_type = node.last.children.map { |child| build_generic_type(child) }.join(', ')
+      member_type = node.last.children.map { build_generic_type(_1) }.join(', ')
 
       "#{collection_type}[#{member_type}]"
     end
@@ -65,8 +65,8 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     private_class_method def self.convert_array(node)
       # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
-      member_types = node.first.children.map { |n| convert_node(n) }
-      sequence = member_types.map { |mt| mt.size == 1 ? mt[0] : mt.to_s.tr('"', '') }.join(', ')
+      member_types = node.first.children.map { convert_node(_1) }
+      sequence = member_types.map { _1.size == 1 ? _1[0] : _1.to_s.tr('"', '') }.join(', ')
       ["Array(#{sequence})"]
     end
 
@@ -112,7 +112,7 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
     private_class_method def self.convert_t_method(node)
       case node.method_name(true)
-      when :any then node.last.first.children.map { |n| convert_node(n) }.flatten
+      when :any then node.last.first.children.map { convert_node(_1) }.flatten
       # Order matters here, putting `nil` last results in a more concise
       # return syntax in the UI (superscripted `?`)
       # https://github.com/lsegal/yard/blob/cfa62ae/lib/yard/templates/helpers/html_helper.rb#L499-L500

@@ -51,7 +51,7 @@ namespace :typecheck do |typecheck_namespace|
 
   desc 'Run all typecheck tasks'
   task :all do
-    typecheck_namespace.tasks.each { |typecheck_task| Rake::Task[typecheck_task].invoke }
+    typecheck_namespace.tasks.each { Rake::Task[_1].invoke }
   end
 end
 
