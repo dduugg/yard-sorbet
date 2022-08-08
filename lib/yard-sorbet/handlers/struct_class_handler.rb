@@ -33,7 +33,7 @@ module YARDSorbet
         # There is a chance that there is a custom initializer, so make sure we steal the existing docstring
         # and source
         docstring, directives = Directives.extract_directives(object.docstring)
-        object.tags.each { |tag| docstring.add_tag(tag) }
+        object.tags.each { docstring.add_tag(_1) }
         props.each do |prop|
           TagUtils.upsert_tag(docstring, 'param', prop.types, prop.prop_name, prop.doc)
         end
