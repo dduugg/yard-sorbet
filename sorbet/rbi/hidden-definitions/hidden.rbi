@@ -4464,23 +4464,13 @@ class IRB::ReadlineInputMethod
 end
 
 class IRB::ReidlineInputMethod
-  include ::Reline
   def auto_indent(&block); end
 
   def check_termination(&block); end
 
   def dynamic_prompt(&block); end
 
-  def encoding(); end
-
-  def eof?(); end
-
   def initialize(); end
-
-  def line(line_no); end
-end
-
-class IRB::ReidlineInputMethod
 end
 
 class IRB::StdioInputMethod
@@ -4765,6 +4755,8 @@ Net::HTTPRequestURITooLarge = Net::HTTPURITooLong
 Net::HTTPResponceReceiver = Net::HTTPResponse
 
 Net::HTTPRetriableCode = Net::HTTPRedirection
+
+Net::HTTPServerError::EXCEPTION_TYPE = Net::HTTPFatalError
 
 Net::HTTPServerErrorCode = Net::HTTPServerError
 
@@ -5317,7 +5309,6 @@ end
 
 class RDoc::Constant
   def initialize(name, value, comment); end
-  MARSHAL_VERSION = ::T.let(nil, ::T.untyped)
 end
 
 class RDoc::Context
@@ -6425,7 +6416,6 @@ module Regexp::Syntax::Token::UnicodeProperty::Category
 end
 
 module Reline
-  def eof?(*args, &block); end
   FILENAME_COMPLETION_PROC = ::T.let(nil, ::T.untyped)
   HISTORY = ::T.let(nil, ::T.untyped)
   USERNAME_COMPLETION_PROC = ::T.let(nil, ::T.untyped)
@@ -6436,187 +6426,7 @@ class Reline::ANSI
   RAW_KEYSTROKE_CONFIG = ::T.let(nil, ::T.untyped)
 end
 
-class Reline::ANSI
-  def self.clear_screen(); end
-
-  def self.cursor_pos(); end
-
-  def self.deprep(otio); end
-
-  def self.encoding(); end
-
-  def self.erase_after_cursor(); end
-
-  def self.get_screen_size(); end
-
-  def self.getc(); end
-
-  def self.input=(val); end
-
-  def self.move_cursor_column(x); end
-
-  def self.move_cursor_down(x); end
-
-  def self.move_cursor_up(x); end
-
-  def self.output=(val); end
-
-  def self.prep(); end
-
-  def self.retrieve_keybuffer(); end
-
-  def self.scroll_down(x); end
-
-  def self.set_screen_size(rows, columns); end
-
-  def self.set_winch_handler(&handler); end
-
-  def self.ungetc(c); end
-
-  def self.win?(); end
-end
-
 class Reline::Config
-  def add_default_key_binding(keystroke, target); end
-
-  def bind_key(key, func_name); end
-
-  def bind_tty_special_chars(); end
-
-  def bind_tty_special_chars=(bind_tty_special_chars); end
-
-  def bind_variable(name, value); end
-
-  def blink_matching_paren(); end
-
-  def blink_matching_paren=(blink_matching_paren); end
-
-  def byte_oriented(); end
-
-  def byte_oriented=(byte_oriented); end
-
-  def completion_ignore_case(); end
-
-  def completion_ignore_case=(completion_ignore_case); end
-
-  def convert_meta(); end
-
-  def convert_meta=(convert_meta); end
-
-  def disable_completion(); end
-
-  def disable_completion=(disable_completion); end
-
-  def editing_mode(); end
-
-  def editing_mode=(val); end
-
-  def editing_mode_is?(*val); end
-
-  def emacs_mode_string(); end
-
-  def emacs_mode_string=(emacs_mode_string); end
-
-  def enable_keypad(); end
-
-  def enable_keypad=(enable_keypad); end
-
-  def expand_tilde(); end
-
-  def expand_tilde=(expand_tilde); end
-
-  def handle_directive(directive, file, no); end
-
-  def history_preserve_point(); end
-
-  def history_preserve_point=(history_preserve_point); end
-
-  def history_size(); end
-
-  def history_size=(history_size); end
-
-  def horizontal_scroll_mode(); end
-
-  def horizontal_scroll_mode=(horizontal_scroll_mode); end
-
-  def input_meta(); end
-
-  def input_meta=(input_meta); end
-
-  def inputrc_path(); end
-
-  def key_bindings(); end
-
-  def key_notation_to_code(notation); end
-
-  def keymap(); end
-
-  def keyseq_timeout(); end
-
-  def keyseq_timeout=(keyseq_timeout); end
-
-  def mark_directories(); end
-
-  def mark_directories=(mark_directories); end
-
-  def mark_modified_lines(); end
-
-  def mark_modified_lines=(mark_modified_lines); end
-
-  def mark_symlinked_directories(); end
-
-  def mark_symlinked_directories=(mark_symlinked_directories); end
-
-  def match_hidden_files(); end
-
-  def match_hidden_files=(match_hidden_files); end
-
-  def meta_flag(); end
-
-  def meta_flag=(meta_flag); end
-
-  def output_meta(); end
-
-  def output_meta=(output_meta); end
-
-  def page_completions(); end
-
-  def page_completions=(page_completions); end
-
-  def parse_keyseq(str); end
-
-  def prefer_visible_bell(); end
-
-  def prefer_visible_bell=(prefer_visible_bell); end
-
-  def print_completions_horizontally(); end
-
-  def print_completions_horizontally=(print_completions_horizontally); end
-
-  def read(file=T.unsafe(nil)); end
-
-  def read_lines(lines, file=T.unsafe(nil)); end
-
-  def reset(); end
-
-  def reset_default_key_bindings(); end
-
-  def retrieve_string(str); end
-
-  def show_all_if_ambiguous(); end
-
-  def show_all_if_ambiguous=(show_all_if_ambiguous); end
-
-  def show_all_if_unmodified(); end
-
-  def show_all_if_unmodified=(show_all_if_unmodified); end
-
-  def show_mode_in_prompt(); end
-
-  def show_mode_in_prompt=(show_mode_in_prompt); end
-
-  def test_mode(); end
-
   def vi_cmd_mode_icon(); end
 
   def vi_cmd_mode_icon=(vi_cmd_mode_icon); end
@@ -6624,311 +6434,38 @@ class Reline::Config
   def vi_ins_mode_icon(); end
 
   def vi_ins_mode_icon=(vi_ins_mode_icon); end
-
-  def visible_stats(); end
-
-  def visible_stats=(visible_stats); end
   KEYSEQ_PATTERN = ::T.let(nil, ::T.untyped)
   VARIABLE_NAMES = ::T.let(nil, ::T.untyped)
   VARIABLE_NAME_SYMBOLS = ::T.let(nil, ::T.untyped)
 end
 
-class Reline::Config::InvalidInputrc
-  def file(); end
-
-  def file=(file); end
-
-  def lineno(); end
-
-  def lineno=(lineno); end
-end
-
-class Reline::Config::InvalidInputrc
-end
-
-class Reline::Config
-end
-
 class Reline::Core
-  def ambiguous_width(); end
-
   def ambiguous_width=(ambiguous_width); end
-
-  def auto_indent_proc(); end
-
-  def auto_indent_proc=(p); end
-
-  def basic_quote_characters(); end
-
-  def basic_quote_characters=(v); end
-
-  def basic_word_break_characters(); end
-
-  def basic_word_break_characters=(v); end
-
-  def completer_quote_characters(); end
-
-  def completer_quote_characters=(v); end
-
-  def completer_word_break_characters(); end
-
-  def completer_word_break_characters=(v); end
-
-  def completion_append_character(); end
-
-  def completion_append_character=(val); end
-
-  def completion_case_fold(); end
-
-  def completion_case_fold=(v); end
-
-  def completion_proc(); end
-
-  def completion_proc=(p); end
-
-  def completion_quote_character(); end
-
-  def config(); end
-
-  def config=(config); end
-
-  def dig_perfect_match_proc(); end
-
-  def dig_perfect_match_proc=(p); end
-
-  def emacs_editing_mode(); end
-
-  def emacs_editing_mode?(); end
-
-  def encoding(); end
-
-  def filename_quote_characters(); end
-
-  def filename_quote_characters=(v); end
-
-  def get_screen_size(); end
-
-  def input=(val); end
-
-  def key_stroke(); end
-
-  def key_stroke=(key_stroke); end
-
-  def last_incremental_search(); end
-
-  def last_incremental_search=(last_incremental_search); end
-
-  def line_editor(); end
-
-  def line_editor=(line_editor); end
-
-  def output(); end
-
-  def output=(val); end
-
-  def output_modifier_proc(); end
-
-  def output_modifier_proc=(p); end
-
-  def pre_input_hook(); end
-
-  def pre_input_hook=(p); end
-
-  def prompt_proc(); end
-
-  def prompt_proc=(p); end
-
-  def readline(prompt=T.unsafe(nil), add_hist=T.unsafe(nil)); end
-
-  def readmultiline(prompt=T.unsafe(nil), add_hist=T.unsafe(nil), &confirm_multiline_termination); end
-
-  def special_prefixes(); end
-
-  def special_prefixes=(v); end
-
-  def vi_editing_mode(); end
-
-  def vi_editing_mode?(); end
   ATTR_READER_NAMES = ::T.let(nil, ::T.untyped)
-end
-
-class Reline::Core
-end
-
-class Reline::CursorPos
-  def x(); end
-
-  def x=(_); end
-
-  def y(); end
-
-  def y=(_); end
-end
-
-class Reline::CursorPos
-  def self.[](*arg); end
-
-  def self.members(); end
 end
 
 class Reline::GeneralIO
   RAW_KEYSTROKE_CONFIG = ::T.let(nil, ::T.untyped)
 end
 
-class Reline::GeneralIO
-  def self.clear_screen(); end
-
-  def self.cursor_pos(); end
-
-  def self.deprep(otio); end
-
-  def self.encoding(); end
-
-  def self.erase_after_cursor(); end
-
-  def self.get_screen_size(); end
-
-  def self.getc(); end
-
-  def self.input=(val); end
-
-  def self.move_cursor_column(val); end
-
-  def self.move_cursor_down(val); end
-
-  def self.move_cursor_up(val); end
-
-  def self.prep(); end
-
-  def self.scroll_down(val); end
-
-  def self.set_screen_size(rows, columns); end
-
-  def self.set_winch_handler(&handler); end
-
-  def self.ungetc(c); end
-
-  def self.win?(); end
-end
-
-class Reline::History
-  def <<(val); end
-
-  def [](index); end
-
-  def []=(index, val); end
-
-  def concat(*val); end
-
-  def delete_at(index); end
-
-  def initialize(config); end
-
-  def push(*val); end
-end
-
-class Reline::History
-end
-
 Reline::IOGate = Reline::ANSI
 
 Reline::Key = Struct::Key
 
-module Reline::KeyActor
-end
-
 class Reline::KeyActor::Base
-  def get_method(key); end
   MAPPING = ::T.let(nil, ::T.untyped)
-end
-
-class Reline::KeyActor::Base
 end
 
 class Reline::KeyActor::Emacs
   MAPPING = ::T.let(nil, ::T.untyped)
 end
 
-class Reline::KeyActor::Emacs
-end
-
 class Reline::KeyActor::ViCommand
   MAPPING = ::T.let(nil, ::T.untyped)
 end
 
-class Reline::KeyActor::ViCommand
-end
-
 class Reline::KeyActor::ViInsert
   MAPPING = ::T.let(nil, ::T.untyped)
-end
-
-class Reline::KeyActor::ViInsert
-end
-
-module Reline::KeyActor
-end
-
-class Reline::KeyStroke
-  def expand(input); end
-
-  def initialize(config); end
-
-  def match_status(input); end
-end
-
-class Reline::KeyStroke
-end
-
-class Reline::KillRing
-  def append(string, before_p=T.unsafe(nil)); end
-
-  def initialize(max=T.unsafe(nil)); end
-
-  def process(); end
-
-  def yank(); end
-
-  def yank_pop(); end
-end
-
-class Reline::KillRing::RingBuffer
-  def <<(point); end
-
-  def empty?(); end
-
-  def head(); end
-
-  def initialize(max=T.unsafe(nil)); end
-
-  def size(); end
-end
-
-class Reline::KillRing::RingBuffer
-end
-
-class Reline::KillRing::RingPoint
-  def ==(other); end
-
-  def backward(); end
-
-  def backward=(_); end
-
-  def forward(); end
-
-  def forward=(_); end
-
-  def initialize(str); end
-
-  def str(); end
-
-  def str=(_); end
-end
-
-class Reline::KillRing::RingPoint
-  def self.[](*arg); end
-
-  def self.members(); end
 end
 
 module Reline::KillRing::State
@@ -6938,92 +6475,7 @@ module Reline::KillRing::State
   YANK = ::T.let(nil, ::T.untyped)
 end
 
-module Reline::KillRing::State
-end
-
-class Reline::KillRing
-end
-
 class Reline::LineEditor
-  def auto_indent_proc(); end
-
-  def auto_indent_proc=(auto_indent_proc); end
-
-  def byte_pointer(); end
-
-  def byte_pointer=(val); end
-
-  def call_completion_proc(); end
-
-  def completion_append_character(); end
-
-  def completion_append_character=(completion_append_character); end
-
-  def completion_proc(); end
-
-  def completion_proc=(completion_proc); end
-
-  def confirm_multiline_termination(); end
-
-  def confirm_multiline_termination_proc(); end
-
-  def confirm_multiline_termination_proc=(confirm_multiline_termination_proc); end
-
-  def delete_text(start=T.unsafe(nil), length=T.unsafe(nil)); end
-
-  def dig_perfect_match_proc(); end
-
-  def dig_perfect_match_proc=(dig_perfect_match_proc); end
-
-  def editing_mode(); end
-
-  def eof?(); end
-
-  def finalize(); end
-
-  def finish(); end
-
-  def finished?(); end
-
-  def initialize(config, encoding); end
-
-  def input_key(key); end
-
-  def insert_text(text); end
-
-  def line(); end
-
-  def multiline_off(); end
-
-  def multiline_on(); end
-
-  def output=(output); end
-
-  def output_modifier_proc(); end
-
-  def output_modifier_proc=(output_modifier_proc); end
-
-  def pre_input_hook(); end
-
-  def pre_input_hook=(pre_input_hook); end
-
-  def prompt_proc(); end
-
-  def prompt_proc=(prompt_proc); end
-
-  def rerender(); end
-
-  def reset(prompt=T.unsafe(nil), encoding:); end
-
-  def reset_line(); end
-
-  def reset_variables(prompt=T.unsafe(nil), encoding:); end
-
-  def retrieve_completion_block(set_completion_quote_character=T.unsafe(nil)); end
-
-  def whole_buffer(); end
-
-  def whole_lines(index: T.unsafe(nil), line: T.unsafe(nil)); end
   VI_MOTIONS = ::T.let(nil, ::T.untyped)
 end
 
@@ -7038,13 +6490,7 @@ module Reline::LineEditor::CompletionState
   PERFECT_MATCH = ::T.let(nil, ::T.untyped)
 end
 
-module Reline::LineEditor::CompletionState
-end
-
 Reline::LineEditor::MenuInfo = Struct::MenuInfo
-
-class Reline::LineEditor
-end
 
 class Reline::Unicode
   CSI_REGEXP = ::T.let(nil, ::T.untyped)
@@ -7063,155 +6509,6 @@ class Reline::Unicode::EastAsianWidth
   TYPE_N = ::T.let(nil, ::T.untyped)
   TYPE_NA = ::T.let(nil, ::T.untyped)
   TYPE_W = ::T.let(nil, ::T.untyped)
-end
-
-class Reline::Unicode::EastAsianWidth
-end
-
-class Reline::Unicode
-  def self.calculate_width(str, allow_escape_code=T.unsafe(nil)); end
-
-  def self.ed_transpose_words(line, byte_pointer); end
-
-  def self.em_backward_word(line, byte_pointer); end
-
-  def self.em_big_backward_word(line, byte_pointer); end
-
-  def self.em_forward_word(line, byte_pointer); end
-
-  def self.em_forward_word_with_capitalization(line, byte_pointer); end
-
-  def self.escape_for_print(str); end
-
-  def self.get_mbchar_byte_size_by_first_char(c); end
-
-  def self.get_mbchar_width(mbchar); end
-
-  def self.get_next_mbchar_size(line, byte_pointer); end
-
-  def self.get_prev_mbchar_size(line, byte_pointer); end
-
-  def self.split_by_width(str, max_width, encoding=T.unsafe(nil)); end
-
-  def self.vi_backward_word(line, byte_pointer); end
-
-  def self.vi_big_backward_word(line, byte_pointer); end
-
-  def self.vi_big_forward_end_word(line, byte_pointer); end
-
-  def self.vi_big_forward_word(line, byte_pointer); end
-
-  def self.vi_first_print(line); end
-
-  def self.vi_forward_end_word(line, byte_pointer); end
-
-  def self.vi_forward_word(line, byte_pointer); end
-end
-
-module Reline
-  extend ::Forwardable
-  extend ::SingleForwardable
-  def self.ambiguous_width(*args, &block); end
-
-  def self.auto_indent_proc(*args, &block); end
-
-  def self.auto_indent_proc=(*args, &block); end
-
-  def self.basic_quote_characters(*args, &block); end
-
-  def self.basic_quote_characters=(*args, &block); end
-
-  def self.basic_word_break_characters(*args, &block); end
-
-  def self.basic_word_break_characters=(*args, &block); end
-
-  def self.completer_quote_characters(*args, &block); end
-
-  def self.completer_quote_characters=(*args, &block); end
-
-  def self.completer_word_break_characters(*args, &block); end
-
-  def self.completer_word_break_characters=(*args, &block); end
-
-  def self.completion_append_character(*args, &block); end
-
-  def self.completion_append_character=(*args, &block); end
-
-  def self.completion_case_fold(*args, &block); end
-
-  def self.completion_case_fold=(*args, &block); end
-
-  def self.completion_proc(*args, &block); end
-
-  def self.completion_proc=(*args, &block); end
-
-  def self.completion_quote_character(*args, &block); end
-
-  def self.core(); end
-
-  def self.delete_text(*args, &block); end
-
-  def self.dig_perfect_match_proc(*args, &block); end
-
-  def self.dig_perfect_match_proc=(*args, &block); end
-
-  def self.emacs_editing_mode(*args, &block); end
-
-  def self.emacs_editing_mode?(*args, &block); end
-
-  def self.encoding_system_needs(); end
-
-  def self.eof?(*args, &block); end
-
-  def self.filename_quote_characters(*args, &block); end
-
-  def self.filename_quote_characters=(*args, &block); end
-
-  def self.get_screen_size(*args, &block); end
-
-  def self.input=(*args, &block); end
-
-  def self.insert_text(*args, &block); end
-
-  def self.last_incremental_search(*args, &block); end
-
-  def self.last_incremental_search=(*args, &block); end
-
-  def self.line_buffer(*args, &block); end
-
-  def self.line_editor(); end
-
-  def self.output=(*args, &block); end
-
-  def self.output_modifier_proc(*args, &block); end
-
-  def self.output_modifier_proc=(*args, &block); end
-
-  def self.point(*args, &block); end
-
-  def self.point=(*args, &block); end
-
-  def self.pre_input_hook(*args, &block); end
-
-  def self.pre_input_hook=(*args, &block); end
-
-  def self.prompt_proc(*args, &block); end
-
-  def self.prompt_proc=(*args, &block); end
-
-  def self.readline(*args, &block); end
-
-  def self.readmultiline(*args, &block); end
-
-  def self.redisplay(*args, &block); end
-
-  def self.special_prefixes(*args, &block); end
-
-  def self.special_prefixes=(*args, &block); end
-
-  def self.vi_editing_mode(*args, &block); end
-
-  def self.vi_editing_mode?(*args, &block); end
 end
 
 class Resolv::DNS
@@ -8150,8 +7447,16 @@ class RuboCop::AST::ProcessedSource
   STRING_SOURCE_NAME = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::AST::RegexpNode
+  def fixed_encoding?(); end
+end
+
 module RuboCop::AST::RuboCopCompatibility
   INCOMPATIBLE_COPS = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::AST::Token
+  def dot?(); end
 end
 
 module RuboCop::AST::Traversal
@@ -8191,15 +7496,37 @@ class RuboCop::CLI::Command::SuggestExtensions
   INCLUDED_FORMATTERS = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::CacheConfig
+end
+
+class RuboCop::CacheConfig
+  def self.root_dir(); end
+end
+
 class RuboCop::Config
   DEFAULT_RAILS_VERSION = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::ConfigFinder
+  DEFAULT_FILE = ::T.let(nil, ::T.untyped)
+  DOTFILE = ::T.let(nil, ::T.untyped)
+  RUBOCOP_HOME = ::T.let(nil, ::T.untyped)
+  XDG_CONFIG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::ConfigFinder
+  extend ::RuboCop::FileFinder
+  def self.find_config_path(target_dir); end
+
+  def self.project_root(); end
+
+  def self.project_root=(project_root); end
 end
 
 class RuboCop::ConfigLoader
   DEFAULT_FILE = ::T.let(nil, ::T.untyped)
   DOTFILE = ::T.let(nil, ::T.untyped)
   RUBOCOP_HOME = ::T.let(nil, ::T.untyped)
-  XDG_CONFIG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::ConfigLoader
@@ -8292,6 +7619,10 @@ end
 
 module RuboCop::Cop::CodeLength
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+module RuboCop::Cop::CommentsHelp
+  def comments_in_range(node); end
 end
 
 module RuboCop::Cop::ConfigurableNaming
@@ -8606,10 +7937,6 @@ class RuboCop::Cop::Layout::LeadingEmptyLines
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Layout::LineContinuationLeadingSpace
-  MSG = ::T.let(nil, ::T.untyped)
-end
-
 class RuboCop::Cop::Layout::LineEndStringConcatenationIndentation
   MSG_ALIGN = ::T.let(nil, ::T.untyped)
   MSG_INDENT = ::T.let(nil, ::T.untyped)
@@ -8617,6 +7944,7 @@ class RuboCop::Cop::Layout::LineEndStringConcatenationIndentation
 end
 
 class RuboCop::Cop::Layout::LineLength
+  def on_def(node); end
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -8669,6 +7997,16 @@ class RuboCop::Cop::Layout::MultilineMethodDefinitionBraceLayout
   ALWAYS_SAME_LINE_MESSAGE = ::T.let(nil, ::T.untyped)
   NEW_LINE_MESSAGE = ::T.let(nil, ::T.untyped)
   SAME_LINE_MESSAGE = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Layout::MultilineMethodParameterLineBreaks
+  include ::RuboCop::Cop::MultilineElementLineBreaks
+  def on_def(node); end
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Layout::MultilineMethodParameterLineBreaks
+  extend ::RuboCop::Cop::AutoCorrector
 end
 
 class RuboCop::Cop::Layout::ParameterAlignment
@@ -8803,6 +8141,8 @@ class RuboCop::Cop::Lint::AmbiguousAssignment
 end
 
 class RuboCop::Cop::Lint::AmbiguousBlockAssociation
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -8941,7 +8281,12 @@ class RuboCop::Cop::Lint::EmptyClass
 end
 
 class RuboCop::Cop::Lint::EmptyConditionalBody
+  include ::RuboCop::Cop::RangeHelp
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Lint::EmptyConditionalBody
+  extend ::RuboCop::Cop::AutoCorrector
 end
 
 class RuboCop::Cop::Lint::EmptyEnsure
@@ -9105,8 +8450,11 @@ class RuboCop::Cop::Lint::NoReturnInBeginEndBlocks
 end
 
 class RuboCop::Cop::Lint::NonAtomicFileOperation
+  MAKE_FORCE_METHODS = ::T.let(nil, ::T.untyped)
   MAKE_METHODS = ::T.let(nil, ::T.untyped)
-  MSG = ::T.let(nil, ::T.untyped)
+  MSG_CHANGE_FORCE_METHOD = ::T.let(nil, ::T.untyped)
+  MSG_REMOVE_FILE_EXIST_CHECK = ::T.let(nil, ::T.untyped)
+  REMOVE_FORCE_METHODS = ::T.let(nil, ::T.untyped)
   REMOVE_METHODS = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
@@ -9120,6 +8468,8 @@ class RuboCop::Cop::Lint::NonLocalExitFromIterator
 end
 
 class RuboCop::Cop::Lint::NumberConversion
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   CONVERSION_METHODS = ::T.let(nil, ::T.untyped)
   CONVERSION_METHOD_CLASS_MAPPING = ::T.let(nil, ::T.untyped)
   METHODS = ::T.let(nil, ::T.untyped)
@@ -9236,6 +8586,16 @@ class RuboCop::Cop::Lint::RequireParentheses
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Lint::RequireRangeParentheses
+  def on_erange(node); end
+
+  def on_irange(node); end
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Lint::RequireRangeParentheses
+end
+
 class RuboCop::Cop::Lint::RequireRelativeSelfPath
   MSG = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
@@ -9256,6 +8616,10 @@ end
 
 class RuboCop::Cop::Lint::SafeNavigationChain
   MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Lint::SafeNavigationChain
+  extend ::RuboCop::Cop::AutoCorrector
 end
 
 class RuboCop::Cop::Lint::SafeNavigationConsistency
@@ -9418,11 +8782,20 @@ class RuboCop::Cop::Lint::Void
   VOID_CONTEXT_TYPES = ::T.let(nil, ::T.untyped)
 end
 
+module RuboCop::Cop::MethodComplexity
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
+end
+
 class RuboCop::Cop::Metrics::AbcSize
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Metrics::BlockLength
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   LABEL = ::T.let(nil, ::T.untyped)
 end
 
@@ -9431,11 +8804,15 @@ class RuboCop::Cop::Metrics::BlockNesting
 end
 
 class RuboCop::Cop::Metrics::CyclomaticComplexity
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   COUNTED_NODES = ::T.let(nil, ::T.untyped)
   MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Metrics::MethodLength
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   LABEL = ::T.let(nil, ::T.untyped)
 end
 
@@ -10439,6 +9816,8 @@ class RuboCop::Cop::Style::BlockComments
 end
 
 class RuboCop::Cop::Style::BlockDelimiters
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   ALWAYS_BRACES_MESSAGE = ::T.let(nil, ::T.untyped)
   BRACES_REQUIRED_MESSAGE = ::T.let(nil, ::T.untyped)
 end
@@ -10472,6 +9851,8 @@ class RuboCop::Cop::Style::ClassCheck
 end
 
 class RuboCop::Cop::Style::ClassEqualityComparison
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   MSG = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
@@ -10624,6 +10005,17 @@ class RuboCop::Cop::Style::EmptyElse
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Style::EmptyHeredoc
+  include ::RuboCop::Cop::Heredoc
+  include ::RuboCop::Cop::RangeHelp
+  def on_heredoc(node); end
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Style::EmptyHeredoc
+  extend ::RuboCop::Cop::AutoCorrector
+end
+
 class RuboCop::Cop::Style::EmptyLambdaParameter
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -10690,10 +10082,7 @@ class RuboCop::Cop::Style::ExponentialNotation
 end
 
 class RuboCop::Cop::Style::FetchEnvVar
-  MSG_DEFAULT_NIL = ::T.let(nil, ::T.untyped)
-  MSG_DEFAULT_RHS_MULTILINE_BLOCK = ::T.let(nil, ::T.untyped)
-  MSG_DEFAULT_RHS_SECOND_ARG_OF_FETCH = ::T.let(nil, ::T.untyped)
-  MSG_DEFAULT_RHS_SINGLE_LINE_BLOCK = ::T.let(nil, ::T.untyped)
+  MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::FileRead
@@ -10722,6 +10111,11 @@ end
 class RuboCop::Cop::Style::FormatString
   MSG = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Style::FormatStringToken
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
 end
 
 class RuboCop::Cop::Style::FrozenStringLiteralComment
@@ -10870,11 +10264,17 @@ class RuboCop::Cop::Style::MapToHash
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Style::MethodCallWithArgsParentheses
+  include ::RuboCop::Cop::AllowedMethods
+end
+
 module RuboCop::Cop::Style::MethodCallWithArgsParentheses::OmitParentheses
   TRAILING_WHITESPACE_REGEX = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::MethodCallWithoutArgsParentheses
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -11040,6 +10440,8 @@ class RuboCop::Cop::Style::NumericLiterals
 end
 
 class RuboCop::Cop::Style::NumericPredicate
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   MSG = ::T.let(nil, ::T.untyped)
   REPLACEMENTS = ::T.let(nil, ::T.untyped)
   RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
@@ -11373,6 +10775,8 @@ class RuboCop::Cop::Style::SymbolLiteral
 end
 
 class RuboCop::Cop::Style::SymbolProc
+  include ::RuboCop::Cop::AllowedMethods
+  include ::RuboCop::Cop::AllowedPattern
   MSG = ::T.let(nil, ::T.untyped)
   SUPER_TYPES = ::T.let(nil, ::T.untyped)
 end
@@ -11391,6 +10795,7 @@ end
 
 class RuboCop::Cop::Style::TopLevelMethodDefinition
   MSG = ::T.let(nil, ::T.untyped)
+  RESTRICT_ON_SEND = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Style::TrailingBodyOnClass
@@ -11675,6 +11080,7 @@ class RuboCop::RemoteConfig
 end
 
 class RuboCop::ResultCache
+  DL_EXTENSIONS = ::T.let(nil, ::T.untyped)
   NON_CHANGING = ::T.let(nil, ::T.untyped)
 end
 
@@ -12080,67 +11486,7 @@ class Struct
   def filter(*arg); end
 end
 
-class Struct::CompletionJourneyData
-  def list(); end
-
-  def list=(_); end
-
-  def pointer(); end
-
-  def pointer=(_); end
-
-  def postposing(); end
-
-  def postposing=(_); end
-
-  def preposing(); end
-
-  def preposing=(_); end
-end
-
-class Struct::CompletionJourneyData
-  def self.[](*arg); end
-
-  def self.members(); end
-end
-
 Struct::Group = Etc::Group
-
-class Struct::Key
-  def char(); end
-
-  def char=(_); end
-
-  def combined_char(); end
-
-  def combined_char=(_); end
-
-  def with_meta(); end
-
-  def with_meta=(_); end
-end
-
-class Struct::Key
-  def self.[](*arg); end
-
-  def self.members(); end
-end
-
-class Struct::MenuInfo
-  def list(); end
-
-  def list=(_); end
-
-  def target(); end
-
-  def target=(_); end
-end
-
-class Struct::MenuInfo
-  def self.[](*arg); end
-
-  def self.members(); end
-end
 
 Struct::Passwd = Etc::Passwd
 

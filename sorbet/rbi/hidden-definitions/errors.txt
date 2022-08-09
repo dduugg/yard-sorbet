@@ -17,8 +17,6 @@
 # wrong constant name <RESERVED_3>
 # wrong constant name <RESERVED_4>
 # wrong constant name <RESERVED_5>
-# wrong constant name <RESERVED_6>
-# wrong constant name <RESERVED_7>
 # wrong constant name <TypeAlias>
 # wrong constant name <TypeAlias>
 # wrong constant name <root>
@@ -2069,6 +2067,7 @@
 # Did you mean?  FileUtils::RUBY
 # uninitialized constant FileUtils::Verbose::VERSION
 # Did you mean?  FileUtils::VERSION
+# wrong constant name <Class:Find>
 # wrong constant name _compile_method
 # wrong constant name _delegator_method
 # wrong constant name _valid_method?
@@ -2251,7 +2250,6 @@
 # wrong constant name <Class:DefaultEncodings>
 # wrong constant name <Class:InputCompletor>
 # wrong constant name <Class:Locale>
-# wrong constant name <Class:ReidlineInputMethod>
 # wrong constant name <static-init>
 # wrong constant name clear
 # wrong constant name colorable?
@@ -2347,11 +2345,7 @@
 # wrong constant name auto_indent
 # wrong constant name check_termination
 # wrong constant name dynamic_prompt
-# wrong constant name encoding
-# wrong constant name eof?
 # wrong constant name initialize
-# wrong constant name line
-# wrong constant name <static-init>
 # wrong constant name initialize
 # wrong constant name initialize
 # wrong constant name local_variable_get
@@ -2589,8 +2583,8 @@
 #                Parser::Ruby24::Racc_Runtime_Core_Revision_R
 #                Parser::Ruby24::Racc_Runtime_Revision
 #                Parser::Ruby24::Racc_Runtime_Core_Version
-#                Parser::Ruby24::Racc_Runtime_Core_Version_C
 #                Parser::Ruby24::Racc_Runtime_Core_Version_R
+#                Parser::Ruby24::Racc_Runtime_Core_Version_C
 #                Parser::Ruby24::Racc_Runtime_Version
 #                Parser::Ruby24::Racc_Runtime_Core_Id_C
 # uninitialized constant Parser::Ruby24::Racc_Runtime_Core_Revision_C
@@ -2715,10 +2709,6 @@
 # uninitialized constant RDoc::Constant::MARKUP_FORMAT
 # uninitialized constant RDoc::Constant::TO_HTML_CHARACTERS
 # wrong constant name initialize
-# uninitialized constant RDoc::Constant::RDoc
-# Did you mean?  RDoc::RDoc
-# uninitialized constant RDoc::Constant::RDoc
-# Did you mean?  RDoc::RDoc
 # uninitialized constant RDoc::Context::MARKUP_FORMAT
 # uninitialized constant RDoc::Context::TO_HTML_CHARACTERS
 # wrong constant name add_module_by_normal_module
@@ -2859,8 +2849,8 @@
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
 #                RDoc::RD::BlockParser::Racc_Runtime_Revision
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Version
-#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
 #                RDoc::RD::BlockParser::Racc_Runtime_Version
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
 # uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
@@ -2919,8 +2909,8 @@
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
 #                RDoc::RD::InlineParser::Racc_Runtime_Revision
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Version
-#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
 #                RDoc::RD::InlineParser::Racc_Runtime_Version
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
 # uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
@@ -3102,366 +3092,23 @@
 # wrong constant name fire_update!
 # wrong constant name ruby
 # wrong constant name completion_quote_character
-# wrong constant name <Class:ANSI>
-# wrong constant name <Class:Config>
-# wrong constant name <Class:Core>
-# wrong constant name <Class:CursorPos>
-# wrong constant name <Class:GeneralIO>
-# wrong constant name <Class:History>
-# wrong constant name <Class:KeyActor>
-# wrong constant name <Class:KeyStroke>
-# wrong constant name <Class:KillRing>
-# wrong constant name <Class:LineEditor>
-# wrong constant name <Class:Unicode>
-# wrong constant name eof?
-# wrong constant name <static-init>
-# wrong constant name clear_screen
-# wrong constant name cursor_pos
-# wrong constant name deprep
-# wrong constant name encoding
-# wrong constant name erase_after_cursor
-# wrong constant name get_screen_size
-# wrong constant name getc
-# wrong constant name input=
-# wrong constant name move_cursor_column
-# wrong constant name move_cursor_down
-# wrong constant name move_cursor_up
-# wrong constant name output=
-# wrong constant name prep
-# wrong constant name retrieve_keybuffer
-# wrong constant name scroll_down
-# wrong constant name set_screen_size
-# wrong constant name set_winch_handler
-# wrong constant name ungetc
-# wrong constant name win?
-# wrong constant name <Class:InvalidInputrc>
-# wrong constant name add_default_key_binding
-# wrong constant name bind_key
-# wrong constant name bind_tty_special_chars
-# wrong constant name bind_tty_special_chars=
-# wrong constant name bind_variable
-# wrong constant name blink_matching_paren
-# wrong constant name blink_matching_paren=
-# wrong constant name byte_oriented
-# wrong constant name byte_oriented=
-# wrong constant name completion_ignore_case
-# wrong constant name completion_ignore_case=
-# wrong constant name convert_meta
-# wrong constant name convert_meta=
-# wrong constant name disable_completion
-# wrong constant name disable_completion=
-# wrong constant name editing_mode
-# wrong constant name editing_mode=
-# wrong constant name editing_mode_is?
-# wrong constant name emacs_mode_string
-# wrong constant name emacs_mode_string=
-# wrong constant name enable_keypad
-# wrong constant name enable_keypad=
-# wrong constant name expand_tilde
-# wrong constant name expand_tilde=
-# wrong constant name handle_directive
-# wrong constant name history_preserve_point
-# wrong constant name history_preserve_point=
-# wrong constant name history_size
-# wrong constant name history_size=
-# wrong constant name horizontal_scroll_mode
-# wrong constant name horizontal_scroll_mode=
-# wrong constant name input_meta
-# wrong constant name input_meta=
-# wrong constant name inputrc_path
-# wrong constant name key_bindings
-# wrong constant name key_notation_to_code
-# wrong constant name keymap
-# wrong constant name keyseq_timeout
-# wrong constant name keyseq_timeout=
-# wrong constant name mark_directories
-# wrong constant name mark_directories=
-# wrong constant name mark_modified_lines
-# wrong constant name mark_modified_lines=
-# wrong constant name mark_symlinked_directories
-# wrong constant name mark_symlinked_directories=
-# wrong constant name match_hidden_files
-# wrong constant name match_hidden_files=
-# wrong constant name meta_flag
-# wrong constant name meta_flag=
-# wrong constant name output_meta
-# wrong constant name output_meta=
-# wrong constant name page_completions
-# wrong constant name page_completions=
-# wrong constant name parse_keyseq
-# wrong constant name prefer_visible_bell
-# wrong constant name prefer_visible_bell=
-# wrong constant name print_completions_horizontally
-# wrong constant name print_completions_horizontally=
-# wrong constant name read
-# wrong constant name read_lines
-# wrong constant name reset
-# wrong constant name reset_default_key_bindings
-# wrong constant name retrieve_string
-# wrong constant name show_all_if_ambiguous
-# wrong constant name show_all_if_ambiguous=
-# wrong constant name show_all_if_unmodified
-# wrong constant name show_all_if_unmodified=
-# wrong constant name show_mode_in_prompt
-# wrong constant name show_mode_in_prompt=
-# wrong constant name test_mode
 # wrong constant name vi_cmd_mode_icon
 # wrong constant name vi_cmd_mode_icon=
 # wrong constant name vi_ins_mode_icon
 # wrong constant name vi_ins_mode_icon=
-# wrong constant name visible_stats
-# wrong constant name visible_stats=
-# wrong constant name file
-# wrong constant name file=
-# wrong constant name lineno
-# wrong constant name lineno=
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name ambiguous_width
+# uninitialized constant Reline::ConfigEncodingConversionError
+# uninitialized constant Reline::ConfigEncodingConversionError
 # wrong constant name ambiguous_width=
-# wrong constant name auto_indent_proc
-# wrong constant name auto_indent_proc=
-# wrong constant name basic_quote_characters
-# wrong constant name basic_quote_characters=
-# wrong constant name basic_word_break_characters
-# wrong constant name basic_word_break_characters=
-# wrong constant name completer_quote_characters
-# wrong constant name completer_quote_characters=
-# wrong constant name completer_word_break_characters
-# wrong constant name completer_word_break_characters=
-# wrong constant name completion_append_character
-# wrong constant name completion_append_character=
-# wrong constant name completion_case_fold
-# wrong constant name completion_case_fold=
-# wrong constant name completion_proc
-# wrong constant name completion_proc=
-# wrong constant name completion_quote_character
-# wrong constant name config
-# wrong constant name config=
-# wrong constant name dig_perfect_match_proc
-# wrong constant name dig_perfect_match_proc=
-# wrong constant name emacs_editing_mode
-# wrong constant name emacs_editing_mode?
-# wrong constant name encoding
-# wrong constant name filename_quote_characters
-# wrong constant name filename_quote_characters=
-# wrong constant name get_screen_size
-# wrong constant name input=
-# wrong constant name key_stroke
-# wrong constant name key_stroke=
-# wrong constant name last_incremental_search
-# wrong constant name last_incremental_search=
-# wrong constant name line_editor
-# wrong constant name line_editor=
-# wrong constant name output
-# wrong constant name output=
-# wrong constant name output_modifier_proc
-# wrong constant name output_modifier_proc=
-# wrong constant name pre_input_hook
-# wrong constant name pre_input_hook=
-# wrong constant name prompt_proc
-# wrong constant name prompt_proc=
-# wrong constant name readline
-# wrong constant name readmultiline
-# wrong constant name special_prefixes
-# wrong constant name special_prefixes=
-# wrong constant name vi_editing_mode
-# wrong constant name vi_editing_mode?
-# wrong constant name <static-init>
-# uninitialized constant Reline::CursorPos::Elem
-# wrong constant name x
-# wrong constant name x=
-# wrong constant name y
-# wrong constant name y=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
-# wrong constant name <static-init>
-# wrong constant name clear_screen
-# wrong constant name cursor_pos
-# wrong constant name deprep
-# wrong constant name encoding
-# wrong constant name erase_after_cursor
-# wrong constant name get_screen_size
-# wrong constant name getc
-# wrong constant name input=
-# wrong constant name move_cursor_column
-# wrong constant name move_cursor_down
-# wrong constant name move_cursor_up
-# wrong constant name prep
-# wrong constant name scroll_down
-# wrong constant name set_screen_size
-# wrong constant name set_winch_handler
-# wrong constant name ungetc
-# wrong constant name win?
-# wrong constant name <<
-# uninitialized constant Reline::History::Elem
-# wrong constant name []
-# wrong constant name []=
-# wrong constant name concat
-# wrong constant name delete_at
-# wrong constant name initialize
-# wrong constant name push
-# wrong constant name <static-init>
-# wrong constant name <Class:Base>
-# wrong constant name <Class:Emacs>
-# wrong constant name <Class:ViCommand>
-# wrong constant name <Class:ViInsert>
-# wrong constant name get_method
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name expand
-# wrong constant name initialize
-# wrong constant name match_status
-# wrong constant name <static-init>
-# wrong constant name <Class:RingBuffer>
-# wrong constant name <Class:RingPoint>
-# wrong constant name <Class:State>
-# wrong constant name append
-# wrong constant name initialize
-# wrong constant name process
-# wrong constant name yank
-# wrong constant name yank_pop
-# wrong constant name <<
-# wrong constant name empty?
-# wrong constant name head
-# wrong constant name initialize
-# wrong constant name size
-# wrong constant name <static-init>
-# wrong constant name ==
-# uninitialized constant Reline::KillRing::RingPoint::Elem
-# wrong constant name backward
-# wrong constant name backward=
-# wrong constant name forward
-# wrong constant name forward=
-# wrong constant name initialize
-# wrong constant name str
-# wrong constant name str=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <Class:CompletionState>
-# wrong constant name auto_indent_proc
-# wrong constant name auto_indent_proc=
-# wrong constant name byte_pointer
-# wrong constant name byte_pointer=
-# wrong constant name call_completion_proc
-# wrong constant name completion_append_character
-# wrong constant name completion_append_character=
-# wrong constant name completion_proc
-# wrong constant name completion_proc=
-# wrong constant name confirm_multiline_termination
-# wrong constant name confirm_multiline_termination_proc
-# wrong constant name confirm_multiline_termination_proc=
-# wrong constant name delete_text
-# wrong constant name dig_perfect_match_proc
-# wrong constant name dig_perfect_match_proc=
-# wrong constant name editing_mode
-# wrong constant name eof?
-# wrong constant name finalize
-# wrong constant name finish
-# wrong constant name finished?
-# wrong constant name initialize
-# wrong constant name input_key
-# wrong constant name insert_text
-# wrong constant name line
-# wrong constant name multiline_off
-# wrong constant name multiline_on
-# wrong constant name output=
-# wrong constant name output_modifier_proc
-# wrong constant name output_modifier_proc=
-# wrong constant name pre_input_hook
-# wrong constant name pre_input_hook=
-# wrong constant name prompt_proc
-# wrong constant name prompt_proc=
-# wrong constant name rerender
-# wrong constant name reset
-# wrong constant name reset_line
-# wrong constant name reset_variables
-# wrong constant name retrieve_completion_block
-# wrong constant name whole_buffer
-# wrong constant name whole_lines
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name <Class:EastAsianWidth>
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name calculate_width
-# wrong constant name ed_transpose_words
-# wrong constant name em_backward_word
-# wrong constant name em_big_backward_word
-# wrong constant name em_forward_word
-# wrong constant name em_forward_word_with_capitalization
-# wrong constant name escape_for_print
-# wrong constant name get_mbchar_byte_size_by_first_char
-# wrong constant name get_mbchar_width
-# wrong constant name get_next_mbchar_size
-# wrong constant name get_prev_mbchar_size
-# wrong constant name split_by_width
-# wrong constant name vi_backward_word
-# wrong constant name vi_big_backward_word
-# wrong constant name vi_big_forward_end_word
-# wrong constant name vi_big_forward_word
-# wrong constant name vi_first_print
-# wrong constant name vi_forward_end_word
-# wrong constant name vi_forward_word
-# wrong constant name <static-init>
-# wrong constant name ambiguous_width
-# wrong constant name auto_indent_proc
-# wrong constant name auto_indent_proc=
-# wrong constant name basic_quote_characters
-# wrong constant name basic_quote_characters=
-# wrong constant name basic_word_break_characters
-# wrong constant name basic_word_break_characters=
-# wrong constant name completer_quote_characters
-# wrong constant name completer_quote_characters=
-# wrong constant name completer_word_break_characters
-# wrong constant name completer_word_break_characters=
-# wrong constant name completion_append_character
-# wrong constant name completion_append_character=
-# wrong constant name completion_case_fold
-# wrong constant name completion_case_fold=
-# wrong constant name completion_proc
-# wrong constant name completion_proc=
-# wrong constant name completion_quote_character
-# wrong constant name core
-# wrong constant name delete_text
-# wrong constant name dig_perfect_match_proc
-# wrong constant name dig_perfect_match_proc=
-# wrong constant name emacs_editing_mode
-# wrong constant name emacs_editing_mode?
-# wrong constant name encoding_system_needs
-# wrong constant name eof?
-# wrong constant name filename_quote_characters
-# wrong constant name filename_quote_characters=
-# wrong constant name get_screen_size
-# wrong constant name input=
-# wrong constant name insert_text
-# wrong constant name last_incremental_search
-# wrong constant name last_incremental_search=
-# wrong constant name line_buffer
-# wrong constant name line_editor
-# wrong constant name output=
-# wrong constant name output_modifier_proc
-# wrong constant name output_modifier_proc=
-# wrong constant name point
-# wrong constant name point=
-# wrong constant name pre_input_hook
-# wrong constant name pre_input_hook=
-# wrong constant name prompt_proc
-# wrong constant name prompt_proc=
-# wrong constant name readline
-# wrong constant name readmultiline
-# wrong constant name redisplay
-# wrong constant name special_prefixes
-# wrong constant name special_prefixes=
-# wrong constant name vi_editing_mode
-# wrong constant name vi_editing_mode?
+# uninitialized constant Reline::Core::DialogProc
+# uninitialized constant Reline::Core::DialogProc
+# uninitialized constant Reline::DialogRenderInfo
+# uninitialized constant Reline::DialogRenderInfo
+# uninitialized constant Reline::LineEditor::Dialog
+# uninitialized constant Reline::LineEditor::Dialog
+# uninitialized constant Reline::LineEditor::DialogProcScope
+# uninitialized constant Reline::LineEditor::DialogProcScope
+# uninitialized constant Reline::Terminfo
+# uninitialized constant Reline::Terminfo
 # wrong constant name extract_resources
 # wrong constant name initialize
 # wrong constant name initialize
@@ -3507,65 +3154,65 @@
 # uninitialized constant Ripper::Lexer::EVENTS
 # Did you mean?  Ripper::EVENTS
 # uninitialized constant Ripper::Lexer::EXPR_ARG
-# Did you mean?  Ripper::Lexer::EXPR_BEG
-#                Ripper::EXPR_ARG
+# Did you mean?  Ripper::EXPR_ARG
+#                Ripper::Lexer::EXPR_BEG
 #                Ripper::EXPR_BEG
 # uninitialized constant Ripper::Lexer::EXPR_ARG_ANY
 # Did you mean?  Ripper::EXPR_ARG_ANY
-#                Ripper::EXPR_BEG_ANY
-#                Ripper::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_BEG_ANY
-# uninitialized constant Ripper::Lexer::EXPR_BEG
-# Did you mean?  Ripper::Lexer::EXPR_ARG
-#                Ripper::EXPR_ARG
-#                Ripper::EXPR_BEG
-# uninitialized constant Ripper::Lexer::EXPR_BEG_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_END_ANY
 #                Ripper::EXPR_BEG_ANY
+# uninitialized constant Ripper::Lexer::EXPR_BEG
+# Did you mean?  Ripper::EXPR_ARG
+#                Ripper::Lexer::EXPR_ARG
+#                Ripper::EXPR_BEG
+# uninitialized constant Ripper::Lexer::EXPR_BEG_ANY
+# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_END_ANY
+#                Ripper::EXPR_ARG_ANY
+#                Ripper::EXPR_BEG_ANY
 #                Ripper::Lexer::EXPR_ARG_ANY
 # uninitialized constant Ripper::Lexer::EXPR_CLASS
 # Did you mean?  Ripper::EXPR_CLASS
 # uninitialized constant Ripper::Lexer::EXPR_CMDARG
-# Did you mean?  Ripper::EXPR_ARG
-#                Ripper::Lexer::EXPR_ARG
-#                Ripper::EXPR_ENDARG
+# Did you mean?  Ripper::Lexer::EXPR_ARG
+#                Ripper::EXPR_ARG
 #                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::EXPR_CMDARG
+#                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::Lexer::EXPR_DOT
 # Did you mean?  Ripper::EXPR_DOT
 # uninitialized constant Ripper::Lexer::EXPR_END
 # Did you mean?  Ripper::Lexer::EXPR_MID
-#                Ripper::EXPR_END
 #                Ripper::EXPR_MID
+#                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_ENDFN
 # uninitialized constant Ripper::Lexer::EXPR_ENDARG
-# Did you mean?  Ripper::EXPR_END
+# Did you mean?  Ripper::EXPR_ARG
 #                Ripper::Lexer::EXPR_ARG
-#                Ripper::EXPR_ARG
+#                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_ENDFN
+#                Ripper::Lexer::EXPR_CMDARG
 #                Ripper::EXPR_CMDARG
 #                Ripper::EXPR_ENDARG
-#                Ripper::Lexer::EXPR_CMDARG
 #                Ripper::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_END_ANY
 # uninitialized constant Ripper::Lexer::EXPR_ENDFN
 # Did you mean?  Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
-#                Ripper::EXPR_ENDARG
 #                Ripper::Lexer::EXPR_ENDARG
+#                Ripper::EXPR_ENDARG
 #                Ripper::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_END_ANY
 # uninitialized constant Ripper::Lexer::EXPR_END_ANY
-# Did you mean?  Ripper::Lexer::EXPR_BEG_ANY
-#                Ripper::EXPR_ARG_ANY
-#                Ripper::EXPR_END_ANY
+# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::EXPR_BEG_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::Lexer::EXPR_ARG_ANY
+#                Ripper::Lexer::EXPR_BEG_ANY
 #                Ripper::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_ENDARG
@@ -3577,8 +3224,8 @@
 #                Ripper::EXPR_NONE
 #                Ripper::EXPR_FNAME
 # uninitialized constant Ripper::Lexer::EXPR_LABEL
-# Did you mean?  Ripper::Lexer::EXPR_BEG
-#                Ripper::EXPR_BEG
+# Did you mean?  Ripper::EXPR_BEG
+#                Ripper::Lexer::EXPR_BEG
 #                Ripper::EXPR_LABEL
 #                Ripper::Lexer::EXPR_LABELED
 #                Ripper::EXPR_LABELED
@@ -3591,9 +3238,9 @@
 #                Ripper::Lexer::EXPR_END
 # uninitialized constant Ripper::Lexer::EXPR_NONE
 # Did you mean?  Ripper::Lexer::EXPR_DOT
+#                Ripper::Lexer::EXPR_END
 #                Ripper::EXPR_END
 #                Ripper::EXPR_DOT
-#                Ripper::Lexer::EXPR_END
 #                Ripper::EXPR_NONE
 #                Ripper::Lexer::EXPR_FNAME
 #                Ripper::EXPR_FNAME
@@ -3650,65 +3297,65 @@
 # uninitialized constant Ripper::SexpBuilder::EVENTS
 # Did you mean?  Ripper::EVENTS
 # uninitialized constant Ripper::SexpBuilder::EXPR_ARG
-# Did you mean?  Ripper::SexpBuilder::EXPR_BEG
-#                Ripper::EXPR_ARG
+# Did you mean?  Ripper::EXPR_ARG
+#                Ripper::SexpBuilder::EXPR_BEG
 #                Ripper::EXPR_BEG
 # uninitialized constant Ripper::SexpBuilder::EXPR_ARG_ANY
 # Did you mean?  Ripper::EXPR_ARG_ANY
-#                Ripper::EXPR_BEG_ANY
-#                Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_BEG_ANY
-# uninitialized constant Ripper::SexpBuilder::EXPR_BEG
-# Did you mean?  Ripper::SexpBuilder::EXPR_ARG
-#                Ripper::EXPR_ARG
-#                Ripper::EXPR_BEG
-# uninitialized constant Ripper::SexpBuilder::EXPR_BEG_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
 #                Ripper::EXPR_END_ANY
 #                Ripper::EXPR_BEG_ANY
+# uninitialized constant Ripper::SexpBuilder::EXPR_BEG
+# Did you mean?  Ripper::EXPR_ARG
+#                Ripper::SexpBuilder::EXPR_ARG
+#                Ripper::EXPR_BEG
+# uninitialized constant Ripper::SexpBuilder::EXPR_BEG_ANY
+# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_END_ANY
+#                Ripper::EXPR_ARG_ANY
+#                Ripper::EXPR_BEG_ANY
 #                Ripper::SexpBuilder::EXPR_ARG_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_CLASS
 # Did you mean?  Ripper::EXPR_CLASS
 # uninitialized constant Ripper::SexpBuilder::EXPR_CMDARG
-# Did you mean?  Ripper::EXPR_ARG
-#                Ripper::SexpBuilder::EXPR_ARG
-#                Ripper::EXPR_ENDARG
+# Did you mean?  Ripper::SexpBuilder::EXPR_ARG
+#                Ripper::EXPR_ARG
 #                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::EXPR_CMDARG
+#                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::SexpBuilder::EXPR_DOT
 # Did you mean?  Ripper::EXPR_DOT
 # uninitialized constant Ripper::SexpBuilder::EXPR_END
 # Did you mean?  Ripper::SexpBuilder::EXPR_MID
-#                Ripper::EXPR_END
 #                Ripper::EXPR_MID
+#                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_ENDFN
 # uninitialized constant Ripper::SexpBuilder::EXPR_ENDARG
-# Did you mean?  Ripper::EXPR_END
+# Did you mean?  Ripper::EXPR_ARG
 #                Ripper::SexpBuilder::EXPR_ARG
-#                Ripper::EXPR_ARG
+#                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_ENDFN
+#                Ripper::SexpBuilder::EXPR_CMDARG
 #                Ripper::EXPR_CMDARG
 #                Ripper::EXPR_ENDARG
-#                Ripper::SexpBuilder::EXPR_CMDARG
 #                Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_END_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_ENDFN
 # Did you mean?  Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
-#                Ripper::EXPR_ENDARG
 #                Ripper::SexpBuilder::EXPR_ENDARG
+#                Ripper::EXPR_ENDARG
 #                Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_END_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_END_ANY
-# Did you mean?  Ripper::SexpBuilder::EXPR_BEG_ANY
-#                Ripper::EXPR_ARG_ANY
-#                Ripper::EXPR_END_ANY
+# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::EXPR_BEG_ANY
+#                Ripper::EXPR_ARG_ANY
 #                Ripper::SexpBuilder::EXPR_ARG_ANY
+#                Ripper::SexpBuilder::EXPR_BEG_ANY
 #                Ripper::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_ENDARG
@@ -3720,8 +3367,8 @@
 #                Ripper::EXPR_NONE
 #                Ripper::EXPR_FNAME
 # uninitialized constant Ripper::SexpBuilder::EXPR_LABEL
-# Did you mean?  Ripper::SexpBuilder::EXPR_BEG
-#                Ripper::EXPR_BEG
+# Did you mean?  Ripper::EXPR_BEG
+#                Ripper::SexpBuilder::EXPR_BEG
 #                Ripper::EXPR_LABEL
 #                Ripper::SexpBuilder::EXPR_LABELED
 #                Ripper::EXPR_LABELED
@@ -3734,9 +3381,9 @@
 #                Ripper::SexpBuilder::EXPR_END
 # uninitialized constant Ripper::SexpBuilder::EXPR_NONE
 # Did you mean?  Ripper::SexpBuilder::EXPR_DOT
+#                Ripper::SexpBuilder::EXPR_END
 #                Ripper::EXPR_END
 #                Ripper::EXPR_DOT
-#                Ripper::SexpBuilder::EXPR_END
 #                Ripper::EXPR_NONE
 #                Ripper::SexpBuilder::EXPR_FNAME
 #                Ripper::EXPR_FNAME
@@ -4009,8 +3656,8 @@
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
@@ -4067,68 +3714,68 @@
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Main_Parsing_Routine
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
-# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
+# Did you mean?  RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
@@ -4138,43 +3785,43 @@
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Type
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Type
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
@@ -4213,6 +3860,37 @@
 # wrong constant name pos
 # wrong constant name <static-init>
 # wrong constant name <static-init>
+# uninitialized constant RuboCop::AST::RegexpNode::ARGUMENT_TYPES
+# uninitialized constant RuboCop::AST::RegexpNode::ASSIGNMENTS
+# uninitialized constant RuboCop::AST::RegexpNode::BASIC_CONDITIONALS
+# uninitialized constant RuboCop::AST::RegexpNode::BASIC_LITERALS
+# uninitialized constant RuboCop::AST::RegexpNode::COMPARISON_OPERATORS
+# uninitialized constant RuboCop::AST::RegexpNode::COMPOSITE_LITERALS
+# uninitialized constant RuboCop::AST::RegexpNode::CONDITIONALS
+# uninitialized constant RuboCop::AST::RegexpNode::EQUALS_ASSIGNMENTS
+# uninitialized constant RuboCop::AST::RegexpNode::FALSEY_LITERALS
+# uninitialized constant RuboCop::AST::RegexpNode::IMMUTABLE_LITERALS
+# Did you mean?  RuboCop::AST::RegexpNode::MUTABLE_LITERALS
+# uninitialized constant RuboCop::AST::RegexpNode::KEYWORDS
+# uninitialized constant RuboCop::AST::RegexpNode::LITERALS
+# uninitialized constant RuboCop::AST::RegexpNode::LOOP_TYPES
+# uninitialized constant RuboCop::AST::RegexpNode::MUTABLE_LITERALS
+# Did you mean?  RuboCop::AST::RegexpNode::IMMUTABLE_LITERALS
+# uninitialized constant RuboCop::AST::RegexpNode::OPERATOR_KEYWORDS
+# uninitialized constant RuboCop::AST::RegexpNode::POST_CONDITION_LOOP_TYPES
+# uninitialized constant RuboCop::AST::RegexpNode::REFERENCES
+# uninitialized constant RuboCop::AST::RegexpNode::SHORTHAND_ASSIGNMENTS
+# uninitialized constant RuboCop::AST::RegexpNode::SPECIAL_KEYWORDS
+# uninitialized constant RuboCop::AST::RegexpNode::TRUTHY_LITERALS
+# uninitialized constant RuboCop::AST::RegexpNode::VARIABLES
+# wrong constant name fixed_encoding?
+# wrong constant name dot?
+# wrong constant name <static-init>
+# wrong constant name root_dir
+# wrong constant name <static-init>
+# wrong constant name find_config_path
+# wrong constant name project_root
+# wrong constant name project_root=
 # uninitialized constant RuboCop::Cop::Base::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::DuplicatedGem::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Bundler::DuplicatedGem::LITERAL_REGEX
@@ -4228,6 +3906,7 @@
 # uninitialized constant RuboCop::Cop::Bundler::InsecureProtocolSource::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::OrderedGems::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Bundler::OrderedGems::RESTRICT_ON_SEND
+# wrong constant name comments_in_range
 # uninitialized constant RuboCop::Cop::Corrector::ACTIONS
 # Did you mean?  RuboCop::Cop::Corrector::Action
 # uninitialized constant RuboCop::Cop::Corrector::DEPRECATION_WARNING
@@ -4416,15 +4095,13 @@
 # uninitialized constant RuboCop::Cop::Layout::LeadingCommentSpace::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::LeadingEmptyLines::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::LeadingEmptyLines::RESTRICT_ON_SEND
-# uninitialized constant RuboCop::Cop::Layout::LineContinuationLeadingSpace::BYTE_ORDER_MARK
-# uninitialized constant RuboCop::Cop::Layout::LineContinuationLeadingSpace::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Layout::LineContinuationLeadingSpace::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::LineEndStringConcatenationIndentation::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::LineEndStringConcatenationIndentation::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::LineEndStringConcatenationIndentation::SPACE
 # uninitialized constant RuboCop::Cop::Layout::LineLength::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Layout::LineLength::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::LineLength::RESTRICT_ON_SEND
+# wrong constant name on_def
 # uninitialized constant RuboCop::Cop::Layout::MultilineArrayBraceLayout::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::MultilineArrayBraceLayout::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::MultilineArrayLineBreaks::LITERAL_REGEX
@@ -4445,6 +4122,10 @@
 # uninitialized constant RuboCop::Cop::Layout::MultilineMethodCallBraceLayout::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::MultilineMethodDefinitionBraceLayout::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::MultilineMethodDefinitionBraceLayout::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Layout::MultilineMethodParameterLineBreaks::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Layout::MultilineMethodParameterLineBreaks::RESTRICT_ON_SEND
+# wrong constant name on_def
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Layout::ParameterAlignment::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Layout::ParameterAlignment::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Layout::ParameterAlignment::SPACE
@@ -4605,6 +4286,7 @@
 # uninitialized constant RuboCop::Cop::Lint::EmptyBlock::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::EmptyClass::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::EmptyClass::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Lint::EmptyConditionalBody::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Lint::EmptyConditionalBody::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::EmptyConditionalBody::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::EmptyEnsure::LITERAL_REGEX
@@ -4733,6 +4415,11 @@
 # uninitialized constant RuboCop::Cop::Lint::RequireParentheses::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Lint::RequireParentheses::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::RequireParentheses::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Lint::RequireRangeParentheses::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Lint::RequireRangeParentheses::RESTRICT_ON_SEND
+# wrong constant name on_erange
+# wrong constant name on_irange
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Lint::RequireRelativeSelfPath::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Lint::RequireRelativeSelfPath::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::RescueException::LITERAL_REGEX
@@ -5268,6 +4955,12 @@
 # uninitialized constant RuboCop::Cop::Style::EmptyElse::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::EmptyElse::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::EmptyElse::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Style::EmptyHeredoc::BYTE_ORDER_MARK
+# uninitialized constant RuboCop::Cop::Style::EmptyHeredoc::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::EmptyHeredoc::OPENING_DELIMITER
+# uninitialized constant RuboCop::Cop::Style::EmptyHeredoc::RESTRICT_ON_SEND
+# wrong constant name on_heredoc
+# wrong constant name <static-init>
 # uninitialized constant RuboCop::Cop::Style::EmptyLambdaParameter::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::EmptyLambdaParameter::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::EmptyLambdaParameter::RESTRICT_ON_SEND
@@ -5306,6 +4999,8 @@
 # uninitialized constant RuboCop::Cop::Style::For::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::For::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::FormatString::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::FormatStringToken::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::FormatStringToken::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::FrozenStringLiteralComment::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::FrozenStringLiteralComment::FROZEN_STRING_LITERAL
 # Did you mean?  RuboCop::Cop::FrozenStringLiteral
@@ -5370,6 +5065,9 @@
 # uninitialized constant RuboCop::Cop::Style::MapCompactWithConditionalBlock::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::MapToHash::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::Style::MapToHash::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::MethodCallWithArgsParentheses::LITERAL_REGEX
+# uninitialized constant RuboCop::Cop::Style::MethodCallWithArgsParentheses::RESTRICT_ON_SEND
+# uninitialized constant RuboCop::Cop::Style::MethodCallWithArgsParentheses::TRAILING_WHITESPACE_REGEX
 # uninitialized constant RuboCop::Cop::Style::MethodCallWithoutArgsParentheses::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::MethodCallWithoutArgsParentheses::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::MethodCalledOnDoEndBlock::BYTE_ORDER_MARK
@@ -5617,7 +5315,6 @@
 # uninitialized constant RuboCop::Cop::Style::TernaryParentheses::SPACE_COMMAND
 # Did you mean?  RuboCop::Cop::Style::TernaryParentheses::NO_SPACE_COMMAND
 # uninitialized constant RuboCop::Cop::Style::TopLevelMethodDefinition::LITERAL_REGEX
-# uninitialized constant RuboCop::Cop::Style::TopLevelMethodDefinition::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Style::TrailingBodyOnClass::SPACE
@@ -5785,42 +5482,9 @@
 # wrong constant name bol?
 # wrong constant name fixed_anchor?
 # wrong constant name initialize
-# wrong constant name <Class:CompletionJourneyData>
-# wrong constant name <Class:Key>
-# wrong constant name <Class:MenuInfo>
 # wrong constant name deconstruct
 # wrong constant name deconstruct_keys
 # wrong constant name filter
-# uninitialized constant Struct::CompletionJourneyData::Elem
-# wrong constant name list
-# wrong constant name list=
-# wrong constant name pointer
-# wrong constant name pointer=
-# wrong constant name postposing
-# wrong constant name postposing=
-# wrong constant name preposing
-# wrong constant name preposing=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
-# uninitialized constant Struct::Key::Elem
-# wrong constant name char
-# wrong constant name char=
-# wrong constant name combined_char
-# wrong constant name combined_char=
-# wrong constant name with_meta
-# wrong constant name with_meta=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
-# uninitialized constant Struct::MenuInfo::Elem
-# wrong constant name list
-# wrong constant name list=
-# wrong constant name target
-# wrong constant name target=
-# wrong constant name <static-init>
-# wrong constant name []
-# wrong constant name members
 # wrong constant name <Class:Struct>
 # uninitialized constant Sync
 # uninitialized constant Sync
