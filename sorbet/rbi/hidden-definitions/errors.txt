@@ -38,57 +38,14 @@
 # wrong constant name interpret_loosely
 # wrong constant name clone
 # wrong constant name irb
-# wrong constant name status_code
-# wrong constant name <static-init>
-# wrong constant name jruby_30?
-# wrong constant name jruby_3?
-# wrong constant name maglev_30?
-# wrong constant name maglev_3?
-# wrong constant name mingw_30?
-# wrong constant name mingw_3?
-# wrong constant name mri_30?
-# wrong constant name mri_3?
-# wrong constant name mswin64_30?
-# wrong constant name mswin64_3?
-# wrong constant name mswin_30?
-# wrong constant name mswin_3?
-# wrong constant name on_30?
-# wrong constant name on_3?
-# wrong constant name rbx_30?
-# wrong constant name rbx_3?
-# wrong constant name ruby_30?
-# wrong constant name ruby_3?
-# wrong constant name truffleruby_30?
-# wrong constant name truffleruby_3?
-# wrong constant name x64_mingw_30?
-# wrong constant name x64_mingw_3?
-# uninitialized constant Bundler::Definition::GENERICS
-# uninitialized constant Bundler::Definition::GENERIC_CACHE
-# wrong constant name dependencies_for
-# wrong constant name locked_dependencies
-# wrong constant name most_specific_locked_platform
-# wrong constant name requested_dependencies
-# wrong constant name resolve_only_locally!
-# wrong constant name no_lock
-# wrong constant name no_lock=
-# wrong constant name clone
-# wrong constant name get_proxy
 # uninitialized constant Bundler::Dependency::TYPES
 # wrong constant name branch
 # wrong constant name expanded_platforms
 # wrong constant name git
-# wrong constant name github
-# wrong constant name ref
-# wrong constant name <static-init>
-# wrong constant name sha1
-# wrong constant name check_primary_source_safety
 # wrong constant name <static-init>
 # wrong constant name environment
 # wrong constant name report
 # wrong constant name write
-# wrong constant name replace_with_backup
-# wrong constant name env_to_hash
-# wrong constant name from_env
 # wrong constant name <Class:Base>
 # wrong constant name <Class:CompactIndex>
 # wrong constant name <Class:Dependency>
@@ -173,13 +130,10 @@
 # wrong constant name allowed_push_host
 # wrong constant name already_tagged?
 # wrong constant name base
-# wrong constant name build_checksum
 # wrong constant name build_gem
 # wrong constant name built_gem_path
 # wrong constant name clean?
 # wrong constant name committed?
-# wrong constant name current_branch
-# wrong constant name default_remote
 # wrong constant name gem_command
 # wrong constant name gem_key
 # wrong constant name gem_push?
@@ -191,12 +145,12 @@
 # wrong constant name install
 # wrong constant name install_gem
 # wrong constant name name
+# wrong constant name perform_git_push
 # wrong constant name rubygem_push
 # wrong constant name sh
 # wrong constant name sh_with_input
 # wrong constant name sh_with_status
 # wrong constant name spec_path
-# wrong constant name tag_prefix=
 # wrong constant name tag_version
 # wrong constant name version
 # wrong constant name version_tag
@@ -205,11 +159,6 @@
 # wrong constant name install_tasks
 # wrong constant name instance
 # wrong constant name instance=
-# wrong constant name tag_prefix=
-# wrong constant name specificity_score
-# wrong constant name local_platform
-# wrong constant name same_deps
-# wrong constant name same_specificity
 # wrong constant name initialize
 # wrong constant name level
 # wrong constant name level=
@@ -243,22 +192,9 @@
 # wrong constant name <static-init>
 # wrong constant name inject
 # wrong constant name remove
-# uninitialized constant Bundler::LazySpecification::GENERICS
-# uninitialized constant Bundler::LazySpecification::GENERIC_CACHE
-# wrong constant name eql?
-# wrong constant name platform_string
-# uninitialized constant Bundler::LazySpecification::Identifier
-# uninitialized constant Bundler::LazySpecification::Identifier
-# wrong constant name bundled_with
-# uninitialized constant Bundler::Molinillo::Compatibility
-# Did you mean?  Comparable
-# uninitialized constant Bundler::Molinillo::Compatibility
-# Did you mean?  Comparable
-# wrong constant name dependencies_equal?
-# wrong constant name parent_folder
-# wrong constant name permission_type
+# wrong constant name _recursive_predecessors
+# wrong constant name _recursive_successors
 # wrong constant name ==
-# wrong constant name add_dependency_names
 # wrong constant name app_cache_dirname
 # wrong constant name app_cache_path
 # wrong constant name bundler_plugin_api_source?
@@ -272,20 +208,17 @@
 # wrong constant name fetch_gemspec_files
 # wrong constant name gem_install_dir
 # wrong constant name hash
-# wrong constant name identifier
 # wrong constant name include?
 # wrong constant name initialize
 # wrong constant name install
 # wrong constant name install_path
 # wrong constant name installed?
-# wrong constant name local!
 # wrong constant name name
 # wrong constant name options
 # wrong constant name options_to_lock
 # wrong constant name post_install
 # wrong constant name remote!
 # wrong constant name root
-# wrong constant name spec_names
 # wrong constant name specs
 # wrong constant name to_lock
 # wrong constant name to_s
@@ -298,7 +231,6 @@
 # wrong constant name <Class:SourceConflict>
 # wrong constant name installed_plugins
 # wrong constant name plugin_commands
-# wrong constant name unregister_plugin
 # wrong constant name initialize
 # wrong constant name <static-init>
 # wrong constant name initialize
@@ -317,20 +249,9 @@
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name <static-init>
-# wrong constant name <static-init>
 # wrong constant name list
-# wrong constant name save_plugin
-# wrong constant name uninstall
 # wrong constant name <static-init>
 # wrong constant name lock
-# uninitialized constant Bundler::Resolver::GENERICS
-# uninitialized constant Bundler::Resolver::GENERIC_CACHE
-# wrong constant name results_for
-# wrong constant name source_for
-# wrong constant name activated_platforms
-# wrong constant name activated_platforms=
-# wrong constant name sorted_activated_platforms
-# wrong constant name create_for
 # wrong constant name attempt
 # wrong constant name attempts
 # wrong constant name current_run
@@ -344,20 +265,19 @@
 # wrong constant name attempts
 # wrong constant name default_attempts
 # wrong constant name default_retries
-# wrong constant name add_default_gems_to
+# uninitialized constant Bundler::RubyGemsGemInstaller::ENV_PATHS
+# wrong constant name <static-init>
 # wrong constant name add_to_load_path
 # wrong constant name all_specs
 # wrong constant name backport_ext_builder_monitor
 # wrong constant name correct_for_windows_path
 # wrong constant name default_stubs
-# wrong constant name find_bundler
 # wrong constant name find_name
 # wrong constant name gem_remote_fetcher
-# wrong constant name load_env_plugins
 # wrong constant name plain_specs
 # wrong constant name plain_specs=
 # wrong constant name stub_rubygems
-# wrong constant name supports_bundler_trampolining?
+# wrong constant name use_gemdeps
 # uninitialized constant Bundler::RubygemsIntegration::AlmostModern
 # uninitialized constant Bundler::RubygemsIntegration::AlmostModern
 # uninitialized constant Bundler::RubygemsIntegration::Ancient
@@ -376,13 +296,6 @@
 # uninitialized constant Bundler::RubygemsIntegration::MoreModern
 # uninitialized constant Bundler::RubygemsIntegration::Transitional
 # uninitialized constant Bundler::RubygemsIntegration::Transitional
-# wrong constant name install_locked_bundler_and_restart_with_it_if_needed
-# wrong constant name restart_with_locked_bundler_if_needed
-# wrong constant name <static-init>
-# wrong constant name <Class:Mirror>
-# wrong constant name <Class:Mirrors>
-# wrong constant name <Class:Validator>
-# wrong constant name processor_count
 # wrong constant name ==
 # wrong constant name fallback_timeout
 # wrong constant name fallback_timeout=
@@ -407,69 +320,8 @@
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name validate!
-# wrong constant name key_for
-# wrong constant name <Class:RubygemsAggregate>
-# wrong constant name add_dependency_names
-# wrong constant name cached!
-# wrong constant name identifier
-# wrong constant name local!
-# wrong constant name local_only!
-# wrong constant name remote!
-# wrong constant name spec_names
 # uninitialized constant Bundler::Source::Git::DEFAULT_GLOB
 # wrong constant name glob
-# wrong constant name local?
-# wrong constant name default_cache_path_for
-# wrong constant name dependency_api_available?
-# wrong constant name multiple_remotes?
-# wrong constant name no_remotes?
-# wrong constant name remote_names
-# wrong constant name identifier
-# wrong constant name initialize
-# wrong constant name source_map
-# wrong constant name sources
-# wrong constant name specs
-# wrong constant name <static-init>
-# wrong constant name add_global_rubygems_remote
-# wrong constant name aggregate_global_source?
-# wrong constant name expired_sources?
-# wrong constant name global_path_source
-# wrong constant name implicit_global_source?
-# wrong constant name local_only!
-# wrong constant name lock_other_sources
-# wrong constant name lock_rubygems_sources
-# wrong constant name merged_gem_lockfile_sections!
-# wrong constant name merged_gem_lockfile_sections?
-# wrong constant name non_default_explicit_sources
-# wrong constant name non_global_rubygems_sources
-# wrong constant name all_requirements
-# wrong constant name dependencies
-# wrong constant name direct_requirements
-# wrong constant name initialize
-# wrong constant name pinned_spec_names
-# wrong constant name sources
-# wrong constant name <static-init>
-# wrong constant name missing_specs
-# uninitialized constant Bundler::StubSpecification::GENERICS
-# uninitialized constant Bundler::StubSpecification::GENERIC_CACHE
-# wrong constant name extensions
-# wrong constant name gem_build_complete_path
-# wrong constant name manually_installed?
-# wrong constant name <Class:Cyclic>
-# wrong constant name each_strongly_connected_component
-# wrong constant name each_strongly_connected_component_from
-# wrong constant name strongly_connected_components
-# wrong constant name tsort
-# wrong constant name tsort_each
-# wrong constant name tsort_each_child
-# wrong constant name tsort_each_node
-# wrong constant name <static-init>
-# wrong constant name <static-init>
-# wrong constant name each_strongly_connected_component
-# wrong constant name each_strongly_connected_component_from
-# wrong constant name strongly_connected_components
-# wrong constant name tsort
-# wrong constant name tsort_each
 # wrong constant name <Class:Actions>
 # wrong constant name <Class:AmbiguousCommandError>
 # wrong constant name <Class:Argument>
@@ -710,7 +562,6 @@
 # wrong constant name []=
 # wrong constant name convert_key
 # wrong constant name delete
-# wrong constant name except
 # wrong constant name fetch
 # wrong constant name initialize
 # wrong constant name key?
@@ -817,7 +668,6 @@
 # wrong constant name parsing_options?
 # wrong constant name switch?
 # wrong constant name switch_option
-# wrong constant name unshift
 # wrong constant name <static-init>
 # wrong constant name to_switches
 # uninitialized constant Bundler::Thor::RakeCompat::DEFAULT
@@ -848,7 +698,6 @@
 # wrong constant name print_table
 # wrong constant name print_wrapped
 # wrong constant name say
-# wrong constant name say_error
 # wrong constant name say_status
 # wrong constant name set_color
 # wrong constant name shell
@@ -887,7 +736,6 @@
 # wrong constant name print_wrapped
 # wrong constant name quiet?
 # wrong constant name say
-# wrong constant name say_error
 # wrong constant name say_status
 # wrong constant name set_color
 # wrong constant name show_diff
@@ -900,7 +748,6 @@
 # wrong constant name <static-init>
 # uninitialized constant Bundler::Thor::Shell::Color::DEFAULT_TERMINAL_WIDTH
 # wrong constant name are_colors_disabled?
-# wrong constant name are_colors_supported?
 # wrong constant name diff_lcs_loaded?
 # wrong constant name output_diff_line
 # wrong constant name set_color
@@ -1011,6 +858,7 @@
 # wrong constant name <static-init>
 # wrong constant name <Class:BadURIError>
 # wrong constant name <Class:Error>
+# wrong constant name <Class:Escape>
 # wrong constant name <Class:FTP>
 # wrong constant name <Class:File>
 # wrong constant name <Class:Generic>
@@ -1027,6 +875,11 @@
 # wrong constant name <Class:Util>
 # wrong constant name <static-init>
 # wrong constant name <static-init>
+# wrong constant name decode
+# wrong constant name encode
+# wrong constant name escape
+# wrong constant name unescape
+# wrong constant name <static-init>
 # uninitialized constant Bundler::URI::FTP::ABS_PATH
 # Did you mean?  Bundler::URI::ABS_PATH
 # uninitialized constant Bundler::URI::FTP::ABS_URI
@@ -1037,7 +890,9 @@
 # Did you mean?  Bundler::URI::FTP::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::FTP::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::FTP::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::FTP::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::FTP::HOST
@@ -1057,8 +912,8 @@
 # uninitialized constant Bundler::URI::FTP::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::FTP::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::FTP::RFC3986_Parser
+# Did you mean?  Bundler::URI::FTP::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::FTP::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1101,7 +956,9 @@
 # Did you mean?  Bundler::URI::File::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::File::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::File::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::File::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::File::HOST
@@ -1121,8 +978,8 @@
 # uninitialized constant Bundler::URI::File::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::File::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::File::RFC3986_Parser
+# Did you mean?  Bundler::URI::File::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::File::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1168,7 +1025,9 @@
 # Did you mean?  Bundler::URI::Generic::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::Generic::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::Generic::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::Generic::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::Generic::HOST
@@ -1188,8 +1047,8 @@
 # uninitialized constant Bundler::URI::Generic::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::Generic::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::Generic::RFC3986_Parser
+# Did you mean?  Bundler::URI::Generic::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::Generic::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1285,7 +1144,9 @@
 # Did you mean?  Bundler::URI::HTTP::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::HTTP::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::HTTP::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::HTTP::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::HTTP::HOST
@@ -1305,8 +1166,8 @@
 # uninitialized constant Bundler::URI::HTTP::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::HTTP::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::HTTP::RFC3986_Parser
+# Did you mean?  Bundler::URI::HTTP::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::HTTP::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1347,7 +1208,9 @@
 # Did you mean?  Bundler::URI::HTTPS::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::HTTPS::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::HTTPS::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::HTTPS::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::HTTPS::HOST
@@ -1367,8 +1230,8 @@
 # uninitialized constant Bundler::URI::HTTPS::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::HTTPS::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::HTTPS::RFC3986_Parser
+# Did you mean?  Bundler::URI::HTTPS::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::HTTPS::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1409,7 +1272,9 @@
 # Did you mean?  Bundler::URI::LDAP::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::LDAP::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::LDAP::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::LDAP::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::LDAP::HOST
@@ -1429,8 +1294,8 @@
 # uninitialized constant Bundler::URI::LDAP::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::LDAP::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::LDAP::RFC3986_Parser
+# Did you mean?  Bundler::URI::LDAP::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::LDAP::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1486,7 +1351,9 @@
 # Did you mean?  Bundler::URI::LDAPS::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::LDAPS::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::LDAPS::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::LDAPS::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::LDAPS::HOST
@@ -1506,8 +1373,8 @@
 # uninitialized constant Bundler::URI::LDAPS::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::LDAPS::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::LDAPS::RFC3986_Parser
+# Did you mean?  Bundler::URI::LDAPS::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::LDAPS::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1554,7 +1421,9 @@
 # Did you mean?  Bundler::URI::MailTo::DEFAULT_PORT
 #                Bundler::URI::DEFAULT_PARSER
 # uninitialized constant Bundler::URI::MailTo::ESCAPED
-# Did you mean?  Bundler::URI::ESCAPED
+# Did you mean?  Bundler::URI::MailTo::Escape
+#                Bundler::URI::Escape
+#                Bundler::URI::ESCAPED
 # uninitialized constant Bundler::URI::MailTo::FRAGMENT
 # Did you mean?  Bundler::URI::FRAGMENT
 # uninitialized constant Bundler::URI::MailTo::HOST
@@ -1574,8 +1443,8 @@
 # uninitialized constant Bundler::URI::MailTo::REL_URI_REF
 # Did you mean?  Bundler::URI::REL_URI_REF
 # uninitialized constant Bundler::URI::MailTo::RFC3986_PARSER
-# Did you mean?  Bundler::URI::RFC3986_Parser
-#                Bundler::URI::MailTo::RFC3986_Parser
+# Did you mean?  Bundler::URI::MailTo::RFC3986_Parser
+#                Bundler::URI::RFC3986_Parser
 #                Bundler::URI::RFC2396_Parser
 #                Bundler::URI::MailTo::RFC2396_Parser
 #                Bundler::URI::RFC3986_PARSER
@@ -1640,7 +1509,6 @@
 # wrong constant name encode_www_form
 # wrong constant name encode_www_form_component
 # wrong constant name extract
-# wrong constant name for
 # wrong constant name get_encoding
 # wrong constant name join
 # wrong constant name parse
@@ -1681,13 +1549,10 @@
 # wrong constant name empty?
 # wrong constant name for
 # wrong constant name for_many
-# wrong constant name configure_gem_home_and_path
-# wrong constant name most_specific_locked_platform?
+# uninitialized constant Bundler::YAMLSerializer
+# uninitialized constant Bundler::YAMLSerializer
 # wrong constant name original_exec
 # wrong constant name original_system
-# wrong constant name preferred_gemfile_name
-# wrong constant name reset_settings_and_root!
-# wrong constant name self_manager
 # wrong constant name unbundled_env
 # wrong constant name unbundled_exec
 # wrong constant name unbundled_system
@@ -1960,7 +1825,6 @@
 # wrong constant name _dump
 # wrong constant name initialize
 # wrong constant name _load
-# wrong constant name sum
 # wrong constant name +
 # wrong constant name <Class:ArithmeticSequence>
 # wrong constant name <Class:Chain>
@@ -2085,43 +1949,100 @@
 # wrong constant name <Class:SpecFetcher>
 # wrong constant name <Class:SpecificationPolicy>
 # wrong constant name <Class:UninstallError>
-# uninitialized constant Gem::AvailableSet
-# uninitialized constant Gem::AvailableSet
-# uninitialized constant Gem::DependencyInstaller
-# Did you mean?  Gem::DependencyList
-# uninitialized constant Gem::DependencyInstaller
-# Did you mean?  Gem::DependencyList
 # wrong constant name <static-init>
 # uninitialized constant Gem::Ext::ExtConfBuilder::CHDIR_MONITOR
 # uninitialized constant Gem::Ext::ExtConfBuilder::CHDIR_MUTEX
 # wrong constant name <static-init>
 # wrong constant name build
 # wrong constant name get_relative_path
-# wrong constant name copy_to
-# wrong constant name data_mode
-# wrong constant name data_mode=
-# wrong constant name dir_mode
-# wrong constant name dir_mode=
-# wrong constant name extract_files
+# wrong constant name <Class:DigestIO>
+# wrong constant name <Class:FileSource>
+# wrong constant name <Class:IOSource>
+# wrong constant name <Class:Old>
+# wrong constant name <Class:Source>
+# wrong constant name <Class:TarHeader>
+# wrong constant name gem
+# wrong constant name digests
 # wrong constant name initialize
-# wrong constant name prog_mode
-# wrong constant name prog_mode=
-# wrong constant name spec
-# wrong constant name spec=
+# wrong constant name write
 # wrong constant name <static-init>
+# wrong constant name wrap
+# wrong constant name initialize
+# wrong constant name path
+# wrong constant name present?
+# wrong constant name start
+# wrong constant name with_read_io
+# wrong constant name with_write_io
+# wrong constant name <static-init>
+# wrong constant name initialize
+# wrong constant name io
+# wrong constant name path
+# wrong constant name present?
+# wrong constant name start
+# wrong constant name with_read_io
+# wrong constant name with_write_io
+# wrong constant name <static-init>
+# wrong constant name extract_files
+# wrong constant name file_list
+# wrong constant name read_until_dashes
+# wrong constant name skip_ruby
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name ==
+# wrong constant name checksum
+# wrong constant name devmajor
+# wrong constant name devminor
+# wrong constant name empty?
+# wrong constant name gid
+# wrong constant name gname
+# wrong constant name initialize
+# wrong constant name linkname
+# wrong constant name magic
+# wrong constant name mode
+# wrong constant name mtime
+# wrong constant name name
+# wrong constant name prefix
+# wrong constant name size
+# wrong constant name typeflag
+# wrong constant name uid
+# wrong constant name uname
+# wrong constant name update_checksum
+# wrong constant name version
+# wrong constant name <static-init>
+# wrong constant name from
+# wrong constant name oct_or_256based
+# wrong constant name strict_oct
+# wrong constant name bytes_read
+# wrong constant name check_closed
+# wrong constant name close
+# wrong constant name closed?
+# wrong constant name directory?
+# wrong constant name eof?
+# wrong constant name file?
+# wrong constant name full_name
+# wrong constant name getc
+# wrong constant name header
+# wrong constant name initialize
+# wrong constant name length
+# wrong constant name pos
+# wrong constant name read
+# wrong constant name readpartial
+# wrong constant name rewind
+# wrong constant name size
+# wrong constant name symlink?
+# wrong constant name <static-init>
+# wrong constant name new
+# wrong constant name new
+# wrong constant name new
+# wrong constant name raw_spec
 # wrong constant name home
 # wrong constant name initialize
 # wrong constant name path
 # wrong constant name spec_cache_dir
-# wrong constant name match_gem?
-# wrong constant name match_spec?
-# wrong constant name <Class:CorrectHashForLambdaOperator>
-# wrong constant name <Class:OrderIndependentComparison>
-# wrong constant name hash
+# wrong constant name initialize
+# wrong constant name uri
+# wrong constant name uri=
 # wrong constant name <static-init>
-# wrong constant name ==
-# wrong constant name _requirements_sorted?
-# wrong constant name _with_sorted_requirements
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name <static-init>
@@ -2140,6 +2061,41 @@
 # wrong constant name suggestion
 # wrong constant name suggestion=
 # wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name cert_chain
+# wrong constant name cert_chain=
+# wrong constant name digest_algorithm
+# wrong constant name digest_name
+# wrong constant name extract_name
+# wrong constant name initialize
+# wrong constant name key
+# wrong constant name key=
+# wrong constant name load_cert_chain
+# wrong constant name options
+# wrong constant name re_sign_key
+# wrong constant name sign
+# wrong constant name re_sign_cert
+# wrong constant name cert_path
+# wrong constant name dir
+# wrong constant name each_certificate
+# wrong constant name initialize
+# wrong constant name issuer_of
+# wrong constant name load_certificate
+# wrong constant name name_path
+# wrong constant name trust_cert
+# wrong constant name verify
+# wrong constant name alt_name_or_x509_entry
+# wrong constant name create_cert
+# wrong constant name create_cert_email
+# wrong constant name create_cert_self_signed
+# wrong constant name create_key
+# wrong constant name email_to_name
+# wrong constant name re_sign
+# wrong constant name reset
+# wrong constant name sign
+# wrong constant name trust_dir
+# wrong constant name trusted_certificates
+# wrong constant name write
 # wrong constant name available_specs
 # wrong constant name detect
 # wrong constant name initialize
@@ -2157,7 +2113,6 @@
 # wrong constant name <=>
 # uninitialized constant Gem::Specification::GENERICS
 # uninitialized constant Gem::Specification::GENERIC_CACHE
-# wrong constant name deleted_gem?
 # wrong constant name removed_method_calls
 # wrong constant name to_ruby
 # wrong constant name initialize
@@ -2190,6 +2145,7 @@
 # wrong constant name spec
 # wrong constant name spec=
 # wrong constant name <static-init>
+# wrong constant name activated_gem_paths
 # uninitialized constant GetoptLong
 # uninitialized constant GetoptLong
 # wrong constant name deconstruct_keys
@@ -2583,8 +2539,8 @@
 #                Parser::Ruby24::Racc_Runtime_Core_Revision_R
 #                Parser::Ruby24::Racc_Runtime_Revision
 #                Parser::Ruby24::Racc_Runtime_Core_Version
-#                Parser::Ruby24::Racc_Runtime_Core_Version_R
 #                Parser::Ruby24::Racc_Runtime_Core_Version_C
+#                Parser::Ruby24::Racc_Runtime_Core_Version_R
 #                Parser::Ruby24::Racc_Runtime_Version
 #                Parser::Ruby24::Racc_Runtime_Core_Id_C
 # uninitialized constant Parser::Ruby24::Racc_Runtime_Core_Revision_C
@@ -2849,8 +2805,8 @@
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_R
 #                RDoc::RD::BlockParser::Racc_Runtime_Revision
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Version
-#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::BlockParser::Racc_Runtime_Core_Version_R
 #                RDoc::RD::BlockParser::Racc_Runtime_Version
 #                RDoc::RD::BlockParser::Racc_Runtime_Core_Id_C
 # uninitialized constant RDoc::RD::BlockParser::Racc_Runtime_Core_Revision_C
@@ -2909,8 +2865,8 @@
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_R
 #                RDoc::RD::InlineParser::Racc_Runtime_Revision
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Version
-#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_C
+#                RDoc::RD::InlineParser::Racc_Runtime_Core_Version_R
 #                RDoc::RD::InlineParser::Racc_Runtime_Version
 #                RDoc::RD::InlineParser::Racc_Runtime_Core_Id_C
 # uninitialized constant RDoc::RD::InlineParser::Racc_Runtime_Core_Revision_C
@@ -3154,32 +3110,32 @@
 # uninitialized constant Ripper::Lexer::EVENTS
 # Did you mean?  Ripper::EVENTS
 # uninitialized constant Ripper::Lexer::EXPR_ARG
-# Did you mean?  Ripper::EXPR_ARG
+# Did you mean?  Ripper::EXPR_BEG
+#                Ripper::EXPR_ARG
 #                Ripper::Lexer::EXPR_BEG
-#                Ripper::EXPR_BEG
 # uninitialized constant Ripper::Lexer::EXPR_ARG_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
-#                Ripper::Lexer::EXPR_END_ANY
-#                Ripper::Lexer::EXPR_BEG_ANY
+# Did you mean?  Ripper::Lexer::EXPR_BEG_ANY
 #                Ripper::EXPR_END_ANY
 #                Ripper::EXPR_BEG_ANY
-# uninitialized constant Ripper::Lexer::EXPR_BEG
-# Did you mean?  Ripper::EXPR_ARG
-#                Ripper::Lexer::EXPR_ARG
-#                Ripper::EXPR_BEG
-# uninitialized constant Ripper::Lexer::EXPR_BEG_ANY
-# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_END_ANY
 #                Ripper::EXPR_ARG_ANY
-#                Ripper::EXPR_BEG_ANY
+# uninitialized constant Ripper::Lexer::EXPR_BEG
+# Did you mean?  Ripper::Lexer::EXPR_ARG
+#                Ripper::EXPR_BEG
+#                Ripper::EXPR_ARG
+# uninitialized constant Ripper::Lexer::EXPR_BEG_ANY
+# Did you mean?  Ripper::EXPR_BEG_ANY
+#                Ripper::Lexer::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_ARG_ANY
+#                Ripper::EXPR_ARG_ANY
+#                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::Lexer::EXPR_CLASS
 # Did you mean?  Ripper::EXPR_CLASS
 # uninitialized constant Ripper::Lexer::EXPR_CMDARG
 # Did you mean?  Ripper::Lexer::EXPR_ARG
 #                Ripper::EXPR_ARG
-#                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::EXPR_CMDARG
+#                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::Lexer::EXPR_DOT
 # Did you mean?  Ripper::EXPR_DOT
@@ -3187,34 +3143,34 @@
 # Did you mean?  Ripper::Lexer::EXPR_MID
 #                Ripper::EXPR_MID
 #                Ripper::EXPR_END
-#                Ripper::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_ENDFN
+#                Ripper::EXPR_ENDFN
 # uninitialized constant Ripper::Lexer::EXPR_ENDARG
-# Did you mean?  Ripper::EXPR_ARG
-#                Ripper::Lexer::EXPR_ARG
+# Did you mean?  Ripper::Lexer::EXPR_ARG
+#                Ripper::EXPR_ARG
 #                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_CMDARG
 #                Ripper::EXPR_CMDARG
 #                Ripper::EXPR_ENDARG
-#                Ripper::EXPR_END_ANY
 #                Ripper::Lexer::EXPR_END_ANY
+#                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::Lexer::EXPR_ENDFN
 # Did you mean?  Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
-#                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
-#                Ripper::EXPR_END_ANY
+#                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::Lexer::EXPR_END_ANY
+#                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::Lexer::EXPR_END_ANY
 # Did you mean?  Ripper::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
-#                Ripper::EXPR_ARG_ANY
 #                Ripper::Lexer::EXPR_ARG_ANY
 #                Ripper::Lexer::EXPR_BEG_ANY
-#                Ripper::EXPR_ENDFN
+#                Ripper::EXPR_ARG_ANY
+#                Ripper::EXPR_BEG_ANY
 #                Ripper::Lexer::EXPR_ENDFN
+#                Ripper::EXPR_ENDFN
 #                Ripper::Lexer::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::Lexer::EXPR_FITEM
@@ -3233,14 +3189,14 @@
 # Did you mean?  Ripper::EXPR_LABEL
 #                Ripper::EXPR_LABELED
 # uninitialized constant Ripper::Lexer::EXPR_MID
-# Did you mean?  Ripper::EXPR_END
+# Did you mean?  Ripper::Lexer::EXPR_END
 #                Ripper::EXPR_MID
-#                Ripper::Lexer::EXPR_END
+#                Ripper::EXPR_END
 # uninitialized constant Ripper::Lexer::EXPR_NONE
 # Did you mean?  Ripper::Lexer::EXPR_DOT
 #                Ripper::Lexer::EXPR_END
-#                Ripper::EXPR_END
 #                Ripper::EXPR_DOT
+#                Ripper::EXPR_END
 #                Ripper::EXPR_NONE
 #                Ripper::Lexer::EXPR_FNAME
 #                Ripper::EXPR_FNAME
@@ -3297,32 +3253,32 @@
 # uninitialized constant Ripper::SexpBuilder::EVENTS
 # Did you mean?  Ripper::EVENTS
 # uninitialized constant Ripper::SexpBuilder::EXPR_ARG
-# Did you mean?  Ripper::EXPR_ARG
+# Did you mean?  Ripper::EXPR_BEG
+#                Ripper::EXPR_ARG
 #                Ripper::SexpBuilder::EXPR_BEG
-#                Ripper::EXPR_BEG
 # uninitialized constant Ripper::SexpBuilder::EXPR_ARG_ANY
-# Did you mean?  Ripper::EXPR_ARG_ANY
-#                Ripper::SexpBuilder::EXPR_END_ANY
-#                Ripper::SexpBuilder::EXPR_BEG_ANY
+# Did you mean?  Ripper::SexpBuilder::EXPR_BEG_ANY
 #                Ripper::EXPR_END_ANY
 #                Ripper::EXPR_BEG_ANY
-# uninitialized constant Ripper::SexpBuilder::EXPR_BEG
-# Did you mean?  Ripper::EXPR_ARG
-#                Ripper::SexpBuilder::EXPR_ARG
-#                Ripper::EXPR_BEG
-# uninitialized constant Ripper::SexpBuilder::EXPR_BEG_ANY
-# Did you mean?  Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_END_ANY
 #                Ripper::EXPR_ARG_ANY
-#                Ripper::EXPR_BEG_ANY
+# uninitialized constant Ripper::SexpBuilder::EXPR_BEG
+# Did you mean?  Ripper::SexpBuilder::EXPR_ARG
+#                Ripper::EXPR_BEG
+#                Ripper::EXPR_ARG
+# uninitialized constant Ripper::SexpBuilder::EXPR_BEG_ANY
+# Did you mean?  Ripper::EXPR_BEG_ANY
+#                Ripper::SexpBuilder::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_ARG_ANY
+#                Ripper::EXPR_ARG_ANY
+#                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_CLASS
 # Did you mean?  Ripper::EXPR_CLASS
 # uninitialized constant Ripper::SexpBuilder::EXPR_CMDARG
 # Did you mean?  Ripper::SexpBuilder::EXPR_ARG
 #                Ripper::EXPR_ARG
-#                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::EXPR_CMDARG
+#                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::SexpBuilder::EXPR_DOT
 # Did you mean?  Ripper::EXPR_DOT
@@ -3330,34 +3286,34 @@
 # Did you mean?  Ripper::SexpBuilder::EXPR_MID
 #                Ripper::EXPR_MID
 #                Ripper::EXPR_END
-#                Ripper::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_ENDFN
+#                Ripper::EXPR_ENDFN
 # uninitialized constant Ripper::SexpBuilder::EXPR_ENDARG
-# Did you mean?  Ripper::EXPR_ARG
-#                Ripper::SexpBuilder::EXPR_ARG
+# Did you mean?  Ripper::SexpBuilder::EXPR_ARG
+#                Ripper::EXPR_ARG
 #                Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_CMDARG
 #                Ripper::EXPR_CMDARG
 #                Ripper::EXPR_ENDARG
-#                Ripper::EXPR_END_ANY
 #                Ripper::SexpBuilder::EXPR_END_ANY
+#                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_ENDFN
 # Did you mean?  Ripper::EXPR_END
 #                Ripper::EXPR_ENDFN
-#                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
-#                Ripper::EXPR_END_ANY
+#                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::SexpBuilder::EXPR_END_ANY
+#                Ripper::EXPR_END_ANY
 # uninitialized constant Ripper::SexpBuilder::EXPR_END_ANY
 # Did you mean?  Ripper::EXPR_END_ANY
-#                Ripper::EXPR_BEG_ANY
-#                Ripper::EXPR_ARG_ANY
 #                Ripper::SexpBuilder::EXPR_ARG_ANY
 #                Ripper::SexpBuilder::EXPR_BEG_ANY
-#                Ripper::EXPR_ENDFN
+#                Ripper::EXPR_ARG_ANY
+#                Ripper::EXPR_BEG_ANY
 #                Ripper::SexpBuilder::EXPR_ENDFN
+#                Ripper::EXPR_ENDFN
 #                Ripper::SexpBuilder::EXPR_ENDARG
 #                Ripper::EXPR_ENDARG
 # uninitialized constant Ripper::SexpBuilder::EXPR_FITEM
@@ -3376,14 +3332,14 @@
 # Did you mean?  Ripper::EXPR_LABEL
 #                Ripper::EXPR_LABELED
 # uninitialized constant Ripper::SexpBuilder::EXPR_MID
-# Did you mean?  Ripper::EXPR_END
+# Did you mean?  Ripper::SexpBuilder::EXPR_END
 #                Ripper::EXPR_MID
-#                Ripper::SexpBuilder::EXPR_END
+#                Ripper::EXPR_END
 # uninitialized constant Ripper::SexpBuilder::EXPR_NONE
 # Did you mean?  Ripper::SexpBuilder::EXPR_DOT
 #                Ripper::SexpBuilder::EXPR_END
-#                Ripper::EXPR_END
 #                Ripper::EXPR_DOT
+#                Ripper::EXPR_END
 #                Ripper::EXPR_NONE
 #                Ripper::SexpBuilder::EXPR_FNAME
 #                Ripper::EXPR_FNAME
@@ -3656,8 +3612,8 @@
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
@@ -3714,52 +3670,52 @@
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Main_Parsing_Routine
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-# Did you mean?  RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
@@ -3768,68 +3724,68 @@
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
-# Did you mean?  RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
+# Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_R
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version_R
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_C
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision_R
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision_C
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Id_C
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Id_C
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Revision
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Revision
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Type
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Type
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Version
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_Runtime_Version
-#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Revision
-#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Revision
 #                RuboCop::AST::NodePattern::Parser::WithMeta::Racc_Runtime_Core_Version
+#                RuboCop::AST::NodePattern::Parser::Racc_Runtime_Core_Version
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_YY_Parse_Method
 # Did you mean?  RuboCop::AST::NodePattern::Parser::Racc_YY_Parse_Method
 # uninitialized constant RuboCop::AST::NodePattern::Parser::WithMeta::Racc_arg
@@ -4447,6 +4403,7 @@
 # uninitialized constant RuboCop::Cop::Lint::ShadowedException::RESTRICT_ON_SEND
 # uninitialized constant RuboCop::Cop::Lint::ShadowingOuterLocalVariable::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::ShadowingOuterLocalVariable::RESTRICT_ON_SEND
+# wrong constant name find_conditional_node_from_ascendant
 # uninitialized constant RuboCop::Cop::Lint::StructNewOverride::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::SuppressedException::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::Lint::SuppressedException::RESTRICT_ON_SEND
@@ -5359,6 +5316,12 @@
 # uninitialized constant RuboCop::Cop::Style::ZeroLengthPredicate::LITERAL_REGEX
 # uninitialized constant RuboCop::Cop::SurroundingSpace::BYTE_ORDER_MARK
 # uninitialized constant RuboCop::Cop::TrailingComma::BYTE_ORDER_MARK
+# wrong constant name single_line?
+# wrong constant name <static-init>
+# wrong constant name initialize
+# wrong constant name load
+# wrong constant name <static-init>
+# wrong constant name load
 # uninitialized constant RuboCop::Formatter::ClangStyleFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::FuubarStyleFormatter::COLOR_FOR_SEVERITY
 # uninitialized constant RuboCop::Formatter::FuubarStyleFormatter::ELLIPSES
@@ -5619,8 +5582,8 @@
 # uninitialized constant URI::File::REL_URI_REF
 # Did you mean?  URI::REL_URI_REF
 # uninitialized constant URI::File::RFC3986_PARSER
-# Did you mean?  URI::RFC3986_Parser
-#                URI::File::RFC3986_Parser
+# Did you mean?  URI::File::RFC3986_Parser
+#                URI::RFC3986_Parser
 #                URI::RFC2396_Parser
 #                URI::File::RFC2396_Parser
 #                URI::RFC3986_PARSER
@@ -8326,4 +8289,5 @@
 # wrong constant name initialize
 # wrong constant name initialize
 # wrong constant name initialize
+# wrong constant name <static-init>
 # wrong constant name initialize
