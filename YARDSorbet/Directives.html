@@ -217,19 +217,15 @@
       <pre class="lines">
 
 
-24
-25
-26
-27
-28</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/directives.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/directives.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_directives'>add_directives</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_directives'>directives</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_directive'>directive</span><span class='op'>|</span>
-    <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_concat'>concat</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_directive'>directive</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_directives'>directives</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_concat'>concat</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid__1'>_1</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -296,10 +292,7 @@
 15
 16
 17
-18
-19
-20
-21</pre>
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/directives.rb', line 10</span>
@@ -310,10 +303,7 @@
 </span>  <span class='comment'># seem to be an API to tweeze them from one node to another without
 </span>  <span class='comment'># managing YARD internal state. Instead, we just extract them from
 </span>  <span class='comment'># the raw text and re-attach them.
-</span>  <span class='id identifier rubyid_directives'>directives</span> <span class='op'>=</span> <span class='id identifier rubyid_parser'>parser</span><span class='period'>.</span><span class='id identifier rubyid_raw_text'>raw_text</span><span class='op'>&amp;.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
-    <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>@!</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='kw'>end</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-
+</span>  <span class='id identifier rubyid_directives'>directives</span> <span class='op'>=</span> <span class='id identifier rubyid_parser'>parser</span><span class='period'>.</span><span class='id identifier rubyid_raw_text'>raw_text</span><span class='op'>&amp;.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>@!</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span> <span class='op'>||</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_parser'>parser</span><span class='period'>.</span><span class='id identifier rubyid_to_docstring'>to_docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -326,7 +316,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 17 10:11:00 2022 by
+  Generated on Wed Aug 17 20:35:19 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>

@@ -256,7 +256,7 @@
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/tag_utils.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_find_tag'>find_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_tag_name'>tag_name</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_tags'>tags</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>==</span> <span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_tags'>tags</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>==</span> <span class='id identifier rubyid_tag_name'>tag_name</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -378,7 +378,7 @@
     <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_types'>types</span>
 
     <span class='comment'># Updating a tag in place doesn&#39;t seem to work, so we&#39;ll delete it, add the types, and re-add it
-</span>    <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_delete_tag_if'>delete_tag_if</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span> <span class='id identifier rubyid_t'>t</span> <span class='op'>==</span> <span class='id identifier rubyid_tag'>tag</span> <span class='rbrace'>}</span>
+</span>    <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_delete_tag_if'>delete_tag_if</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span> <span class='op'>==</span> <span class='id identifier rubyid_tag'>tag</span> <span class='rbrace'>}</span>
     <span class='comment'># overwrite any existing type annotation (sigs should win)
 </span>    <span class='id identifier rubyid_tag'>tag</span><span class='period'>.</span><span class='id identifier rubyid_types'>types</span> <span class='op'>=</span> <span class='id identifier rubyid_types'>types</span>
     <span class='id identifier rubyid_tag'>tag</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='id identifier rubyid_text'>text</span> <span class='kw'>unless</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -397,7 +397,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 17 10:11:00 2022 by
+  Generated on Wed Aug 17 20:35:19 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>

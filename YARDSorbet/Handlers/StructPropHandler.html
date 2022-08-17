@@ -402,7 +402,7 @@ in creating a constructor</p>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_value'>default_value</span>
-  <span class='id identifier rubyid_default_node'>default_node</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_traverse'>traverse</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='kw'>break</span> <span class='id identifier rubyid_n'>n</span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:label</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default:</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_default_node'>default_node</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_traverse'>traverse</span> <span class='lbrace'>{</span> <span class='kw'>break</span> <span class='id identifier rubyid__1'>_1</span> <span class='kw'>if</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:label</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default:</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_default_node'>default_node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='kw'>if</span> <span class='id identifier rubyid_default_node'>default_node</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -671,7 +671,7 @@ While <code>const</code> attributes are immutable, <code>prop</code> attributes 
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 17 10:11:01 2022 by
+  Generated on Wed Aug 17 20:35:20 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>

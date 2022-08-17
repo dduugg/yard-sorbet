@@ -292,17 +292,17 @@ this needs to be injected as a module otherwise the default Class handler will o
       <pre class="lines">
 
 
+50
+51
 52
 53
 54
 55
 56
-57
-58
-59</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_decorate_t_struct_init'>decorate_t_struct_init</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_props'>props</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
   <span class='comment'># Use kwarg style arguments, with optionals being marked with a default (unless an actual default was specified)
@@ -433,9 +433,7 @@ this needs to be injected as a module otherwise the default Class handler will o
 37
 38
 39
-40
-41
-42</pre>
+40</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 30</span>
@@ -446,10 +444,8 @@ this needs to be injected as a module otherwise the default Class handler will o
   <span class='comment'># There is a chance that there is a custom initializer, so make sure we steal the existing docstring
 </span>  <span class='comment'># and source
 </span>  <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Directives.html" title="YARDSorbet::Directives (module)">Directives</a></span></span><span class='period'>.</span><span class='id identifier rubyid_extract_directives'><span class='object_link'><a href="../Directives.html#extract_directives-class_method" title="YARDSorbet::Directives.extract_directives (method)">extract_directives</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_tags'>tags</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_tag'>tag</span><span class='op'>|</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_add_tag'>add_tag</span><span class='lparen'>(</span><span class='id identifier rubyid_tag'>tag</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prop'>prop</span><span class='op'>|</span>
-    <span class='const'><span class='object_link'><a href="../TagUtils.html" title="YARDSorbet::TagUtils (module)">TagUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_upsert_tag'><span class='object_link'><a href="../TagUtils.html#upsert_tag-class_method" title="YARDSorbet::TagUtils.upsert_tag (method)">upsert_tag</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>param</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_types'>types</span><span class='comma'>,</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_prop_name'>prop_name</span><span class='comma'>,</span> <span class='id identifier rubyid_prop'>prop</span><span class='period'>.</span><span class='id identifier rubyid_doc'>doc</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_tags'>tags</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_add_tag'>add_tag</span><span class='lparen'>(</span><span class='id identifier rubyid__1'>_1</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="../TagUtils.html" title="YARDSorbet::TagUtils (module)">TagUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_upsert_tag'><span class='object_link'><a href="../TagUtils.html#upsert_tag-class_method" title="YARDSorbet::TagUtils.upsert_tag (method)">upsert_tag</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>param</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_types'>types</span><span class='comma'>,</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_prop_name'>prop_name</span><span class='comma'>,</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_doc'>doc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='const'><span class='object_link'><a href="../TagUtils.html" title="YARDSorbet::TagUtils (module)">TagUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_upsert_tag'><span class='object_link'><a href="../TagUtils.html#upsert_tag-class_method" title="YARDSorbet::TagUtils.upsert_tag (method)">upsert_tag</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>return</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>void</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_decorate_t_struct_init'>decorate_t_struct_init</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_props'>props</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -510,15 +506,15 @@ this needs to be injected as a module otherwise the default Class handler will o
       <pre class="lines">
 
 
+60
+61
 62
 63
 64
-65
-66
-67</pre>
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_class_handler.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_object_parameters'>to_object_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_props'>props</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_prop'>prop</span><span class='op'>|</span>
@@ -536,7 +532,7 @@ this needs to be injected as a module otherwise the default Class handler will o
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 17 10:11:00 2022 by
+  Generated on Wed Aug 17 20:35:19 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>
