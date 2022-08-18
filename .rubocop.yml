@@ -5,13 +5,7 @@ require:
   - rubocop-rspec
   - rubocop-sorbet
 
-inherit_mode:
-  merge:
-    - Exclude
-
 AllCops:
-  Exclude:
-    - spec/data/**/*
   TargetRubyVersion: 2.7
 
 Layout/ClassStructure:

@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::EnumsHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'enums_handler.rb')
+  path = File.join(File.expand_path('../../data', __dir__), 'enums_handler.txt')
 
   before do
     YARD::Registry.clear

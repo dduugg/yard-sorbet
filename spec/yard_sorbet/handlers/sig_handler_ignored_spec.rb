@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::SigHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'sig_handler_ignored.rb')
+  path = File.join(File.expand_path('../../data', __dir__), 'sig_handler_ignored.txt')
 
   before do
     allow(log).to receive(:warn)

@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::AbstractDSLHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'abstract_dsl_handler.rb')
+  path = File.join(File.expand_path('../../data', __dir__), 'abstract_dsl_handler.txt')
 
   before do
     YARD::Registry.clear

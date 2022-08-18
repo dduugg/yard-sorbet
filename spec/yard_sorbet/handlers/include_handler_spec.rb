@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::IncludeHandler do
-  mixes_in_path = File.join(File.expand_path('../../data', __dir__), 'mixes_in_class_methods_handler.rb')
-  include_path = File.join(File.expand_path('../../data', __dir__), 'include_handler.rb')
+  mixes_in_path = File.join(File.expand_path('../../data', __dir__), 'mixes_in_class_methods_handler.txt')
+  include_path = File.join(File.expand_path('../../data', __dir__), 'include_handler.txt')
 
   before do
     YARD::Registry.clear

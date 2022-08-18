@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::StructPropHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'struct_handler.rb')
+  path = File.join(File.expand_path('../../data', __dir__), 'struct_handler.txt')
 
   before do
     YARD::Registry.clear
