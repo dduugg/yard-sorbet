@@ -1315,7 +1315,7 @@
 
 <span class='id identifier rubyid_private_class_method'>private_class_method</span> <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_convert_t_method'>convert_t_method</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span>
-  <span class='kw'>when</span> <span class='symbol'>:any</span> <span class='kw'>then</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_convert_node'>convert_node</span><span class='lparen'>(</span><span class='id identifier rubyid__1'>_1</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='kw'>when</span> <span class='symbol'>:any</span> <span class='kw'>then</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_convert_node'>convert_node</span><span class='lparen'>(</span><span class='id identifier rubyid__1'>_1</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Order matters here, putting `nil` last results in a more concise
 </span>  <span class='comment'># return syntax in the UI (superscripted `?`)
 </span>  <span class='comment'># https://github.com/lsegal/yard/blob/cfa62ae/lib/yard/templates/helpers/html_helper.rb#L499-L500
@@ -1402,7 +1402,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Aug 19 10:08:41 2022 by
+  Generated on Sun Aug 21 23:54:04 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>
