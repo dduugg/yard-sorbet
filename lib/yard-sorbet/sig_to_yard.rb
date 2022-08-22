@@ -46,7 +46,6 @@ module YARDSorbet
 
       collection_type = node.first.source
       member_type = node.last.children.map { build_generic_type(_1) }.join(', ')
-
       "#{collection_type}[#{member_type}]"
     end
 

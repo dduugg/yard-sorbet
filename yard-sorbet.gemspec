@@ -29,8 +29,8 @@ Gem::Specification.new do |spec|
 
   spec.files = `git ls-files -z -- lib/*`.split("\x0") + ['LICENSE']
 
-  spec.add_development_dependency 'bundler-audit'
-  spec.add_development_dependency 'codecov'
+  spec.add_development_dependency 'bundler-audit', '~> 0.9.1'
+  spec.add_development_dependency 'codecov', '~> 0.6.0'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'redcarpet', '~> 3.5'
   spec.add_development_dependency 'rspec', '~> 3.10'
@@ -39,7 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rake', '~> 0.6.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.12.1'
   spec.add_development_dependency 'rubocop-sorbet', '~> 0.6.0'
-  spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'sorbet', '~> 0.5.9204'
   spec.add_runtime_dependency 'sorbet-runtime', '>= 0.5'
   spec.add_runtime_dependency 'yard', '>= 0.9'
