@@ -47,7 +47,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
-    rubocop (1.35.1)
+    rubocop (1.35.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
@@ -78,7 +78,16 @@ GEM
     sorbet (0.5.10346)
       sorbet-static (= 0.5.10346)
     sorbet-runtime (0.5.10352)
+    sorbet-static (0.5.10346-universal-darwin-14)
+    sorbet-static (0.5.10346-universal-darwin-15)
+    sorbet-static (0.5.10346-universal-darwin-16)
+    sorbet-static (0.5.10346-universal-darwin-17)
+    sorbet-static (0.5.10346-universal-darwin-18)
+    sorbet-static (0.5.10346-universal-darwin-19)
+    sorbet-static (0.5.10346-universal-darwin-20)
     sorbet-static (0.5.10346-universal-darwin-21)
+    sorbet-static (0.5.10346-universal-darwin-22)
+    sorbet-static (0.5.10346-x86_64-linux)
     thor (1.2.1)
     unicode-display_width (2.2.0)
     webrick (1.7.0)
@@ -86,12 +95,12 @@ GEM
       webrick (~> 1.7.0)
 
 PLATFORMS
-  x86_64-darwin-21
+  ruby
 
 DEPENDENCIES
   bundler-audit (~> 0.9.1)
   codecov (~> 0.6.0)
-  pry-byebug
+  pry-byebug (~> 3.10)
   rake (~> 13.0)
   redcarpet (~> 3.5)
   rspec (~> 3.10)
@@ -100,7 +109,6 @@ DEPENDENCIES
   rubocop-rake (~> 0.6.0)
   rubocop-rspec (~> 2.12.1)
   rubocop-sorbet (~> 0.6.0)
-  simplecov
   sorbet (~> 0.5.9204)
   yard-sorbet!
 
