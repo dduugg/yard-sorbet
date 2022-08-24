@@ -106,7 +106,7 @@ module YARDSorbet
 
     sig { params(node_source: String).returns([String]) }
     private_class_method def self.convert_ref(node_source)
-      REF_TYPES.fetch(node_source, [node_source])
+      REF_TYPES[node_source] || [node_source]
     end
 
     sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
