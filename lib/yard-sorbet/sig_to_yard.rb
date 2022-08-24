@@ -6,6 +6,16 @@ module YARDSorbet
   module SigToYARD
     extend T::Sig
 
+    REF_TYPES = T.let({
+      'T::Boolean' => ['Boolean'].freeze, # YARD convention for booleans
+      # YARD convention is use singleton objects when applicable:
+      # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Literals
+      'FalseClass' => ['false'].freeze,
+      'NilClass' => ['nil'].freeze,
+      'TrueClass' => ['true'].freeze
+    }.freeze, T::Hash[String, [String]])
+    private_constant :REF_TYPES
+
     # @see https://yardoc.org/types.html
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     def self.convert(node)
@@ -17,7 +27,7 @@ module YARDSorbet
     private_class_method def self.convert_node(node)
       case node
       when YARD::Parser::Ruby::MethodCallNode then convert_call(node)
-      when YARD::Parser::Ruby::ReferenceNode then convert_ref(node)
+      when YARD::Parser::Ruby::ReferenceNode then convert_ref(node.source)
       else convert_node_type(node)
       end
     end
@@ -61,7 +71,7 @@ module YARDSorbet
       end
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_array(node)
       # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
       member_types = node.first.children.map { convert_node(_1) }
@@ -74,14 +84,14 @@ module YARDSorbet
       node.namespace.source == 'T' ? convert_t_method(node) : [node.source]
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_collection(node)
       collection_type = node.first.source.split('::').last
       member_type = convert_node(node.last.first).join(', ')
       ["#{collection_type}<#{member_type}>"]
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_hash(node)
       kv = node.last.children
       key_type = convert_node(kv.first).join(', ')
@@ -94,18 +104,9 @@ module YARDSorbet
       node.children.size == 1 ? convert_node(node.children.first) : [node.source]
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-    private_class_method def self.convert_ref(node)
-      source = node.source
-      case source
-      when 'T::Boolean' then ['Boolean'] # YARD convention for booleans
-      # YARD convention is use singleton objects when applicable:
-      # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Literals
-      when 'FalseClass' then ['false']
-      when 'NilClass' then ['nil']
-      when 'TrueClass' then ['true']
-      else [source]
-      end
+    sig { params(node_source: String).returns([String]) }
+    private_class_method def self.convert_ref(node_source)
+      REF_TYPES.fetch(node_source, [node_source])
     end
 
     sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
@@ -120,7 +121,7 @@ module YARDSorbet
       end
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
+    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_unknown(node)
       log.warn("Unsupported sig #{node.type} node #{node.source}")
       [node.source]

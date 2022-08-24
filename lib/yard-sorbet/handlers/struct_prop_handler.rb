@@ -37,8 +37,7 @@ module YARDSorbet
       # Get the default prop value
       sig { returns(T.nilable(String)) }
       def default_value
-        default_node = statement.traverse { break _1 if _1.type == :label && _1.source == 'default:' }
-        default_node.parent[1].source if default_node
+        statement.traverse { break _1 if _1.type == :label && _1.source == 'default:' }&.parent&.[](1)&.source
       end
 
       sig { params(name: String).returns(TStructProp) }
