@@ -2,7 +2,7 @@
 
 ## main
 
-## 0.6.1 (2021-11-01)
+## 0.7.0 (2022-08-24)
 
 ### Bug Fixes
 
@@ -11,6 +11,8 @@
 ### Changes
 
 * Increase minimum required ruby version to `2.7.0`
+
+## 0.6.1 (2021-11-01)
 
 ### Bug fixes
 

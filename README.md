@@ -19,6 +19,7 @@ See the Plugin Support [section](https://rubydoc.info/gems/yard/file/docs/Gettin
 
 ## Used By
 
-This plugin is used in generating docs for:
+This plugin is used by:
 - The [Homebrew Ruby API](https://rubydoc.brew.sh/index.html)
+- [Tapioca](https://github.com/Shopify/tapioca), to optionally include YARD documentation from sources when generating RBIs
 - `yard-sorbet` [itself](https://dduugg.github.io/yard-sorbet/)
