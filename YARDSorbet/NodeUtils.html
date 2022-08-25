@@ -120,7 +120,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='qsymbols_beg'>%i[</span><span class='tstring_content'>attr</span><span class='words_sep'> </span><span class='tstring_content'>attr_accessor</span><span class='words_sep'> </span><span class='tstring_content'>attr_reader</span><span class='words_sep'> </span><span class='tstring_content'>attr_writer</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span> <span class='const'>T</span><span class='op'>::</span><span class='const'>Array</span><span class='lbracket'>[</span><span class='const'>Symbol</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre></dd>
+        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='const'>Set</span><span class='lbracket'>[</span><span class='symbol'>:attr</span><span class='comma'>,</span> <span class='symbol'>:attr_accessor</span><span class='comma'>,</span> <span class='symbol'>:attr_reader</span><span class='comma'>,</span> <span class='symbol'>:attr_writer</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span> <span class='const'>T</span><span class='op'>::</span><span class='const'>Set</span><span class='lbracket'>[</span><span class='const'>Symbol</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre></dd>
       
         <dt id="SKIP_METHOD_CONTENTS-constant" class="">SKIP_METHOD_CONTENTS =
           <div class="docstring">
@@ -135,7 +135,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='qsymbols_beg'>%i[</span><span class='tstring_content'>params</span><span class='words_sep'> </span><span class='tstring_content'>returns</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span> <span class='const'>T</span><span class='op'>::</span><span class='const'>Array</span><span class='lbracket'>[</span><span class='const'>Symbol</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre></dd>
+        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='const'>Set</span><span class='lbracket'>[</span><span class='symbol'>:params</span><span class='comma'>,</span> <span class='symbol'>:returns</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='comma'>,</span> <span class='const'>T</span><span class='op'>::</span><span class='const'>Set</span><span class='lbracket'>[</span><span class='const'>Symbol</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre></dd>
       
         <dt id="SigableNode-constant" class="">SigableNode =
           <div class="docstring">
@@ -405,22 +405,16 @@
 37
 38
 39
-40
-41
-42
-43</pre>
+40</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_method_node'>get_method_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_node'>node</span>
-  <span class='kw'>when</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodDefinitionNode</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_node'>node</span>
-  <span class='kw'>when</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_node'>node</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="#ATTRIBUTE_METHODS-constant" title="YARDSorbet::NodeUtils::ATTRIBUTE_METHODS (constant)">ATTRIBUTE_METHODS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>when</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodDefinitionNode</span> <span class='kw'>then</span> <span class='kw'>return</span> <span class='id identifier rubyid_node'>node</span>
+  <span class='kw'>when</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span> <span class='kw'>then</span> <span class='kw'>return</span> <span class='id identifier rubyid_node'>node</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="#ATTRIBUTE_METHODS-constant" title="YARDSorbet::NodeUtils::ATTRIBUTE_METHODS (constant)">ATTRIBUTE_METHODS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-
   <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_jump'>jump</span><span class='lparen'>(</span><span class='symbol'>:def</span><span class='comma'>,</span> <span class='symbol'>:defs</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -498,14 +492,14 @@
       <pre class="lines">
 
 
+45
+46
+47
 48
-49
-50
-51
-52</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sibling_node'>sibling_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_siblings'>siblings</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span>
@@ -522,7 +516,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 25 10:09:03 2022 by
+  Generated on Thu Aug 25 23:35:47 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>
