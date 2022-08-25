@@ -11,7 +11,7 @@ module YARDSorbet
       namespace_only
 
       # These node types attached to sigs represent attr_* declarations
-      ATTR_NODE_TYPES = T.let(%i[command fcall].freeze, T::Array[Symbol])
+      ATTR_NODE_TYPES = T.let(Set[:command, :fcall].freeze, T::Set[Symbol])
       private_constant :ATTR_NODE_TYPES
 
       # Swap the method definition docstring and the sig docstring.
@@ -30,14 +30,11 @@ module YARDSorbet
 
       sig { params(method_node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
       def parse_sig(method_node, docstring)
-        NodeUtils.bfs_traverse(statement) do |n|
-          case n.source
-          when 'abstract'
-            YARDSorbet::TagUtils.upsert_tag(docstring, 'abstract')
-          when 'params'
-            parse_params(method_node, n, docstring)
-          when 'returns', 'void'
-            parse_return(n, docstring)
+        NodeUtils.bfs_traverse(statement) do |node|
+          case node.source
+          when 'abstract' then YARDSorbet::TagUtils.upsert_tag(docstring, 'abstract')
+          when 'params' then parse_params(method_node, node, docstring)
+          when 'returns', 'void' then parse_return(node, docstring)
           end
         end
       end

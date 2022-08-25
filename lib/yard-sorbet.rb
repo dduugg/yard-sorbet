@@ -1,6 +1,7 @@
 # typed: strong
 # frozen_string_literal: true
 
+require 'set'
 require 'sorbet-runtime'
 require 'yard'
 

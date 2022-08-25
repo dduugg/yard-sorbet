@@ -6,6 +6,7 @@ module YARDSorbet
   module SigToYARD
     extend T::Sig
 
+    # Map of common types to YARD conventions (in order to reduce allocations)
     REF_TYPES = T.let({
       'T::Boolean' => ['Boolean'].freeze, # YARD convention for booleans
       # YARD convention is use singleton objects when applicable:
@@ -113,10 +114,9 @@ module YARDSorbet
     private_class_method def self.convert_t_method(node)
       case node.method_name(true)
       when :any then node.last.first.children.flat_map { convert_node(_1) }
-      # Order matters here, putting `nil` last results in a more concise
-      # return syntax in the UI (superscripted `?`)
+      # Order matters here, putting `nil` last results in a more concise return syntax in the UI (superscripted `?`):
       # https://github.com/lsegal/yard/blob/cfa62ae/lib/yard/templates/helpers/html_helper.rb#L499-L500
-      when :nilable then convert_node(node.last) + ['nil']
+      when :nilable then convert_node(node.last).push('nil')
       else [node.source]
       end
     end
