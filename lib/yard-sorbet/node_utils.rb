@@ -12,7 +12,6 @@ module YARDSorbet
     SKIP_METHOD_CONTENTS = T.let(Set[:params, :returns].freeze, T::Set[Symbol])
     # Node types that can have type signatures
     SigableNode = T.type_alias { T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode) }
-
     private_constant :ATTRIBUTE_METHODS, :SKIP_METHOD_CONTENTS, :SigableNode
 
     # Traverse AST nodes in breadth-first order
@@ -32,11 +31,11 @@ module YARDSorbet
     # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(SigableNode) }
     def self.get_method_node(node)
-      case node
-      when YARD::Parser::Ruby::MethodDefinitionNode then return node
-      when YARD::Parser::Ruby::MethodCallNode then return node if ATTRIBUTE_METHODS.include?(node.method_name(true))
+      if node.is_a?(YARD::Parser::Ruby::MethodCallNode) && ATTRIBUTE_METHODS.include?(node.method_name(true))
+        node
+      else
+        node.jump(:def, :defs)
       end
-      node.jump(:def, :defs)
     end
 
     # Find and return the adjacent node (ascending)
