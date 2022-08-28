@@ -2,6 +2,10 @@
 
 ## main
 
+###
+
+* Handle multiple invocations of `mixes_in_class_methods` within a class
+
 ## 0.7.0 (2022-08-24)
 
 ### Bug Fixes

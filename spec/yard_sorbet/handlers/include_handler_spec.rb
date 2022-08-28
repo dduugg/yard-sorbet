@@ -24,7 +24,9 @@ RSpec.describe YARDSorbet::Handlers::IncludeHandler do
 
     it 'resolves full class method namespace' do
       node = YARD::Registry.at('OuterModule::InnerClass')
-      expect(node.class_mixins.map(&:to_s)).to include('OuterModule::InnerModule::ClassMethods')
+      expect(node.class_mixins.map(&:to_s)).to(
+        include('OuterModule::InnerModule::ClassMethodsA', 'OuterModule::InnerModule::ClassMethodsB')
+      )
     end
 
     it 'handles multiple parameters to include' do

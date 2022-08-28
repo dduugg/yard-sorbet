@@ -39,10 +39,14 @@ Receiver.include(M)
 module OuterModule
   module InnerModule
     extend T::Helpers
-    module ClassMethods
+    module ClassMethodsA
       def foo; end
     end
-    mixes_in_class_methods(ClassMethods)
+    module ClassMethodsB
+      def bar; end
+    end
+    mixes_in_class_methods(ClassMethodsA)
+    mixes_in_class_methods(ClassMethodsB)
   end
 
   class InnerClass
