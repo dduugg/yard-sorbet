@@ -145,7 +145,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='const'>T</span><span class='op'>::</span><span class='const'>Hash</span><span class='lbracket'>[</span><span class='const'>String</span><span class='comma'>,</span> <span class='const'>String</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre></dd>
+        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='const'>T</span><span class='op'>::</span><span class='const'>Hash</span><span class='lbracket'>[</span><span class='const'>String</span><span class='comma'>,</span> <span class='const'>T</span><span class='op'>::</span><span class='const'>Array</span><span class='lbracket'>[</span><span class='const'>String</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre></dd>
       
     </dl>
   
@@ -167,7 +167,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mixed_in_class_methods-class_method" title="mixed_in_class_methods (class method)">.<strong>mixed_in_class_methods</strong>(code_obj)  &#x21d2; String<sup>?</sup> </a>
+      <a href="#mixed_in_class_methods-class_method" title="mixed_in_class_methods (class method)">.<strong>mixed_in_class_methods</strong>(code_obj)  &#x21d2; Array&lt;String&gt;<sup>?</sup> </a>
     
 
     
@@ -231,7 +231,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="mixed_in_class_methods-class_method">
   
-    .<strong>mixed_in_class_methods</strong>(code_obj)  &#x21d2; <tt>String</tt><sup>?</sup> 
+    .<strong>mixed_in_class_methods</strong>(code_obj)  &#x21d2; <tt>Array&lt;String&gt;</tt><sup>?</sup> 
   
 
   
@@ -266,7 +266,7 @@
     <li>
       
       
-        <span class='type'>(<tt>String</tt>, <tt>nil</tt>)</span>
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>, <tt>nil</tt>)</span>
       
       
       
@@ -327,13 +327,15 @@
 
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
-  <span class='cvar'>@@mix_in_class_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>
+  <span class='cvar'>@@mix_in_class_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='cvar'>@@mix_in_class_methods</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -345,7 +347,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Aug 26 10:07:32 2022 by
+  Generated on Sun Aug 28 22:24:43 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>
