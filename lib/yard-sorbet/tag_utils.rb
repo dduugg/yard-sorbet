@@ -6,6 +6,9 @@ module YARDSorbet
   module TagUtils
     extend T::Sig
 
+    # The `void` return type, as a constant to reduce array allocations
+    VOID_RETURN_TYPE = T.let(['void'].freeze, [String])
+
     # @return the tag with the matching `tag_name` and `name`, or `nil`
     sig do
       params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String)).returns(T.nilable(YARD::Tags::Tag))

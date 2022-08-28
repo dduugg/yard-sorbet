@@ -59,7 +59,7 @@ module YARDSorbet
 
       sig { params(node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
       def parse_return(node, docstring)
-        type = node.source == 'void' ? ['void'] : SigToYARD.convert(NodeUtils.sibling_node(node))
+        type = node.source == 'void' ? TagUtils::VOID_RETURN_TYPE : SigToYARD.convert(NodeUtils.sibling_node(node))
         TagUtils.upsert_tag(docstring, 'return', type)
       end
     end
