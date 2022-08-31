@@ -32,34 +32,32 @@ module YARDSorbet
       def parse_sig(method_node, docstring)
         NodeUtils.bfs_traverse(statement) do |node|
           case node.source
-          when 'abstract' then YARDSorbet::TagUtils.upsert_tag(docstring, 'abstract')
+          when 'returns' then parse_return(node, docstring)
           when 'params' then parse_params(method_node, node, docstring)
-          when 'returns', 'void' then parse_return(node, docstring)
+          when 'void' then TagUtils.upsert_tag(docstring, 'return', TagUtils::VOID_RETURN_TYPE)
+          when 'abstract' then TagUtils.upsert_tag(docstring, 'abstract')
           end
         end
       end
 
       sig do
-        params(
-          method_node: YARD::Parser::Ruby::AstNode,
-          node: YARD::Parser::Ruby::AstNode,
-          docstring: YARD::Docstring
-        ).void
+        params(method_node: YARD::Parser::Ruby::AstNode, node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring)
+          .void
       end
       def parse_params(method_node, node, docstring)
         return if ATTR_NODE_TYPES.include?(method_node.type)
 
         sibling = NodeUtils.sibling_node(node)
-        sibling[0][0].each do |p|
-          param_name = p[0][0]
-          types = SigToYARD.convert(p.last)
+        sibling[0][0].each do |param|
+          param_name = param[0][0]
+          types = SigToYARD.convert(param.last)
           TagUtils.upsert_tag(docstring, 'param', types, param_name)
         end
       end
 
       sig { params(node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
       def parse_return(node, docstring)
-        type = node.source == 'void' ? TagUtils::VOID_RETURN_TYPE : SigToYARD.convert(NodeUtils.sibling_node(node))
+        type = SigToYARD.convert(NodeUtils.sibling_node(node))
         TagUtils.upsert_tag(docstring, 'return', type)
       end
     end
