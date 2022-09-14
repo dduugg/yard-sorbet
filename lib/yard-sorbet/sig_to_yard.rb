@@ -113,10 +113,10 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
     private_class_method def self.convert_t_method(node)
       case node.method_name(true)
-      when :any then node.last.first.children.flat_map { convert_node(_1) }
       # Order matters here, putting `nil` last results in a more concise return syntax in the UI (superscripted `?`):
       # https://github.com/lsegal/yard/blob/cfa62ae/lib/yard/templates/helpers/html_helper.rb#L499-L500
       when :nilable then convert_node(node.last).push('nil')
+      when :any then node.last.first.children.flat_map { convert_node(_1) }
       else [node.source]
       end
     end

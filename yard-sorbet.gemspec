@@ -11,9 +11,7 @@ Gem::Specification.new do |spec|
   spec.license = 'Apache-2.0'
 
   spec.summary = 'Create YARD docs from Sorbet type signatures'
-  spec.description = <<~DESC
-    A YARD plugin that incorporates Sorbet type information
-  DESC
+  spec.description = 'A YARD plugin that incorporates Sorbet type information'
   spec.homepage = 'https://github.com/dduugg/yard-sorbet'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0')
 

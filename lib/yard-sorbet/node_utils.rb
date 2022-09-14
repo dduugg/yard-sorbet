@@ -31,11 +31,7 @@ module YARDSorbet
     # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(SigableNode) }
     def self.get_method_node(node)
-      if node.is_a?(YARD::Parser::Ruby::MethodCallNode) && ATTRIBUTE_METHODS.include?(node.method_name(true))
-        node
-      else
-        node.jump(:def, :defs)
-      end
+      sigable_node?(node) ? node : node.jump(:def, :defs)
     end
 
     # Find and return the adjacent node (ascending)
@@ -45,6 +41,15 @@ module YARDSorbet
       siblings = node.parent.children
       node_index = siblings.find_index { _1.equal?(node) }
       siblings.fetch(node_index + 1)
+    end
+
+    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
+    private_class_method def self.sigable_node?(node)
+      case node
+      when YARD::Parser::Ruby::MethodDefinitionNode then true
+      when YARD::Parser::Ruby::MethodCallNode then ATTRIBUTE_METHODS.include?(node.method_name(true))
+      else false
+      end
     end
   end
 end
