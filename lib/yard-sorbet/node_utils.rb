@@ -44,7 +44,7 @@ module YARDSorbet
     end
 
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
-    private_class_method def self.sigable_node?(node)
+    def self.sigable_node?(node)
       case node
       when YARD::Parser::Ruby::MethodDefinitionNode then true
       when YARD::Parser::Ruby::MethodCallNode then ATTRIBUTE_METHODS.include?(node.method_name(true))
