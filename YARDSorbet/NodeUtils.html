@@ -238,7 +238,7 @@
 </li>
 
       
-        <li class="private ">
+        <li class="public ">
   <span class="summary_signature">
     
       <a href="#sigable_node%3F-class_method" title="sigable_node? (class method)">.<strong>sigable_node?</strong>(node)  &#x21d2; Boolean </a>
@@ -249,7 +249,7 @@
   
   
   
-  <span class="note title private">private</span>
+  
   
   
   
@@ -528,7 +528,7 @@
       <div class="method_details ">
   <h3 class="signature " id="sigable_node?-class_method">
   
-    .<strong>sigable_node?</strong>(node)  &#x21d2; <tt>Boolean</tt>  <span class="extras">(private)</span>
+    .<strong>sigable_node?</strong>(node)  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -588,7 +588,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 47</span>
 
-<span class='id identifier rubyid_private_class_method'>private_class_method</span> <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sigable_node?'>sigable_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sigable_node?'>sigable_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_node'>node</span>
   <span class='kw'>when</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodDefinitionNode</span> <span class='kw'>then</span> <span class='kw'>true</span>
   <span class='kw'>when</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span> <span class='kw'>then</span> <span class='const'><span class='object_link'><a href="#ATTRIBUTE_METHODS-constant" title="YARDSorbet::NodeUtils::ATTRIBUTE_METHODS (constant)">ATTRIBUTE_METHODS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -605,7 +605,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Sep 14 20:27:02 2022 by
+  Generated on Thu Sep 15 18:11:15 2022 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.1.2).
 </div>
