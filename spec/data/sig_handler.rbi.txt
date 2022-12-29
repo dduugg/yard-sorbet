@@ -1,0 +1,9 @@
+module Merge
+  class A
+    sig { returns(String) }
+    def foo; end
+
+    sig { params(a: Integer).returns(Float) }
+    def self.bar(a); end
+  end
+end

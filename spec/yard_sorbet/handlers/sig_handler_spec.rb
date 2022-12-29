@@ -9,6 +9,29 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     YARD::Parser::SourceParser.parse(path)
   end
 
+  describe 'Merging an RBI file' do
+    before do
+      rbi_path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.rbi.txt')
+      YARD::Parser::SourceParser.parse(rbi_path)
+    end
+
+    it 'includes docstring from original instance def' do
+      expect(YARD::Registry.at('Merge::A#foo').docstring).to eq('The foo instance method for A')
+    end
+
+    it 'merges instance def sig' do
+      expect(YARD::Registry.at('Merge::A#foo').tag(:return).types).to eq(['String'])
+    end
+
+    it 'includes docstring from original singleton def' do
+      expect(YARD::Registry.at('Merge::A.bar').docstring).to eq('The bar singleton method for A')
+    end
+
+    it 'merges singleton def sig' do
+      expect(YARD::Registry.at('Merge::A.bar').tag(:return).types).to eq(['Float'])
+    end
+  end
+
   describe 'attaching to method' do
     it 'handles signatures without arguments' do
       node = YARD::Registry.at('Signatures#sig_void')
