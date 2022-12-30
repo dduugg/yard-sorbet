@@ -14,6 +14,7 @@ module YARDSorbet
 
   module NodeUtils
     extend T::Sig
+    # Node types that can have type signatures
     SigableNode = T.type_alias { T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode) }
     ATTRIBUTE_METHODS = T.let(%i[attr attr_accessor attr_reader attr_writer].freeze, T::Array[Symbol])
     SKIP_METHOD_CONTENTS = T.let(%i[params returns].freeze, T::Array[Symbol])
@@ -40,9 +41,7 @@ module YARDSorbet
   module SigToYARD
     extend T::Sig
     REF_TYPES = T.let({
-      'T::Boolean' => ['Boolean'].freeze, # YARD convention for booleans
-      # YARD convention is use singleton objects when applicable:
-      # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Literals
+      'T::Boolean' => ['Boolean'].freeze,
       'FalseClass' => ['false'].freeze,
       'NilClass' => ['nil'].freeze,
       'TrueClass' => ['true'].freeze
@@ -158,6 +157,7 @@ module YARDSorbet
 
     class SigHandler < YARD::Handlers::Ruby::Base
       extend T::Sig
+      # YARD types that can have docstrings attached to them
       Documentable = T.type_alias { T.any(
           YARD::CodeObjects::MethodObject, YARD::Parser::Ruby::MethodCallNode, YARD::Parser::Ruby::MethodDefinitionNode
         ) }
@@ -220,6 +220,8 @@ module YARDSorbet
 
     module StructClassHandler
       extend T::Sig
+
+      requires_ancestor { YARD::Handlers::Ruby::ClassHandler }
 
       sig { void }
       def process; end

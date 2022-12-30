@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
     'wiki_uri' => "#{spec.homepage}/wiki"
   }
 
-  spec.files = `git ls-files -z -- lib/*`.split("\x0") + ['LICENSE']
+  spec.files = `git ls-files -z -- lib/* rbi/*`.split("\x0") + ['LICENSE']
 
   spec.add_development_dependency 'bundler-audit', '~> 0.9.1'
   spec.add_development_dependency 'codecov', '~> 0.6.0'
