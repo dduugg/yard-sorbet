@@ -11,7 +11,6 @@ module YARDSorbet
       handles method_call(:const), method_call(:prop)
       namespace_only
 
-      sig { void }
       def process
         name = params.dig(0, -1, -1).source
         prop = make_prop(name)
@@ -24,7 +23,6 @@ module YARDSorbet
       private
 
       # Add the source and docstring to the method object
-      sig { params(object: YARD::CodeObjects::MethodObject, prop: TStructProp).void }
       def decorate_object(object, prop)
         object.source = prop.source
         # TODO: this should use `+` to delimit the prop name when markdown is disabled
@@ -34,18 +32,15 @@ module YARDSorbet
         object.docstring = docstring.to_raw
       end
 
-      sig { returns(T::Boolean) }
       def immutable?
         statement.method_name(true) == :const || kw_arg('immutable:') == 'true'
       end
 
       # @return the value passed to the keyword argument, or nil
-      sig { params(kwd: String).returns(T.nilable(String)) }
       def kw_arg(kwd)
         params[2]&.find { _1[0].source == kwd }&.[](1)&.source
       end
 
-      sig { params(name: String).returns(TStructProp) }
       def make_prop(name)
         TStructProp.new(
           default: kw_arg('default:'),
@@ -56,13 +51,11 @@ module YARDSorbet
         )
       end
 
-      sig { returns(T::Array[T.untyped]) }
       def params
         @params ||= T.let(statement.parameters(false), T.nilable(T::Array[T.untyped]))
       end
 
       # Register the field explicitly as an attribute.
-      sig { params(object: YARD::CodeObjects::MethodObject, name: String).void }
       def register_attrs(object, name)
         write = immutable? ? nil : object
         # Create the virtual attribute in our current scope
@@ -70,7 +63,6 @@ module YARDSorbet
       end
 
       # Store the prop for use in the constructor definition
-      sig { params(prop: TStructProp).void }
       def update_state(prop)
         extra_state.prop_docs ||= Hash.new { |h, k| h[k] = [] }
         extra_state.prop_docs[namespace] << prop

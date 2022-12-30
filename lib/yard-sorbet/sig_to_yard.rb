@@ -18,13 +18,11 @@ module YARDSorbet
     private_constant :REF_TYPES
 
     # @see https://yardoc.org/types.html
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     def self.convert(node)
       # scrub newlines, as they break the YARD parser
       convert_node(node).map { _1.gsub(/\n\s*/, ' ') }
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     private_class_method def self.convert_node(node)
       case node
       when YARD::Parser::Ruby::MethodCallNode then convert_call(node)
@@ -33,7 +31,6 @@ module YARDSorbet
       end
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     private_class_method def self.convert_node_type(node)
       case node.type
       when :aref then convert_aref(node)
@@ -51,7 +48,6 @@ module YARDSorbet
       end
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(String) }
     private_class_method def self.build_generic_type(node)
       return node.source if node.empty? || node.type != :aref
 
@@ -60,7 +56,6 @@ module YARDSorbet
       "#{collection_type}[#{member_type}]"
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     private_class_method def self.convert_aref(node)
       # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Parametrized_Types
       case node.first.source
@@ -72,7 +67,6 @@ module YARDSorbet
       end
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_array(node)
       # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
       member_types = node.first.children.map { convert_node(_1) }
@@ -80,19 +74,16 @@ module YARDSorbet
       ["Array(#{sequence})"]
     end
 
-    sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
     private_class_method def self.convert_call(node)
       node.namespace.source == 'T' ? convert_t_method(node) : [node.source]
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_collection(node)
       collection_type = node.first.source.split('::').last
       member_type = convert_node(node[-1][0]).join(', ')
       ["#{collection_type}<#{member_type}>"]
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_hash(node)
       kv = node.last.children
       key_type = convert_node(kv.first).join(', ')
@@ -100,17 +91,14 @@ module YARDSorbet
       ["Hash{#{key_type} => #{value_type}}"]
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     private_class_method def self.convert_list(node)
       node.children.size == 1 ? convert_node(node.children.first) : [node.source]
     end
 
-    sig { params(node_source: String).returns([String]) }
     private_class_method def self.convert_ref(node_source)
       REF_TYPES[node_source] || [node_source]
     end
 
-    sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
     private_class_method def self.convert_t_method(node)
       case node.method_name(true)
       # Order matters here, putting `nil` last results in a more concise return syntax in the UI (superscripted `?`):
@@ -121,7 +109,6 @@ module YARDSorbet
       end
     end
 
-    sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_unknown(node)
       log.warn("Unsupported sig #{node.type} node #{node.source}")
       [node.source]

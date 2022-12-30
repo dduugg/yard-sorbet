@@ -12,7 +12,6 @@ module YARDSorbet
       handles method_call(:include)
       namespace_only
 
-      sig { void }
       def process
         statement.parameters(false).each do |mixin|
           obj = YARD::CodeObjects::Proxy.new(namespace, mixin.source)
@@ -24,7 +23,6 @@ module YARDSorbet
       private
 
       # @return the namespace object that is including the module
-      sig { returns(YARD::CodeObjects::NamespaceObject) }
       def included_in
         statement.namespace ? YARD::CodeObjects::Proxy.new(namespace, statement.namespace.source) : namespace
       end

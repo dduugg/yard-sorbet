@@ -17,7 +17,6 @@ module YARDSorbet
       # Extra text for class namespaces
       CLASS_TAG_TEXT = T.let("It cannot be directly instantiated. #{TAG_TEXT}", String)
 
-      sig { void }
       def process
         return if namespace.has_tag?(:abstract)
 

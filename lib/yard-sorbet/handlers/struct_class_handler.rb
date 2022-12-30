@@ -10,7 +10,6 @@ module YARDSorbet
     module StructClassHandler
       extend T::Sig
 
-      sig { void }
       def process
         super
         return if extra_state.prop_docs.nil?
@@ -26,7 +25,6 @@ module YARDSorbet
       private
 
       # Create a virtual `initialize` method with all the `prop`/`const` arguments
-      sig { params(props: T::Array[TStructProp], class_ns: YARD::CodeObjects::ClassObject).void }
       def process_t_struct_props(props, class_ns)
         # having the name :initialize & the scope :instance marks this as the constructor.
         object = YARD::CodeObjects::MethodObject.new(class_ns, :initialize, :instance)
@@ -39,14 +37,6 @@ module YARDSorbet
         decorate_t_struct_init(object, props, docstring, directives)
       end
 
-      sig do
-        params(
-          object: YARD::CodeObjects::MethodObject,
-          props: T::Array[TStructProp],
-          docstring: YARD::Docstring,
-          directives: T::Array[String]
-        ).void
-      end
       def decorate_t_struct_init(object, props, docstring, directives)
         # Use kwarg style arguments, with optionals being marked with a default (unless an actual default was specified)
         object.parameters = to_object_parameters(props)
@@ -56,7 +46,6 @@ module YARDSorbet
         Directives.add_directives(object.docstring, directives)
       end
 
-      sig { params(props: T::Array[TStructProp]).returns(T::Array[[String, T.nilable(String)]]) }
       def to_object_parameters(props)
         props.map do |prop|
           default = prop.default || (prop.types.include?('nil') ? 'nil' : nil)

@@ -10,17 +10,8 @@ module YARDSorbet
       handles method_call(:sig)
       namespace_only
 
-      # YARD types that can have docstrings attached to them
-      Documentable = T.type_alias do
-        T.any(
-          YARD::CodeObjects::MethodObject, YARD::Parser::Ruby::MethodCallNode, YARD::Parser::Ruby::MethodDefinitionNode
-        )
-      end
-      private_constant :Documentable
-
       # Swap the method definition docstring and the sig docstring.
       # Parse relevant parts of the `sig` and include them as well.
-      sig { void }
       def process
         method_node = NodeUtils.get_method_node(NodeUtils.sibling_node(statement))
         case method_node
@@ -32,7 +23,6 @@ module YARDSorbet
 
       private
 
-      sig { params(def_node: YARD::Parser::Ruby::MethodDefinitionNode).void }
       def process_def(def_node)
         separator = scope == :instance && def_node.type == :def ? '#' : '.'
         registered = YARD::Registry.at("#{namespace}#{separator}#{def_node.method_name(true)}")
@@ -46,7 +36,6 @@ module YARDSorbet
         end
       end
 
-      sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode).void }
       def process_attr(attr_node)
         return if merged_into_attr?(attr_node)
 
@@ -56,7 +45,6 @@ module YARDSorbet
       # An attr* sig can be merged into a previous attr* docstring if it is the only parameter passed to the attr*
       # declaration. This is to avoid needing to rewrite the source code to separate merged and unmerged attr*
       # declarations.
-      sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode).returns(T::Boolean) }
       def merged_into_attr?(attr_node)
         names = NodeUtils.validated_attribute_names(attr_node)
         return false if names.size != 1
@@ -69,12 +57,10 @@ module YARDSorbet
         true
       end
 
-      sig { params(method_objects: T::Array[YARD::CodeObjects::MethodObject]).void }
       def document_attr_methods(method_objects)
         method_objects.each { parse_node(_1, _1.docstring, include_params: false) }
       end
 
-      sig { params(attach_to: Documentable, docstring: T.nilable(String), include_params: T::Boolean).void }
       def parse_node(attach_to, docstring, include_params: true)
         existing_docstring = docstring.is_a?(YARD::Docstring)
         docstring, directives = Directives.extract_directives(docstring) unless existing_docstring
@@ -83,7 +69,6 @@ module YARDSorbet
         Directives.add_directives(attach_to.docstring, directives) unless existing_docstring
       end
 
-      sig { params(docstring: YARD::Docstring, include_params: T::Boolean).void }
       def parse_sig(docstring, include_params: true)
         NodeUtils.bfs_traverse(statement) do |node|
           case node.source
@@ -95,7 +80,6 @@ module YARDSorbet
         end
       end
 
-      sig { params(node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
       def parse_params(node, docstring)
         sibling = NodeUtils.sibling_node(node)
         sibling.dig(0, 0).each do |param|
@@ -105,7 +89,6 @@ module YARDSorbet
         end
       end
 
-      sig { params(node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
       def parse_return(node, docstring)
         type = SigToYARD.convert(NodeUtils.sibling_node(node))
         TagUtils.upsert_tag(docstring, 'return', type)

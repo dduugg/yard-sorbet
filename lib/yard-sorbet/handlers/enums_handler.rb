@@ -10,7 +10,6 @@ module YARDSorbet
       handles method_call(:enums)
       namespace_only
 
-      sig { void }
       def process
         statement.traverse do |node|
           if const_assign_node?(node)
@@ -25,7 +24,6 @@ module YARDSorbet
 
       private
 
-      sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
       def const_assign_node?(node)
         node.type == :assign && node.dig(0, 0).type == :const
       end
