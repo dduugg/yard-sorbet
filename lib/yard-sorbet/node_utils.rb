@@ -60,7 +60,6 @@ module YARDSorbet
         case obj.type
         when :symbol_literal then obj.jump(:ident, :op, :kw, :const).source
         when :string_literal then obj.jump(:string_content).source
-        else raise YARD::Parser::UndocumentableError, obj.source
         end
       end
     end

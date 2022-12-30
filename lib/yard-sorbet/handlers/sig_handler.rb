@@ -27,6 +27,7 @@ module YARDSorbet
         when YARD::Parser::Ruby::MethodDefinitionNode then process_def(method_node)
         when YARD::Parser::Ruby::MethodCallNode then process_attr(method_node)
         end
+        statement.docstring = nil
       end
 
       private
@@ -37,35 +38,38 @@ module YARDSorbet
         registered = YARD::Registry.at("#{namespace}#{separator}#{def_node.method_name(true)}")
         if registered
           parse_node(registered, registered.docstring)
-          def_node.docstring = statement.docstring = nil
+          def_node.docstring = nil
         else
           parse_node(def_node, statement.docstring)
-          statement.docstring = nil
         end
       end
 
       sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode).void }
       def process_attr(attr_node)
-        names = NodeUtils.validated_attribute_names(attr_node)
-        return if merged_into_attr?(attr_node, names)
+        return if merged_into_attr?(attr_node)
 
         parse_node(attr_node, statement.docstring, include_params: false)
-        statement.docstring = nil
       end
 
       # An attr* sig can be merged into a previous attr* docstring if it is the only parameter passed to the attr*
       # declaration. This is to avoid needing to rewrite the source code to separate merged and unmerged attr*
       # declarations.
-      sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode, names: T::Array[String]).returns(T::Boolean) }
-      def merged_into_attr?(attr_node, names)
-        return false if names.size == 1
+      sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode).returns(T::Boolean) }
+      def merged_into_attr?(attr_node)
+        names = NodeUtils.validated_attribute_names(attr_node)
+        return false if names.size != 1
 
-        nodes = namespace.attributes[scope][names.fetch(0)]
-        return false if nodes.nil? || nodes.empty?
+        attrs = namespace.attributes[scope][names[0]]
+        return false if attrs.nil? || attrs.empty?
 
-        nodes.each_value { parse_node(_1, _1.docstring, include_params: false) }
-        attr_node.docstring = statement.docstring = nil
+        document_attr_methods(attrs.values.compact)
+        attr_node.docstring = nil
         true
+      end
+
+      sig { params(method_objects: T::Array[YARD::CodeObjects::MethodObject]).void }
+      def document_attr_methods(method_objects)
+        method_objects.each { parse_node(_1, _1.docstring, include_params: false) }
       end
 
       sig { params(attach_to: Documentable, docstring: T.nilable(String), include_params: T::Boolean).void }

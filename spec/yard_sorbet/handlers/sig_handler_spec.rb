@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::SigHandler do
-  # The rubocop disable isn't necessary, but it speeds up tests considerably
+  # The :all (and corresponding rubocop disable) isn't strictly necessary, but it speeds up tests considerably
   before(:all) do # rubocop:disable RSpec/BeforeAfterAll
     YARD::Registry.clear
     path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.txt')
@@ -12,6 +12,30 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
   end
 
   describe 'Merging an RBI file' do
+    it 'includes docstring from original attr_accessor' do
+      expect(YARD::Registry.at('Merge::A#a_foo').docstring).to eq('annotated attr_accessor')
+    end
+
+    it 'merges attr_accessor sig' do
+      expect(YARD::Registry.at('Merge::A#a_foo').tag(:return).types).to eq(['Numeric'])
+    end
+
+    it 'includes docstring from original attr_reader' do
+      expect(YARD::Registry.at('Merge::A#a_bar').docstring).to eq('Returns the value of attribute a_bar.')
+    end
+
+    it 'merges attr_reader sig' do
+      expect(YARD::Registry.at('Merge::A#a_bar').tag(:return).types).to eq(%w[String nil])
+    end
+
+    it 'includes docstring from original attr_writer' do
+      expect(YARD::Registry.at('Merge::A#a_baz=').docstring).to eq('Sets the attribute a_baz')
+    end
+
+    it 'merges attr_writer sig' do
+      expect(YARD::Registry.at('Merge::A#a_baz=').tag(:return).types).to eq(['Integer'])
+    end
+
     it 'includes docstring from original instance def' do
       expect(YARD::Registry.at('Merge::A#foo').docstring).to eq('The foo instance method for A')
     end

@@ -294,7 +294,7 @@ end
 
 class AttrSigs
   sig {returns(String)}
-  attr_accessor :my_accessor
+  attr_accessor 'my_accessor'
 
   sig {returns(Integer)}
   attr_reader :my_reader
