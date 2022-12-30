@@ -340,6 +340,13 @@ end
 
 module Merge
   class A
+    # annotated attr_accessor
+    attr_accessor :a_foo
+
+    attr_reader :a_bar
+
+    attr_writer :a_baz
+
     # The foo instance method for A
     def foo; end
 

@@ -51,5 +51,18 @@ module YARDSorbet
       else false
       end
     end
+
+    # @see https://github.com/lsegal/yard/blob/main/lib/yard/handlers/ruby/attribute_handler.rb
+    #   YARD::Handlers::Ruby::AttributeHandler.validated_attribute_names
+    sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
+    def self.validated_attribute_names(attr_node)
+      attr_node.parameters(false).map do |obj|
+        case obj.type
+        when :symbol_literal then obj.jump(:ident, :op, :kw, :const).source
+        when :string_literal then obj.jump(:string_content).source
+        else raise YARD::Parser::UndocumentableError, obj.source
+        end
+      end
+    end
   end
 end

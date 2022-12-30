@@ -2,19 +2,16 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::SigHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.txt')
-
-  before do
+  # The rubocop disable isn't necessary, but it speeds up tests considerably
+  before(:all) do # rubocop:disable RSpec/BeforeAfterAll
     YARD::Registry.clear
+    path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.txt')
     YARD::Parser::SourceParser.parse(path)
+    rbi_path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.rbi.txt')
+    YARD::Parser::SourceParser.parse(rbi_path)
   end
 
   describe 'Merging an RBI file' do
-    before do
-      rbi_path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.rbi.txt')
-      YARD::Parser::SourceParser.parse(rbi_path)
-    end
-
     it 'includes docstring from original instance def' do
       expect(YARD::Registry.at('Merge::A#foo').docstring).to eq('The foo instance method for A')
     end

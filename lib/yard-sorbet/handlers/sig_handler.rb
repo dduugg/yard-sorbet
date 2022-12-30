@@ -13,7 +13,7 @@ module YARDSorbet
       # YARD types that can have docstrings attached to them
       Documentable = T.type_alias do
         T.any(
-          YARD::CodeObjects::MethodObject, YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode
+          YARD::CodeObjects::MethodObject, YARD::Parser::Ruby::MethodCallNode, YARD::Parser::Ruby::MethodDefinitionNode
         )
       end
       private_constant :Documentable
@@ -28,6 +28,8 @@ module YARDSorbet
         when YARD::Parser::Ruby::MethodCallNode then process_attr(method_node)
         end
       end
+
+      private
 
       sig { params(def_node: YARD::Parser::Ruby::MethodDefinitionNode).void }
       def process_def(def_node)
@@ -44,12 +46,27 @@ module YARDSorbet
 
       sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode).void }
       def process_attr(attr_node)
-        # TODO: Merge with existing attr documentation (#141)
+        names = NodeUtils.validated_attribute_names(attr_node)
+        return if merged_into_attr?(attr_node, names)
+
         parse_node(attr_node, statement.docstring, include_params: false)
         statement.docstring = nil
       end
 
-      private
+      # An attr* sig can be merged into a previous attr* docstring if it is the only parameter passed to the attr*
+      # declaration. This is to avoid needing to rewrite the source code to separate merged and unmerged attr*
+      # declarations.
+      sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode, names: T::Array[String]).returns(T::Boolean) }
+      def merged_into_attr?(attr_node, names)
+        return false if names.size == 1
+
+        nodes = namespace.attributes[scope][names.fetch(0)]
+        return false if nodes.nil? || nodes.empty?
+
+        nodes.each_value { parse_node(_1, _1.docstring, include_params: false) }
+        attr_node.docstring = statement.docstring = nil
+        true
+      end
 
       sig { params(attach_to: Documentable, docstring: T.nilable(String), include_params: T::Boolean).void }
       def parse_node(attach_to, docstring, include_params: true)
