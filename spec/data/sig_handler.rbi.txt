@@ -17,5 +17,8 @@ module Merge
 
     sig { returns(String) }
     def baz; end
+
+    sig { returns(Integer) }
+    def bat; end
   end
 end

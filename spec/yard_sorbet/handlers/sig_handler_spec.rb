@@ -55,6 +55,14 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     it 'preserves the visibility of the original method' do
       expect(YARD::Registry.at('Merge::A#baz').visibility).to be(:private)
     end
+
+    it 'merges sig return type with return tag' do
+      expect(YARD::Registry.at('Merge::A#bat').tag(:return).types).to eq(['Integer'])
+    end
+
+    it 'merges return tag comment with sig return type' do
+      expect(YARD::Registry.at('Merge::A#bat').tag(:return).text).to eq('the result')
+    end
   end
 
   describe 'attaching to method' do

@@ -354,5 +354,8 @@ module Merge
     def self.bar(a); end
 
     private def baz; end
+
+    # @return the result
+    def bat; end
   end
 end
