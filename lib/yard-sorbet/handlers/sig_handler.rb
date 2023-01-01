@@ -76,10 +76,11 @@ module YARDSorbet
 
       sig { params(attach_to: Documentable, docstring: T.nilable(String), include_params: T::Boolean).void }
       def parse_node(attach_to, docstring, include_params: true)
-        docstring_, directives = Directives.extract_directives(docstring)
-        parse_sig(docstring_, include_params: include_params)
-        attach_to.docstring = docstring_.to_raw
-        Directives.add_directives(attach_to.docstring, directives)
+        existing_docstring = docstring.is_a?(YARD::Docstring)
+        docstring, directives = Directives.extract_directives(docstring) unless existing_docstring
+        parse_sig(docstring, include_params: include_params)
+        attach_to.docstring = docstring.to_raw
+        Directives.add_directives(attach_to.docstring, directives) unless existing_docstring
       end
 
       sig { params(docstring: YARD::Docstring, include_params: T::Boolean).void }
