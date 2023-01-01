@@ -2,9 +2,10 @@
 
 ## main
 
-###
+### Bug Fixes
 
 * Handle multiple invocations of `mixes_in_class_methods` within a class
+* Label `T::Struct` `prop`s with `immutable: true` as `readonly`
 
 ## 0.7.0 (2022-08-24)
 

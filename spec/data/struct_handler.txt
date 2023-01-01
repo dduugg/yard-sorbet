@@ -12,6 +12,7 @@ class PersonStruct < T::Struct
   # A writable
   prop :writable, String
   const :mystery, T.untyped
+  prop :not_mutable, Integer, default: 0, immutable: true
 end
 
 class SpecializedPersonStruct < T::Struct

@@ -13,7 +13,7 @@ module YARDSorbet
 
       sig { void }
       def process
-        name = statement.parameters.first.last.last.source
+        name = params.dig(0, -1, -1).source
         prop = make_prop(name)
         update_state(prop)
         object = YARD::CodeObjects::MethodObject.new(namespace, name, scope)
@@ -27,36 +27,45 @@ module YARDSorbet
       sig { params(object: YARD::CodeObjects::MethodObject, prop: TStructProp).void }
       def decorate_object(object, prop)
         object.source = prop.source
-        # TODO: this should use `+` to delimit the attribute name when markdown is disabled
-        reader_docstring = prop.doc.empty? ? "Returns the value of attribute `#{prop.prop_name}`." : prop.doc
+        # TODO: this should use `+` to delimit the prop name when markdown is disabled
+        reader_docstring = prop.doc.empty? ? "Returns the value of prop `#{prop.prop_name}`." : prop.doc
         docstring = YARD::DocstringParser.new.parse(reader_docstring).to_docstring
         docstring.add_tag(YARD::Tags::Tag.new(:return, '', prop.types))
         object.docstring = docstring.to_raw
       end
 
-      # Get the default prop value
-      sig { returns(T.nilable(String)) }
-      def default_value
-        statement.traverse { break _1 if _1.type == :label && _1.source == 'default:' }&.parent&.[](1)&.source
+      sig { returns(T::Boolean) }
+      def immutable?
+        statement.method_name(true) == :const || kw_arg('immutable:') == 'true'
+      end
+
+      # @return the value passed to the keyword argument, or nil
+      sig { params(kwd: String).returns(T.nilable(String)) }
+      def kw_arg(kwd)
+        params[2]&.find { _1[0].source == kwd }&.[](1)&.source
       end
 
       sig { params(name: String).returns(TStructProp) }
       def make_prop(name)
         TStructProp.new(
-          default: default_value,
+          default: kw_arg('default:'),
           doc: statement.docstring.to_s,
           prop_name: name,
           source: statement.source,
-          types: SigToYARD.convert(statement.parameters[1])
+          types: SigToYARD.convert(params[1])
         )
       end
 
+      sig { returns(T::Array[T.untyped]) }
+      def params
+        @params ||= T.let(statement.parameters(false), T.nilable(T::Array[T.untyped]))
+      end
+
       # Register the field explicitly as an attribute.
-      # While `const` attributes are immutable, `prop` attributes may be reassigned.
       sig { params(object: YARD::CodeObjects::MethodObject, name: String).void }
       def register_attrs(object, name)
-        # Create the virtual method in our current scope
-        write = statement.method_name(true) == :prop ? object : nil
+        write = immutable? ? nil : object
+        # Create the virtual attribute in our current scope
         namespace.attributes[scope][name] ||= SymbolHash[read: object, write: write]
       end
 

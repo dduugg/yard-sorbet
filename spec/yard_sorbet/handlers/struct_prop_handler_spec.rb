@@ -22,7 +22,7 @@ RSpec.describe YARDSorbet::Handlers::StructPropHandler do
 
     it 'creates a docstring if it does not exist' do
       node = YARD::Registry.at('PersonStruct#mystery')
-      expect(node.docstring).to eq('Returns the value of attribute `mystery`.')
+      expect(node.docstring).to eq('Returns the value of prop `mystery`.')
     end
 
     it 'handles default values appropriately' do
@@ -32,6 +32,11 @@ RSpec.describe YARDSorbet::Handlers::StructPropHandler do
 
     it 'marks `const` attributes read-only' do
       node = YARD::Registry.at('PersonStruct#age')
+      expect(node.writer?).to be(false)
+    end
+
+    it 'marks `immutable: true` attributes read-only' do
+      node = YARD::Registry.at('PersonStruct#not_mutable')
       expect(node.writer?).to be(false)
     end
 
