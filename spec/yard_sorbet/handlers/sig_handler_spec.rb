@@ -51,6 +51,10 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     it 'merges singleton def sig' do
       expect(YARD::Registry.at('Merge::A.bar').tag(:return).types).to eq(['Float'])
     end
+
+    it 'preserves the visibility of the original method' do
+      expect(YARD::Registry.at('Merge::A#baz').visibility).to be(:private)
+    end
   end
 
   describe 'attaching to method' do
@@ -284,7 +288,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       end
 
       it 'preserves visibility modifier' do
-        expect(YARD::Registry.at('CollectionSigs#fixed_hash').visibility).to eq(:protected)
+        expect(YARD::Registry.at('CollectionSigs#fixed_hash').visibility).to be(:protected)
       end
     end
 

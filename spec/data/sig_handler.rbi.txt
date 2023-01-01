@@ -14,5 +14,8 @@ module Merge
 
     sig { params(a: Integer).returns(Float) }
     def self.bar(a); end
+
+    sig { returns(String) }
+    def baz; end
   end
 end

@@ -28,6 +28,11 @@ module YARDSorbet
       end
     end
 
+    sig { params(node: YARD::Parser::Ruby::AstNode).void }
+    def self.delete_node(node)
+      node.parent.children.delete(node)
+    end
+
     # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(SigableNode) }
     def self.get_method_node(node)

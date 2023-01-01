@@ -352,5 +352,7 @@ module Merge
 
     # The bar singleton method for A
     def self.bar(a); end
+
+    private def baz; end
   end
 end

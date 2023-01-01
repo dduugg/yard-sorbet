@@ -38,7 +38,9 @@ module YARDSorbet
         registered = YARD::Registry.at("#{namespace}#{separator}#{def_node.method_name(true)}")
         if registered
           parse_node(registered, registered.docstring)
-          def_node.docstring = nil
+          # Since we're probably in an RBI file, delete the def node, which could otherwise erroneously override the
+          # visibility setting
+          NodeUtils.delete_node(def_node)
         else
           parse_node(def_node, statement.docstring)
         end
