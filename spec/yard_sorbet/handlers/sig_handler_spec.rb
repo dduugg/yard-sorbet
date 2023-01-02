@@ -496,4 +496,21 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       end
     end
   end
+
+  describe 'Unparsable sigs' do
+    before do
+      allow(log).to receive(:warn)
+      YARD::Parser::SourceParser.parse_string(<<~RUBY)
+        class Test
+          CONST = :foo
+          sig { returns(Integer) }
+          attr_reader CONST
+        end
+      RUBY
+    end
+
+    it 'warn when parsing an attr* with a constant param' do
+      expect(log).to have_received(:warn).with(/Undocumentable CONST/).twice
+    end
+  end
 end

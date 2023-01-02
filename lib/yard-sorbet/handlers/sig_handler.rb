@@ -88,7 +88,7 @@ module YARDSorbet
         NodeUtils.bfs_traverse(statement) do |node|
           case node.source
           when 'returns' then parse_return(node, docstring)
-          when 'params' then include_params && parse_params(node, docstring)
+          when 'params' then parse_params(node, docstring) if include_params
           when 'void' then TagUtils.upsert_tag(docstring, 'return', TagUtils::VOID_RETURN_TYPE)
           when 'abstract' then TagUtils.upsert_tag(docstring, 'abstract')
           end
