@@ -516,7 +516,7 @@ in creating a constructor</p>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kw_arg'>kw_arg</span><span class='lparen'>(</span><span class='id identifier rubyid_kwd'>kwd</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='op'>&amp;.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_jump'>jump</span><span class='lparen'>(</span><span class='symbol'>:label</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>==</span> <span class='id identifier rubyid_kwd'>kwd</span> <span class='rbrace'>}</span><span class='op'>&amp;.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_source'>source</span>
+  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='op'>&amp;.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>==</span> <span class='id identifier rubyid_kwd'>kwd</span> <span class='rbrace'>}</span><span class='op'>&amp;.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_source'>source</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -835,7 +835,7 @@ in creating a constructor</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jan  2 06:14:43 2023 by
+  Generated on Mon Jan  2 07:09:25 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
