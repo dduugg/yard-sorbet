@@ -88,7 +88,7 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_collection(node)
       collection_type = node.first.source.split('::').last
-      member_type = convert_node(node.dig(-1, 0)).join(', ')
+      member_type = convert_node(node[-1][0]).join(', ')
       ["#{collection_type}<#{member_type}>"]
     end
 
@@ -115,7 +115,7 @@ module YARDSorbet
       case node.method_name(true)
       # Order matters here, putting `nil` last results in a more concise return syntax in the UI (superscripted `?`):
       # https://github.com/lsegal/yard/blob/cfa62ae/lib/yard/templates/helpers/html_helper.rb#L499-L500
-      when :nilable then convert_node(node.last).push('nil')
+      when :nilable then convert_node(node.last) + REF_TYPES.fetch('NilClass')
       when :any then node.dig(-1, 0).children.flat_map { convert_node(_1) }
       else [node.source]
       end

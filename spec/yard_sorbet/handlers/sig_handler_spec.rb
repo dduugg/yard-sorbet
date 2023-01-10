@@ -513,4 +513,20 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(log).to have_received(:warn).with(/Undocumentable CONST/).twice
     end
   end
+
+  describe 'sig-to-yard conversion' do
+    before do
+      allow(log).to receive(:error)
+      YARD::Parser::SourceParser.parse_string(<<~RUBY)
+        class MyClass
+          sig { returns(T.nilable(T::Boolean)) }
+          def my_method; end
+        end
+      RUBY
+    end
+
+    it 'does not error when parsing T.nilable' do
+      expect(log).not_to have_received(:error)
+    end
+  end
 end
