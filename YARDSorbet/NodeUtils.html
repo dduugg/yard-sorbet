@@ -195,6 +195,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#delete_node-class_method" title="delete_node (class method)">.<strong>delete_node</strong>(node)  &#x21d2; void </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_method_node-class_method" title="get_method_node (class method)">.<strong>get_method_node</strong>(node)  &#x21d2; SigableNode </a>
     
 
@@ -242,6 +264,28 @@
   <span class="summary_signature">
     
       <a href="#sigable_node%3F-class_method" title="sigable_node? (class method)">.<strong>sigable_node?</strong>(node)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#validated_attribute_names-class_method" title="validated_attribute_names (class method)">.<strong>validated_attribute_names</strong>(attr_node)  &#x21d2; Array&lt;String&gt; </a>
     
 
     
@@ -369,6 +413,60 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="delete_node-class_method">
+  
+    .<strong>delete_node</strong>(node)  &#x21d2; <tt>void</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>node</span>
+      
+      
+        <span class='type'>(<tt>YARD::Parser::Ruby::AstNode</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_delete_node'>delete_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="get_method_node-class_method">
   
     .<strong>get_method_node</strong>(node)  &#x21d2; <tt><span class='object_link'><a href="#SigableNode-constant" title="YARDSorbet::NodeUtils::SigableNode (constant)">SigableNode</a></span></tt> 
@@ -421,12 +519,12 @@
       <pre class="lines">
 
 
-33
-34
-35</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_method_node'>get_method_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sigable_node?'>sigable_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_node'>node</span> <span class='op'>:</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_jump'>jump</span><span class='lparen'>(</span><span class='symbol'>:def</span><span class='comma'>,</span> <span class='symbol'>:defs</span><span class='rparen'>)</span>
@@ -506,14 +604,14 @@
       <pre class="lines">
 
 
-40
-41
-42
-43
-44</pre>
+45
+46
+47
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sibling_node'>sibling_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_siblings'>siblings</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span>
@@ -577,16 +675,16 @@
       <pre class="lines">
 
 
-47
-48
-49
-50
-51
 52
-53</pre>
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sigable_node?'>sigable_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_node'>node</span>
@@ -600,12 +698,96 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="validated_attribute_names-class_method">
+  
+    .<strong>validated_attribute_names</strong>(attr_node)  &#x21d2; <tt>Array&lt;String&gt;</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>attr_node</span>
+      
+      
+        <span class='type'>(<tt>YARD::Parser::Ruby::MethodCallNode</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://github.com/lsegal/yard/blob/main/lib/yard/handlers/ruby/attribute_handler.rb" target="_parent" title="YARD::Handlers::Ruby::AttributeHandler.validated_attribute_names">YARD::Handlers::Ruby::AttributeHandler.validated_attribute_names</a></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validated_attribute_names'>validated_attribute_names</span><span class='lparen'>(</span><span class='id identifier rubyid_attr_node'>attr_node</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_attr_node'>attr_node</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_obj'>obj</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_obj'>obj</span>
+    <span class='kw'>when</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>LiteralNode</span> <span class='kw'>then</span> <span class='id identifier rubyid_obj'>obj</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>
+    <span class='kw'>else</span> <span class='id identifier rubyid_raise'>raise</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>UndocumentableError</span><span class='comma'>,</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Mon Jan  9 10:03:10 2023 by
+  Generated on Tue Jan 10 01:54:20 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
