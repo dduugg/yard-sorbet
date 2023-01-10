@@ -101,7 +101,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/yard-sorbet/handlers/sig_handler.rb</dd>
+    <dd>lib/yard-sorbet/handlers/sig_handler.rb<span class="defines">,<br />
+  rbi/yard-sorbet.rbi</span>
+</dd>
   </dl>
   
 </div>
@@ -138,11 +140,9 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_type_alias'>type_alias</span> <span class='kw'>do</span>
-  <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_any'>any</span><span class='lparen'>(</span>
-    <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CodeObjects</span><span class='op'>::</span><span class='const'>MethodObject</span><span class='comma'>,</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span><span class='comma'>,</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodDefinitionNode</span>
-  <span class='rparen'>)</span>
-<span class='kw'>end</span></pre></dd>
+        <dd><pre class="code"><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_type_alias'>type_alias</span> <span class='lbrace'>{</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_any'>any</span><span class='lparen'>(</span>
+  <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CodeObjects</span><span class='op'>::</span><span class='const'>MethodObject</span><span class='comma'>,</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span><span class='comma'>,</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodDefinitionNode</span>
+<span class='rparen'>)</span> <span class='rbrace'>}</span></pre></dd>
       
     </dl>
   
@@ -411,12 +411,12 @@
       <pre class="lines">
 
 
-73
-74
-75</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_document_attr_methods'>document_attr_methods</span><span class='lparen'>(</span><span class='id identifier rubyid_method_objects'>method_objects</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_method_objects'>method_objects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_parse_node'>parse_node</span><span class='lparen'>(</span><span class='id identifier rubyid__1'>_1</span><span class='comma'>,</span> <span class='id identifier rubyid__1'>_1</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='label'>include_params:</span> <span class='kw'>false</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -481,20 +481,20 @@ declarations.</p>
       <pre class="lines">
 
 
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70</pre>
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_merged_into_attr?'>merged_into_attr?</span><span class='lparen'>(</span><span class='id identifier rubyid_attr_node'>attr_node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NodeUtils.html" title="YARDSorbet::NodeUtils (module)">NodeUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_validated_attribute_names'><span class='object_link'><a href="../NodeUtils.html#validated_attribute_names-class_method" title="YARDSorbet::NodeUtils.validated_attribute_names (method)">validated_attribute_names</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_attr_node'>attr_node</span><span class='rparen'>)</span>
@@ -575,16 +575,16 @@ declarations.</p>
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse_node'>parse_node</span><span class='lparen'>(</span><span class='id identifier rubyid_attach_to'>attach_to</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='label'>include_params:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_existing_docstring'>existing_docstring</span> <span class='op'>=</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Docstring</span><span class='rparen'>)</span>
@@ -648,17 +648,17 @@ declarations.</p>
       <pre class="lines">
 
 
-99
-100
-101
-102
-103
-104
-105
-106</pre>
+83
+84
+85
+86
+87
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse_params'>parse_params</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sibling'>sibling</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NodeUtils.html" title="YARDSorbet::NodeUtils (module)">NodeUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sibling_node'><span class='object_link'><a href="../NodeUtils.html#sibling_node-class_method" title="YARDSorbet::NodeUtils.sibling_node (method)">sibling_node</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
@@ -723,13 +723,13 @@ declarations.</p>
       <pre class="lines">
 
 
-109
-110
-111
-112</pre>
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse_return'>parse_return</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../SigToYARD.html" title="YARDSorbet::SigToYARD (module)">SigToYARD</a></span></span><span class='period'>.</span><span class='id identifier rubyid_convert'><span class='object_link'><a href="../SigToYARD.html#convert-class_method" title="YARDSorbet::SigToYARD.convert (method)">convert</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../NodeUtils.html" title="YARDSorbet::NodeUtils (module)">NodeUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sibling_node'><span class='object_link'><a href="../NodeUtils.html#sibling_node-class_method" title="YARDSorbet::NodeUtils.sibling_node (method)">sibling_node</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -792,19 +792,19 @@ declarations.</p>
       <pre class="lines">
 
 
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96</pre>
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse_sig'>parse_sig</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='label'>include_params:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../NodeUtils.html" title="YARDSorbet::NodeUtils (module)">NodeUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bfs_traverse'><span class='object_link'><a href="../NodeUtils.html#bfs_traverse-class_method" title="YARDSorbet::NodeUtils.bfs_traverse (method)">bfs_traverse</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_statement'>statement</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span>
@@ -847,17 +847,17 @@ Parse relevant parts of the <code>sig</code> and include them as well.</p>
       <pre class="lines">
 
 
-24
-25
-26
-27
-28
-29
-30
-31</pre>
+15
+16
+17
+18
+19
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='id identifier rubyid_method_node'>method_node</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NodeUtils.html" title="YARDSorbet::NodeUtils (module)">NodeUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_get_method_node'><span class='object_link'><a href="../NodeUtils.html#get_method_node-class_method" title="YARDSorbet::NodeUtils.get_method_node (method)">get_method_node</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../NodeUtils.html" title="YARDSorbet::NodeUtils (module)">NodeUtils</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sibling_node'><span class='object_link'><a href="../NodeUtils.html#sibling_node-class_method" title="YARDSorbet::NodeUtils.sibling_node (method)">sibling_node</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_statement'>statement</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -911,14 +911,14 @@ Parse relevant parts of the <code>sig</code> and include them as well.</p>
       <pre class="lines">
 
 
-50
-51
-52
-53
-54</pre>
+39
+40
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process_attr'>process_attr</span><span class='lparen'>(</span><span class='id identifier rubyid_attr_node'>attr_node</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_merged_into_attr?'>merged_into_attr?</span><span class='lparen'>(</span><span class='id identifier rubyid_attr_node'>attr_node</span><span class='rparen'>)</span>
@@ -969,21 +969,21 @@ Parse relevant parts of the <code>sig</code> and include them as well.</p>
       <pre class="lines">
 
 
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
 36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre>
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/sig_handler.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process_def'>process_def</span><span class='lparen'>(</span><span class='id identifier rubyid_def_node'>def_node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_separator'>separator</span> <span class='op'>=</span> <span class='id identifier rubyid_scope'>scope</span> <span class='op'>==</span> <span class='symbol'>:instance</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_def_node'>def_node</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:def</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span>
@@ -1007,7 +1007,7 @@ Parse relevant parts of the <code>sig</code> and include them as well.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jan  9 18:14:22 2023 by
+  Generated on Mon Jan  9 19:13:13 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.0.4).
 </div>

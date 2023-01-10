@@ -83,7 +83,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/yard-sorbet/directives.rb</dd>
+    <dd>lib/yard-sorbet/directives.rb<span class="defines">,<br />
+  rbi/yard-sorbet.rbi</span>
+</dd>
   </dl>
   
 </div>
@@ -217,12 +219,12 @@
       <pre class="lines">
 
 
-21
-22
-23</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/directives.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/directives.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_directives'>add_directives</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='comma'>,</span> <span class='id identifier rubyid_directives'>directives</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_directives'>directives</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_concat'>concat</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid__1'>_1</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -284,6 +286,7 @@
       <pre class="lines">
 
 
+9
 10
 11
 12
@@ -291,11 +294,10 @@
 14
 15
 16
-17
-18</pre>
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/directives.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/directives.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extract_directives'>extract_directives</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_parser'>parser</span> <span class='op'>=</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>DocstringParser</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_docstring'>docstring</span><span class='rparen'>)</span>
@@ -316,7 +318,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan  9 18:14:21 2023 by
+  Generated on Mon Jan  9 19:13:11 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.0.4).
 </div>

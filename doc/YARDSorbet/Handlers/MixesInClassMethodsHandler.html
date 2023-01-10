@@ -101,7 +101,9 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb</dd>
+    <dd>lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb<span class="defines">,<br />
+  rbi/yard-sorbet.rbi</span>
+</dd>
   </dl>
   
 </div>
@@ -280,12 +282,12 @@
       <pre class="lines">
 
 
+17
 18
-19
-20</pre>
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_mixed_in_class_methods'>mixed_in_class_methods</span><span class='lparen'>(</span><span class='id identifier rubyid_code_obj'>code_obj</span><span class='rparen'>)</span>
   <span class='cvar'>@@mix_in_class_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_code_obj'>code_obj</span><span class='rbracket'>]</span>
@@ -325,13 +327,13 @@
       <pre class="lines">
 
 
+21
+22
 23
-24
-25
-26</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='cvar'>@@mix_in_class_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -347,7 +349,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Jan  9 18:14:23 2023 by
+  Generated on Mon Jan  9 19:13:14 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.0.4).
 </div>
