@@ -87,15 +87,6 @@ module YARDSorbet
     def self.convert_unknown(node); end
   end
 
-  class TStructProp < T::Struct
-    prop :default, T.nilable(String), immutable: true
-    prop :doc, String, immutable: true
-    prop :prop_name, String, immutable: true
-    prop :source, String, immutable: true
-    prop :types, T::Array[String], immutable: true
-
-  end
-
   module TagUtils
     extend T::Sig
     VOID_RETURN_TYPE = T.let(['void'].freeze, [String])
