@@ -294,7 +294,7 @@ end
 
 class AttrSigs
   sig {returns(String)}
-  attr_accessor :my_accessor
+  attr_accessor 'my_accessor'
 
   sig {returns(Integer)}
   attr_reader :my_reader
@@ -336,4 +336,26 @@ class Nodes
 
   sig { returns(INT) }
   def returns_const; 1; end
+end
+
+module Merge
+  class A
+    # annotated attr_accessor
+    attr_accessor :a_foo
+
+    attr_reader :a_bar
+
+    attr_writer :a_baz
+
+    # The foo instance method for A
+    def foo; end
+
+    # The bar singleton method for A
+    def self.bar(a); end
+
+    private def baz; end
+
+    # @return the result
+    def bat; end
+  end
 end

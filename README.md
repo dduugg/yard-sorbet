@@ -12,6 +12,7 @@ A YARD [plugin](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#Plugi
 - Generates constant definitions from `T::Enum` enums
 - Modules marked `abstract!` or `interface!` are tagged `@abstract`
 - Modules using `mixes_in_class_methods` will attach class methods
+- Merges `sig`s in rbi files with source code documentation (rbi files must come after source code in yard configuration)
 
 ## Usage
 

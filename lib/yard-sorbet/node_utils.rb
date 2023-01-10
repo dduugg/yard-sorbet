@@ -28,6 +28,11 @@ module YARDSorbet
       end
     end
 
+    sig { params(node: YARD::Parser::Ruby::AstNode).void }
+    def self.delete_node(node)
+      node.parent.children.delete(node)
+    end
+
     # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(SigableNode) }
     def self.get_method_node(node)
@@ -49,6 +54,18 @@ module YARDSorbet
       when YARD::Parser::Ruby::MethodDefinitionNode then true
       when YARD::Parser::Ruby::MethodCallNode then ATTRIBUTE_METHODS.include?(node.method_name(true))
       else false
+      end
+    end
+
+    # @see https://github.com/lsegal/yard/blob/main/lib/yard/handlers/ruby/attribute_handler.rb
+    #   YARD::Handlers::Ruby::AttributeHandler.validated_attribute_names
+    sig { params(attr_node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
+    def self.validated_attribute_names(attr_node)
+      attr_node.parameters(false).map do |obj|
+        case obj
+        when YARD::Parser::Ruby::LiteralNode then obj[0][0].source
+        else raise YARD::Parser::UndocumentableError, obj.source
+        end
       end
     end
   end

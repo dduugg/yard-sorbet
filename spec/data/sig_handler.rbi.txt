@@ -1,0 +1,24 @@
+module Merge
+  class A
+    sig { returns(Numeric) }
+    attr_accessor :a_foo
+
+    sig { returns(T.nilable(String)) }
+    attr_reader :a_bar
+
+    sig { params(writer: Integer).returns(Integer) }
+    attr_writer :a_baz
+
+    sig { returns(String) }
+    def foo; end
+
+    sig { params(a: Integer).returns(Float) }
+    def self.bar(a); end
+
+    sig { returns(String) }
+    def baz; end
+
+    sig { returns(Integer) }
+    def bat; end
+  end
+end

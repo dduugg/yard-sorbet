@@ -2,6 +2,10 @@
 
 ## main
 
+### New Features
+
+* [#141](https://github.com/dduugg/yard-sorbet/issues/141) Merge RBI sigs into existing documentation
+
 ### Bug Fixes
 
 * Handle multiple invocations of `mixes_in_class_methods` within a class

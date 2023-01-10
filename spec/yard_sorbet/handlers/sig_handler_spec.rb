@@ -2,11 +2,67 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::SigHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.txt')
-
-  before do
+  # The :all (and corresponding rubocop disable) isn't strictly necessary, but it speeds up tests considerably
+  before(:all) do # rubocop:disable RSpec/BeforeAfterAll
     YARD::Registry.clear
+    path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.txt')
     YARD::Parser::SourceParser.parse(path)
+    rbi_path = File.join(File.expand_path('../../data', __dir__), 'sig_handler.rbi.txt')
+    YARD::Parser::SourceParser.parse(rbi_path)
+  end
+
+  describe 'Merging an RBI file' do
+    it 'includes docstring from original attr_accessor' do
+      expect(YARD::Registry.at('Merge::A#a_foo').docstring).to eq('annotated attr_accessor')
+    end
+
+    it 'merges attr_accessor sig' do
+      expect(YARD::Registry.at('Merge::A#a_foo').tag(:return).types).to eq(['Numeric'])
+    end
+
+    it 'includes docstring from original attr_reader' do
+      expect(YARD::Registry.at('Merge::A#a_bar').docstring).to eq('Returns the value of attribute a_bar.')
+    end
+
+    it 'merges attr_reader sig' do
+      expect(YARD::Registry.at('Merge::A#a_bar').tag(:return).types).to eq(%w[String nil])
+    end
+
+    it 'includes docstring from original attr_writer' do
+      expect(YARD::Registry.at('Merge::A#a_baz=').docstring).to eq('Sets the attribute a_baz')
+    end
+
+    it 'merges attr_writer sig' do
+      expect(YARD::Registry.at('Merge::A#a_baz=').tag(:return).types).to eq(['Integer'])
+    end
+
+    it 'includes docstring from original instance def' do
+      expect(YARD::Registry.at('Merge::A#foo').docstring).to eq('The foo instance method for A')
+    end
+
+    it 'merges instance def sig' do
+      expect(YARD::Registry.at('Merge::A#foo').tag(:return).types).to eq(['String'])
+    end
+
+    it 'includes docstring from original singleton def' do
+      expect(YARD::Registry.at('Merge::A.bar').docstring).to eq('The bar singleton method for A')
+    end
+
+    it 'merges singleton def sig' do
+      expect(YARD::Registry.at('Merge::A.bar').tag(:return).types).to eq(['Float'])
+    end
+
+    it 'preserves the visibility of the original method' do
+      expect(YARD::Registry.at('Merge::A#baz').visibility).to be(:private)
+    end
+
+    it 'merges sig return type with return tag' do
+      expect(YARD::Registry.at('Merge::A#bat').tag(:return).types).to eq(['Integer'])
+    end
+
+    it 'merges return tag comment with sig return type' do
+      expect(YARD::Registry.at('Merge::A#bat').tag(:return).text).to eq('the result')
+    end
   end
 
   describe 'attaching to method' do
@@ -240,7 +296,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       end
 
       it 'preserves visibility modifier' do
-        expect(YARD::Registry.at('CollectionSigs#fixed_hash').visibility).to eq(:protected)
+        expect(YARD::Registry.at('CollectionSigs#fixed_hash').visibility).to be(:protected)
       end
     end
 
@@ -438,6 +494,23 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
         node = YARD::Registry.at('SigReturn.class_method_definition_contains_comment')
         expect(node.docstring).to eq('class method definition contains comment')
       end
+    end
+  end
+
+  describe 'Unparsable sigs' do
+    before do
+      allow(log).to receive(:warn)
+      YARD::Parser::SourceParser.parse_string(<<~RUBY)
+        class Test
+          CONST = :foo
+          sig { returns(Integer) }
+          attr_reader CONST
+        end
+      RUBY
+    end
+
+    it 'warn when parsing an attr* with a constant param' do
+      expect(log).to have_received(:warn).with(/Undocumentable CONST/).twice
     end
   end
 end
