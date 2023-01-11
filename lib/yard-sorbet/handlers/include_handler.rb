@@ -7,8 +7,6 @@ module YARDSorbet
     # @see https://sorbet.org/docs/abstract#interfaces-and-the-included-hook
     #   Sorbet `mixes_in_class_methods` documentation
     class IncludeHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       handles method_call(:include)
       namespace_only
 

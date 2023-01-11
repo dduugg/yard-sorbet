@@ -6,8 +6,6 @@ module YARDSorbet
     # Handles all `const`/`prop` calls, creating accessor methods, and compiles them for later usage at the class level
     # in creating a constructor
     class StructPropHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       handles method_call(:const), method_call(:prop)
       namespace_only
 

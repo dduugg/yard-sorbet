@@ -4,8 +4,6 @@
 module YARDSorbet
   # Helper methods for working with `YARD` AST Nodes
   module NodeUtils
-    extend T::Sig
-
     # Command node types that can have type signatures
     ATTRIBUTE_METHODS = T.let(%i[attr attr_accessor attr_reader attr_writer].freeze, T::Array[Symbol])
     # Skip these method contents during BFS node traversal, they can have their own nested types via `T.Proc`

@@ -8,7 +8,6 @@ require 'sorbet-runtime'
 #
 # @see https://github.com/lsegal/yard/issues/1386
 module IgnoreMonkeyPatchMixins
-  extend T::Helpers
   extend T::Sig
 
   sig { params(content: YARD::Parser::Ruby::AstNode).returns(T.nilable(YARD::CodeObjects::Base)) }

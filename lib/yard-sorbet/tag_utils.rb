@@ -4,8 +4,6 @@
 module YARDSorbet
   # Helper methods for working with `YARD` tags
   module TagUtils
-    extend T::Sig
-
     # The `void` return type, as a constant to reduce array allocations
     VOID_RETURN_TYPE = T.let(['void'].freeze, [String])
 

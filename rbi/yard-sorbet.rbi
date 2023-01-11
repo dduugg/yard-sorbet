@@ -3,8 +3,6 @@ module YARDSorbet
   VERSION = '0.7.0'
 
   module Directives
-    extend T::Sig
-
     sig { params(docstring: T.nilable(String)).returns([YARD::Docstring, T::Array[String]]) }
     def self.extract_directives(docstring); end
 
@@ -13,7 +11,6 @@ module YARDSorbet
   end
 
   module NodeUtils
-    extend T::Sig
     # Node types that can have type signatures
     SigableNode = T.type_alias { T.any(YARD::Parser::Ruby::MethodDefinitionNode, YARD::Parser::Ruby::MethodCallNode) }
     ATTRIBUTE_METHODS = T.let(%i[attr attr_accessor attr_reader attr_writer].freeze, T::Array[Symbol])
@@ -39,7 +36,6 @@ module YARDSorbet
   end
 
   module SigToYARD
-    extend T::Sig
     REF_TYPES = T.let({
       'T::Boolean' => ['Boolean'].freeze,
       'FalseClass' => ['false'].freeze,
@@ -88,7 +84,6 @@ module YARDSorbet
   end
 
   module TagUtils
-    extend T::Sig
     VOID_RETURN_TYPE = T.let(['void'].freeze, [String])
 
     sig { params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String)).returns(T.nilable(YARD::Tags::Tag)) }
@@ -108,7 +103,6 @@ module YARDSorbet
 
   module Handlers
     class AbstractDSLHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
       TAG_TEXT = 'Subclasses must implement the `abstract` methods below.'
       CLASS_TAG_TEXT = T.let("It cannot be directly instantiated. #{TAG_TEXT}", String)
 
@@ -117,8 +111,6 @@ module YARDSorbet
     end
 
     class EnumsHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       sig { void }
       def process; end
 
@@ -127,8 +119,6 @@ module YARDSorbet
     end
 
     class IncludeHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       sig { void }
       def process; end
 
@@ -137,8 +127,6 @@ module YARDSorbet
     end
 
     class MixesInClassMethodsHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       sig { params(code_obj: String).returns(T.nilable(T::Array[String])) }
       def self.mixed_in_class_methods(code_obj); end
 
@@ -147,7 +135,6 @@ module YARDSorbet
     end
 
     class SigHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
       # YARD types that can have docstrings attached to them
       Documentable = T.type_alias { T.any(
           YARD::CodeObjects::MethodObject, YARD::Parser::Ruby::MethodCallNode, YARD::Parser::Ruby::MethodDefinitionNode
@@ -182,8 +169,6 @@ module YARDSorbet
     end
 
     class StructPropHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       sig { void }
       def process; end
 
@@ -210,8 +195,6 @@ module YARDSorbet
     end
 
     module StructClassHandler
-      extend T::Sig
-
       requires_ancestor { YARD::Handlers::Ruby::ClassHandler }
 
       sig { void }

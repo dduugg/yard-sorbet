@@ -5,8 +5,6 @@ module YARDSorbet
   module Handlers
     # Handle `enums` calls, registering enum values as constants
     class EnumsHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       handles method_call(:enums)
       namespace_only
 

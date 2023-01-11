@@ -5,8 +5,6 @@ module YARDSorbet
   module Handlers
     # A YARD Handler for Sorbet type declarations
     class SigHandler < YARD::Handlers::Ruby::Base
-      extend T::Sig
-
       handles method_call(:sig)
       namespace_only
 

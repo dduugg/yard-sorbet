@@ -4,8 +4,6 @@
 module YARDSorbet
   # Extract & re-add directives to a docstring
   module Directives
-    extend T::Sig
-
     def self.extract_directives(docstring)
       parser = YARD::DocstringParser.new.parse(docstring)
       # Directives are already parsed at this point, and there doesn't

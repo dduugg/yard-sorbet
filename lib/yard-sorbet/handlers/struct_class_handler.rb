@@ -8,8 +8,6 @@ module YARDSorbet
     #
     # @note this module is included in `YARD::Handlers::Ruby::ClassHandler`
     module StructClassHandler
-      extend T::Sig
-
       def process
         super
         return if extra_state.prop_docs.nil?

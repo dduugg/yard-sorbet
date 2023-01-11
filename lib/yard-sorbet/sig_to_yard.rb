@@ -4,8 +4,6 @@
 module YARDSorbet
   # Translate `sig` type syntax to `YARD` type syntax.
   module SigToYARD
-    extend T::Sig
-
     # Map of common types to YARD conventions (in order to reduce allocations)
     REF_TYPES = T.let({
       'T::Boolean' => ['Boolean'].freeze, # YARD convention for booleans
