@@ -116,7 +116,7 @@ module YARDSorbet
       # Order matters here, putting `nil` last results in a more concise return syntax in the UI (superscripted `?`):
       # https://github.com/lsegal/yard/blob/cfa62ae/lib/yard/templates/helpers/html_helper.rb#L499-L500
       when :nilable then convert_node(node.last) + REF_TYPES.fetch('NilClass')
-      when :any then node.dig(-1, 0).children.flat_map { convert_node(_1) }
+      when :any then node[-1][0].children.flat_map { convert_node(_1) }
       else [node.source]
       end
     end

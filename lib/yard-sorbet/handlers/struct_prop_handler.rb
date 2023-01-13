@@ -13,7 +13,7 @@ module YARDSorbet
 
       sig { void }
       def process
-        name = params.dig(0, -1, -1).source
+        name = params[0][-1][-1].source
         prop = make_prop(name)
         update_state(prop)
         object = YARD::CodeObjects::MethodObject.new(namespace, name, scope)

@@ -98,8 +98,8 @@ module YARDSorbet
       sig { params(node: YARD::Parser::Ruby::AstNode, docstring: YARD::Docstring).void }
       def parse_params(node, docstring)
         sibling = NodeUtils.sibling_node(node)
-        sibling.dig(0, 0).each do |param|
-          param_name = param.dig(0, 0)
+        sibling[0][0].each do |param|
+          param_name = param[0][0]
           types = SigToYARD.convert(param.last)
           TagUtils.upsert_tag(docstring, 'param', types, param_name)
         end
