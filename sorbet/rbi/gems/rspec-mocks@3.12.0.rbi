@@ -7,172 +7,78 @@
 # Share the top-level RSpec namespace, because we are a core supported
 # extension.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:1
+# source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#1
 module RSpec
   class << self
-    # Used to ensure examples get reloaded between multiple runs in the same
-    # process and ensures user configuration is persisted.
-    #
-    # Users must invoke this if they want to clear all examples but preserve
-    # current configuration when they use the runner multiple times within the
-    # same process.
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:70
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#70
     def clear_examples; end
 
-    # Returns the global [Configuration](RSpec/Core/Configuration) object. While
-    # you _can_ use this method to access the configuration, the more common
-    # convention is to use [RSpec.configure](RSpec#configure-class_method).
-    #
-    # @example
-    #   RSpec.configuration.drb_port = 1234
-    # @see RSpec.configure
-    # @see Core::Configuration
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:85
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#85
     def configuration; end
 
-    # Setters for shared global objects
-    #
-    # @api private
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:49
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#49
     def configuration=(_arg0); end
 
-    # Yields the global configuration to a block.
-    #
-    # @example
-    #   RSpec.configure do |config|
-    #   config.add_formatter 'documentation'
-    #   end
-    # @see Core::Configuration
-    # @yield [Configuration] global configuration
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:97
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#97
     def configure; end
 
-    # @private
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:194
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#194
     def const_missing(name); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/dsl.rb:42
+    # source://rspec-core/3.12.0/lib/rspec/core/dsl.rb#42
     def context(*args, &example_group_block); end
 
-    # The example being executed.
-    #
-    # The primary audience for this method is library authors who need access
-    # to the example currently being executed and also want to support all
-    # versions of RSpec 2 and 3.
-    #
-    # @example
-    #
-    #   RSpec.configure do |c|
-    #   # context.example is deprecated, but RSpec.current_example is not
-    #   # available until RSpec 3.0.
-    #   fetch_current_example = RSpec.respond_to?(:current_example) ?
-    #   proc { RSpec.current_example } : proc { |context| context.example }
-    #
-    #   c.before(:example) do
-    #   example = fetch_current_example.call(self)
-    #
-    #   # ...
-    #   end
-    #   end
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:122
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#122
     def current_example; end
 
-    # Set the current example being executed.
-    #
-    # @api private
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:128
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#128
     def current_example=(example); end
 
-    # Get the current RSpec execution scope
-    #
-    # Returns (in order of lifecycle):
-    #   * `:suite` as an initial value, this is outside of the test lifecycle.
-    #   * `:before_suite_hook` during `before(:suite)` hooks.
-    #   * `:before_context_hook` during `before(:context)` hooks.
-    #   * `:before_example_hook` during `before(:example)` hooks and `around(:example)` before `example.run`.
-    #   * `:example` within the example run.
-    #   * `:after_example_hook` during `after(:example)` hooks and `around(:example)` after `example.run`.
-    #   * `:after_context_hook` during `after(:context)` hooks.
-    #   * `:after_suite_hook` during `after(:suite)` hooks.
-    #   * `:suite` as a final value, again this is outside of the test lifecycle.
-    #
-    # Reminder, `:context` hooks have `:all` alias and `:example` hooks have `:each` alias.
-    #
-    # @return [Symbol]
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:154
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#154
     def current_scope; end
 
-    # Set the current scope rspec is executing in
-    #
-    # @api private
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:134
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#134
     def current_scope=(scope); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/dsl.rb:42
+    # source://rspec-core/3.12.0/lib/rspec/core/dsl.rb#42
     def describe(*args, &example_group_block); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/dsl.rb:42
+    # source://rspec-core/3.12.0/lib/rspec/core/dsl.rb#42
     def example_group(*args, &example_group_block); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/dsl.rb:42
+    # source://rspec-core/3.12.0/lib/rspec/core/dsl.rb#42
     def fcontext(*args, &example_group_block); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/dsl.rb:42
+    # source://rspec-core/3.12.0/lib/rspec/core/dsl.rb#42
     def fdescribe(*args, &example_group_block); end
 
-    # Used to ensure examples get reloaded and user configuration gets reset to
-    # defaults between multiple runs in the same process.
-    #
-    # Users must invoke this if they want to have the configuration reset when
-    # they use the runner multiple times within the same process. Users must deal
-    # themselves with re-configuration of RSpec before run.
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:58
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#58
     def reset; end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/shared_example_group.rb:110
+    # source://rspec-core/3.12.0/lib/rspec/core/shared_example_group.rb#110
     def shared_context(name, *args, &block); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/shared_example_group.rb:110
+    # source://rspec-core/3.12.0/lib/rspec/core/shared_example_group.rb#110
     def shared_examples(name, *args, &block); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/shared_example_group.rb:110
+    # source://rspec-core/3.12.0/lib/rspec/core/shared_example_group.rb#110
     def shared_examples_for(name, *args, &block); end
 
-    # Internal container for global non-configuration data.
-    #
-    # @private
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:160
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#160
     def world; end
 
-    # Setters for shared global objects
-    #
-    # @api private
-    #
-    # source://rspec-core-3.11.0/lib/rspec/core.rb:49
+    # source://rspec-core/3.12.0/lib/rspec/core.rb#49
     def world=(_arg0); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/dsl.rb:42
+    # source://rspec-core/3.12.0/lib/rspec/core/dsl.rb#42
     def xcontext(*args, &example_group_block); end
 
-    # source://rspec-core-3.11.0/lib/rspec/core/dsl.rb:42
+    # source://rspec-core/3.12.0/lib/rspec/core/dsl.rb#42
     def xdescribe(*args, &example_group_block); end
   end
 end
 
-# @private
-#
-# source://rspec-core-3.11.0/lib/rspec/core.rb:187
+# source://rspec-core/3.12.0/lib/rspec/core.rb#187
 RSpec::MODULES_TO_AUTOLOAD = T.let(T.unsafe(nil), Hash)
 
 # Contains top-level utility methods. While this contains a few
@@ -180,7 +86,7 @@ RSpec::MODULES_TO_AUTOLOAD = T.let(T.unsafe(nil), Hash)
 # a test or example. They exist primarily for integration with
 # test frameworks (such as rspec-core).
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:2
+# source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#2
 module RSpec::Mocks
   class << self
     # Adds an allowance (stub) on `subject`
@@ -195,18 +101,18 @@ module RSpec::Mocks
     #   original call site
     # @yield an optional implementation for the allowance
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:69
+    # source://rspec-mocks//lib/rspec/mocks.rb#69
     def allow_message(subject, message, opts = T.unsafe(nil), &block); end
 
     # Mocks specific configuration, as distinct from `RSpec.configuration`
     # which is core RSpec configuration.
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:206
+    # source://rspec-mocks//lib/rspec/mocks/configuration.rb#206
     def configuration; end
 
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:365
+    # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#376
     def error_generator; end
 
     # Sets a message expectation on `subject`.
@@ -221,31 +127,31 @@ module RSpec::Mocks
     #   original call site
     # @yield an optional implementation for the expectation
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:84
+    # source://rspec-mocks//lib/rspec/mocks.rb#84
     def expect_message(subject, message, opts = T.unsafe(nil), &block); end
 
     # Performs per-test/example setup. This should be called before
     # an test or example begins.
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:38
+    # source://rspec-mocks//lib/rspec/mocks.rb#38
     def setup; end
 
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:106
+    # source://rspec-mocks//lib/rspec/mocks.rb#106
     def space; end
 
     # Cleans up all test double state (including any methods that were
     # redefined on partial doubles). This _must_ be called after
     # each example, even if an error was raised during the example.
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:51
+    # source://rspec-mocks//lib/rspec/mocks.rb#51
     def teardown; end
 
     # Verifies any message expectations that were set during the
     # test or example. This should be called at the end of an example.
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:44
+    # source://rspec-mocks//lib/rspec/mocks.rb#44
     def verify; end
 
     # Call the passed block and verify mocks after it has executed. This allows
@@ -253,25 +159,25 @@ module RSpec::Mocks
     #
     # @return [Object] the return value from the block
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:92
+    # source://rspec-mocks//lib/rspec/mocks.rb#92
     def with_temporary_scope; end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:92
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#92
 class RSpec::Mocks::AllowanceTarget < ::RSpec::Mocks::TargetBase
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:93
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#93
   def expression; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#29
   def not_to(matcher, *_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#6
   def to(matcher, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#29
   def to_not(matcher, *_args); end
 end
 
@@ -279,14 +185,14 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:739
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#737
 class RSpec::Mocks::AndInvokeImplementation
   # @return [AndInvokeImplementation] a new instance of AndInvokeImplementation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:740
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#738
   def initialize(procs_to_invoke); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:744
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#742
   def call(*args, &block); end
 end
 
@@ -294,14 +200,14 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:723
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#721
 class RSpec::Mocks::AndReturnImplementation
   # @return [AndReturnImplementation] a new instance of AndReturnImplementation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:724
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#722
   def initialize(values_to_return); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:728
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#726
   def call(*_args_to_ignore, &_block); end
 end
 
@@ -309,120 +215,120 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:781
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#779
 class RSpec::Mocks::AndWrapOriginalImplementation
   # @return [AndWrapOriginalImplementation] a new instance of AndWrapOriginalImplementation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:782
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#780
   def initialize(method, block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:809
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#807
   def call(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:789
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#787
   def initial_action=(_value); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:805
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#803
   def inner_action; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:793
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#791
   def inner_action=(_value); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:801
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#799
   def present?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:797
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#795
   def terminal_action=(_value); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:816
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#814
   def cannot_modify_further_error; end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:787
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#785
 class RSpec::Mocks::AndWrapOriginalImplementation::CannotModifyFurtherError < ::StandardError; end
 
 # Handles the implementation of an `and_yield` declaration.
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:696
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#694
 class RSpec::Mocks::AndYieldImplementation
   # @return [AndYieldImplementation] a new instance of AndYieldImplementation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:697
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#695
   def initialize(args_to_yield, eval_context, error_generator); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:703
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#701
   def call(*_args_to_ignore, &block); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:4
+# source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#4
 module RSpec::Mocks::AnyInstance
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/error_generator.rb:26
+    # source://rspec-mocks//lib/rspec/mocks/any_instance/error_generator.rb#26
     def error_generator; end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:6
+# source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#6
 class RSpec::Mocks::AnyInstance::Chain
   include ::RSpec::Mocks::AnyInstance::Chain::Customizations
 
   # @return [Chain] a new instance of Chain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:7
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#7
   def initialize(recorder, *args, &block); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#61
   def constrained_to_any_of?(*constraints); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:75
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#75
   def expectation_fulfilled!; end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:70
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#70
   def matches_args?(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:79
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#79
   def never; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#53
   def playback!(instance); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:84
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#84
   def with(*args, &block); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:99
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#99
   def last_message; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:95
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#95
   def messages; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:91
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#91
   def negated?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:103
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#103
   def record(rspec_method_name, *args, &block); end
 end
 
@@ -431,14 +337,14 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:18
+# source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#18
 module RSpec::Mocks::AnyInstance::Chain::Customizations
   # Records the `and_call_original` message for playback against an instance that
   # invokes a method stubbed or mocked using `any_instance`.
   #
   # @see RSpec::Mocks::MessageExpectation#and_call_original
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def and_call_original(*args, &block); end
 
   # Records the `and_raise` message for playback against an instance that
@@ -446,7 +352,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#and_raise
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def and_raise(*args, &block); end
 
   # Records the `and_return` message for playback against an instance that
@@ -454,7 +360,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#and_return
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def and_return(*args, &block); end
 
   # Records the `and_throw` message for playback against an instance that
@@ -462,7 +368,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#and_throw
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def and_throw(*args, &block); end
 
   # Records the `and_wrap_original` message for playback against an instance that
@@ -470,7 +376,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#and_wrap_original
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def and_wrap_original(*args, &block); end
 
   # Records the `and_yield` message for playback against an instance that
@@ -478,7 +384,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#and_yield
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def and_yield(*args, &block); end
 
   # Records the `at_least` message for playback against an instance that
@@ -486,7 +392,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#at_least
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def at_least(*args, &block); end
 
   # Records the `at_most` message for playback against an instance that
@@ -494,7 +400,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#at_most
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def at_most(*args, &block); end
 
   # Records the `exactly` message for playback against an instance that
@@ -502,7 +408,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#exactly
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def exactly(*args, &block); end
 
   # Records the `never` message for playback against an instance that
@@ -510,7 +416,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#never
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def never(*args, &block); end
 
   # Records the `once` message for playback against an instance that
@@ -518,7 +424,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#once
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def once(*args, &block); end
 
   # Records the `thrice` message for playback against an instance that
@@ -526,7 +432,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#thrice
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def thrice(*args, &block); end
 
   # Records the `time` message for playback against an instance that
@@ -534,7 +440,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#time
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def time(*args, &block); end
 
   # Records the `times` message for playback against an instance that
@@ -542,7 +448,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#times
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def times(*args, &block); end
 
   # Records the `twice` message for playback against an instance that
@@ -550,7 +456,7 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#twice
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def twice(*args, &block); end
 
   # Records the `with` message for playback against an instance that
@@ -558,75 +464,75 @@ module RSpec::Mocks::AnyInstance::Chain::Customizations
   #
   # @see RSpec::Mocks::MessageExpectation#with
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#27
   def with(*args, &block); end
 
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/chain.rb:26
+    # source://rspec-mocks//lib/rspec/mocks/any_instance/chain.rb#26
     def record(method_name); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/error_generator.rb:5
+# source://rspec-mocks//lib/rspec/mocks/any_instance/error_generator.rb#5
 class RSpec::Mocks::AnyInstance::ErrorGenerator < ::RSpec::Mocks::ErrorGenerator
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/error_generator.rb:11
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/error_generator.rb#11
   def raise_does_not_implement_error(klass, method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/error_generator.rb:15
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/error_generator.rb#15
   def raise_message_already_received_by_other_instance_error(method_name, object_inspect, invoked_instance); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/error_generator.rb:20
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/error_generator.rb#20
   def raise_not_supported_with_prepend_error(method_name, problem_mod); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/error_generator.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/error_generator.rb#6
   def raise_second_instance_received_message_error(unfulfilled_expectations); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expect_chain_chain.rb:5
+# source://rspec-mocks//lib/rspec/mocks/any_instance/expect_chain_chain.rb#5
 class RSpec::Mocks::AnyInstance::ExpectChainChain < ::RSpec::Mocks::AnyInstance::StubChain
   # @return [ExpectChainChain] a new instance of ExpectChainChain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expect_chain_chain.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expect_chain_chain.rb#6
   def initialize(*args); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expect_chain_chain.rb:11
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expect_chain_chain.rb#11
   def expectation_fulfilled?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expect_chain_chain.rb:15
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expect_chain_chain.rb#15
   def playback!(instance); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expect_chain_chain.rb:21
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expect_chain_chain.rb#21
   def create_message_expectation_on(instance); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expect_chain_chain.rb:25
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expect_chain_chain.rb#25
   def invocation_order; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:5
+# source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#5
 class RSpec::Mocks::AnyInstance::ExpectationChain < ::RSpec::Mocks::AnyInstance::Chain
   # @return [ExpectationChain] a new instance of ExpectationChain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:10
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#10
   def initialize(*args, &block); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#6
   def expectation_fulfilled?; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#17
   def verify_invocation_order(_rspec_method_name, *_args, &_block); end
 end
 
@@ -640,100 +546,100 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:94
+# source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#94
 class RSpec::Mocks::AnyInstance::FluentInterfaceProxy
   # @return [FluentInterfaceProxy] a new instance of FluentInterfaceProxy
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:95
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#95
   def initialize(targets); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:109
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#109
   def method_missing(*args, &block); end
 
   private
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:100
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#100
   def respond_to_missing?(method_name, include_private = T.unsafe(nil)); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:5
+# source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#5
 class RSpec::Mocks::AnyInstance::MessageChains
   # @return [MessageChains] a new instance of MessageChains
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#6
   def initialize; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:11
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#11
   def [](method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#16
   def add(method_name, chain); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:43
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#43
   def all_expectations_fulfilled?; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:36
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#36
   def each_unfulfilled_expectation_matching(method_name, *args); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#29
   def has_expectation?(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:64
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#64
   def playback!(instance, method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:57
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#57
   def received_expected_message!(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:22
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#22
   def remove_stub_chains_for!(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:50
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#50
   def unfulfilled_expectations; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/message_chains.rb:73
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/message_chains.rb#73
   def raise_if_second_instance_to_receive_message(instance); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:22
+# source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#22
 class RSpec::Mocks::AnyInstance::PositiveExpectationChain < ::RSpec::Mocks::AnyInstance::ExpectationChain
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:25
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#25
   def create_message_expectation_on(instance); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:44
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#44
   def invocation_order; end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/expectation_chain.rb:38
+# source://rspec-mocks//lib/rspec/mocks/any_instance/expectation_chain.rb#38
 RSpec::Mocks::AnyInstance::PositiveExpectationChain::ExpectationInvocationOrder = T.let(T.unsafe(nil), Hash)
 
 # The `AnyInstance::Recorder` is responsible for redefining the klass's
@@ -755,37 +661,37 @@ RSpec::Mocks::AnyInstance::PositiveExpectationChain::ExpectationInvocationOrder 
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:21
+# source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#21
 class RSpec::Mocks::AnyInstance::Proxy
   # @return [Proxy] a new instance of Proxy
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:22
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#22
   def initialize(recorder, target_proxies); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:55
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#55
   def expect_chain(*chain, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#27
   def klass; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:71
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#71
   def should_not_receive(method_name, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#61
   def should_receive(method_name, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:31
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#31
   def stub(method_name_or_method_map, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:49
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#49
   def stub_chain(*chain, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:43
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#43
   def unstub(method_name); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/proxy.rb:79
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/proxy.rb#79
   def perform_proxying(method_name, args, block, &target_proxy_block); end
 end
 
@@ -798,59 +704,59 @@ end
 # @see AnyInstance
 # @see Chain
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:12
+# source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#12
 class RSpec::Mocks::AnyInstance::Recorder
   # @return [Recorder] a new instance of Recorder
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#16
   def initialize(klass); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:127
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#127
   def already_observing?(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:122
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#122
   def build_alias_method_name(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#53
   def expect_chain(*method_names_and_optional_return_values, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:117
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#117
   def instance_that_received(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:14
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#14
   def klass; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:14
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#14
   def message_chains; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:132
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#132
   def notify_received_message(_object, message, args, _blk); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:109
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#109
   def playback!(instance, method_name); end
 
   # The opposite of `should_receive`
   #
   # @see Methods#should_not_receive
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:75
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#75
   def should_not_receive(method_name, &block); end
 
   # Initializes the recording a message expectation to be played back
@@ -859,12 +765,12 @@ class RSpec::Mocks::AnyInstance::Recorder
   #
   # @see Methods#should_receive
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:66
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#66
   def should_receive(method_name, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:104
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#104
   def stop_all_observation!; end
 
   # Initializes the recording a stub to be played back against any
@@ -872,7 +778,7 @@ class RSpec::Mocks::AnyInstance::Recorder
   #
   # @see Methods#stub
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:35
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#35
   def stub(method_name, &block); end
 
   # Initializes the recording a stub chain to be played back against any
@@ -881,12 +787,12 @@ class RSpec::Mocks::AnyInstance::Recorder
   #
   # @see Methods#stub_chain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:45
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#45
   def stub_chain(*method_names_and_optional_return_values, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:14
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#14
   def stubs; end
 
   # Removes any previously recorded stubs, stub_chains or message
@@ -894,7 +800,7 @@ class RSpec::Mocks::AnyInstance::Recorder
   #
   # @see Methods#unstub
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:83
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#83
   def unstub(method_name); end
 
   # Used internally to verify that message expectations have been
@@ -902,143 +808,143 @@ class RSpec::Mocks::AnyInstance::Recorder
   #
   # @api private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:96
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#96
   def verify; end
 
   protected
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:148
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#148
   def stop_observing!(method_name); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:280
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#280
   def allow_no_prepended_module_definition_of(method_name); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:159
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#159
   def ancestor_is_an_observer?(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:233
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#233
   def backup_method!(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:267
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#267
   def mark_invoked!(method_name); end
 
   # @yield [args.first, args]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:176
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#176
   def normalize_chain(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:247
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#247
   def observe!(method_name); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:243
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#243
   def public_protected_or_private_method_defined?(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:181
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#181
   def received_expected_message!(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:227
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#227
   def remove_dummy_method!(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:187
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#187
   def restore_method!(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:195
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#195
   def restore_original_method!(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:168
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#168
   def super_class_observers_for(method_name); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/recorder.rb:172
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/recorder.rb#172
   def super_class_observing?(method_name); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain.rb:6
+# source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain.rb#6
 class RSpec::Mocks::AnyInstance::StubChain < ::RSpec::Mocks::AnyInstance::Chain
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain.rb:7
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain.rb#7
   def expectation_fulfilled?; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain.rb:13
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain.rb#13
   def create_message_expectation_on(instance); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain.rb:40
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain.rb#40
   def invocation_order; end
 
   # @raise [NoMethodError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain.rb:44
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain.rb#44
   def verify_invocation_order(rspec_method_name, *_args, &_block); end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain.rb:38
+# source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain.rb#38
 RSpec::Mocks::AnyInstance::StubChain::EmptyInvocationOrder = T.let(T.unsafe(nil), Hash)
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain.rb:28
+# source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain.rb#28
 RSpec::Mocks::AnyInstance::StubChain::InvocationOrder = T.let(T.unsafe(nil), Hash)
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain_chain.rb:5
+# source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain_chain.rb#5
 class RSpec::Mocks::AnyInstance::StubChainChain < ::RSpec::Mocks::AnyInstance::StubChain
   # @return [StubChainChain] a new instance of StubChainChain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain_chain.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain_chain.rb#6
   def initialize(*args); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain_chain.rb:13
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain_chain.rb#13
   def create_message_expectation_on(instance); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/any_instance/stub_chain_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/any_instance/stub_chain_chain.rb#17
   def invocation_order; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:103
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#103
 class RSpec::Mocks::AnyInstanceAllowanceTarget < ::RSpec::Mocks::TargetBase
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:104
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#104
   def expression; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#29
   def not_to(matcher, *_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#6
   def to(matcher, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#29
   def to_not(matcher, *_args); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:114
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#114
 class RSpec::Mocks::AnyInstanceExpectationTarget < ::RSpec::Mocks::TargetBase
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:115
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#115
   def expression; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#16
   def not_to(matcher, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#6
   def to(matcher, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#16
   def to_not(matcher, &block); end
 end
 
@@ -1067,7 +973,7 @@ end
 #
 # @see ArgumentMatchers
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:33
+# source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#33
 class RSpec::Mocks::ArgumentListMatcher
   # Initializes an `ArgumentListMatcher` with a collection of literal
   # values and/or argument matchers.
@@ -1078,7 +984,7 @@ class RSpec::Mocks::ArgumentListMatcher
   # @see ArgumentMatchers
   # @see #args_match?
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:45
+  # source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#45
   def initialize(*expected_args); end
 
   # Matches each element in the `expected_args` against the element in the same
@@ -1089,12 +995,12 @@ class RSpec::Mocks::ArgumentListMatcher
   # @return [Boolean]
   # @see #initialize
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:58
+  # source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#58
   def args_match?(*actual_args); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:35
+  # source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#35
   def expected_args; end
 
   # Resolves abstract arg placeholders like `no_args` and `any_args` into
@@ -1102,15 +1008,15 @@ class RSpec::Mocks::ArgumentListMatcher
   #
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:79
+  # source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#79
   def resolve_expected_args_based_on(actual_args); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:98
+  # source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#98
   def ensure_expected_args_valid!; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:90
+  # source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#90
   def replace_any_args_with_splat_of_anything(before_count, actual_args_count); end
 end
 
@@ -1118,7 +1024,7 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_list_matcher.rb:112
+# source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#112
 RSpec::Mocks::ArgumentListMatcher::MATCH_ALL = T.let(T.unsafe(nil), RSpec::Mocks::ArgumentListMatcher)
 
 # ArgumentMatchers are placeholders that you can include in message
@@ -1130,14 +1036,14 @@ RSpec::Mocks::ArgumentListMatcher::MATCH_ALL = T.let(T.unsafe(nil), RSpec::Mocks
 #
 # @see ArgumentListMatcher
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:16
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#16
 module RSpec::Mocks::ArgumentMatchers
   # Matches if `arg.kind_of?(klass)`
   #
   # @example
   #   expect(object).to receive(:message).with(kind_of(Thing))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#111
   def a_kind_of(klass); end
 
   # Matches if `arg.instance_of?(klass)`
@@ -1145,7 +1051,7 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(instance_of(Thing))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:101
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#101
   def an_instance_of(klass); end
 
   # Acts like an arg splat, matching any number of args at any point in an arg list.
@@ -1158,7 +1064,7 @@ module RSpec::Mocks::ArgumentMatchers
   #   object.message(1, 2, 3)
   #   object.message(1, 2, 3, 4)
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:26
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#26
   def any_args; end
 
   # Matches any argument at all.
@@ -1166,7 +1072,7 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(anything)
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:34
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#34
   def anything; end
 
   # Matches an array that includes the specified items at least once.
@@ -1176,7 +1082,7 @@ module RSpec::Mocks::ArgumentMatchers
   #   expect(object).to receive(:message).with(array_including(1,2,3))
   #   expect(object).to receive(:message).with(array_including([1,2,3]))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:80
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#80
   def array_including(*args); end
 
   # Matches a boolean value.
@@ -1184,7 +1090,7 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(boolean())
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:59
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#59
   def boolean; end
 
   # Matches if the actual argument responds to the specified messages.
@@ -1193,7 +1099,7 @@ module RSpec::Mocks::ArgumentMatchers
   #   expect(object).to receive(:message).with(duck_type(:hello))
   #   expect(object).to receive(:message).with(duck_type(:hello, :goodbye))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:51
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#51
   def duck_type(*args); end
 
   # Matches a hash that doesn't include the specified key(s) or key/value.
@@ -1203,7 +1109,7 @@ module RSpec::Mocks::ArgumentMatchers
   #   expect(object).to receive(:message).with(hash_excluding(:key))
   #   expect(object).to receive(:message).with(hash_excluding(:key, :key2 => :val2))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:91
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#91
   def hash_excluding(*args); end
 
   # Matches a hash that includes the specified key(s) or key/value pairs.
@@ -1214,7 +1120,7 @@ module RSpec::Mocks::ArgumentMatchers
   #   expect(object).to receive(:message).with(hash_including(:key))
   #   expect(object).to receive(:message).with(hash_including(:key, :key2 => val2))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:70
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#70
   def hash_including(*args); end
 
   # Matches a hash that doesn't include the specified key(s) or key/value.
@@ -1224,7 +1130,7 @@ module RSpec::Mocks::ArgumentMatchers
   #   expect(object).to receive(:message).with(hash_excluding(:key))
   #   expect(object).to receive(:message).with(hash_excluding(:key, :key2 => :val2))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:91
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#91
   def hash_not_including(*args); end
 
   # Matches if `arg.instance_of?(klass)`
@@ -1232,7 +1138,7 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(instance_of(Thing))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:101
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#101
   def instance_of(klass); end
 
   # Matches if `arg.kind_of?(klass)`
@@ -1240,7 +1146,7 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(kind_of(Thing))
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#111
   def kind_of(klass); end
 
   # Matches no arguments.
@@ -1248,177 +1154,177 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(no_args)
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:42
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#42
   def no_args; end
 
   class << self
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:118
+    # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#118
     def anythingize_lonely_keys(*args); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:149
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#149
 class RSpec::Mocks::ArgumentMatchers::AnyArgMatcher < ::RSpec::Mocks::ArgumentMatchers::SingletonMatcher
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:150
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#150
   def ===(_other); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:154
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#154
   def description; end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:137
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#137
 RSpec::Mocks::ArgumentMatchers::AnyArgMatcher::INSTANCE = T.let(T.unsafe(nil), RSpec::Mocks::ArgumentMatchers::AnyArgMatcher)
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:142
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#142
 class RSpec::Mocks::ArgumentMatchers::AnyArgsMatcher < ::RSpec::Mocks::ArgumentMatchers::SingletonMatcher
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:143
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#143
   def description; end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:137
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#137
 RSpec::Mocks::ArgumentMatchers::AnyArgsMatcher::INSTANCE = T.let(T.unsafe(nil), RSpec::Mocks::ArgumentMatchers::AnyArgsMatcher)
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:232
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#232
 class RSpec::Mocks::ArgumentMatchers::ArrayIncludingMatcher
   # @return [ArrayIncludingMatcher] a new instance of ArrayIncludingMatcher
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:233
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#233
   def initialize(expected); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:237
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#237
   def ===(actual); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:248
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#248
   def description; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:254
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#254
   def formatted_expected_values; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:178
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#178
 class RSpec::Mocks::ArgumentMatchers::BaseHashMatcher
   # @return [BaseHashMatcher] a new instance of BaseHashMatcher
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:179
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#179
   def initialize(expected); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:183
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#183
   def ===(predicate, actual); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:191
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#191
   def description(name); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:197
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#197
   def formatted_expected_hash; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:167
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#167
 class RSpec::Mocks::ArgumentMatchers::BooleanMatcher < ::RSpec::Mocks::ArgumentMatchers::SingletonMatcher
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:168
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#168
   def ===(value); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:172
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#172
   def description; end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:137
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#137
 RSpec::Mocks::ArgumentMatchers::BooleanMatcher::INSTANCE = T.let(T.unsafe(nil), RSpec::Mocks::ArgumentMatchers::BooleanMatcher)
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:262
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#262
 class RSpec::Mocks::ArgumentMatchers::DuckTypeMatcher
   # @return [DuckTypeMatcher] a new instance of DuckTypeMatcher
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:263
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#263
   def initialize(*methods_to_respond_to); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:267
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#267
   def ===(value); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:271
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#271
   def description; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:221
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#221
 class RSpec::Mocks::ArgumentMatchers::HashExcludingMatcher < ::RSpec::Mocks::ArgumentMatchers::BaseHashMatcher
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:222
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#222
   def ===(actual); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:226
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#226
   def description; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:210
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#210
 class RSpec::Mocks::ArgumentMatchers::HashIncludingMatcher < ::RSpec::Mocks::ArgumentMatchers::BaseHashMatcher
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:211
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#211
   def ===(actual); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:215
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#215
   def description; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:277
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#277
 class RSpec::Mocks::ArgumentMatchers::InstanceOf
   # @return [InstanceOf] a new instance of InstanceOf
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:278
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#278
   def initialize(klass); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:282
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#282
   def ===(actual); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:286
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#286
   def description; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:292
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#292
 class RSpec::Mocks::ArgumentMatchers::KindOf
   # @return [KindOf] a new instance of KindOf
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:293
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#293
   def initialize(klass); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:297
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#297
   def ===(actual); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:301
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#301
   def description; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:160
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#160
 class RSpec::Mocks::ArgumentMatchers::NoArgsMatcher < ::RSpec::Mocks::ArgumentMatchers::SingletonMatcher
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:161
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#161
   def description; end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:137
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#137
 RSpec::Mocks::ArgumentMatchers::NoArgsMatcher::INSTANCE = T.let(T.unsafe(nil), RSpec::Mocks::ArgumentMatchers::NoArgsMatcher)
 
 # Intended to be subclassed by stateless, immutable argument matchers.
@@ -1431,21 +1337,21 @@ RSpec::Mocks::ArgumentMatchers::NoArgsMatcher::INSTANCE = T.let(T.unsafe(nil), R
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:133
+# source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#133
 class RSpec::Mocks::ArgumentMatchers::SingletonMatcher
   class << self
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/argument_matchers.rb:136
+    # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#136
     def inherited(subklass); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:7
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#7
 class RSpec::Mocks::CallbackInvocationStrategy
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:8
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#8
   def call(doubled_module); end
 end
 
@@ -1456,7 +1362,7 @@ end
 # @deprecated We no longer raise this error but the constant remains until
 #   RSpec 4 for SemVer reasons.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:26
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#26
 class RSpec::Mocks::CannotSupportArgMutationsError < ::StandardError; end
 
 # When a class's `.new` method is stubbed, we want to use the method
@@ -1468,18 +1374,28 @@ class RSpec::Mocks::CannotSupportArgMutationsError < ::StandardError; end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:184
+# source://rspec-mocks//lib/rspec/mocks/method_reference.rb#184
 class RSpec::Mocks::ClassNewMethodReference < ::RSpec::Mocks::ObjectMethodReference
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:195
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#207
   def with_signature; end
 
   class << self
     # @return [Boolean]
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:185
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#185
     def applies_to?(method_name); end
+
+    # Ruby 2's Method#== is too strict
+    #
+    # @return [Boolean]
+    #
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#198
+    def uses_class_new?(klass); end
   end
 end
+
+# source://rspec-mocks//lib/rspec/mocks/method_reference.rb#196
+RSpec::Mocks::ClassNewMethodReference::CLASS_NEW = T.let(T.unsafe(nil), UnboundMethod)
 
 # Effectively the same as an ObjectVerifyingDouble (since a class is a type
 # of object), except with Module in the inheritance chain so that
@@ -1487,7 +1403,7 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:117
+# source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#117
 class RSpec::Mocks::ClassVerifyingDouble < ::Module
   include ::RSpec::Mocks::TestDouble
   include ::RSpec::Mocks::VerifyingDouble
@@ -1496,11 +1412,11 @@ end
 
 # Provides configuration options for rspec-mocks.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:4
+# source://rspec-mocks//lib/rspec/mocks/configuration.rb#4
 class RSpec::Mocks::Configuration
   # @return [Configuration] a new instance of Configuration
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:5
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#5
   def initialize; end
 
   # Adds `stub` and `should_receive` to the given
@@ -1517,7 +1433,7 @@ class RSpec::Mocks::Configuration
   #   end
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:62
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#62
   def add_stub_and_should_receive_to(*modules); end
 
   # Sets whether RSpec will warn, ignore, or fail a test when
@@ -1535,7 +1451,7 @@ class RSpec::Mocks::Configuration
   #   end
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#29
   def allow_message_expectations_on_nil; end
 
   # Sets whether RSpec will warn, ignore, or fail a test when
@@ -1553,7 +1469,7 @@ class RSpec::Mocks::Configuration
   #   end
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#29
   def allow_message_expectations_on_nil=(_arg0); end
 
   # Provides a way to perform customisations when verifying doubles.
@@ -1563,7 +1479,7 @@ class RSpec::Mocks::Configuration
   #   ref.some_method!
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:128
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#128
   def before_verifying_doubles(&block); end
 
   # Indicates whether or not diffs should be colored.
@@ -1572,7 +1488,7 @@ class RSpec::Mocks::Configuration
   #
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:164
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#164
   def color?; end
 
   # Monkey-patch `Marshal.dump` to enable dumping of mocked or stubbed
@@ -1583,14 +1499,14 @@ class RSpec::Mocks::Configuration
   #
   # This method is idempotent.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:188
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#188
   def patch_marshal_to_support_partial_doubles=(val); end
 
   # Resets the configured syntax to the default.
   #
   # @api private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:198
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#198
   def reset_syntaxes_to_default; end
 
   # Returns an array with a list of syntaxes
@@ -1601,7 +1517,7 @@ class RSpec::Mocks::Configuration
   #   raise "this RSpec extension gem requires the rspec-mocks `:expect` syntax"
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:104
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#104
   def syntax; end
 
   # Provides the ability to set either `expect`,
@@ -1618,7 +1534,7 @@ class RSpec::Mocks::Configuration
   #   mocks.syntax = [:expect, :should]
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:81
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#81
   def syntax=(*values); end
 
   # Used to track wether we are temporarily suppressing verifying partial
@@ -1626,7 +1542,7 @@ class RSpec::Mocks::Configuration
   #
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:161
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#161
   def temporarily_suppress_partial_double_verification; end
 
   # Used to track wether we are temporarily suppressing verifying partial
@@ -1634,18 +1550,18 @@ class RSpec::Mocks::Configuration
   #
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:161
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#161
   def temporarily_suppress_partial_double_verification=(_arg0); end
 
   # Sets the default for the `transfer_nested_constants` option when
   # stubbing constants.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:145
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#145
   def transfer_nested_constants=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:139
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#139
   def transfer_nested_constants?; end
 
   # When this is set to true, an error will be raised when
@@ -1654,31 +1570,31 @@ class RSpec::Mocks::Configuration
   # test suite, with all production code loaded. Setting this for an
   # isolated unit test will prevent you from being able to isolate it!
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:120
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#120
   def verify_doubled_constant_names=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#111
   def verify_doubled_constant_names?; end
 
   # When set to true, partial mocks will be verified the same as object
   # doubles. Any stubs will have their arguments checked against the original
   # method, and methods that do not exist cannot be stubbed.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:150
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#150
   def verify_partial_doubles=(val); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:154
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#154
   def verify_partial_doubles?; end
 
   # Returns an array of blocks to call when verifying doubles
   #
   # @api private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:135
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#135
   def verifying_double_callbacks; end
 
   # Provides a way to perform customisations when verifying doubles.
@@ -1688,7 +1604,7 @@ class RSpec::Mocks::Configuration
   #   ref.some_method!
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:128
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#128
   def when_declaring_verifying_double(&block); end
 
   # Sets whether or not RSpec will yield the receiving instance of a
@@ -1703,19 +1619,19 @@ class RSpec::Mocks::Configuration
   #   end
   #   end
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:46
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#46
   def yield_receiver_to_any_instance_implementation_blocks=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/configuration.rb:31
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#31
   def yield_receiver_to_any_instance_implementation_blocks?; end
 end
 
 # Provides information about constants that may (or may not)
 # have been mutated by rspec-mocks.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:7
+# source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#7
 class RSpec::Mocks::Constant
   extend ::RSpec::Support::RecursiveConstMethods
 
@@ -1724,86 +1640,86 @@ class RSpec::Mocks::Constant
   # @yield [_self]
   # @yieldparam _self [RSpec::Mocks::Constant] the object that the method was called on
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:11
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#11
   def initialize(name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#29
   def hidden=(_arg0); end
 
   # @return [Boolean] Whether or not rspec-mocks has hidden
   #   this constant.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:51
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#51
   def hidden?; end
 
   # The default `to_s` isn't very useful, so a custom version is provided.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:62
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#62
   def inspect; end
 
   # @return [Boolean] Whether or not rspec-mocks has mutated
   #   (stubbed or hidden) this constant.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:39
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#39
   def mutated?; end
 
   # @return [String] The fully qualified name of the constant.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:21
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#21
   def name; end
 
   # @return [Object, nil] The original value (e.g. before it
   #   was mutated by rspec-mocks) of the constant, or
   #   nil if the constant was not previously defined.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:26
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#26
   def original_value; end
 
   # @return [Object, nil] The original value (e.g. before it
   #   was mutated by rspec-mocks) of the constant, or
   #   nil if the constant was not previously defined.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:26
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#26
   def original_value=(_arg0); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#29
   def previously_defined=(_arg0); end
 
   # @return [Boolean] Whether or not the constant was defined
   #   before the current example.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:33
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#33
   def previously_defined?; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#29
   def stubbed=(_arg0); end
 
   # @return [Boolean] Whether or not rspec-mocks has stubbed
   #   this constant.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:45
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#45
   def stubbed?; end
 
   # The default `to_s` isn't very useful, so a custom version is provided.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:62
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#62
   def to_s; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#29
   def valid_name=(_arg0); end
 
   # @return [Boolean] Whether or not the provided constant name
   #   is a valid Ruby constant name.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:57
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#57
   def valid_name?; end
 
   class << self
@@ -1813,19 +1729,19 @@ class RSpec::Mocks::Constant
     # @return [Constant] an object contaning information about the named
     #   constant.
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:86
+    # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#86
     def original(name); end
 
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:68
+    # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#68
     def unmutated(name); end
   end
 end
 
 # Provides a means to stub constants.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:93
+# source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#93
 class RSpec::Mocks::ConstantMutator
   extend ::RSpec::Support::RecursiveConstMethods
 
@@ -1840,7 +1756,7 @@ class RSpec::Mocks::ConstantMutator
     #   The current constant scoping at the point of call is not considered.
     # @see ExampleMethods#hide_const
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:131
+    # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#131
     def hide(constant_name); end
 
     # Uses the mutator to mutate (stub or hide) a constant. Ensures that
@@ -1849,7 +1765,7 @@ class RSpec::Mocks::ConstantMutator
     #
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:320
+    # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#320
     def mutate(mutator); end
 
     # Used internally by the constant stubbing to raise a helpful
@@ -1859,7 +1775,7 @@ class RSpec::Mocks::ConstantMutator
     #
     # @api private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:331
+    # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#331
     def raise_on_invalid_const; end
 
     # Stubs a constant.
@@ -1877,7 +1793,7 @@ class RSpec::Mocks::ConstantMutator
     # @return [Object] the stubbed value of the constant
     # @see ExampleMethods#stub_const
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:107
+    # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#107
     def stub(constant_name, value, options = T.unsafe(nil)); end
   end
 end
@@ -1886,29 +1802,29 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:139
+# source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#139
 class RSpec::Mocks::ConstantMutator::BaseMutator
   include ::RSpec::Support::RecursiveConstMethods
 
   # @return [BaseMutator] a new instance of BaseMutator
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:144
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#144
   def initialize(full_constant_name, mutated_value, transfer_nested_constants); end
 
   # Returns the value of attribute full_constant_name.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:142
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#142
   def full_constant_name; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:160
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#160
   def idempotently_reset; end
 
   # Returns the value of attribute original_value.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:142
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#142
   def original_value; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:153
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#153
   def to_constant; end
 end
 
@@ -1916,15 +1832,15 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:169
+# source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#169
 class RSpec::Mocks::ConstantMutator::ConstantHider < ::RSpec::Mocks::ConstantMutator::BaseMutator
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:170
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#170
   def mutate; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:188
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#188
   def reset; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:178
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#178
   def to_constant; end
 end
 
@@ -1932,31 +1848,31 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:197
+# source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#197
 class RSpec::Mocks::ConstantMutator::DefinedConstantReplacer < ::RSpec::Mocks::ConstantMutator::BaseMutator
   # @return [DefinedConstantReplacer] a new instance of DefinedConstantReplacer
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:198
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#198
   def initialize(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:203
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#203
   def mutate; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:223
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#223
   def reset; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:268
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#268
   def should_transfer_nested_constants?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:215
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#215
   def to_constant; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:232
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#232
   def transfer_nested_constants; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:238
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#238
   def verify_constants_to_transfer!; end
 end
 
@@ -1964,26 +1880,26 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:278
+# source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#278
 class RSpec::Mocks::ConstantMutator::UndefinedConstantSetter < ::RSpec::Mocks::ConstantMutator::BaseMutator
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:279
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#279
   def mutate; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:299
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#299
   def reset; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:291
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#291
   def to_constant; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/mutate_const.rb:305
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#305
   def name_for(parent, name); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:104
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#104
 RSpec::Mocks::DEFAULT_CALLBACK_INVOCATION_STRATEGY = T.let(T.unsafe(nil), RSpec::Mocks::CallbackInvocationStrategy)
 
 # An implementation of rspec-mocks' reference interface.
@@ -1994,12 +1910,12 @@ RSpec::Mocks::DEFAULT_CALLBACK_INVOCATION_STRATEGY = T.let(T.unsafe(nil), RSpec:
 #
 # @see NamedObjectReference
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:56
+# source://rspec-mocks//lib/rspec/mocks/object_reference.rb#56
 class RSpec::Mocks::DirectObjectReference
   # @param object [Object] the object to which this refers
   # @return [DirectObjectReference] a new instance of DirectObjectReference
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:58
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#58
   def initialize(object); end
 
   # Defined for interface parity with the other object reference
@@ -2008,26 +1924,26 @@ class RSpec::Mocks::DirectObjectReference
   #
   # @raise [ArgumentError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:70
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#70
   def const_to_replace; end
 
   # Always returns true for an object as the class is defined.
   #
   # @return [true]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:85
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#85
   def defined?; end
 
   # @return [String] the object's description (via `#inspect`).
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:63
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#63
   def description; end
 
   # The target of the verifying double (the object itself).
   #
   # @return [Object]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:78
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#78
   def target; end
 
   # Yields if the reference target is loaded, providing a generic mechanism
@@ -2039,226 +1955,226 @@ class RSpec::Mocks::DirectObjectReference
   #
   # @yield [Object] the target of this reference.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:97
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#97
   def when_loaded; end
 end
 
 # A generic test double object. `double`, `instance_double` and friends
 # return an instance of this.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:132
+# source://rspec-mocks//lib/rspec/mocks/test_double.rb#132
 class RSpec::Mocks::Double
   include ::RSpec::Mocks::TestDouble
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:36
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#36
 class RSpec::Mocks::ErrorGenerator
   # @return [ErrorGenerator] a new instance of ErrorGenerator
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:39
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#39
   def initialize(target = T.unsafe(nil)); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:71
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#71
   def default_error_message(expectation, expected_args, actual_args); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:132
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#132
   def describe_expectation(verb, message, expected_received_count, _actual_received_count, args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:215
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#215
   def expectation_on_nil_message(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:222
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#222
   def intro(unwrapped = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:235
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#235
   def method_call_args_description(args, generic_prefix = T.unsafe(nil), matcher_prefix = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:44
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#44
   def opts; end
 
   # Sets the attribute opts
   #
   # @param value the value to set the attribute opts to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:37
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#37
   def opts=(_arg0); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:203
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#203
   def raise_already_invoked_error(message, calling_customization); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:193
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#193
   def raise_cant_constrain_count_for_negated_have_received_error(count_constraint); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:170
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#170
   def raise_double_negation_error(wrapped_expression); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:77
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#77
   def raise_expectation_error(message, expected_received_count, argument_list_matcher, actual_received_count, expectation_count_type, args, backtrace_line = T.unsafe(nil), source_id = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:164
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#164
   def raise_expectation_on_mocked_method(method); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:211
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#211
   def raise_expectation_on_nil_error(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:158
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#158
   def raise_expectation_on_unstubbed_method(method); end
 
   # @private
   # @raise [ExpiredTestDoubleError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:123
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#123
   def raise_expired_test_double_error; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:187
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#187
   def raise_have_received_disallowed(type, reason); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:118
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#118
   def raise_invalid_arguments_error(verifier); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:198
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#198
   def raise_method_not_stubbed_error(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:142
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#142
   def raise_missing_block_error(args_to_yield); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:59
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#59
   def raise_missing_default_stub_error(expectation, args_for_multiple_calls); end
 
   # @private
   # @raise [NoMethodError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#111
   def raise_non_public_error(method_name, visibility); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:152
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#152
   def raise_only_valid_on_a_partial_double(method); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:137
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#137
   def raise_out_of_order_error(message); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:67
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#67
   def raise_similar_message_args_error(expectation, args_for_multiple_calls, backtrace_line = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:54
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#54
   def raise_unexpected_message_args_error(expectation, args_for_multiple_calls, source_id = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:49
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#49
   def raise_unexpected_message_error(message, args); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:87
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#87
   def raise_unimplemented_error(doubled_module, method_name, object); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:178
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#178
   def raise_verifying_double_not_defined_error(ref); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:147
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#147
   def raise_wrong_arity_error(args_to_yield, signature); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:307
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#318
   def __raise(message, backtrace_line = T.unsafe(nil), source_id = T.unsafe(nil)); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:335
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#346
   def arg_list(args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:345
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#356
   def count_message(count, expectation_count_type = T.unsafe(nil)); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:281
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#292
   def diff_message(expected_args, actual_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:303
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#314
   def differ; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:268
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#268
   def error_message(expectation, args_for_multiple_calls); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:257
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#257
   def expected_part_of_expectation_error(expected_received_count, expectation_count_type, argument_list_matcher); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:330
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#341
   def format_args(args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:339
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#350
   def format_received_args(args_for_multiple_calls); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:359
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#370
   def group_count(index, args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:355
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#366
   def grouped_args(args); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:299
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#310
   def list_of_exactly_one_string?(args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:326
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#337
   def notify(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:321
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#332
   def prepend_to_backtrace(exception, line); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:250
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#250
   def received_part_of_expectation_error(actual_received_count, args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:351
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#362
   def times(count); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:264
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#264
   def unexpected_arguments_message(expected_args_string, actual_args_string); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:291
+  # source://rspec-mocks//lib/rspec/mocks/error_generator.rb#302
   def unpack_string_args(formatted_expected_args, actual_args); end
 end
 
@@ -2267,7 +2183,7 @@ end
 # to use rspec-mocks with your test framework. If you're using rspec-core,
 # it'll take care of doing this for you.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:9
+# source://rspec-mocks//lib/rspec/mocks/example_methods.rb#9
 module RSpec::Mocks::ExampleMethods
   include ::RSpec::Mocks::ArgumentMatchers
   include ::RSpec::Mocks::ExampleMethods::ExpectHost
@@ -2279,7 +2195,7 @@ module RSpec::Mocks::ExampleMethods
   #   allow(dbl).to receive(:foo).with(5).and_return(:return_value)
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:128
+  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#128
   def allow(target); end
 
   # Used to wrap a class in preparation for stubbing a method
@@ -2289,7 +2205,7 @@ module RSpec::Mocks::ExampleMethods
   #   allow_any_instance_of(MyClass).to receive(:foo)
   # @note This is only available when you have enabled the `expect` syntax.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:136
+  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#136
   def allow_any_instance_of(klass); end
 
   # Disables warning messages about expectations being set on nil.
@@ -2300,7 +2216,7 @@ module RSpec::Mocks::ExampleMethods
   #
   # @deprecated Use {RSpec::Mocks::Configuration#allow_message_expectations_on_nil} instead.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:201
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#201
   def allow_message_expectations_on_nil; end
 
   # Constructs a test double against a specific class. If the given class
@@ -2314,7 +2230,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload class_double
   # @return ClassVerifyingDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:79
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#79
   def class_double(doubled_class, *args); end
 
   # Constructs a test double that is optimized for use with `have_received`
@@ -2330,7 +2246,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload class_spy
   # @return ClassVerifyingDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:191
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#191
   def class_spy(*args); end
 
   # Constructs an instance of [RSpec::Mocks::Double](RSpec::Mocks::Double) configured
@@ -2350,7 +2266,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload double
   # @return [Double]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:34
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#34
   def double(*args); end
 
   # Used to wrap a class in preparation for setting a mock expectation
@@ -2360,7 +2276,7 @@ module RSpec::Mocks::ExampleMethods
   #   expect_any_instance_of(MyClass).to receive(:foo)
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:132
+  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#132
   def expect_any_instance_of(klass); end
 
   # Verifies that the given object received the expected message during the
@@ -2383,7 +2299,7 @@ module RSpec::Mocks::ExampleMethods
   # @param method_name [Symbol] name of the method expected to have been
   #   called.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:281
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#281
   def have_received(method_name, &block); end
 
   # Hides the named constant with the given value. The constant will be
@@ -2397,7 +2313,7 @@ module RSpec::Mocks::ExampleMethods
   # @param constant_name [String] The fully qualified name of the constant.
   #   The current constant scoping at the point of call is not considered.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:256
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#256
   def hide_const(constant_name); end
 
   # Constructs a test double against a specific class. If the given class
@@ -2411,7 +2327,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload instance_double
   # @return InstanceVerifyingDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:56
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#56
   def instance_double(doubled_class, *args); end
 
   # Constructs a test double that is optimized for use with `have_received`
@@ -2427,7 +2343,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload instance_spy
   # @return InstanceVerifyingDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:144
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#144
   def instance_spy(*args); end
 
   # Constructs a test double against a specific object. Only the methods
@@ -2441,7 +2357,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload object_double
   # @return ObjectVerifyingDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:102
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#102
   def object_double(object_or_name, *args); end
 
   # Constructs a test double that is optimized for use with `have_received`
@@ -2456,7 +2372,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload object_spy
   # @return ObjectVerifyingDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:167
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#167
   def object_spy(*args); end
 
   # Used to specify a message that you expect or allow an object
@@ -2469,7 +2385,7 @@ module RSpec::Mocks::ExampleMethods
   #   expect(obj).to receive(:hello).with("world").exactly(3).times
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:114
+  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#114
   def receive(method_name, &block); end
 
   # stubs/mocks a chain of messages on an object or test double.
@@ -2499,7 +2415,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload receive_message_chain
   # @overload receive_message_chain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:124
+  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#124
   def receive_message_chain(*messages, &block); end
 
   # Shorthand syntax used to setup message(s), and their return value(s),
@@ -2513,7 +2429,7 @@ module RSpec::Mocks::ExampleMethods
   #   allow(obj).to receive_messages(:speak => "Hello", :meow => "Meow")
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:118
+  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#118
   def receive_messages(message_return_value_hash); end
 
   # Constructs a test double that is optimized for use with
@@ -2526,7 +2442,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload spy
   # @return [Double]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:120
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#120
   def spy(*args); end
 
   # Stubs the named constant with the given value.
@@ -2562,7 +2478,7 @@ module RSpec::Mocks::ExampleMethods
   # @param options [Hash] Stubbing options.
   # @return [Object] the stubbed value of the constant
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:241
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#241
   def stub_const(constant_name, value, options = T.unsafe(nil)); end
 
   # Turns off the verifying of partial doubles for the duration of the
@@ -2570,30 +2486,30 @@ module RSpec::Mocks::ExampleMethods
   # time and you wish to define stubs for them but not turn off partial
   # doubles for the entire run suite. (e.g. view specs in rspec-rails).
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:289
+  # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#289
   def without_partial_double_verification; end
 
   class << self
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:423
+    # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#423
     def declare_double(type, *args); end
 
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:408
+    # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#408
     def declare_verifying_double(type, ref, *args); end
 
     # @private
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:401
+    # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#401
     def extended(object); end
 
     # @private
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:392
+    # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#392
     def included(klass); end
   end
 end
@@ -2601,65 +2517,65 @@ end
 # This module exists to host the `expect` method for cases where
 # rspec-mocks is used w/o rspec-expectations.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/example_methods.rb:430
+# source://rspec-mocks//lib/rspec/mocks/example_methods.rb#430
 module RSpec::Mocks::ExampleMethods::ExpectHost
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:142
+  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#142
   def expect(target); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:62
+# source://rspec-mocks//lib/rspec/mocks/message_chain.rb#62
 class RSpec::Mocks::ExpectChain < ::RSpec::Mocks::MessageChain
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:69
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#69
   def expectation(object, message, &return_block); end
 
   class << self
     # @api private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:63
+    # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#63
     def expect_chain_on(object, *chain, &blk); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:87
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#87
 class RSpec::Mocks::ExpectationTarget < ::RSpec::Mocks::TargetBase
   include ::RSpec::Mocks::ExpectationTargetMethods
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:73
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#73
 module RSpec::Mocks::ExpectationTargetMethods
   include ::RSpec::Mocks::TargetDelegationInstanceMethods
   extend ::RSpec::Mocks::TargetDelegationClassMethods
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:81
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#81
   def expression; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#16
   def not_to(matcher, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#6
   def to(matcher, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#16
   def to_not(matcher, &block); end
 end
 
 # Raised when a test double is used after it has been torn
 # down (typically at the end of an rspec-core example).
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:10
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#10
 class RSpec::Mocks::ExpiredTestDoubleError < ::RSpec::Mocks::MockExpectationError; end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:112
+# source://rspec-mocks//lib/rspec/mocks.rb#112
 RSpec::Mocks::IGNORED_BACKTRACE_LINE = T.let(T.unsafe(nil), String)
 
 # Represents a configured implementation. Takes into account
@@ -2667,65 +2583,65 @@ RSpec::Mocks::IGNORED_BACKTRACE_LINE = T.let(T.unsafe(nil), String)
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:758
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#756
 class RSpec::Mocks::Implementation
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:761
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#759
   def call(*args, &block); end
 
   # Returns the value of attribute initial_action.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:759
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#757
   def initial_action; end
 
   # Sets the attribute initial_action
   #
   # @param value the value to set the attribute initial_action to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:759
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#757
   def initial_action=(_arg0); end
 
   # Returns the value of attribute inner_action.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:759
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#757
   def inner_action; end
 
   # Sets the attribute inner_action
   #
   # @param value the value to set the attribute inner_action to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:759
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#757
   def inner_action=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:768
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#766
   def present?; end
 
   # Returns the value of attribute terminal_action.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:759
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#757
   def terminal_action; end
 
   # Sets the attribute terminal_action
   #
   # @param value the value to set the attribute terminal_action to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:759
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#757
   def terminal_action=(_arg0); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:774
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#772
   def actions; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:113
+# source://rspec-mocks//lib/rspec/mocks/method_reference.rb#113
 class RSpec::Mocks::InstanceMethodReference < ::RSpec::Mocks::MethodReference
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:138
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#138
   def find_method(mod); end
 
   # Ideally, we'd use `respond_to?` for `method_implemented?` but we need a
@@ -2736,52 +2652,52 @@ class RSpec::Mocks::InstanceMethodReference < ::RSpec::Mocks::MethodReference
   #
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:116
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#116
   def method_defined?(mod); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:116
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#116
   def method_implemented?(mod); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:143
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#143
   def visibility_from(mod); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:4
+# source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#4
 class RSpec::Mocks::InstanceMethodStasher
   # @return [InstanceMethodStasher] a new instance of InstanceMethodStasher
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:5
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#5
   def initialize(object, method); end
 
   # ruby 2.0.0-p247 and 2.0.0-p195 both have a bug that we can't work around :(.
   # https://bugs.ruby-lang.org/issues/8686
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:91
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#91
   def handle_restoration_failures; end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:49
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#49
   def method_is_stashed?; end
 
   # Returns the value of attribute original_method.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:14
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#14
   def original_method; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#61
   def restore; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:54
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#54
   def stash; end
 
   private
@@ -2789,18 +2705,18 @@ class RSpec::Mocks::InstanceMethodStasher
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:100
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#100
   def method_defined_directly_on_klass?; end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:105
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#105
   def method_defined_on_klass?(klass = T.unsafe(nil)); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/instance_method_stasher.rb:109
+  # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#109
   def method_owned_by_klass?; end
 end
 
@@ -2810,12 +2726,12 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:69
+# source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#69
 class RSpec::Mocks::InstanceVerifyingDouble
   include ::RSpec::Mocks::TestDouble
   include ::RSpec::Mocks::VerifyingDouble
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:73
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#73
   def __build_mock_proxy(order_group); end
 end
 
@@ -2823,289 +2739,289 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/marshal_extension.rb:6
+# source://rspec-mocks//lib/rspec/mocks/marshal_extension.rb#6
 class RSpec::Mocks::MarshalExtension
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/marshal_extension.rb:7
+    # source://rspec-mocks//lib/rspec/mocks/marshal_extension.rb#7
     def patch!; end
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/marshal_extension.rb:27
+    # source://rspec-mocks//lib/rspec/mocks/marshal_extension.rb#27
     def unpatch!; end
   end
 end
 
 # Namespace for mock-related matchers.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:122
+# source://rspec-mocks//lib/rspec/mocks.rb#122
 module RSpec::Mocks::Matchers; end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/expectation_customization.rb:5
+# source://rspec-mocks//lib/rspec/mocks/matchers/expectation_customization.rb#5
 class RSpec::Mocks::Matchers::ExpectationCustomization
   # @return [ExpectationCustomization] a new instance of ExpectationCustomization
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/expectation_customization.rb:8
+  # source://rspec-mocks//lib/rspec/mocks/matchers/expectation_customization.rb#8
   def initialize(method_name, args, block); end
 
   # Returns the value of attribute block.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/expectation_customization.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/matchers/expectation_customization.rb#6
   def block; end
 
   # Sets the attribute block
   #
   # @param value the value to set the attribute block to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/expectation_customization.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/matchers/expectation_customization.rb#6
   def block=(_arg0); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/expectation_customization.rb:14
+  # source://rspec-mocks//lib/rspec/mocks/matchers/expectation_customization.rb#14
   def playback_onto(expectation); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:5
+# source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#5
 class RSpec::Mocks::Matchers::HaveReceived
   include ::RSpec::Mocks::Matchers::Matcher
 
   # @return [HaveReceived] a new instance of HaveReceived
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:12
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#12
   def initialize(method_name, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def at_least(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def at_most(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:48
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#48
   def description; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:32
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#32
   def does_not_match?(subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def exactly(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:40
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#40
   def failure_message; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:44
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#44
   def failure_message_when_negated; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:23
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#23
   def matches?(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:19
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#19
   def name; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def once(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def ordered(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:67
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#67
   def setup_allowance(_subject, &_block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:71
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#71
   def setup_any_instance_allowance(_subject, &_block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:75
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#75
   def setup_any_instance_expectation(_subject, &_block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:79
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#79
   def setup_any_instance_negative_expectation(_subject, &_block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:59
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#59
   def setup_expectation(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:63
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#63
   def setup_negative_expectation(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def thrice(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def time(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def times(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def twice(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#53
   def with(*args); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:95
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#95
   def apply_constraints_to(expectation); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:112
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#112
   def capture_failure_message; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:106
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#106
   def count_constraint; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:85
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#85
   def disallow(type, reason = T.unsafe(nil)); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:101
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#101
   def ensure_count_unconstrained; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:89
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#89
   def expect; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:123
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#123
   def expected_messages_received_in_order?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:128
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#128
   def mock_proxy; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:118
+  # source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#118
   def notify_failure_message; end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:9
+# source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#9
 RSpec::Mocks::Matchers::HaveReceived::ARGS_CONSTRAINTS = T.let(T.unsafe(nil), Array)
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:10
+# source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#10
 RSpec::Mocks::Matchers::HaveReceived::CONSTRAINTS = T.let(T.unsafe(nil), Array)
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/have_received.rb:8
+# source://rspec-mocks//lib/rspec/mocks/matchers/have_received.rb#8
 RSpec::Mocks::Matchers::HaveReceived::COUNT_CONSTRAINTS = T.let(T.unsafe(nil), Array)
 
 # just a "tag" for rspec-mock matchers detection
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks.rb:125
+# source://rspec-mocks//lib/rspec/mocks.rb#125
 module RSpec::Mocks::Matchers::Matcher; end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:7
+# source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#7
 class RSpec::Mocks::Matchers::Receive
   include ::RSpec::Mocks::Matchers::Matcher
 
   # @return [Receive] a new instance of Receive
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:10
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#10
   def initialize(message, block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def and_call_original(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def and_invoke(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def and_raise(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def and_return(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def and_throw(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def and_wrap_original(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def and_yield(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def at_least(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def at_most(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:20
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#20
   def description; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:30
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#30
   def does_not_match?(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def exactly(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:24
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#24
   def matches?(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#16
   def name; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def never(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def once(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def ordered(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:41
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#41
   def setup_allowance(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:54
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#54
   def setup_any_instance_allowance(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:46
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#46
   def setup_any_instance_expectation(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:50
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#50
   def setup_any_instance_negative_expectation(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:24
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#24
   def setup_expectation(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:30
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#30
   def setup_negative_expectation(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def thrice(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def time(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def times(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def twice(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#61
   def with(*args, &block); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:70
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#70
   def describable; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:107
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#107
   def move_block_to_last_customization(block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:90
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#90
   def setup_any_instance_method_substitute(subject, method, block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:95
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#95
   def setup_method_substitute(host, method, block, *args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:85
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#85
   def setup_mock_proxy_method_substitute(subject, method, block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:74
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#74
   def warn_if_any_instance(expression, subject); end
 end
 
@@ -3114,191 +3030,191 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:118
+# source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#118
 class RSpec::Mocks::Matchers::Receive::DefaultDescribable
   # @return [DefaultDescribable] a new instance of DefaultDescribable
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:119
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#119
   def initialize(message); end
 
   # This is much simpler for the `any_instance` case than what the
   # user may want, but I'm not up for putting a bunch of effort
   # into full descriptions for `any_instance` expectations at this point :(.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive.rb:126
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#126
   def description_for(verb); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:7
+# source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#7
 class RSpec::Mocks::Matchers::ReceiveMessageChain
   include ::RSpec::Mocks::Matchers::Matcher
 
   # @return [ReceiveMessageChain] a new instance of ReceiveMessageChain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:10
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#10
   def initialize(chain, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#17
   def and_call_original(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#17
   def and_invoke(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#17
   def and_raise(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#17
   def and_return(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#17
   def and_throw(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#17
   def and_yield(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:27
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#27
   def description; end
 
   # @raise [NegationUnsupportedError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#53
   def does_not_match?(*_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:48
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#48
   def matches?(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:23
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#23
   def name; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:31
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#31
   def setup_allowance(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:36
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#36
   def setup_any_instance_allowance(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:42
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#42
   def setup_any_instance_expectation(subject, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:48
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#48
   def setup_expectation(subject, &block); end
 
   # @raise [NegationUnsupportedError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#53
   def setup_negative_expectation(*_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#17
   def with(*args, &block); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:70
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#70
   def formatted_chain; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_message_chain.rb:64
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#64
   def replay_customizations(chain); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:5
+# source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#5
 class RSpec::Mocks::Matchers::ReceiveMessages
   include ::RSpec::Mocks::Matchers::Matcher
 
   # @return [ReceiveMessages] a new instance of ReceiveMessages
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:8
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#8
   def initialize(message_return_value_hash); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#17
   def description; end
 
   # @raise [NegationUnsupportedError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#29
   def does_not_match?(_subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:21
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#21
   def matches?(subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:13
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#13
   def name; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:36
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#36
   def setup_allowance(subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:50
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#50
   def setup_any_instance_allowance(subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:43
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#43
   def setup_any_instance_expectation(subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:21
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#21
   def setup_expectation(subject); end
 
   # @raise [NegationUnsupportedError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:29
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#29
   def setup_negative_expectation(_subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:55
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#55
   def warn_about_block; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:65
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#65
   def any_instance_of(subject); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:69
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#69
   def each_message_on(host); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/matchers/receive_messages.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#61
   def proxy_on(subject); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:4
+# source://rspec-mocks//lib/rspec/mocks/message_chain.rb#4
 class RSpec::Mocks::MessageChain
   # @return [MessageChain] a new instance of MessageChain
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:7
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#7
   def initialize(object, *chain, &blk); end
 
   # Returns the value of attribute block.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:5
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#5
   def block; end
 
   # Returns the value of attribute chain.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:5
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#5
   def chain; end
 
   # Returns the value of attribute object.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:5
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#5
   def object; end
 
   # @api private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:13
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#13
   def setup_chain; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:33
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#33
   def chain_on(object, *chain, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:54
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#54
   def find_matching_expectation; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:49
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#49
   def find_matching_stub; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:38
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#38
   def format_chain(*chain, &blk); end
 end
 
@@ -3306,7 +3222,7 @@ end
 # defined here can be used to configure how it behaves. The methods return
 # `self` so that they can be chained together to form a fluent interface.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:44
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#44
 class RSpec::Mocks::MessageExpectation
   include ::RSpec::Mocks::MessageExpectation::ImplementationDetails
 
@@ -3321,7 +3237,7 @@ class RSpec::Mocks::MessageExpectation
   # @note This is only available on partial doubles.
   # @return [nil] No further chaining is supported after this.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:141
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#141
   def and_call_original; end
 
   # Tells the object to invoke a Proc when it receives the message. Given
@@ -3346,7 +3262,7 @@ class RSpec::Mocks::MessageExpectation
   #   # etc
   # @return [nil] No further chaining is supported after this.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:109
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#109
   def and_invoke(first_proc, *procs); end
 
   # Tells the object to raise an exception when the message is received.
@@ -3367,7 +3283,7 @@ class RSpec::Mocks::MessageExpectation
   # @overload and_raise
   # @return [nil] No further chaining is supported after this.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:186
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#186
   def and_raise(*args); end
 
   # Tells the object to return a value when it receives the message.  Given
@@ -3394,7 +3310,7 @@ class RSpec::Mocks::MessageExpectation
   # @overload and_return
   # @return [nil] No further chaining is supported after this.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:71
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#71
   def and_return(first_value, *values); end
 
   # Tells the object to throw a symbol (with the object if that form is
@@ -3407,7 +3323,7 @@ class RSpec::Mocks::MessageExpectation
   # @overload and_throw
   # @return [nil] No further chaining is supported after this.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:202
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#202
   def and_throw(*args); end
 
   # Decorates the stubbed method with the supplied block. The original
@@ -3422,7 +3338,7 @@ class RSpec::Mocks::MessageExpectation
   # @note This is only available on partial doubles.
   # @return [nil] No further chaining is supported after this.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:162
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#162
   def and_wrap_original(&block); end
 
   # Tells the object to yield one or more args to a block when the message
@@ -3433,7 +3349,7 @@ class RSpec::Mocks::MessageExpectation
   # @return [MessageExpectation] self, to support further chaining.
   # @yield [@eval_context = Object.new]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:214
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#214
   def and_yield(*args, &block); end
 
   # Constrain a message expectation to be received at least a specific
@@ -3443,7 +3359,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(dealer).to receive(:deal_card).at_least(9).times
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:249
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#249
   def at_least(n, &block); end
 
   # Constrain a message expectation to be received at most a specific
@@ -3453,7 +3369,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(dealer).to receive(:deal_card).at_most(10).times
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:268
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#268
   def at_most(n, &block); end
 
   # Constrain a message expectation to be received a specific number of
@@ -3463,12 +3379,12 @@ class RSpec::Mocks::MessageExpectation
   #   expect(dealer).to receive(:deal_card).exactly(10).times
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:236
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#236
   def exactly(n, &block); end
 
   # @return [String] a nice representation of the message expectation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:396
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#396
   def inspect; end
 
   # Expect a message not to be received at all.
@@ -3477,7 +3393,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(car).to receive(:stop).never
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:293
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#293
   def never; end
 
   # Expect a message to be received exactly one time.
@@ -3486,7 +3402,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(car).to receive(:go).once
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:304
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#304
   def once(&block); end
 
   # Expect messages to be received in a specific order.
@@ -3497,7 +3413,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(api).to receive(:finish).ordered
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:379
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#379
   def ordered(&block); end
 
   # Expect a message to be received exactly three times.
@@ -3506,7 +3422,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(car).to receive(:go).thrice
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:326
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#326
   def thrice(&block); end
 
   # Syntactic sugar for `exactly`, `at_least` and `at_most`
@@ -3517,7 +3433,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(dealer).to receive(:deal_card).at_most(10).times
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:282
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#282
   def time(&block); end
 
   # Syntactic sugar for `exactly`, `at_least` and `at_most`
@@ -3528,12 +3444,12 @@ class RSpec::Mocks::MessageExpectation
   #   expect(dealer).to receive(:deal_card).at_most(10).times
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:282
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#282
   def times(&block); end
 
   # @return [String] a nice representation of the message expectation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:396
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#396
   def to_s; end
 
   # Expect a message to be received exactly two times.
@@ -3542,7 +3458,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(car).to receive(:go).twice
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:315
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#315
   def twice(&block); end
 
   # Constrains a stub or message expectation to invocations with specific
@@ -3570,7 +3486,7 @@ class RSpec::Mocks::MessageExpectation
   #   # => passes
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:359
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#359
   def with(*args, &block); end
 end
 
@@ -3582,155 +3498,155 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:410
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#409
 module RSpec::Mocks::MessageExpectation::ImplementationDetails
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:421
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#420
   def initialize(error_generator, expectation_ordering, expected_from, method_double, type = T.unsafe(nil), opts = T.unsafe(nil), &implementation_block); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:589
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#588
   def actual_received_count_matters?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:576
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#575
   def additional_expected_calls; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:533
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#532
   def advise(*args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:455
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#454
   def and_yield_receiver_to_implementation; end
 
   # Sets the attribute argument_list_matcher
   #
   # @param value the value to set the attribute argument_list_matcher to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:414
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#413
   def argument_list_matcher=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:488
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#487
   def called_max_times?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:565
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#564
   def description_for(verb); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:508
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#507
   def ensure_expected_ordering_received!; end
 
   # Returns the value of attribute error_generator.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:411
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#410
   def error_generator; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:559
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#558
   def expectation_count_type; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:451
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#450
   def expected_args; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:504
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#503
   def expected_messages_received?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:541
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#540
   def generate_error; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:513
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#512
   def ignoring_args?; end
 
   # Returns the value of attribute implementation.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:411
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#410
   def implementation; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:593
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#592
   def increase_actual_received_count!; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:474
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#473
   def invoke(parent_stub, *args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:479
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#478
   def invoke_without_incrementing_received_count(parent_stub, *args, &block); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:464
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#463
   def matches?(message, *args); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:517
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#516
   def matches_at_least_count?; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:521
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#520
   def matches_at_most_count?; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:525
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#524
   def matches_exact_count?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:495
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#494
   def matches_name_but_not_args(message, *args); end
 
   # Returns the value of attribute message.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:412
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#411
   def message; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:484
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#483
   def negative?; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:585
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#584
   def negative_expectation_for?(message); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:581
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#580
   def ordered?; end
 
   # Returns the value of attribute orig_object.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:413
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#412
   def orig_object; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:572
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#571
   def raise_out_of_order_error; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:555
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#554
   def raise_unexpected_message_args_error(args_for_multiple_calls); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:469
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#468
   def safe_invoke(parent_stub, *args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:529
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#528
   def similar_messages; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:418
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#417
   def type; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:537
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#536
   def unadvise(args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:499
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#498
   def verify_messages_received; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:460
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#459
   def yield_receiver_to_implementation_block?; end
 
   protected
@@ -3739,88 +3655,88 @@ module RSpec::Mocks::MessageExpectation::ImplementationDetails
   #
   # @param value the value to set the attribute error_generator to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:411
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#410
   def error_generator=(_arg0); end
 
   # Sets the attribute expected_from
   #
   # @param value the value to set the attribute expected_from to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:414
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#413
   def expected_from=(_arg0); end
 
   # Sets the attribute expected_received_count
   #
   # @param value the value to set the attribute expected_received_count to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:414
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#413
   def expected_received_count=(_arg0); end
 
   # Sets the attribute implementation
   #
   # @param value the value to set the attribute implementation to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:411
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#410
   def implementation=(_arg0); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:601
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#600
   def exception_source_id; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:633
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#632
   def has_been_invoked?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:656
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#655
   def initial_implementation_action=(action); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:660
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#659
   def inner_implementation_action=(action); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:605
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#604
   def invoke_incrementing_actual_calls_by(increment, allowed_to_fail, parent_stub, *args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:637
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#636
   def raise_already_invoked_error_if_necessary(calling_customization); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:643
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#642
   def set_expected_received_count(relativity, n); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:666
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#665
   def terminal_implementation_action=(action); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:670
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#669
   def warn_about_stub_override; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:677
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#676
   def wrap_original(method_name, &block); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:4
+# source://rspec-mocks//lib/rspec/mocks/method_double.rb#4
 class RSpec::Mocks::MethodDouble
   # @private
   # @return [MethodDouble] a new instance of MethodDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:9
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#9
   def initialize(object, method_name, proxy); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:191
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#191
   def add_default_stub(*args, &implementation); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:141
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#141
   def add_expectation(error_generator, expectation_ordering, expected_from, opts, &implementation); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:177
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#177
   def add_simple_expectation(method_name, response, error_generator, backtrace_line); end
 
   # A simple stub can only return a concrete value for a message, and
@@ -3832,37 +3748,37 @@ class RSpec::Mocks::MethodDouble
   #
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:172
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#172
   def add_simple_stub(method_name, response); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:156
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#156
   def add_stub(error_generator, expectation_ordering, expected_from, opts = T.unsafe(nil), &implementation); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:150
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#150
   def build_expectation(error_generator, expectation_ordering); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:127
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#127
   def clear; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:51
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#51
   def configure_method; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:58
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#58
   def define_proxy_method; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#6
   def expectations; end
 
   # The type of message expectation to create has been extracted to its own
@@ -3870,33 +3786,33 @@ class RSpec::Mocks::MethodDouble
   #
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:136
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#136
   def message_expectation_class; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#6
   def method_name; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#6
   def method_stasher; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#6
   def object; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:46
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#46
   def object_singleton_class; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:21
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#21
   def original_implementation_callable; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:34
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#34
   def original_method; end
 
   # The implementation of the proxied method. Subclasses may override this
@@ -3904,85 +3820,85 @@ class RSpec::Mocks::MethodDouble
   #
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:79
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#79
   def proxy_method_invoked(_obj, *args, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:208
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#208
   def raise_method_not_stubbed_error; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:197
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#197
   def remove_stub; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:203
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#203
   def remove_stub_if_present; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:121
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#121
   def reset; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:85
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#85
   def restore_original_method; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:108
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#108
   def restore_original_visibility; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:21
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#21
   def save_original_implementation_callable!; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:182
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#182
   def setup_simple_method_double(method_name, response, collection, error_generator = T.unsafe(nil), backtrace_line = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:97
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#97
   def show_frozen_warning; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#6
   def stubs; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:116
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#116
   def verify; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:41
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#41
   def visibility; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:230
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#230
   def definition_target; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:250
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#250
   def new_rspec_prepended_module; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:268
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#268
   def remove_method_from_definition_target; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:234
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#234
   def usable_rspec_prepended_module; end
 end
 
 # We subclass `Module` in order to be able to easily detect our prepended module.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/method_double.rb:228
+# source://rspec-mocks//lib/rspec/mocks/method_double.rb#228
 class RSpec::Mocks::MethodDouble::RSpecPrependedModule < ::Module; end
 
 # Represents a method on an object that may or may not be defined.
@@ -3991,11 +3907,11 @@ class RSpec::Mocks::MethodDouble::RSpecPrependedModule < ::Module; end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:10
+# source://rspec-mocks//lib/rspec/mocks/method_reference.rb#10
 class RSpec::Mocks::MethodReference
   # @return [MethodReference] a new instance of MethodReference
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:15
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#15
   def initialize(object_reference, method_name); end
 
   # A method is defined if we are able to get a `Method` object for it.
@@ -4003,7 +3919,7 @@ class RSpec::Mocks::MethodReference
   #
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:46
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#46
   def defined?; end
 
   # A method is implemented if sending the message does not result in
@@ -4012,7 +3928,7 @@ class RSpec::Mocks::MethodReference
   #
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:23
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#23
   def implemented?; end
 
   # Returns true if we definitively know that sending the method
@@ -4024,33 +3940,33 @@ class RSpec::Mocks::MethodReference
   #
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:35
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#35
   def unimplemented?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:57
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#57
   def visibility; end
 
   # @yield [Support::MethodSignature.new(original)]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:52
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#52
   def with_signature; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:105
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#105
   def original_method; end
 
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:11
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#11
     def for(object_reference, method_name); end
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:67
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#67
     def instance_method_visibility_for(klass, method_name); end
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:67
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#67
     def method_defined_at_any_visibility?(klass, method_name); end
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:81
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#81
     def method_visibility_for(object, method_name); end
   end
 end
@@ -4059,12 +3975,12 @@ end
 # `and_return`) is called on a message expectation which has already been
 # invoked.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:18
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#18
 class RSpec::Mocks::MockExpectationAlreadyInvokedError < ::Exception; end
 
 # Raised when a message expectation is not satisfied.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:6
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#6
 class RSpec::Mocks::MockExpectationError < ::Exception; end
 
 # An implementation of rspec-mocks' reference interface.
@@ -4076,33 +3992,33 @@ class RSpec::Mocks::MockExpectationError < ::Exception; end
 #
 # @see DirectObjectReference
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:109
+# source://rspec-mocks//lib/rspec/mocks/object_reference.rb#109
 class RSpec::Mocks::NamedObjectReference
   # @param const_name [String] constant name
   # @return [NamedObjectReference] a new instance of NamedObjectReference
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#111
   def initialize(const_name); end
 
   # @return [String] the constant name to replace with a double.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:121
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#121
   def const_to_replace; end
 
   # @return [Boolean] true if the named constant is defined, false otherwise.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:116
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#116
   def defined?; end
 
   # @return [String] the constant name to replace with a double.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:121
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#121
   def description; end
 
   # @return [Object, nil] the target of the verifying double (the named object), or
   #   nil if it is not defined.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:128
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#128
   def target; end
 
   # Yields if the reference target is loaded, providing a generic mechanism
@@ -4111,94 +4027,94 @@ class RSpec::Mocks::NamedObjectReference
   #
   # @yield [Object] the target object
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:137
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#137
   def when_loaded; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:143
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#143
   def object; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:31
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#31
 class RSpec::Mocks::NegationUnsupportedError < ::StandardError; end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:209
+# source://rspec-mocks//lib/rspec/mocks/space.rb#209
 class RSpec::Mocks::NestedSpace < ::RSpec::Mocks::Space
   # @return [NestedSpace] a new instance of NestedSpace
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:210
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#210
   def initialize(parent); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:219
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#219
   def constant_mutator_for(name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:215
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#215
   def proxies_of(klass); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:223
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#223
   def registered?(object); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:233
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#233
   def any_instance_recorder_not_found_for(id, klass); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:229
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#229
   def proxy_not_found_for(id, object); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:16
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#16
 class RSpec::Mocks::NoCallbackInvocationStrategy
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#17
   def call(_doubled_module); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:149
+# source://rspec-mocks//lib/rspec/mocks/method_reference.rb#149
 class RSpec::Mocks::ObjectMethodReference < ::RSpec::Mocks::MethodReference
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:168
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#168
   def find_method(object); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:164
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#164
   def method_defined?(object); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:160
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#160
   def method_implemented?(object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:172
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#172
   def visibility_from(object); end
 
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/method_reference.rb:150
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#150
     def for(object_reference, method_name); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:4
+# source://rspec-mocks//lib/rspec/mocks/object_reference.rb#4
 class RSpec::Mocks::ObjectReference
   class << self
     # Returns an appropriate Object or Module reference based
     # on the given argument.
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:7
+    # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#7
     def for(object_module_or_name, allow_direct_object_refs = T.unsafe(nil)); end
 
     private
@@ -4207,17 +4123,17 @@ class RSpec::Mocks::ObjectReference
     #
     # @return [Boolean]
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:31
+    # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#31
     def anonymous_module?(mod); end
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:41
+    # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#41
     def name_of(mod); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/object_reference.rb:47
+# source://rspec-mocks//lib/rspec/mocks/object_reference.rb#47
 RSpec::Mocks::ObjectReference::MODULE_NAME_METHOD = T.let(T.unsafe(nil), UnboundMethod)
 
 # Similar to an InstanceVerifyingDouble, except that it verifies against
@@ -4225,7 +4141,7 @@ RSpec::Mocks::ObjectReference::MODULE_NAME_METHOD = T.let(T.unsafe(nil), Unbound
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:108
+# source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#108
 class RSpec::Mocks::ObjectVerifyingDouble
   include ::RSpec::Mocks::TestDouble
   include ::RSpec::Mocks::VerifyingDouble
@@ -4237,92 +4153,92 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:85
+# source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#85
 module RSpec::Mocks::ObjectVerifyingDoubleMethods
   include ::RSpec::Mocks::TestDouble
   include ::RSpec::Mocks::VerifyingDouble
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:89
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#89
   def as_stubbed_const(options = T.unsafe(nil)); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:96
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#96
   def __build_mock_proxy(order_group); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:4
+# source://rspec-mocks//lib/rspec/mocks/order_group.rb#4
 class RSpec::Mocks::OrderGroup
   # @return [OrderGroup] a new instance of OrderGroup
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:5
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#5
   def initialize; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:48
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#48
   def clear; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:26
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#26
   def consume; end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:54
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#54
   def empty?; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:37
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#37
   def handle_order_constraint(expectation); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:16
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#16
   def invoked(message); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:21
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#21
   def ready_for?(expectation); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:12
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#12
   def register(expectation); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:43
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#43
   def verify_invocation_order(expectation); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:76
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#76
   def expectation_for(message); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:64
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#64
   def expectations_invoked_in_order?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:72
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#72
   def expected_invocations; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:68
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#68
   def invoked_expectations; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/order_group.rb:60
+  # source://rspec-mocks//lib/rspec/mocks/order_group.rb#60
   def remaining_expectations; end
 end
 
 # Raised when doubles or partial doubles are used outside of the per-test lifecycle.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:13
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#13
 class RSpec::Mocks::OutsideOfExampleError < ::StandardError; end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:464
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#464
 class RSpec::Mocks::PartialClassDoubleProxy < ::RSpec::Mocks::PartialDoubleProxy
   include ::RSpec::Mocks::PartialClassDoubleProxyMethods
 end
@@ -4334,9 +4250,9 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:388
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#388
 module RSpec::Mocks::PartialClassDoubleProxyMethods
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:389
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#389
   def initialize(source_space, *args); end
 
   # Consider this situation:
@@ -4360,85 +4276,85 @@ module RSpec::Mocks::PartialClassDoubleProxyMethods
   # That's what this method (together with `original_unbound_method_handle_from_ancestor_for`)
   # does.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:414
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#414
   def original_method_handle_for(message); end
 
   protected
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:442
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#442
   def method_double_from_ancestor_for(message); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:437
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#437
   def original_unbound_method_handle_from_ancestor_for(message); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:452
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#452
   def superclass_proxy; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:325
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#325
 class RSpec::Mocks::PartialDoubleProxy < ::RSpec::Mocks::Proxy
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:339
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#339
   def add_simple_expectation(method_name, response, location); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:345
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#345
   def add_simple_stub(method_name, response); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:362
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#362
   def message_received(message, *args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:326
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#326
   def original_method_handle_for(message); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:357
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#357
   def reset; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:351
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#351
   def visibility_for(method_name); end
 
   private
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:372
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#372
   def any_instance_class_recorder_observing_method?(klass, method_name); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:4
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#4
 class RSpec::Mocks::Proxy
   # @private
   # @return [Proxy] a new instance of Proxy
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:23
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#23
   def initialize(object, order_group, options = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:74
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#74
   def add_message_expectation(method_name, opts = T.unsafe(nil), &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:88
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#88
   def add_simple_expectation(method_name, response, location); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:149
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#149
   def add_simple_stub(method_name, response); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:143
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#143
   def add_stub(method_name, opts = T.unsafe(nil), &implementation); end
 
   # Tells the object to ignore any messages that aren't explicitly set as
@@ -4446,155 +4362,155 @@ class RSpec::Mocks::Proxy
   #
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#61
   def as_null_object; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:93
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#93
   def build_expectation(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:126
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#126
   def check_for_unexpected_arguments(expectation); end
 
   # @private
   # @raise [ArgumentError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:37
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#37
   def ensure_can_be_proxied!(object); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:18
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#18
   def ensure_implemented(*_args); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:190
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#190
   def has_negative_expectation?(message); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:203
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#203
   def message_received(message, *args, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:183
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#183
   def messages_arg_list; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:268
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#268
   def method_double_if_exists_for_message(message); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:54
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#54
   def null_object?; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:51
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#51
   def object; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:67
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#67
   def original_method_handle_for(_message); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:262
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#262
   def prepended_modules_of_singleton_class; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:241
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#241
   def raise_missing_default_stub_error(expectation, args_for_multiple_calls); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:236
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#236
   def raise_unexpected_message_error(method_name, args); end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:176
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#176
   def received_message?(method_name, *args, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:195
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#195
   def record_message_received(message, *args, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:154
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#154
   def remove_stub(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:159
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#159
   def remove_stub_if_present(method_name); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:103
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#103
   def replay_received_message_on(expectation, &block); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:169
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#169
   def reset; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:164
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#164
   def verify; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:246
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#246
   def visibility_for(_method_name); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:285
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#285
   def find_almost_matching_expectation(method_name, *args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:309
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#309
   def find_almost_matching_stub(method_name, *args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:292
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#292
   def find_best_matching_expectation_for(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:278
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#278
   def find_matching_expectation(method_name, *args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:304
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#304
   def find_matching_method_stub(method_name, *args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:274
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#274
   def method_double_for(message); end
 
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:252
+    # source://rspec-mocks//lib/rspec/mocks/proxy.rb#252
     def prepended_modules_of(klass); end
   end
 end
 
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:71
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#71
 RSpec::Mocks::Proxy::DEFAULT_MESSAGE_EXPECTATION_OPTS = T.let(T.unsafe(nil), Hash)
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:6
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#6
 class RSpec::Mocks::Proxy::SpecificMessage < ::Struct
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:7
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#7
   def ==(expectation); end
 
   # Returns the value of attribute args
@@ -4607,7 +4523,7 @@ class RSpec::Mocks::Proxy::SpecificMessage < ::Struct
   # @param value [Object] the value to set the attribute args to.
   # @return [Object] the newly set value
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#6
   def args=(_); end
 
   # Returns the value of attribute message
@@ -4620,7 +4536,7 @@ class RSpec::Mocks::Proxy::SpecificMessage < ::Struct
   # @param value [Object] the value to set the attribute message to.
   # @return [Object] the newly set value
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#6
   def message=(_); end
 
   # Returns the value of attribute object
@@ -4633,7 +4549,7 @@ class RSpec::Mocks::Proxy::SpecificMessage < ::Struct
   # @param value [Object] the value to set the attribute object to.
   # @return [Object] the newly set value
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:6
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#6
   def object=(_); end
 
   class << self
@@ -4646,55 +4562,55 @@ end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:469
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#469
 class RSpec::Mocks::ProxyForNil < ::RSpec::Mocks::PartialDoubleProxy
   # @return [ProxyForNil] a new instance of ProxyForNil
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:470
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#470
   def initialize(order_group); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:478
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#478
   def add_message_expectation(method_name, opts = T.unsafe(nil), &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:483
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#483
   def add_stub(method_name, opts = T.unsafe(nil), &implementation); end
 
   # Returns the value of attribute disallow_expectations.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:475
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#475
   def disallow_expectations; end
 
   # Sets the attribute disallow_expectations
   #
   # @param value the value to set the attribute disallow_expectations to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:475
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#475
   def disallow_expectations=(_arg0); end
 
   # Returns the value of attribute warn_about_expectations.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:476
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#476
   def warn_about_expectations; end
 
   # Sets the attribute warn_about_expectations
   #
   # @param value the value to set the attribute warn_about_expectations to.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:476
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#476
   def warn_about_expectations=(_arg0); end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:520
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#520
   def raise_error(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:490
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#490
   def set_expectation_behavior; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:515
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#515
   def warn(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:504
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#504
   def warn_or_raise!(method_name); end
 end
 
@@ -4704,45 +4620,45 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:9
+# source://rspec-mocks//lib/rspec/mocks/space.rb#9
 class RSpec::Mocks::RootSpace
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:18
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#18
   def any_instance_proxy_for(*_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:14
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#14
   def any_instance_recorder_for(*_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:26
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#26
   def any_instance_recorders_from_ancestry_of(_object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:44
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#44
   def new_scope; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:10
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#10
   def proxy_for(*_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:22
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#22
   def register_constant_mutator(_mutator); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:36
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#36
   def registered?(_object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:30
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#30
   def reset_all; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:40
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#40
   def superclass_proxy_for(*_args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:33
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#33
   def verify_all; end
 
   private
 
   # @raise [OutsideOfExampleError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:50
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#50
   def raise_lifecycle_message; end
 end
 
@@ -4753,135 +4669,135 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:11
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#11
 class RSpec::Mocks::SimpleMessageExpectation
   # @return [SimpleMessageExpectation] a new instance of SimpleMessageExpectation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:12
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#12
   def initialize(message, response, error_generator, backtrace_line = T.unsafe(nil)); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:26
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#26
   def called_max_times?; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:17
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#17
   def invoke(*_); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:22
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#22
   def matches?(message, *_); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:37
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#37
   def unadvise(_); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_expectation.rb:30
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#30
   def verify_messages_received; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:57
+# source://rspec-mocks//lib/rspec/mocks/space.rb#57
 class RSpec::Mocks::Space
   # @return [Space] a new instance of Space
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:60
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#60
   def initialize; end
 
   # Returns the value of attribute any_instance_mutex.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:58
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#58
   def any_instance_mutex; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:103
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#103
   def any_instance_proxy_for(klass); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:93
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#93
   def any_instance_recorder_for(klass, only_return_existing = T.unsafe(nil)); end
 
   # Returns the value of attribute any_instance_recorders.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:58
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#58
   def any_instance_recorders; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:131
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#131
   def any_instance_recorders_from_ancestry_of(object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:89
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#89
   def constant_mutator_for(name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#111
   def ensure_registered(object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:69
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#69
   def new_scope; end
 
   # Returns the value of attribute proxies.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:58
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#58
   def proxies; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:107
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#107
   def proxies_of(klass); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#111
   def proxy_for(object); end
 
   # Returns the value of attribute proxy_mutex.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:58
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#58
   def proxy_mutex; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:85
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#85
   def register_constant_mutator(mutator); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:127
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#127
   def registered?(object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:78
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#78
   def reset_all; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:118
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#118
   def superclass_proxy_for(klass); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:73
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#73
   def verify_all; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:184
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#184
   def any_instance_recorder_not_found_for(id, klass); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:171
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#171
   def class_proxy_with_callback_verification_strategy(object, strategy); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:202
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#202
   def id_for(object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:147
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#147
   def new_mutex; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:151
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#151
   def proxy_not_found_for(id, object); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/space.rb:166
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#166
   def superclass_proxy_not_found_for(id, object); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:75
+# source://rspec-mocks//lib/rspec/mocks/message_chain.rb#75
 class RSpec::Mocks::StubChain < ::RSpec::Mocks::MessageChain
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:82
+  # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#82
   def expectation(object, message, &return_block); end
 
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/message_chain.rb:76
+    # source://rspec-mocks//lib/rspec/mocks/message_chain.rb#76
     def stub_chain_on(object, *chain, &blk); end
   end
 end
@@ -4891,42 +4807,42 @@ end
 #
 # @api private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:6
+# source://rspec-mocks//lib/rspec/mocks/syntax.rb#6
 module RSpec::Mocks::Syntax
   class << self
     # Determines where the methods like `should_receive`, and `stub` are added.
     #
     # @api private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:181
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#181
     def default_should_syntax_host; end
 
     # Disables the expect syntax (`expect(dbl).to receive`, `allow(dbl).to receive`, etc).
     #
     # @api private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:150
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#150
     def disable_expect(syntax_host = T.unsafe(nil)); end
 
     # Disables the should syntax (`dbl.stub`, `dbl.should_receive`, etc).
     #
     # @api private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:89
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#89
     def disable_should(syntax_host = T.unsafe(nil)); end
 
     # Enables the expect syntax (`expect(dbl).to receive`, `allow(dbl).to receive`, etc).
     #
     # @api private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:110
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#110
     def enable_expect(syntax_host = T.unsafe(nil)); end
 
     # Enables the should syntax (`dbl.stub`, `dbl.should_receive`, etc).
     #
     # @api private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:26
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#26
     def enable_should(syntax_host = T.unsafe(nil)); end
 
     # Indicates whether or not the expect syntax is enabled.
@@ -4934,7 +4850,7 @@ module RSpec::Mocks::Syntax
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:175
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#175
     def expect_enabled?(syntax_host = T.unsafe(nil)); end
 
     # Indicates whether or not the should syntax is enabled.
@@ -4942,77 +4858,77 @@ module RSpec::Mocks::Syntax
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:169
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#169
     def should_enabled?(syntax_host = T.unsafe(nil)); end
 
     # @api private
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:8
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#8
     def warn_about_should!; end
 
     # @api private
     # @private
     #
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/syntax.rb:13
+    # source://rspec-mocks//lib/rspec/mocks/syntax.rb#13
     def warn_unless_should_configured(method_name, replacement = T.unsafe(nil)); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:63
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#63
 class RSpec::Mocks::TargetBase
   include ::RSpec::Mocks::TargetDelegationInstanceMethods
   extend ::RSpec::Mocks::TargetDelegationClassMethods
 
   # @return [TargetBase] a new instance of TargetBase
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:64
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#64
   def initialize(target); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:4
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#4
 module RSpec::Mocks::TargetDelegationClassMethods
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:14
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#14
   def delegate_not_to(matcher_method, options = T.unsafe(nil)); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:5
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#5
   def delegate_to(matcher_method); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:28
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#28
   def disallow_negation(method_name); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:36
+# source://rspec-mocks//lib/rspec/mocks/targets.rb#36
 module RSpec::Mocks::TargetDelegationInstanceMethods
   # Returns the value of attribute target.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:37
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#37
   def target; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:45
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#45
   def define_matcher(matcher, name, &block); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:41
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#41
   def matcher_allowed?(matcher); end
 
   # @raise [NegationUnsupportedError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:55
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#55
   def raise_negation_unsupported(method_name, matcher); end
 
   # @raise [UnsupportedMatcherError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/targets.rb:49
+  # source://rspec-mocks//lib/rspec/mocks/targets.rb#49
   def raise_unsupported_matcher(method_name, matcher); end
 end
 
@@ -5020,12 +4936,12 @@ end
 # includes this module, and it is provided for cases where you want a
 # pure test double without subclassing RSpec::Mocks::Double.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:6
+# source://rspec-mocks//lib/rspec/mocks/test_double.rb#6
 module RSpec::Mocks::TestDouble
   # Creates a new test double with a `name` (that will be used in error
   # messages only)
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:9
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#9
   def initialize(name = T.unsafe(nil), stubs = T.unsafe(nil)); end
 
   # This allows for comparing the mock to other objects that proxy such as
@@ -5033,137 +4949,137 @@ module RSpec::Mocks::TestDouble
   # the comparison, we're sure the call gets delegated to the proxy
   # target.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:36
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#36
   def ==(other); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:56
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#56
   def __build_mock_proxy_unless_expired(order_group); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:61
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#61
   def __disallow_further_usage!; end
 
   # Tells the object to respond to all messages. If specific stub values
   # are declared, they'll work as expected. If not, the receiver is
   # returned.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:23
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#23
   def as_null_object; end
 
   # Override for default freeze implementation to prevent freezing of test
   # doubles.
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:67
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#67
   def freeze; end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:41
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#41
   def inspect; end
 
   # Returns true if this object has received `as_null_object`
   #
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:28
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#28
   def null_object?; end
 
   # @private
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:51
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#51
   def respond_to?(message, incl_private = T.unsafe(nil)); end
 
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:46
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#46
   def to_s; end
 
   private
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:115
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#115
   def __build_mock_proxy(order_group); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:111
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#111
   def __mock_proxy; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:119
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#119
   def __raise_expired_error; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:105
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#105
   def assign_stubs(stubs); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:124
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#124
   def initialize_copy(other); end
 
   # @raise [NoMethodError]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:74
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#74
   def method_missing(message, *args, &block); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:137
+# source://rspec-mocks//lib/rspec/mocks/test_double.rb#137
 module RSpec::Mocks::TestDoubleFormatter
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:138
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#138
     def format(dbl, unwrap = T.unsafe(nil)); end
 
     private
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:164
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#164
     def name_desc(dbl); end
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:147
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#147
     def type_desc(dbl); end
 
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/test_double.rb:159
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#159
     def verified_module_desc(dbl); end
   end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:316
+# source://rspec-mocks//lib/rspec/mocks/proxy.rb#316
 class RSpec::Mocks::TestDoubleProxy < ::RSpec::Mocks::Proxy
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/proxy.rb:317
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#317
   def reset; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:29
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#29
 class RSpec::Mocks::UnsupportedMatcherError < ::StandardError; end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:6
+# source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#6
 module RSpec::Mocks::VerifyingDouble
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:51
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#51
   def initialize(doubled_module, *args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:39
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#39
   def __send__(name, *args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:20
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#20
   def method_missing(message, *args, &block); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:7
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#7
   def respond_to?(message, include_private = T.unsafe(nil)); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_double.rb:47
+  # source://rspec-mocks//lib/rspec/mocks/verifying_double.rb#47
   def send(name, *args, &block); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/error_generator.rb:33
+# source://rspec-mocks//lib/rspec/mocks/error_generator.rb#33
 class RSpec::Mocks::VerifyingDoubleNotDefinedError < ::StandardError; end
 
 # Used in place of a `VerifyingExistingMethodDouble` for the specific case
@@ -5172,11 +5088,11 @@ class RSpec::Mocks::VerifyingDoubleNotDefinedError < ::StandardError; end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:214
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#214
 class RSpec::Mocks::VerifyingExistingClassNewMethodDouble < ::RSpec::Mocks::VerifyingExistingMethodDouble
   # @yield [Support::MethodSignature.new(object.instance_method(:initialize))]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:215
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#215
   def with_signature; end
 end
 
@@ -5188,25 +5104,25 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:179
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#179
 class RSpec::Mocks::VerifyingExistingMethodDouble < ::RSpec::Mocks::VerifyingMethodDouble
   # @return [VerifyingExistingMethodDouble] a new instance of VerifyingExistingMethodDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:180
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#180
   def initialize(object, method_name, proxy); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:194
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#194
   def unimplemented?; end
 
   # @yield [Support::MethodSignature.new(original_implementation_callable)]
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:190
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#190
   def with_signature; end
 
   class << self
-    # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:198
+    # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#198
     def for(object, method_name, proxy); end
   end
 end
@@ -5217,12 +5133,12 @@ end
 #
 # @api private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_message_expectation.rb:17
+# source://rspec-mocks//lib/rspec/mocks/verifying_message_expectation.rb#17
 class RSpec::Mocks::VerifyingMessageExpectation < ::RSpec::Mocks::MessageExpectation
   # @api private
   # @return [VerifyingMessageExpectation] a new instance of VerifyingMessageExpectation
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_message_expectation.rb:20
+  # source://rspec-mocks//lib/rspec/mocks/verifying_message_expectation.rb#20
   def initialize(*args); end
 
   # A level of indirection is used here rather than just passing in the
@@ -5236,7 +5152,7 @@ class RSpec::Mocks::VerifyingMessageExpectation < ::RSpec::Mocks::MessageExpecta
   #
   # @api private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_message_expectation.rb:18
+  # source://rspec-mocks//lib/rspec/mocks/verifying_message_expectation.rb#18
   def method_reference; end
 
   # A level of indirection is used here rather than just passing in the
@@ -5250,70 +5166,70 @@ class RSpec::Mocks::VerifyingMessageExpectation < ::RSpec::Mocks::MessageExpecta
   #
   # @api private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_message_expectation.rb:18
+  # source://rspec-mocks//lib/rspec/mocks/verifying_message_expectation.rb#18
   def method_reference=(_arg0); end
 
   # @api private
   # @private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_message_expectation.rb:25
+  # source://rspec-mocks//lib/rspec/mocks/verifying_message_expectation.rb#25
   def with(*args, &block); end
 
   private
 
   # @api private
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_message_expectation.rb:37
+  # source://rspec-mocks//lib/rspec/mocks/verifying_message_expectation.rb#38
   def validate_expected_arguments!; end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:139
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#139
 class RSpec::Mocks::VerifyingMethodDouble < ::RSpec::Mocks::MethodDouble
   # @return [VerifyingMethodDouble] a new instance of VerifyingMethodDouble
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:140
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#140
   def initialize(object, method_name, proxy, method_reference); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:149
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#149
   def add_expectation(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:154
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#154
   def add_stub(*args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:145
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#145
   def message_expectation_class; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:159
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#159
   def proxy_method_invoked(obj, *args, &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:164
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#164
   def validate_arguments!(actual_args); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:134
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#134
 class RSpec::Mocks::VerifyingPartialClassDoubleProxy < ::RSpec::Mocks::VerifyingPartialDoubleProxy
   include ::RSpec::Mocks::PartialClassDoubleProxyMethods
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:107
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#107
 class RSpec::Mocks::VerifyingPartialDoubleProxy < ::RSpec::Mocks::PartialDoubleProxy
   include ::RSpec::Mocks::VerifyingProxyMethods
 
   # @return [VerifyingPartialDoubleProxy] a new instance of VerifyingPartialDoubleProxy
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:110
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#110
   def initialize(object, expectation_ordering, optional_callback_invocation_strategy = T.unsafe(nil)); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:123
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#123
   def ensure_implemented(_method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:128
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#128
   def method_reference; end
 end
 
@@ -5332,56 +5248,54 @@ end
 #
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:71
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#71
 class RSpec::Mocks::VerifyingProxy < ::RSpec::Mocks::TestDoubleProxy
   include ::RSpec::Mocks::VerifyingProxyMethods
 
   # @return [VerifyingProxy] a new instance of VerifyingProxy
   #
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:74
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#74
   def initialize(object, order_group, doubled_module, method_reference_class); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:88
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#88
   def method_reference; end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:98
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#98
   def validate_arguments!(method_name, args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:94
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#94
   def visibility_for(method_name); end
 end
 
 # @private
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:22
+# source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#22
 module RSpec::Mocks::VerifyingProxyMethods
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:33
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#33
   def add_message_expectation(method_name, opts = T.unsafe(nil), &block); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:28
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#28
   def add_simple_stub(method_name, *args); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:23
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#23
   def add_stub(method_name, opts = T.unsafe(nil), &implementation); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:38
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#38
   def ensure_implemented(method_name); end
 
-  # source://rspec-mocks-3.11.1/lib/rspec/mocks/verifying_proxy.rb:48
+  # source://rspec-mocks//lib/rspec/mocks/verifying_proxy.rb#48
   def ensure_publicly_implemented(method_name, _object); end
 end
 
 # Version information for RSpec mocks.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/version.rb:4
+# source://rspec-mocks//lib/rspec/mocks/version.rb#4
 module RSpec::Mocks::Version; end
 
 # Version of RSpec mocks currently in use in SemVer format.
 #
-# source://rspec-mocks-3.11.1/lib/rspec/mocks/version.rb:6
+# source://rspec-mocks//lib/rspec/mocks/version.rb#6
 RSpec::Mocks::Version::STRING = T.let(T.unsafe(nil), String)
 
-# @private
-#
-# source://rspec-core-3.11.0/lib/rspec/core/shared_context.rb:54
+# source://rspec-core/3.12.0/lib/rspec/core/shared_context.rb#54
 RSpec::SharedContext = RSpec::Core::SharedContext
