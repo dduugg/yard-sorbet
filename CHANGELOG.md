@@ -2,6 +2,8 @@
 
 ## main
 
+## 0.8.0 (2023-01-14)
+
 ### New Features
 
 * [#141](https://github.com/dduugg/yard-sorbet/issues/141) Merge RBI sigs into existing documentation
