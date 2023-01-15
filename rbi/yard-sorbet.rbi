@@ -84,7 +84,7 @@ module YARDSorbet
   end
 
   module TagUtils
-    VOID_RETURN_TYPE = T.let(['void'].freeze, [String])
+    VOID_RETURN_TYPE = T.let(['void'].freeze, T::Array[String])
 
     sig { params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String)).returns(T.nilable(YARD::Tags::Tag)) }
     def self.find_tag(docstring, tag_name, name); end

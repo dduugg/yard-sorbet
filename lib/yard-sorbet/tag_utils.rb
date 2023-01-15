@@ -1,11 +1,11 @@
-# typed: strict
+# typed: true
 # frozen_string_literal: true
 
 module YARDSorbet
   # Helper methods for working with `YARD` tags
   module TagUtils
     # The `void` return type, as a constant to reduce array allocations
-    VOID_RETURN_TYPE = T.let(['void'].freeze, [String])
+    VOID_RETURN_TYPE = ['void'].freeze
 
     # @return the tag with the matching `tag_name` and `name`, or `nil`
     def self.find_tag(docstring, tag_name, name)

@@ -1,13 +1,13 @@
-# typed: strict
+# typed: true
 # frozen_string_literal: true
 
 module YARDSorbet
   # Helper methods for working with `YARD` AST Nodes
   module NodeUtils
     # Command node types that can have type signatures
-    ATTRIBUTE_METHODS = T.let(%i[attr attr_accessor attr_reader attr_writer].freeze, T::Array[Symbol])
+    ATTRIBUTE_METHODS = %i[attr attr_accessor attr_reader attr_writer].freeze
     # Skip these method contents during BFS node traversal, they can have their own nested types via `T.Proc`
-    SKIP_METHOD_CONTENTS = T.let(%i[params returns].freeze, T::Array[Symbol])
+    SKIP_METHOD_CONTENTS = %i[params returns].freeze
     private_constant :ATTRIBUTE_METHODS, :SKIP_METHOD_CONTENTS
 
     # Traverse AST nodes in breadth-first order
@@ -16,7 +16,8 @@ module YARDSorbet
     def self.bfs_traverse(node, &_blk)
       queue = [node]
       until queue.empty?
-        n = T.must(queue.shift)
+        n = queue.shift || raise('Node is nil')
+
         yield n
         n.children.each { queue.push(_1) }
         queue.pop if n.is_a?(YARD::Parser::Ruby::MethodCallNode) && SKIP_METHOD_CONTENTS.include?(n.method_name(true))

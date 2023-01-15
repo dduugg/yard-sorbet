@@ -1,18 +1,18 @@
-# typed: strict
+# typed: true
 # frozen_string_literal: true
 
 module YARDSorbet
   # Translate `sig` type syntax to `YARD` type syntax.
   module SigToYARD
     # Map of common types to YARD conventions (in order to reduce allocations)
-    REF_TYPES = T.let({
+    REF_TYPES = {
       'T::Boolean' => ['Boolean'].freeze, # YARD convention for booleans
       # YARD convention is use singleton objects when applicable:
       # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Literals
       'FalseClass' => ['false'].freeze,
       'NilClass' => ['nil'].freeze,
       'TrueClass' => ['true'].freeze
-    }.freeze, T::Hash[String, [String]])
+    }.freeze
     private_constant :REF_TYPES
 
     # @see https://yardoc.org/types.html

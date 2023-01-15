@@ -13,7 +13,7 @@ module YARDSorbet
       #   The `@abstract` tag template
       TAG_TEXT = 'Subclasses must implement the `abstract` methods below.'
       # Extra text for class namespaces
-      CLASS_TAG_TEXT = T.let("It cannot be directly instantiated. #{TAG_TEXT}", String)
+      CLASS_TAG_TEXT = "It cannot be directly instantiated. #{TAG_TEXT}"
 
       def process
         return if namespace.has_tag?(:abstract)

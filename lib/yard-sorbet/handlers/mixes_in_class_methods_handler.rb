@@ -1,4 +1,4 @@
-# typed: strict
+# typed: true
 # frozen_string_literal: true
 
 module YARDSorbet
@@ -10,7 +10,7 @@ module YARDSorbet
       handles method_call(:mixes_in_class_methods)
       namespace_only
 
-      @@mix_in_class_methods = T.let({}, T::Hash[String, T::Array[String]]) # rubocop:disable Style/ClassVars
+      @@mix_in_class_methods = {} # rubocop:disable Style/ClassVars
 
       def self.mixed_in_class_methods(code_obj)
         @@mix_in_class_methods[code_obj]
