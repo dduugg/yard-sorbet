@@ -1,7 +1,6 @@
 # typed: strong
 # frozen_string_literal: true
 
-require 'sorbet-runtime'
 require 'yard'
 
 require_relative 'yard-sorbet/version'

@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     yard-sorbet (0.7.0)
-      sorbet-runtime (>= 0.5)
       yard (>= 0.9)
 
 GEM
