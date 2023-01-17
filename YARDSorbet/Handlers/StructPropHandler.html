@@ -225,7 +225,7 @@ in creating a constructor</p>
         <li class="private ">
   <span class="summary_signature">
     
-      <a href="#params-instance_method" title="#params (instance method)">#<strong>params</strong>  &#x21d2; Array&lt;T.untyped&gt; </a>
+      <a href="#params-instance_method" title="#params (instance method)">#<strong>params</strong>  &#x21d2; Array&lt;YARD::Parser::Ruby::AstNode&gt; </a>
     
 
     
@@ -594,7 +594,7 @@ in creating a constructor</p>
     <span class='label'>doc:</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_docstring'>docstring</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span>
     <span class='label'>prop_name:</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
     <span class='label'>source:</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span><span class='comma'>,</span>
-    <span class='label'>types:</span> <span class='const'><span class='object_link'><a href="../SigToYARD.html" title="YARDSorbet::SigToYARD (module)">SigToYARD</a></span></span><span class='period'>.</span><span class='id identifier rubyid_convert'><span class='object_link'><a href="../SigToYARD.html#convert-class_method" title="YARDSorbet::SigToYARD.convert (method)">convert</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='label'>types:</span> <span class='const'><span class='object_link'><a href="../SigToYARD.html" title="YARDSorbet::SigToYARD (module)">SigToYARD</a></span></span><span class='period'>.</span><span class='id identifier rubyid_convert'><span class='object_link'><a href="../SigToYARD.html#convert-class_method" title="YARDSorbet::SigToYARD.convert (method)">convert</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -605,7 +605,7 @@ in creating a constructor</p>
       <div class="method_details ">
   <h3 class="signature " id="params-instance_method">
   
-    #<strong>params</strong>  &#x21d2; <tt>Array&lt;T.untyped&gt;</tt>  <span class="extras">(private)</span>
+    #<strong>params</strong>  &#x21d2; <tt>Array&lt;YARD::Parser::Ruby::AstNode&gt;</tt>  <span class="extras">(private)</span>
   
 
   
@@ -625,7 +625,7 @@ in creating a constructor</p>
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;T.untyped&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;YARD::Parser::Ruby::AstNode&gt;</tt>)</span>
       
       
       
@@ -647,7 +647,7 @@ in creating a constructor</p>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_params'>params</span>
-  <span class='ivar'>@params</span> <span class='op'>||=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_nilable'>nilable</span><span class='lparen'>(</span><span class='const'>T</span><span class='op'>::</span><span class='const'>Array</span><span class='lbracket'>[</span><span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_untyped'>untyped</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='ivar'>@params</span> <span class='op'>||=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_nilable'>nilable</span><span class='lparen'>(</span><span class='const'>T</span><span class='op'>::</span><span class='const'>Array</span><span class='lbracket'>[</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>AstNode</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -691,7 +691,7 @@ in creating a constructor</p>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
-  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>
+  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_dig'>dig</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span>
   <span class='id identifier rubyid_prop'>prop</span> <span class='op'>=</span> <span class='id identifier rubyid_make_prop'>make_prop</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_update_state'>update_state</span><span class='lparen'>(</span><span class='id identifier rubyid_prop'>prop</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_object'>object</span> <span class='op'>=</span> <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CodeObjects</span><span class='op'>::</span><span class='const'>MethodObject</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_namespace'>namespace</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
@@ -835,7 +835,7 @@ in creating a constructor</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jan 16 10:03:47 2023 by
+  Generated on Tue Jan 17 23:40:43 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.28 (ruby-3.2.0).
 </div>
