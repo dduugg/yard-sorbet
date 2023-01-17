@@ -14,5 +14,7 @@ Layout/ClassStructure:
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
+Sorbet/ForbidTUntyped:
+  Enabled: true
 Sorbet/StrictSigil:
   Enabled: true

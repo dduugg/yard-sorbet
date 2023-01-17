@@ -13,7 +13,7 @@ module YARDSorbet
 
       sig { void }
       def process
-        name = params[0][-1][-1].source
+        name = params.dig(0, -1, -1).source
         prop = make_prop(name)
         update_state(prop)
         object = YARD::CodeObjects::MethodObject.new(namespace, name, scope)
@@ -52,13 +52,13 @@ module YARDSorbet
           doc: statement.docstring.to_s,
           prop_name: name,
           source: statement.source,
-          types: SigToYARD.convert(params[1])
+          types: SigToYARD.convert(params.fetch(1))
         )
       end
 
-      sig { returns(T::Array[T.untyped]) }
+      sig { returns(T::Array[YARD::Parser::Ruby::AstNode]) }
       def params
-        @params ||= T.let(statement.parameters(false), T.nilable(T::Array[T.untyped]))
+        @params ||= T.let(statement.parameters(false), T.nilable(T::Array[YARD::Parser::Ruby::AstNode]))
       end
 
       # Register the field explicitly as an attribute.
