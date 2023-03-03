@@ -27,8 +27,11 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     private_class_method def self.convert_node(node)
       case node
-      when YARD::Parser::Ruby::MethodCallNode then convert_call(node)
-      when YARD::Parser::Ruby::ReferenceNode then convert_ref(node.source)
+      when YARD::Parser::Ruby::MethodCallNode
+        node.namespace.source == 'T' ? convert_t_method(node) : [node.source]
+      when YARD::Parser::Ruby::ReferenceNode
+        node_source = node.source
+        REF_TYPES[node_source] || [node_source]
       else convert_node_type(node)
       end
     end
@@ -80,11 +83,6 @@ module YARDSorbet
       ["Array(#{sequence})"]
     end
 
-    sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
-    private_class_method def self.convert_call(node)
-      node.namespace.source == 'T' ? convert_t_method(node) : [node.source]
-    end
-
     sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
     private_class_method def self.convert_collection(node)
       collection_type = node.first.source.split('::').last
@@ -103,11 +101,6 @@ module YARDSorbet
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
     private_class_method def self.convert_list(node)
       node.children.size == 1 ? convert_node(node.children.first) : [node.source]
-    end
-
-    sig { params(node_source: String).returns([String]) }
-    private_class_method def self.convert_ref(node_source)
-      REF_TYPES[node_source] || [node_source]
     end
 
     sig { params(node: YARD::Parser::Ruby::MethodCallNode).returns(T::Array[String]) }
