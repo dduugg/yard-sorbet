@@ -6,7 +6,7 @@
 A YARD [plugin](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#Plugin_Support) that parses Sorbet type annotations
 
 ## Features
-- Attaches existing documentation to methods and attributs that follow `sig` declarations. (This information is otherwise discarded.)
+- Attaches existing documentation to methods and attributes that follow `sig` declarations. (This information is otherwise discarded.)
 - Translates `sig` type signatures into corresponding YARD tags
 - Generates method definitions from `T::Struct` fields
 - Generates constant definitions from `T::Enum` enums
