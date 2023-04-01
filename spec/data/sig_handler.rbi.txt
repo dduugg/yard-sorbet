@@ -20,5 +20,9 @@ module Merge
 
     sig { returns(Integer) }
     def bat; end
+
+    # new docstring
+    sig { returns(T::Boolean) }
+    def xyz; end
   end
 end

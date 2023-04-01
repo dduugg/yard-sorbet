@@ -63,6 +63,10 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
     it 'merges return tag comment with sig return type' do
       expect(YARD::Registry.at('Merge::A#bat').tag(:return).text).to eq('the result')
     end
+
+    it 'overwrites the prior docstring when a new docstring exists' do
+      expect(YARD::Registry.at('Merge::A#xyz').docstring).to eq('new docstring')
+    end
   end
 
   describe 'attaching to method' do
