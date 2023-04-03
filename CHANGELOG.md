@@ -2,6 +2,10 @@
 
 ## main
 
+### Bug Fixes
+
+* [#201](https://github.com/dduugg/yard-sorbet/issues/201) Caching not reloading docstring when using Sorbet signature
+
 ## 0.8.0 (2023-01-14)
 
 ### New Features

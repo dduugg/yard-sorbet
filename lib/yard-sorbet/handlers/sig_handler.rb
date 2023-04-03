@@ -37,7 +37,7 @@ module YARDSorbet
         separator = scope == :instance && def_node.type == :def ? '#' : '.'
         registered = YARD::Registry.at("#{namespace}#{separator}#{def_node.method_name(true)}")
         if registered
-          parse_node(registered, registered.docstring)
+          parse_node(registered, statement.docstring || registered.docstring)
           # Since we're probably in an RBI file, delete the def node, which could otherwise erroneously override the
           # visibility setting
           NodeUtils.delete_node(def_node)

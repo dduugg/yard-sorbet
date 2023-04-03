@@ -357,5 +357,8 @@ module Merge
 
     # @return the result
     def bat; end
+
+    # old doctsring
+    def xyz; end
   end
 end
