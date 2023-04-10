@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
     'wiki_uri' => "#{spec.homepage}/wiki"
   }
 
-  spec.files = `git ls-files -z -- lib/*`.split("\x0") + ['LICENSE']
+  spec.files = Dir['lib/**/*', 'LICENSE']
 
   spec.add_development_dependency 'bundler-audit', '~> 0.9.1'
   spec.add_development_dependency 'codecov', '~> 0.6.0'
@@ -33,6 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'redcarpet', '~> 3.5'
   spec.add_development_dependency 'rspec', '~> 3.10'
   spec.add_development_dependency 'rubocop', '~> 1.49.0'
+  spec.add_development_dependency 'rubocop-packaging', '~> 0.5.2'
   spec.add_development_dependency 'rubocop-performance', '~> 1.16.0'
   spec.add_development_dependency 'rubocop-rake', '~> 0.6.0'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.19.0'
