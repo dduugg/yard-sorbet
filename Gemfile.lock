@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     yard-sorbet (0.8.1)
-      sorbet-runtime (>= 0.5)
-      yard (>= 0.9)
+      sorbet-runtime
+      yard
 
 GEM
   remote: https://rubygems.org/
@@ -13,8 +13,6 @@ GEM
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
     byebug (11.1.3)
-    codecov (0.6.0)
-      simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
     diff-lcs (1.5.0)
     docile (1.4.0)
@@ -84,6 +82,9 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
+    simplecov-cobertura (2.1.0)
+      rexml
+      simplecov (~> 0.19)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
     sorbet (0.5.10761)
@@ -121,17 +122,17 @@ PLATFORMS
 
 DEPENDENCIES
   bundler-audit (~> 0.9.1)
-  codecov (~> 0.6.0)
   pry-byebug (~> 3.10)
-  rake (~> 13.0)
-  redcarpet (~> 3.5)
-  rspec (~> 3.10)
+  rake (~> 13.0.6)
+  redcarpet (~> 3.6.0)
+  rspec (~> 3.12.0)
   rubocop (~> 1.49.0)
   rubocop-packaging (~> 0.5.2)
   rubocop-performance (~> 1.17.1)
   rubocop-rake (~> 0.6.0)
   rubocop-rspec (~> 2.19.0)
   rubocop-sorbet (~> 0.7.0)
+  simplecov-cobertura (~> 2.1.0)
   sorbet (~> 0.5.9204)
   tapioca (~> 0.11.1)
   yard-sorbet!

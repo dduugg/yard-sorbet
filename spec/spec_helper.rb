@@ -6,9 +6,9 @@ require 'sorbet-runtime'
 T::Configuration.enable_checking_for_sigs_marked_checked_tests
 
 if ENV.fetch('CI', nil) == 'true'
-  require 'codecov'
+  require 'simplecov-cobertura'
   SimpleCov.start
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 
 require 'yard-sorbet'
