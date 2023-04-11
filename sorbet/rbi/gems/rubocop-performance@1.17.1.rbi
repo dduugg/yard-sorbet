@@ -10,12 +10,6 @@ module RuboCop; end
 # source://rubocop-performance//lib/rubocop/cop/mixin/regexp_metacharacter.rb#4
 module RuboCop::Cop; end
 
-# source://rubocop/1.42.0/lib/rubocop/cop/mixin/allowed_methods.rb#38
-RuboCop::Cop::IgnoredMethods = RuboCop::Cop::AllowedMethods
-
-# source://rubocop/1.42.0/lib/rubocop/cop/mixin/allowed_pattern.rb#54
-RuboCop::Cop::IgnoredPattern = RuboCop::Cop::AllowedPattern
-
 # source://rubocop-performance//lib/rubocop/cop/performance/ancestors_include.rb#5
 module RuboCop::Cop::Performance; end
 
@@ -448,7 +442,7 @@ class RuboCop::Cop::Performance::ChainArrayAllocation < ::RuboCop::Cop::Base
 end
 
 # These methods ALWAYS return a new array
-# after they're called it's safe to mutate the the resulting array
+# after they're called it's safe to mutate the resulting array
 #
 # source://rubocop-performance//lib/rubocop/cop/performance/chain_array_allocation.rb#37
 RuboCop::Cop::Performance::ChainArrayAllocation::ALWAYS_RETURNS_NEW_ARRAY = T.let(T.unsafe(nil), Set)
@@ -1224,7 +1218,7 @@ class RuboCop::Cop::Performance::FlatMap < ::RuboCop::Cop::Base
 
   private
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/flat_map.rb#71
+  # source://rubocop-performance//lib/rubocop/cop/performance/flat_map.rb#72
   def autocorrect(corrector, node); end
 
   # source://rubocop-performance//lib/rubocop/cop/performance/flat_map.rb#52
@@ -1619,6 +1613,16 @@ RuboCop::Cop::Performance::RedundantBlockCall::YIELD = T.let(T.unsafe(nil), Stri
 # behavior is appropriately overridden in subclass. For example,
 # `Range#===` returns `true` when argument is within the range.
 #
+# This cop has `AllowRegexpMatch` option and it is true by default because
+# `regexp.match?('string')` often used in block changes to the opposite result:
+#
+# [source,ruby]
+# ----
+# [/pattern/].all? { |regexp| regexp.match?('pattern') } # => true
+# [/pattern/].all? { |regexp| regexp =~ 'pattern' }      # => true
+# [/pattern/].all?('pattern')                            # => false
+# ----
+#
 # @example
 #   # bad
 #   items.all? { |item| pattern === item }
@@ -1628,54 +1632,73 @@ RuboCop::Cop::Performance::RedundantBlockCall::YIELD = T.let(T.unsafe(nil), Stri
 #
 #   # good
 #   items.all?(pattern)
+#   items.all?(Klass)
+# @example AllowRegexpMatch: true (default)
 #
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#26
+#   # good
+#   items.all? { |item| item =~ pattern }
+#   items.all? { |item| item.match?(pattern) }
+# @example AllowRegexpMatch: false
+#
+#   # bad
+#   items.all? { |item| item =~ pattern }
+#   items.all? { |item| item.match?(pattern) }
+#
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#49
 class RuboCop::Cop::Performance::RedundantEqualityComparisonBlock < ::RuboCop::Cop::Base
   extend ::RuboCop::Cop::AutoCorrector
   extend ::RuboCop::Cop::TargetRubyVersion
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#38
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#62
   def on_block(node); end
 
   private
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#76
+  # @return [Boolean]
+  #
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#131
+  def allow_regexp_match?; end
+
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#104
   def new_argument(block_argument, block_body); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#99
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#127
   def offense_range(node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#58
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#82
   def one_block_argument?(block_arguments); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#66
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#94
   def same_block_argument_and_is_a_argument?(block_body, block_argument); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#90
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#118
   def use_block_argument_in_method_argument_of_operand?(block_argument, operand); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#62
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#86
   def use_equality_comparison_block?(block_body); end
 end
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#35
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#58
 RuboCop::Cop::Performance::RedundantEqualityComparisonBlock::COMPARISON_METHODS = T.let(T.unsafe(nil), Array)
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#36
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#60
 RuboCop::Cop::Performance::RedundantEqualityComparisonBlock::IS_A_METHODS = T.let(T.unsafe(nil), Array)
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#32
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#55
 RuboCop::Cop::Performance::RedundantEqualityComparisonBlock::MSG = T.let(T.unsafe(nil), String)
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#34
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#59
+RuboCop::Cop::Performance::RedundantEqualityComparisonBlock::REGEXP_METHODS = T.let(T.unsafe(nil), Array)
+
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_equality_comparison_block.rb#57
 RuboCop::Cop::Performance::RedundantEqualityComparisonBlock::TARGET_METHODS = T.let(T.unsafe(nil), Array)
 
 # Identifies the use of `Regexp#match` or `String#match`, which
@@ -1745,121 +1768,119 @@ RuboCop::Cop::Performance::RedundantMatch::RESTRICT_ON_SEND = T.let(T.unsafe(nil
 #
 # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#30
 class RuboCop::Cop::Performance::RedundantMerge < ::RuboCop::Cop::Base
+  include ::RuboCop::Cop::Alignment
   extend ::RuboCop::Cop::AutoCorrector
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#47
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#48
   def modifier_flow_control?(param0 = T.unsafe(nil)); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#51
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#52
   def on_send(node); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#43
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#44
   def redundant_merge_candidate(param0 = T.unsafe(nil)); end
 
   private
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#105
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#106
   def correct_multiple_elements(corrector, node, parent, new_source); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#117
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#118
   def correct_single_element(corrector, node, new_source); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#78
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#79
   def each_redundant_merge(node); end
-
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#147
-  def indent_width; end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#97
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#98
   def kwsplat_used?(pairs); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#143
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#144
   def leading_spaces(node); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#151
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#148
   def max_key_value_pairs; end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#70
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#71
   def message(node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#86
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#87
   def non_redundant_merge?(node, receiver, pairs); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#93
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#94
   def non_redundant_pairs?(receiver, pairs); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#101
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#102
   def non_redundant_value_used?(receiver, node); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#131
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#132
   def rewrite_with_modifier(node, parent, new_source); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#121
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#122
   def to_assignments(receiver, pairs); end
 end
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#33
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#34
 RuboCop::Cop::Performance::RedundantMerge::AREF_ASGN = T.let(T.unsafe(nil), String)
 
 # A utility class for checking the use of values within an
 # `each_with_object` call.
 #
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#157
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#154
 class RuboCop::Cop::Performance::RedundantMerge::EachWithObjectInspector
   extend ::RuboCop::AST::NodePattern::Macros
 
   # @return [EachWithObjectInspector] a new instance of EachWithObjectInspector
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#160
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#157
   def initialize(node, receiver); end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#191
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#188
   def each_with_object_node(param0 = T.unsafe(nil)); end
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#165
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#162
   def value_used?; end
 
   private
 
   # @return [Boolean]
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#175
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#172
   def eligible_receiver?; end
 
   # Returns the value of attribute node.
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#173
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#170
   def node; end
 
   # Returns the value of attribute receiver.
   #
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#173
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#170
   def receiver; end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#179
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#176
   def second_argument; end
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#186
+  # source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#183
   def unwind(receiver); end
 end
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#34
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#35
 RuboCop::Cop::Performance::RedundantMerge::MSG = T.let(T.unsafe(nil), String)
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#35
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#36
 RuboCop::Cop::Performance::RedundantMerge::RESTRICT_ON_SEND = T.let(T.unsafe(nil), Array)
 
-# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#37
+# source://rubocop-performance//lib/rubocop/cop/performance/redundant_merge.rb#38
 RuboCop::Cop::Performance::RedundantMerge::WITH_MODIFIER_CORRECTION = T.let(T.unsafe(nil), String)
 
 # Identifies places where `sort { |a, b| a <=> b }` can be replaced with `sort`.
@@ -2523,9 +2544,12 @@ RuboCop::Cop::Performance::StartWith::RESTRICT_ON_SEND = T.let(T.unsafe(nil), Ar
 class RuboCop::Cop::Performance::StringIdentifierArgument < ::RuboCop::Cop::Base
   extend ::RuboCop::Cop::AutoCorrector
 
-  # source://rubocop-performance//lib/rubocop/cop/performance/string_identifier_argument.rb#46
+  # source://rubocop-performance//lib/rubocop/cop/performance/string_identifier_argument.rb#48
   def on_send(node); end
 end
+
+# source://rubocop-performance//lib/rubocop/cop/performance/string_identifier_argument.rb#30
+RuboCop::Cop::Performance::StringIdentifierArgument::COMMAND_METHODS = T.let(T.unsafe(nil), Array)
 
 # source://rubocop-performance//lib/rubocop/cop/performance/string_identifier_argument.rb#28
 RuboCop::Cop::Performance::StringIdentifierArgument::MSG = T.let(T.unsafe(nil), String)
@@ -2534,22 +2558,22 @@ RuboCop::Cop::Performance::StringIdentifierArgument::MSG = T.let(T.unsafe(nil), 
 # And `attr` may not be used because `Style/Attr` registers an offense.
 # https://github.com/rubocop/rubocop-performance/issues/278
 #
-# source://rubocop-performance//lib/rubocop/cop/performance/string_identifier_argument.rb#33
+# source://rubocop-performance//lib/rubocop/cop/performance/string_identifier_argument.rb#38
 RuboCop::Cop::Performance::StringIdentifierArgument::RESTRICT_ON_SEND = T.let(T.unsafe(nil), Array)
 
 # Identifies unnecessary use of a regex where `String#include?` would suffice.
 #
 # @example
 #   # bad
-#   'abc'.match?(/ab/)
-#   /ab/.match?('abc')
-#   'abc' =~ /ab/
-#   /ab/ =~ 'abc'
-#   'abc'.match(/ab/)
-#   /ab/.match('abc')
+#   str.match?(/ab/)
+#   /ab/.match?(str)
+#   str =~ /ab/
+#   /ab/ =~ str
+#   str.match(/ab/)
+#   /ab/.match(str)
 #
 #   # good
-#   'abc'.include?('ab')
+#   str.include?('ab')
 #
 # source://rubocop-performance//lib/rubocop/cop/performance/string_include.rb#22
 class RuboCop::Cop::Performance::StringInclude < ::RuboCop::Cop::Base
@@ -2973,9 +2997,6 @@ module RuboCop::Cop::SortBlock
   def sort_range(send, node); end
 end
 
-# source://rubocop/1.42.0/lib/rubocop/ast_aliases.rb#5
-RuboCop::NodePattern = RuboCop::AST::NodePattern
-
 # RuboCop Performance project namespace
 #
 # source://rubocop-performance//lib/rubocop/performance.rb#5
@@ -3013,9 +3034,3 @@ end
 
 # source://rubocop-performance//lib/rubocop/performance/version.rb#7
 RuboCop::Performance::Version::STRING = T.let(T.unsafe(nil), String)
-
-# source://rubocop/1.42.0/lib/rubocop/ast_aliases.rb#6
-RuboCop::ProcessedSource = RuboCop::AST::ProcessedSource
-
-# source://rubocop/1.42.0/lib/rubocop/ast_aliases.rb#7
-RuboCop::Token = RuboCop::AST::Token

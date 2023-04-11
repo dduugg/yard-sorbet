@@ -6,7 +6,7 @@
 
 # Docile keeps your Ruby DSLs tame and well-behaved.
 #
-# source://docile-1.4.0/lib/docile/version.rb:3
+# source://docile//lib/docile/version.rb#3
 module Docile
   extend ::Docile::Execution
 
@@ -42,8 +42,8 @@ module Docile
   #   `dsl` context object
   # @return [Object] the `dsl` context object after executing the block
   #
-  # source://docile-1.4.0/lib/docile.rb:45
-  def dsl_eval(dsl, *args, &block); end
+  # source://docile//lib/docile.rb#45
+  def dsl_eval(dsl, *args, **_arg2, &block); end
 
   # Execute a block in the context of an immutable object whose methods,
   # and the methods of their return values, represent the commands in a DSL.
@@ -75,8 +75,8 @@ module Docile
   #   `dsl` context object and successor return values
   # @return [Object] the return value of the final command in the block
   #
-  # source://docile-1.4.0/lib/docile.rb:128
-  def dsl_eval_immutable(dsl, *args, &block); end
+  # source://docile//lib/docile.rb#128
+  def dsl_eval_immutable(dsl, *args, **_arg2, &block); end
 
   # Execute a block in the context of an object whose methods represent the
   # commands in a DSL, and return *the block's return value*.
@@ -110,8 +110,8 @@ module Docile
   #   `dsl` context object
   # @return [Object] the return value from executing the block
   #
-  # source://docile-1.4.0/lib/docile.rb:87
-  def dsl_eval_with_block_return(dsl, *args, &block); end
+  # source://docile//lib/docile.rb#87
+  def dsl_eval_with_block_return(dsl, *args, **_arg2, &block); end
 
   class << self
     # Execute a block in the context of an object whose methods represent the
@@ -144,8 +144,8 @@ module Docile
     #   `dsl` context object
     # @return [Object] the `dsl` context object after executing the block
     #
-    # source://docile-1.4.0/lib/docile.rb:45
-    def dsl_eval(dsl, *args, &block); end
+    # source://docile//lib/docile.rb#45
+    def dsl_eval(dsl, *args, **_arg2, &block); end
 
     # Execute a block in the context of an immutable object whose methods,
     # and the methods of their return values, represent the commands in a DSL.
@@ -177,8 +177,8 @@ module Docile
     #   `dsl` context object and successor return values
     # @return [Object] the return value of the final command in the block
     #
-    # source://docile-1.4.0/lib/docile.rb:128
-    def dsl_eval_immutable(dsl, *args, &block); end
+    # source://docile//lib/docile.rb#128
+    def dsl_eval_immutable(dsl, *args, **_arg2, &block); end
 
     # Execute a block in the context of an object whose methods represent the
     # commands in a DSL, and return *the block's return value*.
@@ -212,8 +212,8 @@ module Docile
     #   `dsl` context object
     # @return [Object] the return value from executing the block
     #
-    # source://docile-1.4.0/lib/docile.rb:87
-    def dsl_eval_with_block_return(dsl, *args, &block); end
+    # source://docile//lib/docile.rb#87
+    def dsl_eval_with_block_return(dsl, *args, **_arg2, &block); end
   end
 end
 
@@ -225,22 +225,22 @@ end
 #
 # @api private
 #
-# source://docile-1.4.0/lib/docile/backtrace_filter.rb:11
+# source://docile//lib/docile/backtrace_filter.rb#11
 module Docile::BacktraceFilter
   # @api private
   #
-  # source://docile-1.4.0/lib/docile/backtrace_filter.rb:14
+  # source://docile//lib/docile/backtrace_filter.rb#14
   def backtrace; end
 
   # @api private
   #
-  # source://docile-1.4.0/lib/docile/backtrace_filter.rb:19
+  # source://docile//lib/docile/backtrace_filter.rb#19
   def backtrace_locations; end
 end
 
 # @api private
 #
-# source://docile-1.4.0/lib/docile/backtrace_filter.rb:12
+# source://docile//lib/docile/backtrace_filter.rb#12
 Docile::BacktraceFilter::FILTER_PATTERN = T.let(T.unsafe(nil), Regexp)
 
 # Operates in the same manner as {FallbackContextProxy}, but replacing
@@ -253,15 +253,15 @@ Docile::BacktraceFilter::FILTER_PATTERN = T.let(T.unsafe(nil), Regexp)
 # @api private
 # @see Docile.dsl_eval_immutable
 #
-# source://docile-1.4.0/lib/docile/chaining_fallback_context_proxy.rb:19
+# source://docile//lib/docile/chaining_fallback_context_proxy.rb#17
 class Docile::ChainingFallbackContextProxy < ::Docile::FallbackContextProxy
   # Proxy methods as in {FallbackContextProxy#method_missing}, replacing
   # `receiver` with the returned value.
   #
   # @api private
   #
-  # source://docile-1.4.0/lib/docile/chaining_fallback_context_proxy.rb:20
-  def method_missing(method, *args, &block); end
+  # source://docile//lib/docile/chaining_fallback_context_proxy.rb#20
+  def method_missing(method, *args, **_arg2, &block); end
 end
 
 # A namespace for functions relating to the execution of a block against a
@@ -269,7 +269,7 @@ end
 #
 # @api private
 #
-# source://docile-1.4.0/lib/docile/execution.rb:8
+# source://docile//lib/docile/execution.rb#8
 module Docile::Execution
   private
 
@@ -284,8 +284,8 @@ module Docile::Execution
   # @param block [Proc] the block of DSL commands to be executed
   # @return [Object] the return value of the block
   #
-  # source://docile-1.4.0/lib/docile/execution.rb:19
-  def exec_in_proxy_context(dsl, proxy_type, *args, &block); end
+  # source://docile//lib/docile/execution.rb#19
+  def exec_in_proxy_context(dsl, proxy_type, *args, **_arg3, &block); end
 
   class << self
     # Execute a block in the context of an object whose methods represent the
@@ -299,8 +299,8 @@ module Docile::Execution
     # @param block [Proc] the block of DSL commands to be executed
     # @return [Object] the return value of the block
     #
-    # source://docile-1.4.0/lib/docile/execution.rb:19
-    def exec_in_proxy_context(dsl, proxy_type, *args, &block); end
+    # source://docile//lib/docile/execution.rb#19
+    def exec_in_proxy_context(dsl, proxy_type, *args, **_arg3, &block); end
   end
 end
 
@@ -317,7 +317,7 @@ end
 # @api private
 # @see Docile.dsl_eval
 #
-# source://docile-1.4.0/lib/docile/fallback_context_proxy.rb:20
+# source://docile//lib/docile/fallback_context_proxy.rb#20
 class Docile::FallbackContextProxy
   # @api private
   # @param receiver [Object] the primary proxy target to which all methods
@@ -326,14 +326,14 @@ class Docile::FallbackContextProxy
   #   not handled by `receiver` will be forwarded
   # @return [FallbackContextProxy] a new instance of FallbackContextProxy
   #
-  # source://docile-1.4.0/lib/docile/fallback_context_proxy.rb:46
+  # source://docile//lib/docile/fallback_context_proxy.rb#46
   def initialize(receiver, fallback); end
 
   # @api private
   # @return [Array<Symbol>] Instance variable names, excluding
   #   {NON_PROXIED_INSTANCE_VARIABLES}
   #
-  # source://docile-1.4.0/lib/docile/fallback_context_proxy.rb:85
+  # source://docile//lib/docile/fallback_context_proxy.rb#85
   def instance_variables; end
 
   # Proxy all methods, excluding {NON_PROXIED_METHODS}, first to `receiver`
@@ -341,8 +341,8 @@ class Docile::FallbackContextProxy
   #
   # @api private
   #
-  # source://docile-1.4.0/lib/docile/fallback_context_proxy.rb:91
-  def method_missing(method, *args, &block); end
+  # source://docile//lib/docile/fallback_context_proxy.rb#91
+  def method_missing(method, *args, **_arg2, &block); end
 end
 
 # The set of methods which will **not** fallback from the block's context
@@ -350,7 +350,7 @@ end
 #
 # @api private
 #
-# source://docile-1.4.0/lib/docile/fallback_context_proxy.rb:30
+# source://docile//lib/docile/fallback_context_proxy.rb#30
 Docile::FallbackContextProxy::NON_FALLBACK_METHODS = T.let(T.unsafe(nil), Set)
 
 # The set of instance variables which are local to this object and hidden.
@@ -359,7 +359,7 @@ Docile::FallbackContextProxy::NON_FALLBACK_METHODS = T.let(T.unsafe(nil), Set)
 #
 # @api private
 #
-# source://docile-1.4.0/lib/docile/fallback_context_proxy.rb:35
+# source://docile//lib/docile/fallback_context_proxy.rb#35
 Docile::FallbackContextProxy::NON_PROXIED_INSTANCE_VARIABLES = T.let(T.unsafe(nil), Set)
 
 # The set of methods which will **not** be proxied, but instead answered
@@ -367,10 +367,10 @@ Docile::FallbackContextProxy::NON_PROXIED_INSTANCE_VARIABLES = T.let(T.unsafe(ni
 #
 # @api private
 #
-# source://docile-1.4.0/lib/docile/fallback_context_proxy.rb:23
+# source://docile//lib/docile/fallback_context_proxy.rb#23
 Docile::FallbackContextProxy::NON_PROXIED_METHODS = T.let(T.unsafe(nil), Set)
 
 # The current version of this library
 #
-# source://docile-1.4.0/lib/docile/version.rb:5
+# source://docile//lib/docile/version.rb#5
 Docile::VERSION = T.let(T.unsafe(nil), String)
