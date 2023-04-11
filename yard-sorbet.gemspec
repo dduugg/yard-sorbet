@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['lib/**/*', 'LICENSE']
 
-  spec.add_development_dependency 'bundler-audit', '~> 0.9.1'
   spec.add_development_dependency 'rake', '~> 13.0.6'
   spec.add_development_dependency 'redcarpet', '~> 3.6.0'
   spec.add_development_dependency 'rspec', '~> 3.12.0'
