@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 13.0.6'
   spec.add_development_dependency 'redcarpet', '~> 3.6.0'
   spec.add_development_dependency 'rspec', '~> 3.12.0'
-  spec.add_development_dependency 'rubocop', '~> 1.49.0'
+  spec.add_development_dependency 'rubocop', '~> 1.50.2'
   spec.add_development_dependency 'rubocop-packaging', '~> 0.5.2'
   spec.add_development_dependency 'rubocop-performance', '~> 1.17.1'
   spec.add_development_dependency 'rubocop-rake', '~> 0.6.0'
