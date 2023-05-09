@@ -291,7 +291,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'fixed Array' do
       node = YARD::Registry.at('CollectionSigs#fixed_array')
-      expect(node.tag(:return).types).to eq(['Array(String, Integer)'])
+      expect(node.tag(:return).types).to eq(['Array<(String, Integer)>'])
     end
 
     describe 'of fixed Hash' do
@@ -317,7 +317,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'array' do
       node = YARD::Registry.at('VariousTypedSigs#array')
-      expect(node.tag(:return).types).to eq(['Array(String)'])
+      expect(node.tag(:return).types).to eq(['Array<(String)>'])
     end
 
     it 'call_T_all' do
@@ -407,7 +407,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'renders nested array types' do
       node = YARD::Registry.at('VariousTypedSigs#nested_array_return')
-      expect(node.tag(:return).types).to eq(['Array<Array(String, [String, nil])>'])
+      expect(node.tag(:return).types).to eq(['Array<Array<(String, [String, nil])>>'])
     end
 
     it 'has single return tag when inline modifier exists' do

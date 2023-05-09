@@ -11,7 +11,7 @@ module YARDSorbet
       REF_TYPES = T.let({
         'T::Boolean' => ['Boolean'].freeze, # YARD convention for booleans
         # YARD convention is use singleton objects when applicable:
-        # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Literals
+        # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#literals
         'FalseClass' => ['false'].freeze,
         'NilClass' => ['nil'].freeze,
         'TrueClass' => ['true'].freeze
@@ -68,7 +68,7 @@ module YARDSorbet
 
       sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
       def convert_aref(node)
-        # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Parametrized_Types
+        # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#parametrized-types
         case node.first.source
         when 'T::Array', 'T::Enumerable', 'T::Range', 'T::Set' then convert_collection(node)
         when 'T::Hash' then convert_hash(node)
@@ -80,10 +80,10 @@ module YARDSorbet
 
       sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
       def convert_array(node)
-        # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#Order-Dependent_Lists
+        # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#order-dependent-lists
         member_types = node.first.children.map { convert_node(_1) }
         sequence = member_types.map { _1.size == 1 ? _1[0] : _1.to_s.tr('"', '') }.join(', ')
-        ["Array(#{sequence})"]
+        ["Array<(#{sequence})>"]
       end
 
       sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }

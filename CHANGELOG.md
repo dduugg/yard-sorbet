@@ -2,6 +2,10 @@
 
 ## main
 
+### Bug Fixes
+
+* Fix syntax of order-dependent lists
+
 ## 0.8.1 (2023-04-03)
 
 ### Bug Fixes
