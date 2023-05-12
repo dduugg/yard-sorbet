@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/dduugg/yard-sorbet/actions/workflows/ruby.yml/badge.svg)](https://github.com/dduugg/yard-sorbet/actions/workflows/ruby.yml)
 [![codecov](https://codecov.io/gh/dduugg/yard-sorbet/branch/master/graph/badge.svg)](https://codecov.io/gh/dduugg/yard-sorbet)
 
-A YARD [plugin](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#Plugin_Support) that parses Sorbet type annotations
+A YARD [plugin](https://rubydoc.info/gems/yard/file/docs/GettingStarted.md#plugin-support) that parses Sorbet type annotations
 
 ## Features
 - Attaches existing documentation to methods and attributes that follow `sig` declarations. (This information is otherwise discarded.)
