@@ -1,0 +1,19 @@
+class SomeThing < ApplicationRecord
+  extend T::Sig
+
+  sig { returns(T.nilable(Float)) }
+  def rate
+    result = super()
+    if result
+      result *= 5
+    end
+    result
+  end
+end
+
+# == Schema Information
+#
+# Table name: some_things
+#
+#  id                     :integer          not null, primary key
+#  rate                   :float
