@@ -1,6 +1,8 @@
 class SomeThing < ApplicationRecord
   extend T::Sig
 
+  validates :rate, presence: true
+
   sig { returns(T.nilable(Float)) }
   def rate
     result = super()
