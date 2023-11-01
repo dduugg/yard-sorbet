@@ -29,7 +29,7 @@ GEM
       pry (>= 0.13, < 0.15)
     racc (1.7.2)
     rainbow (3.1.1)
-    rake (13.0.6)
+    rake (13.1.0)
     rbi (0.0.17)
       ast
       parser (>= 3.0.0)
@@ -126,7 +126,7 @@ PLATFORMS
 
 DEPENDENCIES
   pry-byebug (~> 3.10)
-  rake (~> 13.0.6)
+  rake (~> 13.1.0)
   redcarpet (~> 3.6.0)
   rspec (~> 3.12.0)
   rubocop (~> 1.57.2)
