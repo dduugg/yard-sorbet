@@ -217,6 +217,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#enque_children-class_method" title="enque_children (class method)">.<strong>enque_children</strong>(queue, node)  &#x21d2; void </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Enqueue the eligible children of a node in the BFS queue.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_method_node-class_method" title="get_method_node (class method)">.<strong>get_method_node</strong>(node)  &#x21d2; SigableNode </a>
     
 
@@ -392,19 +415,17 @@
 25
 26
 27
-28
-29</pre>
+28</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_bfs_traverse'>bfs_traverse</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid__blk'>_blk</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_queue'>queue</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_node'>node</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_queue'>queue</span> <span class='op'>=</span> <span class='const'>Queue</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_node'>node</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>until</span> <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_must'>must</span><span class='lparen'>(</span><span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_deq'>deq</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span>
     <span class='kw'>yield</span> <span class='id identifier rubyid_n'>n</span>
-    <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid__1'>_1</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span> <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='const'><span class='object_link'><a href="#SKIP_METHOD_CONTENTS-constant" title="YARDSorbet::NodeUtils::SKIP_METHOD_CONTENTS (constant)">SKIP_METHOD_CONTENTS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_enque_children'>enque_children</span><span class='lparen'>(</span><span class='id identifier rubyid_queue'>queue</span><span class='comma'>,</span> <span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -451,15 +472,95 @@
       <pre class="lines">
 
 
+31
 32
-33
-34</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_delete_node'>delete_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enque_children-class_method">
+  
+    .<strong>enque_children</strong>(queue, node)  &#x21d2; <tt>void</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p><p>Enqueue the eligible children of a node in the BFS queue</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>queue</span>
+      
+      
+        <span class='type'>(<tt>Queue</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>node</span>
+      
+      
+        <span class='type'>(<tt>YARD::Parser::Ruby::AstNode</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_enque_children'>enque_children</span><span class='lparen'>(</span><span class='id identifier rubyid_queue'>queue</span><span class='comma'>,</span> <span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_last_child'>last_child</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
+  <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_child'>child</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>if</span> <span class='id identifier rubyid_child'>child</span> <span class='op'>==</span> <span class='id identifier rubyid_last_child'>last_child</span> <span class='op'>&amp;&amp;</span>
+            <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>MethodCallNode</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span>
+            <span class='const'><span class='object_link'><a href="#SKIP_METHOD_CONTENTS-constant" title="YARDSorbet::NodeUtils::SKIP_METHOD_CONTENTS (constant)">SKIP_METHOD_CONTENTS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_enq'>enq</span><span class='lparen'>(</span><span class='id identifier rubyid_child'>child</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -519,12 +620,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_method_node'>get_method_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sigable_node?'>sigable_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_node'>node</span> <span class='op'>:</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_jump'>jump</span><span class='lparen'>(</span><span class='symbol'>:def</span><span class='comma'>,</span> <span class='symbol'>:defs</span><span class='rparen'>)</span>
@@ -604,14 +705,14 @@
       <pre class="lines">
 
 
-45
-46
-47
-48
-49</pre>
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sibling_node'>sibling_node</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_siblings'>siblings</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_children'>children</span>
@@ -675,16 +776,16 @@
       <pre class="lines">
 
 
-52
-53
-54
-55
-56
-57
-58</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sigable_node?'>sigable_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_node'>node</span>
@@ -757,17 +858,17 @@
       <pre class="lines">
 
 
-63
-64
-65
-66
-67
-68
-69
-70</pre>
+75
+76
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_validated_attribute_names'>validated_attribute_names</span><span class='lparen'>(</span><span class='id identifier rubyid_attr_node'>attr_node</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_attr_node'>attr_node</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_obj'>obj</span><span class='op'>|</span>
@@ -787,7 +888,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Dec  1 10:30:33 2023 by
+  Generated on Sat Dec  2 19:38:24 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.2.2).
 </div>
