@@ -421,7 +421,7 @@
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/node_utils.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_bfs_traverse'>bfs_traverse</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid__blk'>_blk</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_queue'>queue</span> <span class='op'>=</span> <span class='const'>Queue</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_node'>node</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_queue'>queue</span> <span class='op'>=</span> <span class='const'>Queue</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_node'>node</span>
   <span class='kw'>until</span> <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
     <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='id identifier rubyid_queue'>queue</span><span class='period'>.</span><span class='id identifier rubyid_deq'>deq</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span>
     <span class='kw'>yield</span> <span class='id identifier rubyid_n'>n</span>
@@ -888,7 +888,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Dec  2 19:38:24 2023 by
+  Generated on Sat Dec  2 19:44:09 2023 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.2.2).
 </div>
