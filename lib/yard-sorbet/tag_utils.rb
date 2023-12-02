@@ -13,9 +13,7 @@ module YARDSorbet
     sig do
       params(docstring: YARD::Docstring, tag_name: String, name: T.nilable(String)).returns(T.nilable(YARD::Tags::Tag))
     end
-    def self.find_tag(docstring, tag_name, name)
-      docstring.tags.find { _1.tag_name == tag_name && _1.name == name }
-    end
+    def self.find_tag(docstring, tag_name, name) = docstring.tags.find { _1.tag_name == tag_name && _1.name == name }
 
     # Create or update a `YARD` tag with type information
     sig do

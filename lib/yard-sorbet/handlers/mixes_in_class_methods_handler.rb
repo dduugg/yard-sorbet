@@ -15,9 +15,7 @@ module YARDSorbet
       @@mix_in_class_methods = T.let({}, T::Hash[String, T::Array[String]]) # rubocop:disable Style/ClassVars
 
       sig { params(code_obj: String).returns(T.nilable(T::Array[String])) }
-      def self.mixed_in_class_methods(code_obj)
-        @@mix_in_class_methods[code_obj]
-      end
+      def self.mixed_in_class_methods(code_obj) = @@mix_in_class_methods[code_obj]
 
       sig { void }
       def process

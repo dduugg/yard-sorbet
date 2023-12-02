@@ -28,9 +28,7 @@ module YARDSorbet
     end
 
     sig { params(node: YARD::Parser::Ruby::AstNode).void }
-    def self.delete_node(node)
-      node.parent.children.delete(node)
-    end
+    def self.delete_node(node) = node.parent.children.delete(node)
 
     # Enqueue the eligible children of a node in the BFS queue
     sig { params(queue: Queue, node: YARD::Parser::Ruby::AstNode).void }
@@ -47,9 +45,7 @@ module YARDSorbet
 
     # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(SigableNode) }
-    def self.get_method_node(node)
-      sigable_node?(node) ? node : node.jump(:def, :defs)
-    end
+    def self.get_method_node(node) = sigable_node?(node) ? node : node.jump(:def, :defs)
 
     # Find and return the adjacent node (ascending)
     # @raise [IndexError] if the node does not have an adjacent sibling (ascending)
