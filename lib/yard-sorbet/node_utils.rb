@@ -19,18 +19,30 @@ module YARDSorbet
     # @yield [YARD::Parser::Ruby::AstNode]
     sig { params(node: YARD::Parser::Ruby::AstNode, _blk: T.proc.params(n: YARD::Parser::Ruby::AstNode).void).void }
     def self.bfs_traverse(node, &_blk)
-      queue = [node]
+      queue = Queue.new << node
       until queue.empty?
-        n = T.must(queue.shift)
+        n = queue.deq(true)
         yield n
-        n.children.each { queue.push(_1) }
-        queue.pop if n.is_a?(YARD::Parser::Ruby::MethodCallNode) && SKIP_METHOD_CONTENTS.include?(n.method_name(true))
+        enque_children(queue, n)
       end
     end
 
     sig { params(node: YARD::Parser::Ruby::AstNode).void }
     def self.delete_node(node)
       node.parent.children.delete(node)
+    end
+
+    # Enqueue the eligible children of a node in the BFS queue
+    sig { params(queue: Queue, node: YARD::Parser::Ruby::AstNode).void }
+    def self.enque_children(queue, node)
+      last_child = node.children.last
+      node.children.each do |child|
+        next if child == last_child &&
+                node.is_a?(YARD::Parser::Ruby::MethodCallNode) &&
+                SKIP_METHOD_CONTENTS.include?(node.method_name(true))
+
+        queue.enq(child)
+      end
     end
 
     # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
