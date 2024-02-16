@@ -19,3 +19,5 @@ Sorbet/ForbidTUntyped:
   Enabled: true
 Sorbet/StrictSigil:
   Enabled: true
+  Exclude:
+    - spec/yard_sorbet/**/*

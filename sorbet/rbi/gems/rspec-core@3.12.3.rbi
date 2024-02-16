@@ -657,7 +657,7 @@ class RSpec::Core::Configuration
 
   # Set regular expressions used to exclude lines in backtrace.
   #
-  # @param patterns [Array<Regexp>] set backtrace_formatter exlusion_patterns
+  # @param patterns [Array<Regexp>] set backtrace_formatter exclusion_patterns
   #
   # source://rspec-core//lib/rspec/core/configuration.rb#682
   def backtrace_exclusion_patterns=(patterns); end
@@ -964,7 +964,7 @@ class RSpec::Core::Configuration
   #   if the user is using those (either explicitly or implicitly
   #   by not setting `mock_with` or `expect_with` to anything else).
   # @note If the user uses this options with `mock_with :mocha`
-  #   (or similiar) they will still have monkey patching active
+  #   (or similar) they will still have monkey patching active
   #   in their test environment from mocha.
   #
   # source://rspec-core//lib/rspec/core/configuration.rb#1846
@@ -1720,15 +1720,15 @@ class RSpec::Core::Configuration
   # source://rspec-core//lib/rspec/core/configuration.rb#503
   def loaded_spec_files; end
 
-  # Maximum count of failed source lines to display in the failure reports.
-  # (default `10`).
+  # Maximum count of failed source lines to display in the failure reports
+  # (defaults to `10`).
   # return [Integer]
   #
   # source://rspec-core//lib/rspec/core/configuration.rb#66
   def max_displayed_failure_line_count; end
 
-  # Maximum count of failed source lines to display in the failure reports.
-  # (default `10`).
+  # Maximum count of failed source lines to display in the failure reports
+  # (defaults to `10`).
   # return [Integer]
   #
   # source://rspec-core//lib/rspec/core/configuration.rb#89
@@ -4308,7 +4308,7 @@ end
 # were loaded but not executed (due to filtering, `--fail-fast`
 # or whatever) should have a `:status` of `UNKNOWN_STATUS`.
 #
-# This willl produce a new list that:
+# This will produce a new list that:
 #   - Will be missing examples from previous runs that we know for sure
 #     no longer exist.
 #   - Will have the latest known status for any examples that either
@@ -4648,7 +4648,7 @@ end
 #
 # This is ideal for use by a example or example group, which may
 # be updated multiple times with globally configured hooks, etc,
-# but will not be queried frequently by other examples or examle
+# but will not be queried frequently by other examples or example
 # groups.
 #
 # @private
@@ -9115,10 +9115,19 @@ class RSpec::Core::OutputWrapper
   def autoclose?(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def beep(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def binmode(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def binmode?(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def check_winsize_changed(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def clear_screen(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def close(*args, &block); end
@@ -9139,6 +9148,36 @@ class RSpec::Core::OutputWrapper
   def closed?(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def console_mode(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def console_mode=(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cooked(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cooked!(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cursor(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cursor=(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cursor_down(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cursor_left(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cursor_right(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def cursor_up(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def each(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
@@ -9154,10 +9193,22 @@ class RSpec::Core::OutputWrapper
   def each_line(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def echo=(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def echo?(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def eof(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def eof?(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def erase_line(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def erase_screen(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def external_encoding(*args, &block); end
@@ -9184,7 +9235,22 @@ class RSpec::Core::OutputWrapper
   def getc(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def getch(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def getpass(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def gets(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def goto(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def goto_column(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def iflush(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def inspect(*args, &block); end
@@ -9194,6 +9260,9 @@ class RSpec::Core::OutputWrapper
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def ioctl(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def ioflush(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def isatty(*args, &block); end
@@ -9208,7 +9277,13 @@ class RSpec::Core::OutputWrapper
   def method_missing(name, *args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def noecho(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def nread(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def oflush(*args, &block); end
 
   # @private
   #
@@ -9236,6 +9311,9 @@ class RSpec::Core::OutputWrapper
   def pread(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def pressed?(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def print(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
@@ -9249,6 +9327,12 @@ class RSpec::Core::OutputWrapper
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def pwrite(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def raw(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def raw!(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def read(*args, &block); end
@@ -9284,6 +9368,12 @@ class RSpec::Core::OutputWrapper
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def rewind(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def scroll_backward(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def scroll_forward(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def seek(*args, &block); end
@@ -9347,6 +9437,12 @@ class RSpec::Core::OutputWrapper
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def wait_writable(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def winsize(*args, &block); end
+
+  # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
+  def winsize=(*args, &block); end
 
   # source://rspec-core//lib/rspec/core/output_wrapper.rb#23
   def write(*args, &block); end
@@ -9828,7 +9924,7 @@ class RSpec::Core::Reporter
   # Registers a listener to a list of notifications. The reporter will send
   # notification of events to all registered listeners.
   #
-  # @param listener [Object] An obect that wishes to be notified of reporter
+  # @param listener [Object] An object that wishes to be notified of reporter
   #   events
   # @param notifications [Array] Array of symbols represents the events a
   #   listener wishes to subscribe too
@@ -9959,7 +10055,7 @@ class RSpec::Core::Runner
 
   # @private
   #
-  # source://rspec-core//lib/rspec/core/runner.rb#190
+  # source://rspec-core//lib/rspec/core/runner.rb#194
   def exit_code(examples_passed = T.unsafe(nil)); end
 
   # @attr_reader
@@ -10002,7 +10098,7 @@ class RSpec::Core::Runner
 
   private
 
-  # source://rspec-core//lib/rspec/core/runner.rb#199
+  # source://rspec-core//lib/rspec/core/runner.rb#203
   def persist_example_statuses; end
 
   class << self

@@ -7,126 +7,126 @@
 # source://simplecov-cobertura//lib/simplecov-cobertura/version.rb#1
 module SimpleCov
   class << self
-    # source://simplecov/0.21.2/lib/simplecov.rb#174
+    # source://simplecov/0.22.0/lib/simplecov.rb#174
     def at_exit_behavior; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#170
+    # source://simplecov/0.22.0/lib/simplecov.rb#170
     def clear_result; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#86
+    # source://simplecov/0.22.0/lib/simplecov.rb#86
     def collate(result_filenames, profile = T.unsafe(nil), ignore_timeout: T.unsafe(nil), &block); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#223
+    # source://simplecov/0.22.0/lib/simplecov.rb#223
     def exit_and_report_previous_error(exit_status); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#200
+    # source://simplecov/0.22.0/lib/simplecov.rb#200
     def exit_status_from_exception; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#28
+    # source://simplecov/0.22.0/lib/simplecov.rb#28
     def external_at_exit; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#28
+    # source://simplecov/0.22.0/lib/simplecov.rb#28
     def external_at_exit=(_arg0); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#28
+    # source://simplecov/0.22.0/lib/simplecov.rb#28
     def external_at_exit?; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#131
+    # source://simplecov/0.22.0/lib/simplecov.rb#131
     def filtered(files); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#268
+    # source://simplecov/0.22.0/lib/simplecov.rb#268
     def final_result_process?; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#142
+    # source://simplecov/0.22.0/lib/simplecov.rb#142
     def grouped(files); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#162
+    # source://simplecov/0.22.0/lib/simplecov.rb#162
     def load_adapter(name); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#158
+    # source://simplecov/0.22.0/lib/simplecov.rb#158
     def load_profile(name); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#24
+    # source://simplecov/0.22.0/lib/simplecov.rb#24
     def pid; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#24
+    # source://simplecov/0.22.0/lib/simplecov.rb#24
     def pid=(_arg0); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#213
+    # source://simplecov/0.22.0/lib/simplecov.rb#213
     def previous_error?(error_exit_status); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#248
+    # source://simplecov/0.22.0/lib/simplecov.rb#248
     def process_result(result); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#233
+    # source://simplecov/0.22.0/lib/simplecov.rb#233
     def process_results_and_report_error; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#229
+    # source://simplecov/0.22.0/lib/simplecov.rb#229
     def ready_to_process_results?; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#101
+    # source://simplecov/0.22.0/lib/simplecov.rb#101
     def result; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#124
+    # source://simplecov/0.22.0/lib/simplecov.rb#124
     def result?; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#256
+    # source://simplecov/0.22.0/lib/simplecov.rb#256
     def result_exit_status(result); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#296
+    # source://simplecov/0.22.0/lib/simplecov.rb#296
     def round_coverage(coverage); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#186
+    # source://simplecov/0.22.0/lib/simplecov.rb#186
     def run_exit_tasks!; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#24
+    # source://simplecov/0.22.0/lib/simplecov.rb#24
     def running; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#24
+    # source://simplecov/0.22.0/lib/simplecov.rb#24
     def running=(_arg0); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#48
+    # source://simplecov/0.22.0/lib/simplecov.rb#48
     def start(profile = T.unsafe(nil), &block); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#276
+    # source://simplecov/0.22.0/lib/simplecov.rb#276
     def wait_for_other_processes; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#285
+    # source://simplecov/0.22.0/lib/simplecov.rb#285
     def write_last_run(result); end
 
     private
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#397
+    # source://simplecov/0.22.0/lib/simplecov.rb#399
     def adapt_coverage_result; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#369
+    # source://simplecov/0.22.0/lib/simplecov.rb#371
     def add_not_loaded_files(result); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#302
+    # source://simplecov/0.22.0/lib/simplecov.rb#302
     def initial_setup(profile, &block); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#361
+    # source://simplecov/0.22.0/lib/simplecov.rb#363
     def lookup_corresponding_ruby_coverage_name(criterion); end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#423
+    # source://simplecov/0.22.0/lib/simplecov.rb#425
     def make_parallel_tests_available; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#432
+    # source://simplecov/0.22.0/lib/simplecov.rb#434
     def probably_running_parallel_tests?; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#386
+    # source://simplecov/0.22.0/lib/simplecov.rb#388
     def process_coverage_result; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#408
+    # source://simplecov/0.22.0/lib/simplecov.rb#410
     def remove_useless_results; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#418
+    # source://simplecov/0.22.0/lib/simplecov.rb#420
     def result_with_not_loaded_files; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#314
+    # source://simplecov/0.22.0/lib/simplecov.rb#314
     def start_coverage_measurement; end
 
-    # source://simplecov/0.21.2/lib/simplecov.rb#349
+    # source://simplecov/0.22.0/lib/simplecov.rb#349
     def start_coverage_with_criteria; end
   end
 end
@@ -134,7 +134,7 @@ end
 # source://simplecov-cobertura//lib/simplecov-cobertura/version.rb#2
 module SimpleCov::Formatter
   class << self
-    # source://simplecov/0.21.2/lib/simplecov/default_formatter.rb#7
+    # source://simplecov/0.22.0/lib/simplecov/default_formatter.rb#7
     def from_env(env); end
   end
 end

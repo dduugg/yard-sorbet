@@ -1,5 +1,3 @@
 --dir=.
 --enable-experimental-requires-ancestor
---ignore=/sorbet/rbi/contexts
---ignore=/spec
 --ignore=/vendor/bundle
