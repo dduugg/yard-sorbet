@@ -18,7 +18,7 @@ end
 class SpecializedPersonStruct < T::Struct
   const :special, String
 
-  # This is a special intializer
+  # This is a special initializer
   # @param special a very special param
   # @return an initialized struct
   def initialize(special:)

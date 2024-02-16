@@ -17,7 +17,7 @@ RSpec.describe YARDSorbet::Handlers::IncludeHandler do
       expect(node.class_mixins.map(&:to_s)).to include('M::ClassMethods')
     end
 
-    it 'attches class method namespace to explicit receiver' do
+    it 'attaches class method namespace to explicit receiver' do
       node = YARD::Registry.at('Receiver')
       expect(node.class_mixins.map(&:to_s)).to include('M::ClassMethods')
     end

@@ -127,7 +127,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
   end
 
   describe 'nested classes' do
-    it 'keep docstrings for outer class methods preceding inner classe' do
+    it 'keep docstrings for outer class methods preceding inner classes' do
       expect(YARD::Registry.at('Outer#outer').docstring).to eq('outer method')
     end
 

@@ -70,7 +70,7 @@
 
 ### New features
 
-* [#49](https://github.com/dduugg/yard-sorbet/issues/49) Apply `@abstract` tags to `abstact!`/`interface!` modules
+* [#49](https://github.com/dduugg/yard-sorbet/issues/49) Apply `@abstract` tags to `abstract!`/`interface!` modules
 * [#43](https://github.com/dduugg/yard-sorbet/issues/43) Add `T::Enum` support
 
 ### Bug fixes
