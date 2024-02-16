@@ -29,7 +29,7 @@ RSpec.describe YARDSorbet::Handlers::StructClassHandler do
 
     it 'uses the docstring from an explicit initializer' do
       node = YARD::Registry.at('SpecializedPersonStruct#initialize')
-      expect(node.docstring).to eq('This is a special intializer')
+      expect(node.docstring).to eq('This is a special initializer')
     end
 
     it 'preserves param tag text' do

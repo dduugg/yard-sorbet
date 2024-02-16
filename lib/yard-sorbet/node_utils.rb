@@ -23,7 +23,7 @@ module YARDSorbet
       until queue.empty?
         n = queue.deq(true)
         yield n
-        enque_children(queue, n)
+        enqueue_children(queue, n)
       end
     end
 
@@ -34,7 +34,7 @@ module YARDSorbet
 
     # Enqueue the eligible children of a node in the BFS queue
     sig { params(queue: Queue, node: YARD::Parser::Ruby::AstNode).void }
-    def self.enque_children(queue, node)
+    def self.enqueue_children(queue, node)
       last_child = node.children.last
       node.children.each do |child|
         next if child == last_child &&
