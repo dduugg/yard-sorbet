@@ -10,7 +10,7 @@ module YARDSorbet
       # Map of common types to YARD conventions (in order to reduce allocations)
       REF_TYPES = T.let({
         'T::Boolean' => ['Boolean'].freeze, # YARD convention for booleans
-        # YARD convention is use singleton objects when applicable:
+        # YARD convention is to use singleton objects when applicable:
         # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#literals
         'FalseClass' => ['false'].freeze,
         'NilClass' => ['nil'].freeze,
