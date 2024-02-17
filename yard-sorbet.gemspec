@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'Create YARD docs from Sorbet type signatures'
   spec.description = 'A YARD plugin that incorporates Sorbet type information'
   spec.homepage = 'https://github.com/dduugg/yard-sorbet'
-  spec.required_ruby_version = Gem::Requirement.new('>= 3.0.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.0')
 
   spec.metadata = {
     'bug_tracker_uri' => "#{spec.homepage}/issues",
