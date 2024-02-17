@@ -1,7 +1,6 @@
 ---
 gem:
   exclude:
-    - ast
     - byebug
     - coderay
     - diff-lcs
@@ -11,7 +10,6 @@ gem:
     - language_server-protocol
     - netrc
     - parallel
-    - parser
     - prettier_print
     - prism
     - pry-byebug
@@ -19,9 +17,7 @@ gem:
     - rainbow
     - rbi
     - redcarpet
-    - regexp_parser
     - rexml
-    - rubocop-ast
     - rubocop-capybara
     - rubocop-factory_bot
     - rubocop-packaging
@@ -29,7 +25,6 @@ gem:
     - rubocop-rake
     - rubocop-rspec
     - rubocop-sorbet
-    - rubocop
     - ruby-progressbar
     - simplecov-html
     - simplecov_json_formatter

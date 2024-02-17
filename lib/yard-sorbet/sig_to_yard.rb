@@ -20,10 +20,7 @@ module YARDSorbet
 
       # @see https://yardoc.org/types.html
       sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Array[String]) }
-      def convert(node)
-        # scrub newlines, as they break the YARD parser
-        convert_node(node).map { _1.gsub(/\n\s*/, ' ') }
-      end
+      def convert(node) = convert_node(node).map { _1.gsub(/\n\s*/, ' ') }
 
       private
 

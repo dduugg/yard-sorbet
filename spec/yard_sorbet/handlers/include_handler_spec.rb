@@ -1,4 +1,4 @@
-# typed: false
+# typed: strict
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::IncludeHandler do
