@@ -3,4 +3,3 @@ extends: default
 
 ignore: |
   /vendor/bundle/
-  /.rubocop_todo.yml
