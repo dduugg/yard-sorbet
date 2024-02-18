@@ -1,8 +1,6 @@
 ---
 gem:
   exclude:
-    - byebug
-    - coderay
     - diff-lcs
     - docile
     - erubi
@@ -12,7 +10,6 @@ gem:
     - parallel
     - prettier_print
     - prism
-    - pry-byebug
     - racc
     - rainbow
     - rbi

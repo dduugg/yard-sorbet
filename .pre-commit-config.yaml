@@ -29,3 +29,8 @@ repos:
     hooks:
       - id: yamllint
         args: [--strict]
+  - repo: https://github.com/mattlqx/pre-commit-ruby
+    rev: v1.3.5
+    hooks:
+      - id: rspec
+      - id: rubocop
