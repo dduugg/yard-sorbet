@@ -1,0 +1,31 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=2000]
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-toml
+      - id: check-vcs-permalinks
+        exclude: sorbet/rbi/annotations
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: forbid-submodules
+      - id: mixed-line-ending
+      - id: sort-simple-yaml
+      - id: trailing-whitespace
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.18.2
+    hooks:
+      - id: typos
+        args: [--exclude=sorbet/rbi/gems, --force-exclude]
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.0
+    hooks:
+      - id: yamllint
+        args: [--strict]

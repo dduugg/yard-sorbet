@@ -18,8 +18,6 @@ module YARDSorbet
     end
 
     sig { params(docstring: String, directives: T::Array[String]).void }
-    def self.add_directives(docstring, directives)
-      directives.each { docstring.concat("\n#{_1}") }
-    end
+    def self.add_directives(docstring, directives) = directives.each { docstring.concat("\n#{_1}") }
   end
 end

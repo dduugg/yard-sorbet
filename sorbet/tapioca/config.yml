@@ -1,14 +1,32 @@
 ---
 gem:
-# Add your `gem` command parameters here:
-#
-# exclude:
-# - gem_name
-# doc: true
-# workers: 5
-dsl:
-# Add your `dsl` command parameters here:
-#
-# exclude:
-# - SomeGeneratorName
-# workers: 5
+  exclude:
+    - diff-lcs
+    - docile
+    - erubi
+    - json
+    - language_server-protocol
+    - netrc
+    - parallel
+    - prettier_print
+    - prism
+    - racc
+    - rainbow
+    - rbi
+    - redcarpet
+    - rexml
+    - rubocop-capybara
+    - rubocop-factory_bot
+    - rubocop-packaging
+    - rubocop-performance
+    - rubocop-rake
+    - rubocop-rspec
+    - rubocop-sorbet
+    - ruby-progressbar
+    - simplecov-html
+    - simplecov_json_formatter
+    - spoom
+    - syntax_tree
+    - tapioca
+    - thor
+    - unicode-display_width

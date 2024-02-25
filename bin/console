@@ -3,9 +3,10 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'pry-byebug'
+require 'irb'
+require 'yard-sorbet'
 
-# Use `Bundler.require(:development)` to add >1s of latency but enjoy access to dev dependencies
-Bundler.require
+# To require all gems in the Gemfile:
+# Bundler.require
 
-Pry.start
+IRB.start(__FILE__)

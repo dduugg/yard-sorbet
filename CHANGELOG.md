@@ -4,7 +4,11 @@
 
 ### Bug Fixes
 
-* Fix syntax of order-dependent lists
+* [Fix](https://github.com/dduugg/yard-sorbet/commit/f44388b) syntax of order-dependent lists
+
+### Changes
+
+* [#282](https://github.com/dduugg/yard-sorbet/issues/282) Increase minimum required ruby version to `3.0`
 
 ## 0.8.1 (2023-04-03)
 
@@ -31,7 +35,7 @@
 
 ### Changes
 
-* Increase minimum required ruby version to `2.7.0`
+* Increase minimum required ruby version to `2.7`
 
 ## 0.6.1 (2021-11-01)
 

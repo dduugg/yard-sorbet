@@ -7,14 +7,7 @@
 # @api public
 #
 # source://parser//lib/parser.rb#19
-module Parser
-  class << self
-    private
-
-    # source://parser//lib/parser/current.rb#5
-    def warn_syntax_deviation(feature, version); end
-  end
-end
+module Parser; end
 
 # @api public
 #
@@ -663,7 +656,7 @@ end
 #
 # @api public
 #
-# source://parser//lib/parser/base.rb#16
+# source://parser//lib/parser/base.rb#29
 class Parser::Base < ::Racc::Parser
   # @api public
   # @param builder [Parser::Builders::Default] The AST builder to use.
@@ -876,7 +869,7 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#243
   def initialize; end
 
-  # source://parser//lib/parser/builders/default.rb#701
+  # source://parser//lib/parser/builders/default.rb#703
   def __ENCODING__(__ENCODING__t); end
 
   # source://parser//lib/parser/builders/default.rb#348
@@ -885,79 +878,79 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#312
   def __LINE__(__LINE__t); end
 
-  # source://parser//lib/parser/builders/default.rb#627
+  # source://parser//lib/parser/builders/default.rb#622
   def accessible(node); end
 
-  # source://parser//lib/parser/builders/default.rb#876
+  # source://parser//lib/parser/builders/default.rb#878
   def alias(alias_t, to, from); end
 
-  # source://parser//lib/parser/builders/default.rb#915
+  # source://parser//lib/parser/builders/default.rb#917
   def arg(name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1005
+  # source://parser//lib/parser/builders/default.rb#1007
   def arg_expr(expr); end
 
-  # source://parser//lib/parser/builders/default.rb#885
+  # source://parser//lib/parser/builders/default.rb#887
   def args(begin_t, args, end_t, check_args = T.unsafe(nil)); end
 
   # source://parser//lib/parser/builders/default.rb#440
   def array(begin_t, elements, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1588
+  # source://parser//lib/parser/builders/default.rb#1590
   def array_pattern(lbrack_t, elements, rbrack_t); end
 
-  # source://parser//lib/parser/builders/default.rb#765
+  # source://parser//lib/parser/builders/default.rb#767
   def assign(lhs, eql_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#710
+  # source://parser//lib/parser/builders/default.rb#712
   def assignable(node); end
 
   # source://parser//lib/parser/builders/default.rb#540
   def associate(begin_t, pairs, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1169
+  # source://parser//lib/parser/builders/default.rb#1171
   def attr_asgn(receiver, dot_t, selector_t); end
 
-  # source://parser//lib/parser/builders/default.rb#617
+  # source://parser//lib/parser/builders/default.rb#612
   def back_ref(token); end
 
-  # source://parser//lib/parser/builders/default.rb#1433
+  # source://parser//lib/parser/builders/default.rb#1435
   def begin(begin_t, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1375
+  # source://parser//lib/parser/builders/default.rb#1377
   def begin_body(compound_stmt, rescue_bodies = T.unsafe(nil), else_t = T.unsafe(nil), else_ = T.unsafe(nil), ensure_t = T.unsafe(nil), ensure_ = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1451
+  # source://parser//lib/parser/builders/default.rb#1453
   def begin_keyword(begin_t, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1203
+  # source://parser//lib/parser/builders/default.rb#1205
   def binary_op(receiver, operator_t, arg); end
 
-  # source://parser//lib/parser/builders/default.rb#1120
+  # source://parser//lib/parser/builders/default.rb#1122
   def block(method_call, begin_t, args, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1155
+  # source://parser//lib/parser/builders/default.rb#1157
   def block_pass(amper_t, arg); end
 
-  # source://parser//lib/parser/builders/default.rb#980
+  # source://parser//lib/parser/builders/default.rb#982
   def blockarg(amper_t, name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1025
+  # source://parser//lib/parser/builders/default.rb#1027
   def blockarg_expr(amper_t, expr); end
 
-  # source://parser//lib/parser/builders/default.rb#1111
+  # source://parser//lib/parser/builders/default.rb#1113
   def call_lambda(lambda_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1094
+  # source://parser//lib/parser/builders/default.rb#1096
   def call_method(receiver, dot_t, selector_t, lparen_t = T.unsafe(nil), args = T.unsafe(nil), rparen_t = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1066
+  # source://parser//lib/parser/builders/default.rb#1068
   def call_type_for_dot(dot_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1308
+  # source://parser//lib/parser/builders/default.rb#1310
   def case(case_t, expr, when_bodies, else_t, else_body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1471
+  # source://parser//lib/parser/builders/default.rb#1473
   def case_match(case_t, expr, in_bodies, else_t, else_body, end_t); end
 
   # source://parser//lib/parser/builders/default.rb#343
@@ -966,55 +959,55 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#284
   def complex(complex_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1421
+  # source://parser//lib/parser/builders/default.rb#1423
   def compstmt(statements); end
 
-  # source://parser//lib/parser/builders/default.rb#1284
+  # source://parser//lib/parser/builders/default.rb#1286
   def condition(cond_t, cond, then_t, if_true, else_t, if_false, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1290
+  # source://parser//lib/parser/builders/default.rb#1292
   def condition_mod(if_true, if_false, cond_t, cond); end
 
-  # source://parser//lib/parser/builders/default.rb#684
+  # source://parser//lib/parser/builders/default.rb#686
   def const(name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#696
+  # source://parser//lib/parser/builders/default.rb#698
   def const_fetch(scope, t_colon2, name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#689
+  # source://parser//lib/parser/builders/default.rb#691
   def const_global(t_colon3, name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#761
+  # source://parser//lib/parser/builders/default.rb#763
   def const_op_assignable(node); end
 
-  # source://parser//lib/parser/builders/default.rb#1618
+  # source://parser//lib/parser/builders/default.rb#1620
   def const_pattern(const, ldelim_t, pattern, rdelim_t); end
 
-  # source://parser//lib/parser/builders/default.rb#612
+  # source://parser//lib/parser/builders/default.rb#607
   def cvar(token); end
 
   # source://parser//lib/parser/builders/default.rb#388
   def dedent_string(node, dedent_level); end
 
-  # source://parser//lib/parser/builders/default.rb#812
+  # source://parser//lib/parser/builders/default.rb#814
   def def_class(class_t, name, lt_t, superclass, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#843
+  # source://parser//lib/parser/builders/default.rb#845
   def def_endless_method(def_t, name_t, args, assignment_t, body); end
 
-  # source://parser//lib/parser/builders/default.rb#861
+  # source://parser//lib/parser/builders/default.rb#863
   def def_endless_singleton(def_t, definee, dot_t, name_t, args, assignment_t, body); end
 
-  # source://parser//lib/parser/builders/default.rb#835
+  # source://parser//lib/parser/builders/default.rb#837
   def def_method(def_t, name_t, args, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#825
+  # source://parser//lib/parser/builders/default.rb#827
   def def_module(module_t, name, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#819
+  # source://parser//lib/parser/builders/default.rb#821
   def def_sclass(class_t, lshft_t, expr, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#851
+  # source://parser//lib/parser/builders/default.rb#853
   def def_singleton(def_t, definee, dot_t, name_t, args, body, end_t); end
 
   # source://parser//lib/parser/builders/default.rb#237
@@ -1026,157 +1019,157 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#265
   def false(false_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1609
+  # source://parser//lib/parser/builders/default.rb#1611
   def find_pattern(lbrack_t, elements, rbrack_t); end
 
   # source://parser//lib/parser/builders/default.rb#276
   def float(float_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1329
+  # source://parser//lib/parser/builders/default.rb#1331
   def for(for_t, iterator, in_t, iteratee, do_t, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#911
+  # source://parser//lib/parser/builders/default.rb#913
   def forward_arg(dots_t); end
 
-  # source://parser//lib/parser/builders/default.rb#901
+  # source://parser//lib/parser/builders/default.rb#903
   def forward_only_args(begin_t, dots_t, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1082
+  # source://parser//lib/parser/builders/default.rb#1084
   def forwarded_args(dots_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1090
+  # source://parser//lib/parser/builders/default.rb#1092
   def forwarded_kwrestarg(dstar_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1086
+  # source://parser//lib/parser/builders/default.rb#1088
   def forwarded_restarg(star_t); end
 
-  # source://parser//lib/parser/builders/default.rb#607
+  # source://parser//lib/parser/builders/default.rb#596
   def gvar(token); end
 
-  # source://parser//lib/parser/builders/default.rb#1582
+  # source://parser//lib/parser/builders/default.rb#1584
   def hash_pattern(lbrace_t, kwargs, rbrace_t); end
 
-  # source://parser//lib/parser/builders/default.rb#597
+  # source://parser//lib/parser/builders/default.rb#586
   def ident(token); end
 
-  # source://parser//lib/parser/builders/default.rb#1498
+  # source://parser//lib/parser/builders/default.rb#1500
   def if_guard(if_t, if_body); end
 
-  # source://parser//lib/parser/builders/default.rb#1477
+  # source://parser//lib/parser/builders/default.rb#1479
   def in_match(lhs, in_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#1492
+  # source://parser//lib/parser/builders/default.rb#1494
   def in_pattern(in_t, pattern, guard, then_t, body); end
 
-  # source://parser//lib/parser/builders/default.rb#1178
+  # source://parser//lib/parser/builders/default.rb#1180
   def index(receiver, lbrack_t, indexes, rbrack_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1192
+  # source://parser//lib/parser/builders/default.rb#1194
   def index_asgn(receiver, lbrack_t, indexes, rbrack_t); end
 
   # source://parser//lib/parser/builders/default.rb#272
   def integer(integer_t); end
 
-  # source://parser//lib/parser/builders/default.rb#602
+  # source://parser//lib/parser/builders/default.rb#591
   def ivar(token); end
 
-  # source://parser//lib/parser/builders/default.rb#1337
+  # source://parser//lib/parser/builders/default.rb#1339
   def keyword_cmd(type, keyword_t, lparen_t = T.unsafe(nil), args = T.unsafe(nil), rparen_t = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#942
+  # source://parser//lib/parser/builders/default.rb#944
   def kwarg(name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#968
+  # source://parser//lib/parser/builders/default.rb#970
   def kwnilarg(dstar_t, nil_t); end
 
-  # source://parser//lib/parser/builders/default.rb#949
+  # source://parser//lib/parser/builders/default.rb#951
   def kwoptarg(name_t, value); end
 
-  # source://parser//lib/parser/builders/default.rb#956
+  # source://parser//lib/parser/builders/default.rb#958
   def kwrestarg(dstar_t, name_t = T.unsafe(nil)); end
 
   # source://parser//lib/parser/builders/default.rb#535
   def kwsplat(dstar_t, arg); end
 
-  # source://parser//lib/parser/builders/default.rb#1277
+  # source://parser//lib/parser/builders/default.rb#1279
   def logical_op(type, lhs, op_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#1315
+  # source://parser//lib/parser/builders/default.rb#1317
   def loop(type, keyword_t, cond, do_t, body, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1320
+  # source://parser//lib/parser/builders/default.rb#1322
   def loop_mod(type, body, keyword_t, cond); end
 
-  # source://parser//lib/parser/builders/default.rb#1632
+  # source://parser//lib/parser/builders/default.rb#1634
   def match_alt(left, pipe_t, right); end
 
-  # source://parser//lib/parser/builders/default.rb#1639
+  # source://parser//lib/parser/builders/default.rb#1641
   def match_as(value, assoc_t, as); end
 
-  # source://parser//lib/parser/builders/default.rb#1518
+  # source://parser//lib/parser/builders/default.rb#1520
   def match_hash_var(name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1532
+  # source://parser//lib/parser/builders/default.rb#1534
   def match_hash_var_from_str(begin_t, strings, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1670
+  # source://parser//lib/parser/builders/default.rb#1672
   def match_label(label_type, label); end
 
-  # source://parser//lib/parser/builders/default.rb#1646
+  # source://parser//lib/parser/builders/default.rb#1648
   def match_nil_pattern(dstar_t, nil_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1225
+  # source://parser//lib/parser/builders/default.rb#1227
   def match_op(receiver, match_t, arg); end
 
-  # source://parser//lib/parser/builders/default.rb#1651
+  # source://parser//lib/parser/builders/default.rb#1653
   def match_pair(label_type, label, value); end
 
-  # source://parser//lib/parser/builders/default.rb#1482
+  # source://parser//lib/parser/builders/default.rb#1484
   def match_pattern(lhs, match_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#1487
+  # source://parser//lib/parser/builders/default.rb#1489
   def match_pattern_p(lhs, match_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#1571
+  # source://parser//lib/parser/builders/default.rb#1573
   def match_rest(star_t, name_t = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1506
+  # source://parser//lib/parser/builders/default.rb#1508
   def match_var(name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1614
+  # source://parser//lib/parser/builders/default.rb#1616
   def match_with_trailing_comma(match, comma_t); end
 
-  # source://parser//lib/parser/builders/default.rb#803
+  # source://parser//lib/parser/builders/default.rb#805
   def multi_assign(lhs, eql_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#798
+  # source://parser//lib/parser/builders/default.rb#800
   def multi_lhs(begin_t, items, end_t); end
 
   # source://parser//lib/parser/builders/default.rb#255
   def nil(nil_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1253
+  # source://parser//lib/parser/builders/default.rb#1255
   def not_op(not_t, begin_t = T.unsafe(nil), receiver = T.unsafe(nil), end_t = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#622
+  # source://parser//lib/parser/builders/default.rb#617
   def nth_ref(token); end
 
-  # source://parser//lib/parser/builders/default.rb#897
+  # source://parser//lib/parser/builders/default.rb#899
   def numargs(max_numparam); end
 
-  # source://parser//lib/parser/builders/default.rb#1036
+  # source://parser//lib/parser/builders/default.rb#1038
   def objc_kwarg(kwname_t, assoc_t, name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1050
+  # source://parser//lib/parser/builders/default.rb#1052
   def objc_restarg(star_t, name = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1160
+  # source://parser//lib/parser/builders/default.rb#1162
   def objc_varargs(pair, rest_of_varargs); end
 
-  # source://parser//lib/parser/builders/default.rb#772
+  # source://parser//lib/parser/builders/default.rb#774
   def op_assign(lhs, op_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#922
+  # source://parser//lib/parser/builders/default.rb#924
   def optarg(name_t, eql_t, value); end
 
   # source://parser//lib/parser/builders/default.rb#488
@@ -1200,22 +1193,22 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#225
   def parser=(_arg0); end
 
-  # source://parser//lib/parser/builders/default.rb#1627
+  # source://parser//lib/parser/builders/default.rb#1629
   def pin(pin_t, var); end
 
-  # source://parser//lib/parser/builders/default.rb#1360
+  # source://parser//lib/parser/builders/default.rb#1362
   def postexe(postexe_t, lbrace_t, compstmt, rbrace_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1355
+  # source://parser//lib/parser/builders/default.rb#1357
   def preexe(preexe_t, lbrace_t, compstmt, rbrace_t); end
 
-  # source://parser//lib/parser/builders/default.rb#990
+  # source://parser//lib/parser/builders/default.rb#992
   def procarg0(arg); end
 
-  # source://parser//lib/parser/builders/default.rb#583
+  # source://parser//lib/parser/builders/default.rb#572
   def range_exclusive(lhs, dot3_t, rhs); end
 
-  # source://parser//lib/parser/builders/default.rb#578
+  # source://parser//lib/parser/builders/default.rb#567
   def range_inclusive(lhs, dot2_t, rhs); end
 
   # source://parser//lib/parser/builders/default.rb#280
@@ -1227,19 +1220,19 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#417
   def regexp_options(regopt_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1367
+  # source://parser//lib/parser/builders/default.rb#1369
   def rescue_body(rescue_t, exc_list, assoc_t, exc_var, then_t, compound_stmt); end
 
-  # source://parser//lib/parser/builders/default.rb#931
+  # source://parser//lib/parser/builders/default.rb#933
   def restarg(star_t, name_t = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1014
+  # source://parser//lib/parser/builders/default.rb#1016
   def restarg_expr(star_t, expr = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#592
+  # source://parser//lib/parser/builders/default.rb#581
   def self(token); end
 
-  # source://parser//lib/parser/builders/default.rb#973
+  # source://parser//lib/parser/builders/default.rb#975
   def shadowarg(name_t); end
 
   # source://parser//lib/parser/builders/default.rb#445
@@ -1266,7 +1259,7 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#469
   def symbols_compose(begin_t, parts, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1295
+  # source://parser//lib/parser/builders/default.rb#1297
   def ternary(cond, question_t, if_true, colon_t, if_false); end
 
   # source://parser//lib/parser/builders/default.rb#260
@@ -1275,16 +1268,16 @@ class Parser::Builders::Default
   # source://parser//lib/parser/builders/default.rb#294
   def unary_num(unary_t, numeric); end
 
-  # source://parser//lib/parser/builders/default.rb#1241
+  # source://parser//lib/parser/builders/default.rb#1243
   def unary_op(op_t, receiver); end
 
-  # source://parser//lib/parser/builders/default.rb#871
+  # source://parser//lib/parser/builders/default.rb#873
   def undef_method(undef_t, names); end
 
-  # source://parser//lib/parser/builders/default.rb#1502
+  # source://parser//lib/parser/builders/default.rb#1504
   def unless_guard(unless_t, unless_body); end
 
-  # source://parser//lib/parser/builders/default.rb#1302
+  # source://parser//lib/parser/builders/default.rb#1304
   def when(when_t, patterns, then_t, body); end
 
   # source://parser//lib/parser/builders/default.rb#455
@@ -1298,184 +1291,184 @@ class Parser::Builders::Default
 
   private
 
-  # source://parser//lib/parser/builders/default.rb#1809
+  # source://parser//lib/parser/builders/default.rb#1821
   def arg_name_collides?(this_name, that_name); end
 
-  # source://parser//lib/parser/builders/default.rb#2005
+  # source://parser//lib/parser/builders/default.rb#2017
   def arg_prefix_map(op_t, name_t = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1979
+  # source://parser//lib/parser/builders/default.rb#1991
   def binary_op_map(left_e, op_t, right_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2107
+  # source://parser//lib/parser/builders/default.rb#2119
   def block_map(receiver_l, begin_t, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1784
+  # source://parser//lib/parser/builders/default.rb#1796
   def check_assignment_to_numparam(name, loc); end
 
-  # source://parser//lib/parser/builders/default.rb#1686
+  # source://parser//lib/parser/builders/default.rb#1688
   def check_condition(cond); end
 
-  # source://parser//lib/parser/builders/default.rb#1755
+  # source://parser//lib/parser/builders/default.rb#1767
   def check_duplicate_arg(this_arg, map = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1730
+  # source://parser//lib/parser/builders/default.rb#1742
   def check_duplicate_args(args, map = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1842
+  # source://parser//lib/parser/builders/default.rb#1854
   def check_duplicate_pattern_key(name, loc); end
 
-  # source://parser//lib/parser/builders/default.rb#1832
+  # source://parser//lib/parser/builders/default.rb#1844
   def check_duplicate_pattern_variable(name, loc); end
 
-  # source://parser//lib/parser/builders/default.rb#1824
+  # source://parser//lib/parser/builders/default.rb#1836
   def check_lvar_name(name, loc); end
 
-  # source://parser//lib/parser/builders/default.rb#1799
+  # source://parser//lib/parser/builders/default.rb#1811
   def check_reserved_for_numparam(name, loc); end
 
-  # source://parser//lib/parser/builders/default.rb#2264
+  # source://parser//lib/parser/builders/default.rb#2280
   def collapse_string_parts?(parts); end
 
-  # source://parser//lib/parser/builders/default.rb#1930
+  # source://parser//lib/parser/builders/default.rb#1942
   def collection_map(begin_t, parts, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#2134
+  # source://parser//lib/parser/builders/default.rb#2146
   def condition_map(keyword_t, cond_e, begin_t, body_e, else_t, else_e, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1965
+  # source://parser//lib/parser/builders/default.rb#1977
   def constant_map(scope, colon2_t, name_t); end
 
-  # source://parser//lib/parser/builders/default.rb#2038
+  # source://parser//lib/parser/builders/default.rb#2050
   def definition_map(keyword_t, operator_t, name_t, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1871
+  # source://parser//lib/parser/builders/default.rb#1883
   def delimited_string_map(string_t); end
 
-  # source://parser//lib/parser/builders/default.rb#2286
+  # source://parser//lib/parser/builders/default.rb#2302
   def diagnostic(type, reason, arguments, location, highlights = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#2178
+  # source://parser//lib/parser/builders/default.rb#2190
   def eh_keyword_map(compstmt_e, keyword_t, body_es, else_t, else_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2044
+  # source://parser//lib/parser/builders/default.rb#2056
   def endless_definition_map(keyword_t, operator_t, name_t, assignment_t, body_e); end
 
-  # source://parser//lib/parser/builders/default.rb#1926
+  # source://parser//lib/parser/builders/default.rb#1938
   def expr_map(loc); end
 
-  # source://parser//lib/parser/builders/default.rb#2159
+  # source://parser//lib/parser/builders/default.rb#2171
   def for_map(keyword_t, in_t, begin_t, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#2206
+  # source://parser//lib/parser/builders/default.rb#2218
   def guard_map(keyword_t, guard_body_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2096
+  # source://parser//lib/parser/builders/default.rb#2108
   def index_map(receiver_e, lbrack_t, rbrack_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1862
+  # source://parser//lib/parser/builders/default.rb#1874
   def join_exprs(left_expr, right_expr); end
 
-  # source://parser//lib/parser/builders/default.rb#2112
+  # source://parser//lib/parser/builders/default.rb#2124
   def keyword_map(keyword_t, begin_t, args, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#2129
+  # source://parser//lib/parser/builders/default.rb#2141
   def keyword_mod_map(pre_e, keyword_t, post_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2015
+  # source://parser//lib/parser/builders/default.rb#2027
   def kwarg_map(name_t, value_e = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#2317
+  # source://parser//lib/parser/builders/default.rb#2333
   def kwargs?(node); end
 
-  # source://parser//lib/parser/builders/default.rb#2281
+  # source://parser//lib/parser/builders/default.rb#2297
   def loc(token); end
 
-  # source://parser//lib/parser/builders/default.rb#2028
+  # source://parser//lib/parser/builders/default.rb#2040
   def module_definition_map(keyword_t, name_e, operator_t, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#1854
+  # source://parser//lib/parser/builders/default.rb#1866
   def n(type, children, source_map); end
 
-  # source://parser//lib/parser/builders/default.rb#1858
+  # source://parser//lib/parser/builders/default.rb#1870
   def n0(type, source_map); end
 
   # source://parser//lib/parser/builders/default.rb#288
   def numeric(kind, token); end
 
-  # source://parser//lib/parser/builders/default.rb#1896
+  # source://parser//lib/parser/builders/default.rb#1908
   def pair_keyword_map(key_t, value_e); end
 
-  # source://parser//lib/parser/builders/default.rb#1911
+  # source://parser//lib/parser/builders/default.rb#1923
   def pair_quoted_map(begin_t, end_t, value_e); end
 
-  # source://parser//lib/parser/builders/default.rb#1882
+  # source://parser//lib/parser/builders/default.rb#1894
   def prefix_string_map(symbol); end
 
-  # source://parser//lib/parser/builders/default.rb#1993
+  # source://parser//lib/parser/builders/default.rb#2005
   def range_map(start_e, op_t, end_e); end
 
-  # source://parser//lib/parser/builders/default.rb#1960
+  # source://parser//lib/parser/builders/default.rb#1972
   def regexp_map(begin_t, end_t, options_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2165
+  # source://parser//lib/parser/builders/default.rb#2177
   def rescue_body_map(keyword_t, exc_list_e, assoc_t, exc_var_e, then_t, compstmt_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2307
+  # source://parser//lib/parser/builders/default.rb#2323
   def rewrite_hash_args_to_kwargs(args); end
 
-  # source://parser//lib/parser/builders/default.rb#2078
+  # source://parser//lib/parser/builders/default.rb#2090
   def send_binary_op_map(lhs_e, selector_t, rhs_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2101
+  # source://parser//lib/parser/builders/default.rb#2113
   def send_index_map(receiver_e, lbrack_t, rbrack_t); end
 
-  # source://parser//lib/parser/builders/default.rb#2052
+  # source://parser//lib/parser/builders/default.rb#2064
   def send_map(receiver_e, dot_t, selector_t, begin_t = T.unsafe(nil), args = T.unsafe(nil), end_t = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#2084
+  # source://parser//lib/parser/builders/default.rb#2096
   def send_unary_op_map(selector_t, arg_e); end
 
-  # source://parser//lib/parser/builders/default.rb#2237
+  # source://parser//lib/parser/builders/default.rb#2249
   def static_regexp(parts, options); end
 
-  # source://parser//lib/parser/builders/default.rb#2257
+  # source://parser//lib/parser/builders/default.rb#2269
   def static_regexp_node(node); end
 
-  # source://parser//lib/parser/builders/default.rb#2220
+  # source://parser//lib/parser/builders/default.rb#2232
   def static_string(nodes); end
 
-  # source://parser//lib/parser/builders/default.rb#1946
+  # source://parser//lib/parser/builders/default.rb#1958
   def string_map(begin_t, parts, end_t); end
 
-  # source://parser//lib/parser/builders/default.rb#2273
+  # source://parser//lib/parser/builders/default.rb#2289
   def string_value(token); end
 
-  # source://parser//lib/parser/builders/default.rb#2154
+  # source://parser//lib/parser/builders/default.rb#2166
   def ternary_map(begin_e, question_t, mid_e, colon_t, end_e); end
 
-  # source://parser//lib/parser/builders/default.rb#1867
+  # source://parser//lib/parser/builders/default.rb#1879
   def token_map(token); end
 
-  # source://parser//lib/parser/builders/default.rb#1983
+  # source://parser//lib/parser/builders/default.rb#1995
   def unary_op_map(op_t, arg_e = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/builders/default.rb#1891
+  # source://parser//lib/parser/builders/default.rb#1903
   def unquoted_map(token); end
 
-  # source://parser//lib/parser/builders/default.rb#2295
+  # source://parser//lib/parser/builders/default.rb#2311
   def validate_definee(definee); end
 
-  # source://parser//lib/parser/builders/default.rb#1769
+  # source://parser//lib/parser/builders/default.rb#1781
   def validate_no_forward_arg_after_restarg(args); end
 
-  # source://parser//lib/parser/builders/default.rb#2269
+  # source://parser//lib/parser/builders/default.rb#2285
   def value(token); end
 
-  # source://parser//lib/parser/builders/default.rb#2072
+  # source://parser//lib/parser/builders/default.rb#2084
   def var_send_map(variable_e); end
 
-  # source://parser//lib/parser/builders/default.rb#1975
+  # source://parser//lib/parser/builders/default.rb#1987
   def variable_map(name_t); end
 
   class << self
@@ -1670,9 +1663,6 @@ class Parser::CurrentArgStack
   # source://parser//lib/parser/current_arg_stack.rb#42
   def top; end
 end
-
-# source://parser//lib/parser/current.rb#111
-Parser::CurrentRuby = Parser::Ruby32
 
 # @api private
 #
@@ -2090,69 +2080,69 @@ class Parser::Lexer
 
   protected
 
-  # source://parser//lib/parser/lexer-F1.rb#14631
+  # source://parser//lib/parser/lexer-F1.rb#14692
   def arg_or_cmdarg(cmd_state); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14693
+  # source://parser//lib/parser/lexer-F1.rb#14754
   def check_ambiguous_slash(tm); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14655
+  # source://parser//lib/parser/lexer-F1.rb#14716
   def diagnostic(type, reason, arguments = T.unsafe(nil), location = T.unsafe(nil), highlights = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14661
+  # source://parser//lib/parser/lexer-F1.rb#14722
   def e_lbrace; end
 
-  # source://parser//lib/parser/lexer-F1.rb#14605
+  # source://parser//lib/parser/lexer-F1.rb#14666
   def emit(type, value = T.unsafe(nil), s = T.unsafe(nil), e = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14714
+  # source://parser//lib/parser/lexer-F1.rb#14775
   def emit_class_var(ts = T.unsafe(nil), te = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14742
+  # source://parser//lib/parser/lexer-F1.rb#14803
   def emit_colon_with_digits(p, tm, diag_msg); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14639
+  # source://parser//lib/parser/lexer-F1.rb#14700
   def emit_comment(s = T.unsafe(nil), e = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14651
+  # source://parser//lib/parser/lexer-F1.rb#14712
   def emit_comment_from_range(p, pe); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14621
+  # source://parser//lib/parser/lexer-F1.rb#14682
   def emit_do(do_block = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14704
+  # source://parser//lib/parser/lexer-F1.rb#14765
   def emit_global_var(ts = T.unsafe(nil), te = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14722
+  # source://parser//lib/parser/lexer-F1.rb#14783
   def emit_instance_var(ts = T.unsafe(nil), te = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14730
+  # source://parser//lib/parser/lexer-F1.rb#14791
   def emit_rbrace_rparen_rbrack; end
 
-  # source://parser//lib/parser/lexer-F1.rb#14752
+  # source://parser//lib/parser/lexer-F1.rb#14813
   def emit_singleton_class; end
 
-  # source://parser//lib/parser/lexer-F1.rb#14615
+  # source://parser//lib/parser/lexer-F1.rb#14676
   def emit_table(table, s = T.unsafe(nil), e = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14670
+  # source://parser//lib/parser/lexer-F1.rb#14731
   def numeric_literal_int; end
 
-  # source://parser//lib/parser/lexer-F1.rb#14689
+  # source://parser//lib/parser/lexer-F1.rb#14750
   def on_newline(p); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14601
+  # source://parser//lib/parser/lexer-F1.rb#14662
   def range(s = T.unsafe(nil), e = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer-F1.rb#14592
+  # source://parser//lib/parser/lexer-F1.rb#14653
   def stack_pop; end
 
-  # source://parser//lib/parser/lexer-F1.rb#14597
+  # source://parser//lib/parser/lexer-F1.rb#14658
   def tok(s = T.unsafe(nil), e = T.unsafe(nil)); end
 
   # @return [Boolean]
   #
-  # source://parser//lib/parser/lexer-F1.rb#14588
+  # source://parser//lib/parser/lexer-F1.rb#14649
   def version?(*versions); end
 
   class << self
@@ -2499,13 +2489,13 @@ end
 # source://parser//lib/parser/lexer/dedenter.rb#7
 Parser::Lexer::Dedenter::TAB_WIDTH = T.let(T.unsafe(nil), Integer)
 
-# source://parser//lib/parser/lexer-F1.rb#14799
+# source://parser//lib/parser/lexer-F1.rb#14860
 Parser::Lexer::ESCAPE_WHITESPACE = T.let(T.unsafe(nil), Hash)
 
-# source://parser//lib/parser/lexer-F1.rb#14785
+# source://parser//lib/parser/lexer-F1.rb#14846
 Parser::Lexer::KEYWORDS = T.let(T.unsafe(nil), Hash)
 
-# source://parser//lib/parser/lexer-F1.rb#14792
+# source://parser//lib/parser/lexer-F1.rb#14853
 Parser::Lexer::KEYWORDS_BEGIN = T.let(T.unsafe(nil), Hash)
 
 # source://parser//lib/parser/lexer-F1.rb#8362
@@ -2513,108 +2503,114 @@ Parser::Lexer::LEX_STATES = T.let(T.unsafe(nil), Hash)
 
 # source://parser//lib/parser/lexer/literal.rb#6
 class Parser::Lexer::Literal
-  # source://parser//lib/parser/lexer/literal.rb#40
+  # source://parser//lib/parser/lexer/literal.rb#42
   def initialize(lexer, str_type, delimiter, str_s, heredoc_e = T.unsafe(nil), indent = T.unsafe(nil), dedent_body = T.unsafe(nil), label_allowed = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer/literal.rb#114
+  # source://parser//lib/parser/lexer/literal.rb#116
   def backslash_delimited?; end
 
-  # source://parser//lib/parser/lexer/literal.rb#37
+  # source://parser//lib/parser/lexer/literal.rb#39
   def dedent_level; end
 
-  # source://parser//lib/parser/lexer/literal.rb#189
+  # source://parser//lib/parser/lexer/literal.rb#191
   def end_interp_brace_and_try_closing; end
 
-  # source://parser//lib/parser/lexer/literal.rb#216
+  # source://parser//lib/parser/lexer/literal.rb#218
   def extend_content; end
 
-  # source://parser//lib/parser/lexer/literal.rb#220
+  # source://parser//lib/parser/lexer/literal.rb#222
   def extend_space(ts, te); end
 
-  # source://parser//lib/parser/lexer/literal.rb#195
+  # source://parser//lib/parser/lexer/literal.rb#197
   def extend_string(string, ts, te); end
 
-  # source://parser//lib/parser/lexer/literal.rb#202
+  # source://parser//lib/parser/lexer/literal.rb#204
   def flush_string; end
 
-  # source://parser//lib/parser/lexer/literal.rb#102
+  # source://parser//lib/parser/lexer/literal.rb#104
   def heredoc?; end
 
-  # source://parser//lib/parser/lexer/literal.rb#37
+  # source://parser//lib/parser/lexer/literal.rb#39
   def heredoc_e; end
 
-  # source://parser//lib/parser/lexer/literal.rb#166
+  # source://parser//lib/parser/lexer/literal.rb#168
   def infer_indent_level(line); end
 
-  # source://parser//lib/parser/lexer/literal.rb#89
+  # source://parser//lib/parser/lexer/literal.rb#91
   def interpolate?; end
 
-  # source://parser//lib/parser/lexer/literal.rb#122
+  # source://parser//lib/parser/lexer/literal.rb#124
   def munge_escape?(character); end
 
-  # source://parser//lib/parser/lexer/literal.rb#132
+  # source://parser//lib/parser/lexer/literal.rb#134
   def nest_and_try_closing(delimiter, ts, te, lookahead = T.unsafe(nil)); end
 
-  # source://parser//lib/parser/lexer/literal.rb#106
+  # source://parser//lib/parser/lexer/literal.rb#108
   def plain_heredoc?; end
 
-  # source://parser//lib/parser/lexer/literal.rb#98
+  # source://parser//lib/parser/lexer/literal.rb#100
   def regexp?; end
 
-  # source://parser//lib/parser/lexer/literal.rb#38
+  # source://parser//lib/parser/lexer/literal.rb#40
   def saved_herebody_s; end
 
-  # source://parser//lib/parser/lexer/literal.rb#38
+  # source://parser//lib/parser/lexer/literal.rb#40
   def saved_herebody_s=(_arg0); end
 
-  # source://parser//lib/parser/lexer/literal.rb#110
+  # source://parser//lib/parser/lexer/literal.rb#112
   def squiggly_heredoc?; end
 
-  # source://parser//lib/parser/lexer/literal.rb#185
+  # source://parser//lib/parser/lexer/literal.rb#187
   def start_interp_brace; end
 
-  # source://parser//lib/parser/lexer/literal.rb#37
+  # source://parser//lib/parser/lexer/literal.rb#39
   def str_s; end
 
-  # source://parser//lib/parser/lexer/literal.rb#230
+  # source://parser//lib/parser/lexer/literal.rb#232
   def supports_line_continuation_via_slash?; end
 
-  # source://parser//lib/parser/lexer/literal.rb#118
+  # source://parser//lib/parser/lexer/literal.rb#120
   def type; end
 
-  # source://parser//lib/parser/lexer/literal.rb#93
+  # source://parser//lib/parser/lexer/literal.rb#95
   def words?; end
 
   protected
 
-  # source://parser//lib/parser/lexer/literal.rb#248
+  # source://parser//lib/parser/lexer/literal.rb#263
   def clear_buffer; end
 
-  # source://parser//lib/parser/lexer/literal.rb#244
+  # source://parser//lib/parser/lexer/literal.rb#259
   def coerce_encoding(string); end
 
-  # source://parser//lib/parser/lexer/literal.rb#236
+  # source://parser//lib/parser/lexer/literal.rb#238
   def delimiter?(delimiter); end
 
-  # source://parser//lib/parser/lexer/literal.rb#264
+  # source://parser//lib/parser/lexer/literal.rb#279
   def emit(token, type, s, e); end
 
-  # source://parser//lib/parser/lexer/literal.rb#259
+  # source://parser//lib/parser/lexer/literal.rb#274
   def emit_start_tok; end
 end
 
 # source://parser//lib/parser/lexer/literal.rb#7
 Parser::Lexer::Literal::DELIMITERS = T.let(T.unsafe(nil), Hash)
 
+# source://parser//lib/parser/lexer/literal.rb#8
+Parser::Lexer::Literal::SPACE = T.let(T.unsafe(nil), Integer)
+
 # source://parser//lib/parser/lexer/literal.rb#9
+Parser::Lexer::Literal::TAB = T.let(T.unsafe(nil), Integer)
+
+# source://parser//lib/parser/lexer/literal.rb#11
 Parser::Lexer::Literal::TYPES = T.let(T.unsafe(nil), Hash)
 
 # Mapping of strings to parser tokens.
 #
-# source://parser//lib/parser/lexer-F1.rb#14759
+# source://parser//lib/parser/lexer-F1.rb#14820
 Parser::Lexer::PUNCTUATION = T.let(T.unsafe(nil), Hash)
 
-# source://parser//lib/parser/lexer-F1.rb#14779
+# source://parser//lib/parser/lexer-F1.rb#14840
 Parser::Lexer::PUNCTUATION_BEGIN = T.let(T.unsafe(nil), Hash)
 
 # source://parser//lib/parser/lexer/stack_state.rb#5
@@ -3200,7 +3196,7 @@ Parser::MaxNumparamStack::ORDINARY_PARAMS = T.let(T.unsafe(nil), Integer)
 
 # @api private
 #
-# source://parser//lib/parser/messages.rb#107
+# source://parser//lib/parser/messages.rb#112
 module Parser::Messages
   class << self
     # Formats the message, returns a raw template if there's nothing to interpolate
@@ -3210,7 +3206,7 @@ module Parser::Messages
     #
     # @api private
     #
-    # source://parser//lib/parser/messages.rb#114
+    # source://parser//lib/parser/messages.rb#119
     def compile(reason, arguments); end
   end
 end
@@ -3234,7 +3230,7 @@ Parser::Meta::NODE_TYPES = T.let(T.unsafe(nil), Set)
 # @api public
 # @deprecated Use {Parser::TreeRewriter}
 #
-# source://parser//lib/parser/rewriter.rb#14
+# source://parser//lib/parser/rewriter.rb#22
 class Parser::Rewriter < ::Parser::AST::Processor
   extend ::Parser::Deprecation
 
@@ -3314,1798 +3310,6 @@ end
 #
 # source://parser//lib/parser/rewriter.rb#91
 Parser::Rewriter::DEPRECATION_WARNING = T.let(T.unsafe(nil), String)
-
-# source://parser//lib/parser/ruby32.rb#14
-class Parser::Ruby32 < ::Parser::Base
-  # reduce 0 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8419
-  def _reduce_1(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8473
-  def _reduce_10(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9108
-  def _reduce_100(val, _values, result); end
-
-  # reduce 101 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9117
-  def _reduce_102(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9123
-  def _reduce_103(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9129
-  def _reduce_104(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9135
-  def _reduce_105(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9141
-  def _reduce_106(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9147
-  def _reduce_107(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9153
-  def _reduce_108(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9159
-  def _reduce_109(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8479
-  def _reduce_11(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9165
-  def _reduce_110(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9175
-  def _reduce_111(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9181
-  def _reduce_112(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9191
-  def _reduce_113(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9198
-  def _reduce_114(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9205
-  def _reduce_115(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9211
-  def _reduce_116(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9217
-  def _reduce_117(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9223
-  def _reduce_118(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9229
-  def _reduce_119(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8496
-  def _reduce_12(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9235
-  def _reduce_120(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9241
-  def _reduce_121(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9247
-  def _reduce_122(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9254
-  def _reduce_123(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9261
-  def _reduce_124(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9267
-  def _reduce_125(val, _values, result); end
-
-  # reduce 126 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9275
-  def _reduce_127(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9281
-  def _reduce_128(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9287
-  def _reduce_129(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8502
-  def _reduce_13(val, _values, result); end
-
-  # reduce 134 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9303
-  def _reduce_135(val, _values, result); end
-
-  # reduce 136 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9311
-  def _reduce_137(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9317
-  def _reduce_138(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9323
-  def _reduce_139(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8508
-  def _reduce_14(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8514
-  def _reduce_15(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8520
-  def _reduce_16(val, _values, result); end
-
-  # reduce 17 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8528
-  def _reduce_18(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8534
-  def _reduce_19(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8426
-  def _reduce_2(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8540
-  def _reduce_20(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8546
-  def _reduce_21(val, _values, result); end
-
-  # reduce 210 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9471
-  def _reduce_211(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9477
-  def _reduce_212(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9483
-  def _reduce_213(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9492
-  def _reduce_214(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9501
-  def _reduce_215(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9510
-  def _reduce_216(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9519
-  def _reduce_217(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9527
-  def _reduce_218(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9535
-  def _reduce_219(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8554
-  def _reduce_22(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9541
-  def _reduce_220(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9547
-  def _reduce_221(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9553
-  def _reduce_222(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9559
-  def _reduce_223(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9565
-  def _reduce_224(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9571
-  def _reduce_225(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9577
-  def _reduce_226(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9583
-  def _reduce_227(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9589
-  def _reduce_228(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9595
-  def _reduce_229(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8562
-  def _reduce_23(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9601
-  def _reduce_230(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9607
-  def _reduce_231(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9613
-  def _reduce_232(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9621
-  def _reduce_233(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9627
-  def _reduce_234(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9633
-  def _reduce_235(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9639
-  def _reduce_236(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9645
-  def _reduce_237(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9651
-  def _reduce_238(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8568
-  def _reduce_24(val, _values, result); end
-
-  # reduce 239 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9659
-  def _reduce_240(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9665
-  def _reduce_241(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9671
-  def _reduce_242(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9677
-  def _reduce_243(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9683
-  def _reduce_244(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9689
-  def _reduce_245(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9695
-  def _reduce_246(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9701
-  def _reduce_247(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9707
-  def _reduce_248(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9713
-  def _reduce_249(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8574
-  def _reduce_25(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9719
-  def _reduce_250(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9725
-  def _reduce_251(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9731
-  def _reduce_252(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9738
-  def _reduce_253(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9745
-  def _reduce_254(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9759
-  def _reduce_255(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9779
-  def _reduce_256(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9793
-  def _reduce_257(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8581
-  def _reduce_26(val, _values, result); end
-
-  # reduce 262 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9823
-  def _reduce_263(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9829
-  def _reduce_264(val, _values, result); end
-
-  # reduce 267 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9841
-  def _reduce_268(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9847
-  def _reduce_269(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8588
-  def _reduce_27(val, _values, result); end
-
-  # reduce 270 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9855
-  def _reduce_271(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9865
-  def _reduce_272(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9871
-  def _reduce_273(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9881
-  def _reduce_274(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9891
-  def _reduce_275(val, _values, result); end
-
-  # reduce 276 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9899
-  def _reduce_277(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8594
-  def _reduce_28(val, _values, result); end
-
-  # reduce 279 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9909
-  def _reduce_280(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9915
-  def _reduce_281(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9921
-  def _reduce_282(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9927
-  def _reduce_283(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9933
-  def _reduce_284(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9940
-  def _reduce_285(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9948
-  def _reduce_286(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9954
-  def _reduce_287(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9981
-  def _reduce_288(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10002
-  def _reduce_289(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8600
-  def _reduce_29(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10008
-  def _reduce_290(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10018
-  def _reduce_291(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10024
-  def _reduce_292(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10030
-  def _reduce_293(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10036
-  def _reduce_294(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10042
-  def _reduce_295(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10052
-  def _reduce_296(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10058
-  def _reduce_297(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10064
-  def _reduce_298(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10074
-  def _reduce_299(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8435
-  def _reduce_3(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8610
-  def _reduce_30(val, _values, result); end
-
-  # reduce 300 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10082
-  def _reduce_301(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10088
-  def _reduce_302(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10094
-  def _reduce_303(val, _values, result); end
-
-  # reduce 313 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10120
-  def _reduce_314(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10126
-  def _reduce_315(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10132
-  def _reduce_316(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10140
-  def _reduce_317(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10146
-  def _reduce_318(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10152
-  def _reduce_319(val, _values, result); end
-
-  # reduce 31 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8618
-  def _reduce_32(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10158
-  def _reduce_320(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10164
-  def _reduce_321(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10170
-  def _reduce_322(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10176
-  def _reduce_323(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10182
-  def _reduce_324(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10188
-  def _reduce_325(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10194
-  def _reduce_326(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10200
-  def _reduce_327(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10206
-  def _reduce_328(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10212
-  def _reduce_329(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8624
-  def _reduce_33(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10218
-  def _reduce_330(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10224
-  def _reduce_331(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10232
-  def _reduce_332(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10238
-  def _reduce_333(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10244
-  def _reduce_334(val, _values, result); end
-
-  # reduce 335 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10256
-  def _reduce_336(val, _values, result); end
-
-  # reduce 337 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10266
-  def _reduce_338(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10275
-  def _reduce_339(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8631
-  def _reduce_34(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10284
-  def _reduce_340(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10290
-  def _reduce_341(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10296
-  def _reduce_342(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10306
-  def _reduce_343(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10316
-  def _reduce_344(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10326
-  def _reduce_345(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10332
-  def _reduce_346(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10339
-  def _reduce_347(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10355
-  def _reduce_348(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10363
-  def _reduce_349(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8642
-  def _reduce_35(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10375
-  def _reduce_350(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10382
-  def _reduce_351(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10396
-  def _reduce_352(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10408
-  def _reduce_353(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10420
-  def _reduce_354(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10426
-  def _reduce_355(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10432
-  def _reduce_356(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10438
-  def _reduce_357(val, _values, result); end
-
-  # reduce 358 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10446
-  def _reduce_359(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10452
-  def _reduce_360(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10458
-  def _reduce_361(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10465
-  def _reduce_362(val, _values, result); end
-
-  # reduce 364 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10477
-  def _reduce_365(val, _values, result); end
-
-  # reduce 368 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10489
-  def _reduce_369(val, _values, result); end
-
-  # reduce 36 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8650
-  def _reduce_37(val, _values, result); end
-
-  # reduce 370 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10502
-  def _reduce_371(val, _values, result); end
-
-  # reduce 373 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10512
-  def _reduce_374(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10518
-  def _reduce_375(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10524
-  def _reduce_376(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10530
-  def _reduce_377(val, _values, result); end
-
-  # reduce 378 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10538
-  def _reduce_379(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8656
-  def _reduce_38(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10545
-  def _reduce_380(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10553
-  def _reduce_381(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10559
-  def _reduce_382(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10565
-  def _reduce_383(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10571
-  def _reduce_384(val, _values, result); end
-
-  # reduce 386 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10581
-  def _reduce_387(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10587
-  def _reduce_388(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10593
-  def _reduce_389(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8662
-  def _reduce_39(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10599
-  def _reduce_390(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10605
-  def _reduce_391(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10611
-  def _reduce_392(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10617
-  def _reduce_393(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10623
-  def _reduce_394(val, _values, result); end
-
-  # reduce 395 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10631
-  def _reduce_396(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10640
-  def _reduce_397(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10650
-  def _reduce_398(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10658
-  def _reduce_399(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8441
-  def _reduce_4(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8671
-  def _reduce_40(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10667
-  def _reduce_400(val, _values, result); end
-
-  # reduce 401 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10677
-  def _reduce_402(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10686
-  def _reduce_403(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10696
-  def _reduce_404(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10704
-  def _reduce_405(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10713
-  def _reduce_406(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10720
-  def _reduce_407(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10728
-  def _reduce_408(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10735
-  def _reduce_409(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8680
-  def _reduce_41(val, _values, result); end
-
-  # reduce 410 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10745
-  def _reduce_411(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10751
-  def _reduce_412(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10757
-  def _reduce_413(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10766
-  def _reduce_414(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10775
-  def _reduce_415(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10781
-  def _reduce_416(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10787
-  def _reduce_417(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10793
-  def _reduce_418(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10799
-  def _reduce_419(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8689
-  def _reduce_42(val, _values, result); end
-
-  # reduce 420 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#10808
-  def _reduce_421(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10817
-  def _reduce_422(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10823
-  def _reduce_423(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10839
-  def _reduce_424(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10847
-  def _reduce_425(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10857
-  def _reduce_426(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10864
-  def _reduce_427(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10871
-  def _reduce_428(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10878
-  def _reduce_429(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8697
-  def _reduce_43(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10885
-  def _reduce_430(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10892
-  def _reduce_431(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10899
-  def _reduce_432(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10907
-  def _reduce_433(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10915
-  def _reduce_434(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10927
-  def _reduce_435(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10938
-  def _reduce_436(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10946
-  def _reduce_437(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10954
-  def _reduce_438(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10962
-  def _reduce_439(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8706
-  def _reduce_44(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10968
-  def _reduce_440(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10976
-  def _reduce_441(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10984
-  def _reduce_442(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10992
-  def _reduce_443(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#10998
-  def _reduce_444(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11004
-  def _reduce_445(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11011
-  def _reduce_446(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11018
-  def _reduce_447(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11025
-  def _reduce_448(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11032
-  def _reduce_449(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8720
-  def _reduce_45(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11039
-  def _reduce_450(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11049
-  def _reduce_451(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11056
-  def _reduce_452(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11062
-  def _reduce_453(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11073
-  def _reduce_454(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11080
-  def _reduce_455(val, _values, result); end
-
-  # reduce 456 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11088
-  def _reduce_457(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11100
-  def _reduce_458(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11108
-  def _reduce_459(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8740
-  def _reduce_46(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11115
-  def _reduce_460(val, _values, result); end
-
-  # reduce 461 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11123
-  def _reduce_462(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11129
-  def _reduce_463(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11135
-  def _reduce_464(val, _values, result); end
-
-  # reduce 465 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11143
-  def _reduce_466(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11153
-  def _reduce_467(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11159
-  def _reduce_468(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11165
-  def _reduce_469(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8754
-  def _reduce_47(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11171
-  def _reduce_470(val, _values, result); end
-
-  # reduce 471 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11179
-  def _reduce_472(val, _values, result); end
-
-  # reduce 473 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11187
-  def _reduce_474(val, _values, result); end
-
-  # reduce 475 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11195
-  def _reduce_476(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11202
-  def _reduce_477(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8774
-  def _reduce_48(val, _values, result); end
-
-  # reduce 479 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11213
-  def _reduce_480(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11221
-  def _reduce_481(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11229
-  def _reduce_482(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11237
-  def _reduce_483(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11244
-  def _reduce_484(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11252
-  def _reduce_485(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11260
-  def _reduce_486(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11268
-  def _reduce_487(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11275
-  def _reduce_488(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11281
-  def _reduce_489(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11287
-  def _reduce_490(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11293
-  def _reduce_491(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11301
-  def _reduce_492(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11309
-  def _reduce_493(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11315
-  def _reduce_494(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11321
-  def _reduce_495(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11328
-  def _reduce_496(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11334
-  def _reduce_497(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11340
-  def _reduce_498(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11346
-  def _reduce_499(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8447
-  def _reduce_5(val, _values, result); end
-
-  # reduce 49 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8782
-  def _reduce_50(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11352
-  def _reduce_500(val, _values, result); end
-
-  # reduce 501 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11360
-  def _reduce_502(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11370
-  def _reduce_503(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11380
-  def _reduce_504(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11386
-  def _reduce_505(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11392
-  def _reduce_506(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11398
-  def _reduce_507(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11404
-  def _reduce_508(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11410
-  def _reduce_509(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11416
-  def _reduce_510(val, _values, result); end
-
-  # reduce 511 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11424
-  def _reduce_512(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11430
-  def _reduce_513(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11436
-  def _reduce_514(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11442
-  def _reduce_515(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11448
-  def _reduce_516(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11454
-  def _reduce_517(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11460
-  def _reduce_518(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11466
-  def _reduce_519(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11472
-  def _reduce_520(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11478
-  def _reduce_521(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11484
-  def _reduce_522(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11490
-  def _reduce_523(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11496
-  def _reduce_524(val, _values, result); end
-
-  # reduce 525 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11504
-  def _reduce_526(val, _values, result); end
-
-  # reduce 527 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11512
-  def _reduce_528(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11518
-  def _reduce_529(val, _values, result); end
-
-  # reduce 52 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8796
-  def _reduce_53(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11524
-  def _reduce_530(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11530
-  def _reduce_531(val, _values, result); end
-
-  # reduce 534 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11542
-  def _reduce_535(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11548
-  def _reduce_536(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8802
-  def _reduce_54(val, _values, result); end
-
-  # reduce 544 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11570
-  def _reduce_545(val, _values, result); end
-
-  # reduce 546 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11578
-  def _reduce_547(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11584
-  def _reduce_548(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11596
-  def _reduce_549(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8808
-  def _reduce_55(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11603
-  def _reduce_550(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11610
-  def _reduce_551(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11616
-  def _reduce_552(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11622
-  def _reduce_553(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11628
-  def _reduce_554(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11643
-  def _reduce_555(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11649
-  def _reduce_556(val, _values, result); end
-
-  # reduce 558 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11659
-  def _reduce_559(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8814
-  def _reduce_56(val, _values, result); end
-
-  # reduce 560 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11667
-  def _reduce_561(val, _values, result); end
-
-  # reduce 564 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11679
-  def _reduce_565(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11685
-  def _reduce_566(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11691
-  def _reduce_567(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11697
-  def _reduce_568(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11704
-  def _reduce_569(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8820
-  def _reduce_57(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11711
-  def _reduce_570(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11717
-  def _reduce_571(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11724
-  def _reduce_572(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11731
-  def _reduce_573(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11737
-  def _reduce_574(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11743
-  def _reduce_575(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11749
-  def _reduce_576(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11755
-  def _reduce_577(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11761
-  def _reduce_578(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11767
-  def _reduce_579(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8832
-  def _reduce_58(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11773
-  def _reduce_580(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11779
-  def _reduce_581(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11785
-  def _reduce_582(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11791
-  def _reduce_583(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11797
-  def _reduce_584(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11803
-  def _reduce_585(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11809
-  def _reduce_586(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11815
-  def _reduce_587(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11821
-  def _reduce_588(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11827
-  def _reduce_589(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8841
-  def _reduce_59(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11833
-  def _reduce_590(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11839
-  def _reduce_591(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11845
-  def _reduce_592(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11851
-  def _reduce_593(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11857
-  def _reduce_594(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11863
-  def _reduce_595(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11870
-  def _reduce_596(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11879
-  def _reduce_597(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11885
-  def _reduce_598(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11891
-  def _reduce_599(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8453
-  def _reduce_6(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8853
-  def _reduce_60(val, _values, result); end
-
-  # reduce 602 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11903
-  def _reduce_603(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11910
-  def _reduce_604(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11917
-  def _reduce_605(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11923
-  def _reduce_606(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11934
-  def _reduce_607(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11941
-  def _reduce_608(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11948
-  def _reduce_609(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11955
-  def _reduce_610(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11962
-  def _reduce_611(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11968
-  def _reduce_612(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11974
-  def _reduce_613(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11980
-  def _reduce_614(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#11986
-  def _reduce_615(val, _values, result); end
-
-  # reduce 616 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#11994
-  def _reduce_617(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12000
-  def _reduce_618(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12006
-  def _reduce_619(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12012
-  def _reduce_620(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12018
-  def _reduce_621(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12024
-  def _reduce_622(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12030
-  def _reduce_623(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12036
-  def _reduce_624(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12042
-  def _reduce_625(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12048
-  def _reduce_626(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12054
-  def _reduce_627(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12060
-  def _reduce_628(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12066
-  def _reduce_629(val, _values, result); end
-
-  # reduce 62 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8866
-  def _reduce_63(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12072
-  def _reduce_630(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12078
-  def _reduce_631(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12084
-  def _reduce_632(val, _values, result); end
-
-  # reduce 633 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12092
-  def _reduce_634(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12099
-  def _reduce_635(val, _values, result); end
-
-  # reduce 636 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12110
-  def _reduce_637(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12118
-  def _reduce_638(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12126
-  def _reduce_639(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8872
-  def _reduce_64(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12132
-  def _reduce_640(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12138
-  def _reduce_641(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12144
-  def _reduce_642(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12150
-  def _reduce_643(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12157
-  def _reduce_644(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12163
-  def _reduce_645(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12169
-  def _reduce_646(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12178
-  def _reduce_647(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12188
-  def _reduce_648(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12196
-  def _reduce_649(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8879
-  def _reduce_65(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12205
-  def _reduce_650(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12213
-  def _reduce_651(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12222
-  def _reduce_652(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12229
-  def _reduce_653(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12237
-  def _reduce_654(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12246
-  def _reduce_655(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12253
-  def _reduce_656(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12261
-  def _reduce_657(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12268
-  def _reduce_658(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12276
-  def _reduce_659(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8889
-  def _reduce_66(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12282
-  def _reduce_660(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12288
-  def _reduce_661(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12294
-  def _reduce_662(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12300
-  def _reduce_663(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12306
-  def _reduce_664(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12312
-  def _reduce_665(val, _values, result); end
-
-  # reduce 666 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12320
-  def _reduce_667(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12330
-  def _reduce_668(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12337
-  def _reduce_669(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8895
-  def _reduce_67(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12344
-  def _reduce_670(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12350
-  def _reduce_671(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12356
-  def _reduce_672(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12362
-  def _reduce_673(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12377
-  def _reduce_674(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12385
-  def _reduce_675(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12393
-  def _reduce_676(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12400
-  def _reduce_677(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12407
-  def _reduce_678(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12413
-  def _reduce_679(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8902
-  def _reduce_68(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12419
-  def _reduce_680(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12425
-  def _reduce_681(val, _values, result); end
-
-  # reduce 683 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12435
-  def _reduce_684(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12441
-  def _reduce_685(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12449
-  def _reduce_686(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12457
-  def _reduce_687(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12465
-  def _reduce_688(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12473
-  def _reduce_689(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12479
-  def _reduce_690(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12485
-  def _reduce_691(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12491
-  def _reduce_692(val, _values, result); end
-
-  # reduce 694 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12501
-  def _reduce_695(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12509
-  def _reduce_696(val, _values, result); end
-
-  # reduce 698 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12521
-  def _reduce_699(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8459
-  def _reduce_7(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12529
-  def _reduce_700(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12537
-  def _reduce_701(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12543
-  def _reduce_702(val, _values, result); end
-
-  # reduce 703 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12551
-  def _reduce_704(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12557
-  def _reduce_705(val, _values, result); end
-
-  # reduce 706 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12565
-  def _reduce_707(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12571
-  def _reduce_708(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12577
-  def _reduce_709(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12583
-  def _reduce_710(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12589
-  def _reduce_711(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12595
-  def _reduce_712(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12601
-  def _reduce_713(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12607
-  def _reduce_714(val, _values, result); end
-
-  # reduce 71 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8914
-  def _reduce_72(val, _values, result); end
-
-  # reduce 724 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12637
-  def _reduce_725(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12643
-  def _reduce_726(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8921
-  def _reduce_73(val, _values, result); end
-
-  # reduce 730 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12657
-  def _reduce_731(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12663
-  def _reduce_732(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12669
-  def _reduce_733(val, _values, result); end
-
-  # reduce 735 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12679
-  def _reduce_736(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8928
-  def _reduce_74(val, _values, result); end
-
-  # reduce 739 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#12691
-  def _reduce_740(val, _values, result); end
-
-  # reduce 75 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8937
-  def _reduce_76(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8944
-  def _reduce_77(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8955
-  def _reduce_78(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8962
-  def _reduce_79(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8973
-  def _reduce_80(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8980
-  def _reduce_81(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8991
-  def _reduce_82(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#8998
-  def _reduce_83(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9005
-  def _reduce_84(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9012
-  def _reduce_85(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9019
-  def _reduce_86(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9026
-  def _reduce_87(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9032
-  def _reduce_88(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9038
-  def _reduce_89(val, _values, result); end
-
-  # reduce 8 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#8467
-  def _reduce_9(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9044
-  def _reduce_90(val, _values, result); end
-
-  # reduce 91 omitted
-  #
-  # source://parser//lib/parser/ruby32.rb#9052
-  def _reduce_92(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9059
-  def _reduce_93(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9066
-  def _reduce_94(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9074
-  def _reduce_95(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9081
-  def _reduce_96(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9089
-  def _reduce_97(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9095
-  def _reduce_98(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#9102
-  def _reduce_99(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#12697
-  def _reduce_none(val, _values, result); end
-
-  # source://parser//lib/parser/ruby32.rb#21
-  def default_encoding; end
-
-  # source://parser//lib/parser/ruby32.rb#25
-  def endless_method_name(name_t); end
-
-  # source://parser//lib/parser/ruby32.rb#38
-  def local_pop; end
-
-  # source://parser//lib/parser/ruby32.rb#31
-  def local_push; end
-
-  # source://parser//lib/parser/ruby32.rb#45
-  def try_declare_numparam(node); end
-
-  # source://parser//lib/parser/ruby32.rb#17
-  def version; end
-end
-
-# source://parser//lib/parser/ruby32.rb#8008
-Parser::Ruby32::Racc_arg = T.let(T.unsafe(nil), Array)
-
-# source://parser//lib/parser/ruby32.rb#8413
-Parser::Ruby32::Racc_debug_parser = T.let(T.unsafe(nil), FalseClass)
-
-# source://parser//lib/parser/ruby32.rb#8024
-Parser::Ruby32::Racc_token_to_s_table = T.let(T.unsafe(nil), Array)
 
 # @api public
 #
@@ -5452,7 +3656,7 @@ class Parser::Source::Comment::Associator
   # source://parser//lib/parser/source/comment/associator.rb#115
   def associate_by_identity; end
 
-  # source://parser//lib/parser/source/comment/associator.rb#103
+  # source://parser//lib/parser/source/comment/associator.rb#104
   def associate_locations; end
 
   # source://parser//lib/parser/source/comment/associator.rb#46
@@ -7020,10 +5224,10 @@ class Parser::StaticEnvironment
   # source://parser//lib/parser/static_environment.rb#58
   def declare_anonymous_blockarg; end
 
-  # source://parser//lib/parser/static_environment.rb#74
+  # source://parser//lib/parser/static_environment.rb#82
   def declare_anonymous_kwrestarg; end
 
-  # source://parser//lib/parser/static_environment.rb#66
+  # source://parser//lib/parser/static_environment.rb#70
   def declare_anonymous_restarg; end
 
   # source://parser//lib/parser/static_environment.rb#50
@@ -7041,12 +5245,12 @@ class Parser::StaticEnvironment
 
   # @return [Boolean]
   #
-  # source://parser//lib/parser/static_environment.rb#78
+  # source://parser//lib/parser/static_environment.rb#86
   def declared_anonymous_kwrestarg?; end
 
   # @return [Boolean]
   #
-  # source://parser//lib/parser/static_environment.rb#70
+  # source://parser//lib/parser/static_environment.rb#74
   def declared_anonymous_restarg?; end
 
   # @return [Boolean]
@@ -7056,7 +5260,7 @@ class Parser::StaticEnvironment
 
   # @return [Boolean]
   #
-  # source://parser//lib/parser/static_environment.rb#82
+  # source://parser//lib/parser/static_environment.rb#94
   def empty?; end
 
   # source://parser//lib/parser/static_environment.rb#27
@@ -7064,6 +5268,21 @@ class Parser::StaticEnvironment
 
   # source://parser//lib/parser/static_environment.rb#20
   def extend_static; end
+
+  # @return [Boolean]
+  #
+  # source://parser//lib/parser/static_environment.rb#66
+  def parent_has_anonymous_blockarg?; end
+
+  # @return [Boolean]
+  #
+  # source://parser//lib/parser/static_environment.rb#90
+  def parent_has_anonymous_kwrestarg?; end
+
+  # @return [Boolean]
+  #
+  # source://parser//lib/parser/static_environment.rb#78
+  def parent_has_anonymous_restarg?; end
 
   # source://parser//lib/parser/static_environment.rb#15
   def reset; end
@@ -7149,7 +5368,7 @@ end
 #
 # @api public
 #
-# source://parser//lib/parser/tree_rewriter.rb#51
+# source://parser//lib/parser/tree_rewriter.rb#61
 class Parser::TreeRewriter < ::Parser::AST::Processor
   # Returns `true` if the specified node is an assignment node, returns false
   # otherwise.

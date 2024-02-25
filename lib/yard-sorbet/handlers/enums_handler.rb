@@ -26,9 +26,7 @@ module YARDSorbet
       private
 
       sig { params(node: YARD::Parser::Ruby::AstNode).returns(T::Boolean) }
-      def const_assign_node?(node)
-        node.type == :assign && node[0][0].type == :const
-      end
+      def const_assign_node?(node) = node.type == :assign && node[0][0].type == :const
     end
   end
 end
