@@ -436,16 +436,12 @@ in creating a constructor</p>
       <pre class="lines">
 
 
-38
-39
-40</pre>
+38</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_immutable?'>immutable?</span>
-  <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='symbol'>:const</span> <span class='op'>||</span> <span class='id identifier rubyid_kw_arg'>kw_arg</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>immutable:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>true</span><span class='tstring_end'>&#39;</span></span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_immutable?'>immutable?</span> <span class='op'>=</span> <span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span> <span class='op'>==</span> <span class='symbol'>:const</span> <span class='op'>||</span> <span class='id identifier rubyid_kw_arg'>kw_arg</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>immutable:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>true</span><span class='tstring_end'>&#39;</span></span></pre>
     </td>
   </tr>
 </table>
@@ -508,16 +504,12 @@ in creating a constructor</p>
       <pre class="lines">
 
 
-44
-45
-46</pre>
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 42</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_kw_arg'>kw_arg</span><span class='lparen'>(</span><span class='id identifier rubyid_kwd'>kwd</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='op'>&amp;.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>==</span> <span class='id identifier rubyid_kwd'>kwd</span> <span class='rbrace'>}</span><span class='op'>&amp;.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_source'>source</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_kw_arg'>kw_arg</span><span class='lparen'>(</span><span class='id identifier rubyid_kwd'>kwd</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='op'>&amp;.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='id identifier rubyid__1'>_1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_source'>source</span> <span class='op'>==</span> <span class='id identifier rubyid_kwd'>kwd</span> <span class='rbrace'>}</span><span class='op'>&amp;.</span><span class='op'>[]</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>&amp;.</span><span class='id identifier rubyid_source'>source</span></pre>
     </td>
   </tr>
 </table>
@@ -575,18 +567,18 @@ in creating a constructor</p>
       <pre class="lines">
 
 
+45
+46
+47
+48
 49
 50
 51
 52
-53
-54
-55
-56
-57</pre>
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_make_prop'>make_prop</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../TStructProp.html" title="YARDSorbet::TStructProp (class)">TStructProp</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../TStructProp.html#initialize-instance_method" title="YARDSorbet::TStructProp#initialize (method)">new</a></span></span><span class='lparen'>(</span>
@@ -639,16 +631,12 @@ in creating a constructor</p>
       <pre class="lines">
 
 
-60
-61
-62</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 56</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_params'>params</span>
-  <span class='ivar'>@params</span> <span class='op'>||=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_nilable'>nilable</span><span class='lparen'>(</span><span class='const'>T</span><span class='op'>::</span><span class='const'>Array</span><span class='lbracket'>[</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>AstNode</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='ivar'>@params</span> <span class='op'>||=</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='id identifier rubyid_statement'>statement</span><span class='period'>.</span><span class='id identifier rubyid_parameters'>parameters</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>T</span><span class='period'>.</span><span class='id identifier rubyid_nilable'>nilable</span><span class='lparen'>(</span><span class='const'>T</span><span class='op'>::</span><span class='const'>Array</span><span class='lbracket'>[</span><span class='const'>YARD</span><span class='op'>::</span><span class='const'>Parser</span><span class='op'>::</span><span class='const'>Ruby</span><span class='op'>::</span><span class='const'>AstNode</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span></pre>
     </td>
   </tr>
 </table>
@@ -754,14 +742,14 @@ in creating a constructor</p>
       <pre class="lines">
 
 
-66
-67
-68
-69
-70</pre>
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_attrs'>register_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_write'>write</span> <span class='op'>=</span> <span class='id identifier rubyid_immutable?'>immutable?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id identifier rubyid_object'>object</span>
@@ -813,13 +801,13 @@ in creating a constructor</p>
       <pre class="lines">
 
 
-74
-75
-76
-77</pre>
+68
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/struct_prop_handler.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_state'>update_state</span><span class='lparen'>(</span><span class='id identifier rubyid_prop'>prop</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_extra_state'>extra_state</span><span class='period'>.</span><span class='id identifier rubyid_prop_docs'>prop_docs</span> <span class='op'>||=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_h'>h</span><span class='comma'>,</span> <span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
@@ -835,7 +823,7 @@ in creating a constructor</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Feb 17 19:47:14 2024 by
+  Generated on Sun Feb 25 22:03:43 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.3.0).
 </div>

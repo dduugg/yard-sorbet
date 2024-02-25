@@ -238,16 +238,12 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+29</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/enums_handler.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_const_assign_node?'>const_assign_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:assign</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_node'>node</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:const</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_const_assign_node?'>const_assign_node?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:assign</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_node'>node</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>==</span> <span class='symbol'>:const</span></pre>
     </td>
   </tr>
 </table>
@@ -313,7 +309,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Feb 17 19:47:14 2024 by
+  Generated on Sun Feb 25 22:03:43 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.3.0).
 </div>

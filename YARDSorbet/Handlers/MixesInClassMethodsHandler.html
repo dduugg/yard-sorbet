@@ -280,16 +280,12 @@
       <pre class="lines">
 
 
-18
-19
-20</pre>
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 18</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_mixed_in_class_methods'>mixed_in_class_methods</span><span class='lparen'>(</span><span class='id identifier rubyid_code_obj'>code_obj</span><span class='rparen'>)</span>
-  <span class='cvar'>@@mix_in_class_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_code_obj'>code_obj</span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_mixed_in_class_methods'>mixed_in_class_methods</span><span class='lparen'>(</span><span class='id identifier rubyid_code_obj'>code_obj</span><span class='rparen'>)</span> <span class='op'>=</span> <span class='cvar'>@@mix_in_class_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_code_obj'>code_obj</span><span class='rbracket'>]</span></pre>
     </td>
   </tr>
 </table>
@@ -325,13 +321,13 @@
       <pre class="lines">
 
 
+21
+22
 23
-24
-25
-26</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/yard-sorbet/handlers/mixes_in_class_methods_handler.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_process'>process</span>
   <span class='cvar'>@@mix_in_class_methods</span><span class='lbracket'>[</span><span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -347,7 +343,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Feb 17 19:47:14 2024 by
+  Generated on Sun Feb 25 22:03:43 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.34 (ruby-3.3.0).
 </div>
