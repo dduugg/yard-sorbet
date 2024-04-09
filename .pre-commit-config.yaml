@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: check-added-large-files
         args: [--maxkb=2000]
@@ -20,7 +20,7 @@ repos:
       - id: sort-simple-yaml
       - id: trailing-whitespace
   - repo: https://github.com/crate-ci/typos
-    rev: v1.20.1
+    rev: v1.20.4
     hooks:
       - id: typos
         args: [--exclude=sorbet/rbi/gems, --force-exclude]
