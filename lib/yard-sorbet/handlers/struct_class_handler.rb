@@ -23,6 +23,13 @@ module YARDSorbet
         process_t_struct_props(props, class_ns)
       end
 
+      def register_docstring(object)
+        super
+
+        # Ignore comments in RBI files.
+        object.docstring = nil if parser.file.end_with?(".rbi")
+      end
+
       private
 
       # Create a virtual `initialize` method with all the `prop`/`const` arguments
