@@ -7,6 +7,7 @@ module YARDSorbet
   module Handlers; end
 end
 
+require_relative 'handlers/ignore_rbi_docstring_handler'
 require_relative 'handlers/abstract_dsl_handler'
 require_relative 'handlers/enums_handler'
 require_relative 'handlers/include_handler'
