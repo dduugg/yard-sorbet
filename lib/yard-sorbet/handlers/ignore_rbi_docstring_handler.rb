@@ -18,8 +18,11 @@ module YARDSorbet
 
         super
 
-        # Ignore docstrings in RBI files.
-        object.docstring = original_docstring if object && parser.file.end_with?(".rbi")
+        # Ignore docstrings content in RBI files, but add any tags to existing docstring.
+        if object && parser.file.end_with?(".rbi")
+          original_docstring.add_tag(*object&.docstring&.tags, *object&.docstring&.ref_tags)
+          object.docstring = original_docstring
+        end
       end
     end
   end
