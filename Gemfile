@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rake', '~> 13.1.0'
+gem 'rake', '~> 13.2.1'
 gem 'redcarpet', '~> 3.6.0'
 gem 'rspec', '~> 3.13.0'
 gem 'rubocop', '~> 1.63.4'
