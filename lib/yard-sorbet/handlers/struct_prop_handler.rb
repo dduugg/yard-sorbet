@@ -60,7 +60,7 @@ module YARDSorbet
       def register_attrs(object, name)
         write = immutable? ? nil : object
         # Create the virtual attribute in our current scope
-        namespace.attributes[scope][name] ||= SymbolHash[read: object, write: write]
+        namespace.attributes[scope][name] ||= SymbolHash[read: object, write:]
       end
 
       # Store the prop for use in the constructor definition

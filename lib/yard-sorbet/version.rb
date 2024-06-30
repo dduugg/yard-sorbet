@@ -4,5 +4,5 @@
 # Types are documentation
 module YARDSorbet
   # {https://rubygems.org/gems/yard-sorbet Version history}
-  VERSION = '0.8.1'
+  VERSION = '0.9.0'
 end

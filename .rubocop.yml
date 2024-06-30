@@ -8,10 +8,13 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.1
 
 Layout/ClassStructure:
   Enabled: true
+# Cannot add type annotations to forwarded blocks
+Naming/BlockForwarding:
+  Enabled: false
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb
