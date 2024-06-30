@@ -15,8 +15,6 @@ gem:
     - rbi
     - redcarpet
     - rexml
-    - rubocop-capybara
-    - rubocop-factory_bot
     - rubocop-packaging
     - rubocop-performance
     - rubocop-rake
@@ -26,6 +24,7 @@ gem:
     - simplecov-html
     - simplecov_json_formatter
     - spoom
+    - strscan
     - syntax_tree
     - tapioca
     - thor
