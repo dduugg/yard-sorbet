@@ -12,6 +12,9 @@ AllCops:
 
 Layout/ClassStructure:
   Enabled: true
+# Cannot add type annotations to forwarded blocks
+Naming/BlockForwarding:
+  Enabled: false
 Naming/FileName:
   Exclude:
     - lib/yard-sorbet.rb

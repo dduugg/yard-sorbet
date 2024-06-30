@@ -76,7 +76,7 @@ module YARDSorbet
       def parse_node(attach_to, docstring, include_params: true)
         existing_docstring = docstring.is_a?(YARD::Docstring)
         docstring, directives = Directives.extract_directives(docstring) unless existing_docstring
-        parse_sig(docstring, include_params: include_params)
+        parse_sig(docstring, include_params:)
         attach_to.docstring = docstring.to_raw
         Directives.add_directives(attach_to.docstring, directives) unless existing_docstring
       end
