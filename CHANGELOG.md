@@ -2,6 +2,8 @@
 
 ## main
 
+* 0.9.0 (2024-06-30)
+
 ### Bug Fixes
 
 * [Fix](https://github.com/dduugg/yard-sorbet/commit/f44388b) syntax of order-dependent lists

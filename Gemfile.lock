@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yard-sorbet (0.8.1)
+    yard-sorbet (0.9.0)
       sorbet-runtime
       yard
 
