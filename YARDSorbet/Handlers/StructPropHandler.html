@@ -754,7 +754,7 @@ in creating a constructor</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_register_attrs'>register_attrs</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_write'>write</span> <span class='op'>=</span> <span class='id identifier rubyid_immutable?'>immutable?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='id identifier rubyid_object'>object</span>
   <span class='comment'># Create the virtual attribute in our current scope
-</span>  <span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_attributes'>attributes</span><span class='lbracket'>[</span><span class='id identifier rubyid_scope'>scope</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>SymbolHash</span><span class='lbracket'>[</span><span class='label'>read:</span> <span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='label'>write:</span> <span class='id identifier rubyid_write'>write</span><span class='rbracket'>]</span>
+</span>  <span class='id identifier rubyid_namespace'>namespace</span><span class='period'>.</span><span class='id identifier rubyid_attributes'>attributes</span><span class='lbracket'>[</span><span class='id identifier rubyid_scope'>scope</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_name'>name</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='const'>SymbolHash</span><span class='lbracket'>[</span><span class='label'>read:</span> <span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='label'>write:</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -823,9 +823,9 @@ in creating a constructor</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jun  2 00:20:26 2024 by
+  Generated on Sun Jun 30 16:13:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.2).
+  0.9.36 (ruby-3.3.3).
 </div>
 
     </div>
