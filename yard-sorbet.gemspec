@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['lib/**/*', 'LICENSE']
 
-  spec.add_runtime_dependency 'sorbet-runtime'
-  spec.add_runtime_dependency 'yard'
+  spec.add_dependency 'sorbet-runtime'
+  spec.add_dependency 'yard'
 end
