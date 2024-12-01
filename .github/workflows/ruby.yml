@@ -22,6 +22,6 @@ jobs:
       - name: Run tests
         run: bundle exec rake
       - name: Upload to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           file: coverage/coverage.xml
