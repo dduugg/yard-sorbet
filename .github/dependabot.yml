@@ -5,6 +5,13 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    groups:
+      sorbet:
+        patterns:
+          - "*-sorbet"
+          - "sorbet-*"
+          - "*sorbet*"
+          - "tapioca"
     labels:
       - "automerge"
       - "dependencies"
