@@ -6,10 +6,11 @@ updates:
     schedule:
       interval: "monthly"
     groups:
+      rubocop:
+        patterns:
+          - "rubocop*"
       sorbet:
         patterns:
-          - "*-sorbet"
-          - "sorbet-*"
           - "*sorbet*"
           - "tapioca"
     labels:
