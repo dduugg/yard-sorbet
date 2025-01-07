@@ -22,7 +22,7 @@ repos:
       - id: sort-simple-yaml
       - id: trailing-whitespace
   - repo: https://github.com/crate-ci/typos
-    rev: dictgen-v0.3.1
+    rev: v1.29.4
     hooks:
       - id: typos
         args: [--exclude=sorbet/rbi/gems, --force-exclude]
