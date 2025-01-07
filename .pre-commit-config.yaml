@@ -3,7 +3,7 @@ ci:
   autoupdate_schedule: quarterly
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
         args: [--maxkb=2000]
@@ -22,7 +22,7 @@ repos:
       - id: sort-simple-yaml
       - id: trailing-whitespace
   - repo: https://github.com/crate-ci/typos
-    rev: v1.24.6
+    rev: v1.29.4
     hooks:
       - id: typos
         args: [--exclude=sorbet/rbi/gems, --force-exclude]

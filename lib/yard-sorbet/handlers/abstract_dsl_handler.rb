@@ -3,7 +3,7 @@
 
 module YARDSorbet
   module Handlers
-    # Applies an `@abstract` tag to `abstract!`/`interface!` modules (if not alerady present).
+    # Applies an `@abstract` tag to `abstract!`/`interface!` modules (if not already present).
     class AbstractDSLHandler < YARD::Handlers::Ruby::Base
       extend T::Sig
 
