@@ -70,5 +70,10 @@ RSpec.describe YARDSorbet::Handlers::StructClassHandler do
       tag = YARDSorbet::TagUtils.find_tag(node.docstring, 'param', 'Foo')
       expect(tag&.types).to eq(['String'])
     end
+
+    it 'moves optional initializer arguments to end and leaves others in place' do
+      node = YARD::Registry.at('PersonStruct#initialize')
+      expect(node.parameters.map(&:first)).to eq(%w[name: age: writable: mystery: optional: not_mutable: ])
+    end
   end
 end

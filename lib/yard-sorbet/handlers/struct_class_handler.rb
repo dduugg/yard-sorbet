@@ -34,9 +34,18 @@ module YARDSorbet
         # and source
         docstring, directives = Directives.extract_directives(object.docstring)
         object.tags.each { docstring.add_tag(_1) }
+        # ensure anything with a default is after everything which is
+        # required, per Ruby method signature requirements.
+        sorted_props = props.sort_by do |prop|
+          if !prop.default.nil? || prop.types.include?('nil')
+            1
+          else
+            0
+          end
+        end
         props.each { TagUtils.upsert_tag(docstring, 'param', _1.types, _1.prop_name, _1.doc) }
         TagUtils.upsert_tag(docstring, 'return', TagUtils::VOID_RETURN_TYPE)
-        decorate_t_struct_init(object, props, docstring, directives)
+        decorate_t_struct_init(object, sorted_props, docstring, directives)
       end
 
       sig do
