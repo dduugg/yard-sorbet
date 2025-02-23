@@ -6,7 +6,6 @@ gem:
     - erubi
     - json
     - language_server-protocol
-    - lint_roller
     - netrc
     - parallel
     - prettier_print
@@ -19,7 +18,6 @@ gem:
     - rubocop-packaging
     - rubocop-performance
     - rubocop-rake
-    - rubocop-rspec
     - rubocop-sorbet
     - ruby-progressbar
     - simplecov-html
