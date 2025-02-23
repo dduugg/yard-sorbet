@@ -38,4 +38,9 @@ namespace :typecheck do |typecheck_namespace|
   end
 end
 
+desc 'Generate RBI files with tapioca'
+task :rbi do
+  sh 'bin/tapioca gems'
+end
+
 task default: %i[typecheck:all rubocop spec]

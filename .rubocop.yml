@@ -1,9 +1,11 @@
 ---
-require:
-  - rubocop-packaging
+plugins:
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
+
+require:
+  - rubocop-packaging
   - rubocop-sorbet
 
 AllCops:

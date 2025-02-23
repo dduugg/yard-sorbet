@@ -659,7 +659,7 @@ end
 #
 # @api public
 #
-# source://parser//lib/parser/base.rb#29
+# source://parser//lib/parser/base.rb#16
 class Parser::Base < ::Racc::Parser
   # @api public
   # @param builder [Parser::Builders::Default] The AST builder to use.
@@ -1555,57 +1555,63 @@ class Parser::ClobberingError < ::RuntimeError; end
 class Parser::Context
   # @return [Context] a new instance of Context
   #
-  # source://parser//lib/parser/context.rb#29
+  # source://parser//lib/parser/context.rb#30
   def initialize; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
+  def cant_return; end
+
+  # source://parser//lib/parser/context.rb#45
+  def cant_return=(_arg0); end
+
+  # source://parser//lib/parser/context.rb#45
   def in_argdef; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_argdef=(_arg0); end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_block; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_block=(_arg0); end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_class; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_class=(_arg0); end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_def; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_def=(_arg0); end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_defined; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_defined=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://parser//lib/parser/context.rb#45
+  # source://parser//lib/parser/context.rb#47
   def in_dynamic_block?; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_kwarg; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_kwarg=(_arg0); end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_lambda; end
 
-  # source://parser//lib/parser/context.rb#43
+  # source://parser//lib/parser/context.rb#45
   def in_lambda=(_arg0); end
 
-  # source://parser//lib/parser/context.rb#33
+  # source://parser//lib/parser/context.rb#34
   def reset; end
 end
 
@@ -3233,7 +3239,7 @@ Parser::Meta::NODE_TYPES = T.let(T.unsafe(nil), Set)
 # @api public
 # @deprecated Use {Parser::TreeRewriter}
 #
-# source://parser//lib/parser/rewriter.rb#22
+# source://parser//lib/parser/rewriter.rb#14
 class Parser::Rewriter < ::Parser::AST::Processor
   extend ::Parser::Deprecation
 
@@ -5404,7 +5410,7 @@ end
 #
 # @api public
 #
-# source://parser//lib/parser/tree_rewriter.rb#61
+# source://parser//lib/parser/tree_rewriter.rb#51
 class Parser::TreeRewriter < ::Parser::AST::Processor
   # Returns `true` if the specified node is an assignment node, returns false
   # otherwise.
