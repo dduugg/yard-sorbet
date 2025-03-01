@@ -211,6 +211,12 @@ class CollectionSigs
   sig {returns([String, Integer])}
   def fixed_array; ['', 0]; end
 
+  sig {params(arr: [Foo, Bar]).returns([])}
+  def fixed_empty_array(arr); []; end
+
+  sig {returns(T.any(T::Array[String], []))}
+  def maybe_empty_array; []; end
+
   # @!visibility protected
   sig {returns({foo: T.nilable(String)})}
   def fixed_hash; {foo: nil}; end
