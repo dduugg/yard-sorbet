@@ -233,6 +233,16 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(blk_tag.types).to eq(['T.proc.params(arg0: String).returns(T::Array[Hash])'])
     end
 
+    it 'parses inline docstrings for params' do
+      inline = YARD::Registry.at('SigParams#inline_param_doc_method')
+      expect(inline.docstring.to_raw.rstrip).to eq(<<~TXT.rstrip)
+        @param [String] first
+          Some documentation for the first param
+        @param [Rational] second
+          Second param docstring
+      TXT
+    end
+
     it 'parses return type of method with block param' do
       expect(YARD::Registry.at('SigParams#blk_method').tag(:return).types).to eq(['nil'])
     end
