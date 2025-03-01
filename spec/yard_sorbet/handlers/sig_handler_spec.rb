@@ -294,6 +294,16 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
       expect(node.tag(:return).types).to eq(['Array<(String, Integer)>'])
     end
 
+    it 'fixed empty Array return' do
+      node = YARD::Registry.at('CollectionSigs#fixed_empty_array')
+      expect(node.tag(:return).types).to eq(['Array<()>'])
+    end
+
+    it 'maybe empty Array' do
+      node = YARD::Registry.at('CollectionSigs#maybe_empty_array')
+      expect(node.tag(:return).types).to eq(%w[Array<String> Array<()>])
+    end
+
     describe 'of fixed Hash' do
       it 'has Hash return type' do
         expect(YARD::Registry.at('CollectionSigs#fixed_hash').tag(:return).types).to eq(['Hash'])
