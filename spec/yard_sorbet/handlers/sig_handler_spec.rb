@@ -235,12 +235,10 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'parses inline docstrings for params' do
       inline = YARD::Registry.at('SigParams#inline_param_doc_method')
-      expect(inline.docstring.to_raw.rstrip).to eq(<<~TXT.rstrip)
-        @param [String] first
-          Some documentation for the first param
-        @param [Rational] second
-          Second param docstring
-      TXT
+      expect(inline.docstring.all).to eq(
+        "@param [String] first\n  Some documentation for the first param\n" \
+        "@param [Rational] second\n  Second param docstring"
+      )
     end
 
     it 'parses return type of method with block param' do
