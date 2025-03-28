@@ -301,7 +301,7 @@ RSpec.describe YARDSorbet::Handlers::SigHandler do
 
     it 'maybe empty Array' do
       node = YARD::Registry.at('CollectionSigs#maybe_empty_array')
-      expect(node.tag(:return).types).to eq(%w[Array<String> Array<()>])
+      expect(node.tag(:return).types).to eq(%w[Array<(String)> Array<()>])
     end
 
     describe 'of fixed Hash' do

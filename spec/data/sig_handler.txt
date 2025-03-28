@@ -214,7 +214,7 @@ class CollectionSigs
   sig {params(arr: [Foo, Bar]).returns([])}
   def fixed_empty_array(arr); []; end
 
-  sig {returns(T.any(T::Array[String], []))}
+  sig {returns(T.any([String], []))}
   def maybe_empty_array; []; end
 
   # @!visibility protected
