@@ -78,9 +78,16 @@ module YARDSorbet
       sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
       def convert_array(node)
         # https://www.rubydoc.info/gems/yard/file/docs/Tags.md#order-dependent-lists
-        member_types = node.first.children.map { convert_node(_1) }
-        sequence = member_types.map { _1.size == 1 ? _1[0] : _1.to_s.tr('"', '') }.join(', ')
-        ["Array<(#{sequence})>"]
+
+        if node.first.nil?
+          # Empty tuples
+          ['Array<()>']
+        else
+          # Non-empty tuples
+          member_types = node.first.children.map { convert_node(_1) }
+          sequence = member_types.map { _1.size == 1 ? _1[0] : _1.to_s.tr('"', '') }.join(', ')
+          ["Array<(#{sequence})>"]
+        end
       end
 
       sig { params(node: YARD::Parser::Ruby::AstNode).returns([String]) }
