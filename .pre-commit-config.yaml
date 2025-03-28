@@ -22,12 +22,12 @@ repos:
       - id: sort-simple-yaml
       - id: trailing-whitespace
   - repo: https://github.com/crate-ci/typos
-    rev: v1.29.4
+    rev: v1.30.3
     hooks:
       - id: typos
         args: [--exclude=sorbet/rbi/gems, --force-exclude]
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.37.0
     hooks:
       - id: yamllint
         args: [--strict]

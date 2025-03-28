@@ -1,11 +1,9 @@
 ---
 plugins:
+  - rubocop-packaging
   - rubocop-performance
   - rubocop-rake
   - rubocop-rspec
-
-require:
-  - rubocop-packaging
   - rubocop-sorbet
 
 AllCops:

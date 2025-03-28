@@ -9,7 +9,6 @@ gem:
     - netrc
     - parallel
     - prettier_print
-    - prism
     - racc
     - rainbow
     - rbi
