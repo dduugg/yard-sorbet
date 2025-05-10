@@ -933,12 +933,12 @@ class RSpec::Support::ObjectFormatter
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#70
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#72
   def prepare_array(array); end
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#94
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#96
   def prepare_element(element); end
 
   # Prepares the provided object to be formatted by wrapping it as needed
@@ -958,23 +958,23 @@ class RSpec::Support::ObjectFormatter
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#76
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#78
   def prepare_hash(input_hash); end
 
   # @api private
   # @return [Boolean]
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#113
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#115
   def recursive_structure?(object); end
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#86
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#88
   def sort_hash_keys(input_hash); end
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#106
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#108
   def with_entering_structure(structure); end
 
   private
@@ -986,7 +986,7 @@ class RSpec::Support::ObjectFormatter
   #
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#268
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#270
   def truncate_string(str, start_index, end_index); end
 
   class << self
@@ -1012,7 +1012,7 @@ end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#127
+# source://rspec-support//lib/rspec/support/object_formatter.rb#129
 class RSpec::Support::ObjectFormatter::BaseInspector < ::Struct
   # Returns the value of attribute formatter
   #
@@ -1028,7 +1028,7 @@ class RSpec::Support::ObjectFormatter::BaseInspector < ::Struct
   # @api private
   # @raise [NotImplementedError]
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#132
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#134
   def inspect; end
 
   # Returns the value of attribute object
@@ -1044,7 +1044,7 @@ class RSpec::Support::ObjectFormatter::BaseInspector < ::Struct
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#136
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#138
   def pretty_print(pp); end
 
   class << self
@@ -1054,7 +1054,7 @@ class RSpec::Support::ObjectFormatter::BaseInspector < ::Struct
     # @raise [NotImplementedError]
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#128
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#130
     def can_inspect?(_object); end
 
     def inspect; end
@@ -1066,80 +1066,80 @@ end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#177
+# source://rspec-support//lib/rspec/support/object_formatter.rb#179
 class RSpec::Support::ObjectFormatter::BigDecimalInspector < ::RSpec::Support::ObjectFormatter::BaseInspector
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#182
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#184
   def inspect; end
 
   class << self
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#178
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#180
     def can_inspect?(object); end
   end
 end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#159
+# source://rspec-support//lib/rspec/support/object_formatter.rb#161
 class RSpec::Support::ObjectFormatter::DateTimeInspector < ::RSpec::Support::ObjectFormatter::BaseInspector
   # ActiveSupport sometimes overrides inspect. If `ActiveSupport` is
   # defined use a custom format string that includes more time precision.
   #
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#168
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#170
   def inspect; end
 
   class << self
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#162
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#164
     def can_inspect?(object); end
   end
 end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#160
+# source://rspec-support//lib/rspec/support/object_formatter.rb#162
 RSpec::Support::ObjectFormatter::DateTimeInspector::FORMAT = T.let(T.unsafe(nil), String)
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#224
+# source://rspec-support//lib/rspec/support/object_formatter.rb#226
 class RSpec::Support::ObjectFormatter::DelegatorInspector < ::RSpec::Support::ObjectFormatter::BaseInspector
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#229
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#231
   def inspect; end
 
   class << self
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#225
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#227
     def can_inspect?(object); end
   end
 end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#187
+# source://rspec-support//lib/rspec/support/object_formatter.rb#189
 class RSpec::Support::ObjectFormatter::DescribableMatcherInspector < ::RSpec::Support::ObjectFormatter::BaseInspector
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#192
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#194
   def inspect; end
 
   class << self
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#188
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#190
     def can_inspect?(object); end
   end
 end
@@ -1151,21 +1151,21 @@ RSpec::Support::ObjectFormatter::ELLIPSIS = T.let(T.unsafe(nil), String)
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#247
+# source://rspec-support//lib/rspec/support/object_formatter.rb#249
 RSpec::Support::ObjectFormatter::INSPECTOR_CLASSES = T.let(T.unsafe(nil), Array)
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#117
+# source://rspec-support//lib/rspec/support/object_formatter.rb#119
 class RSpec::Support::ObjectFormatter::InspectableItem < ::Struct
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#118
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#120
   def inspect; end
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#122
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#124
   def pretty_print(pp); end
 
   # Returns the value of attribute text
@@ -1190,80 +1190,80 @@ end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#234
+# source://rspec-support//lib/rspec/support/object_formatter.rb#236
 class RSpec::Support::ObjectFormatter::InspectableObjectInspector < ::RSpec::Support::ObjectFormatter::BaseInspector
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#242
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#244
   def inspect; end
 
   class << self
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#235
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#237
     def can_inspect?(object); end
   end
 end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#141
+# source://rspec-support//lib/rspec/support/object_formatter.rb#143
 class RSpec::Support::ObjectFormatter::TimeInspector < ::RSpec::Support::ObjectFormatter::BaseInspector
   # for 1.8.7
   #
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#149
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#151
   def inspect; end
 
   class << self
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#144
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#146
     def can_inspect?(object); end
   end
 end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#142
+# source://rspec-support//lib/rspec/support/object_formatter.rb#144
 RSpec::Support::ObjectFormatter::TimeInspector::FORMAT = T.let(T.unsafe(nil), String)
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#197
+# source://rspec-support//lib/rspec/support/object_formatter.rb#199
 class RSpec::Support::ObjectFormatter::UninspectableObjectInspector < ::RSpec::Support::ObjectFormatter::BaseInspector
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#207
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#209
   def inspect; end
 
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#211
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#213
   def klass; end
 
   # http://stackoverflow.com/a/2818916
   #
   # @api private
   #
-  # source://rspec-support//lib/rspec/support/object_formatter.rb#216
+  # source://rspec-support//lib/rspec/support/object_formatter.rb#218
   def native_object_id; end
 
   class << self
     # @api private
     # @return [Boolean]
     #
-    # source://rspec-support//lib/rspec/support/object_formatter.rb#200
+    # source://rspec-support//lib/rspec/support/object_formatter.rb#202
     def can_inspect?(object); end
   end
 end
 
 # @api private
 #
-# source://rspec-support//lib/rspec/support/object_formatter.rb#198
+# source://rspec-support//lib/rspec/support/object_formatter.rb#200
 RSpec::Support::ObjectFormatter::UninspectableObjectInspector::OBJECT_ID_FORMAT = T.let(T.unsafe(nil), String)
 
 # Provides recursive constant lookup methods useful for
