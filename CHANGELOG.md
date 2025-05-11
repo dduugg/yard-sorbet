@@ -2,6 +2,9 @@
 
 ## main
 
+### Changes
+* Increase minimum required ruby version to `3.2`
+
 ### Bug Fixes
 * [#351](https://github.com/dduugg/yard-sorbet/pull/351) Fix handling of empty tuples (fixed arrays)
 
