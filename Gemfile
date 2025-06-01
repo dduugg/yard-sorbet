@@ -7,7 +7,7 @@ gemspec
 
 gem 'rake', '~> 13.3.0'
 gem 'redcarpet', '~> 3.6.0'
-gem 'rspec', '~> 3.13.0'
+gem 'rspec', '~> 3.13.1'
 gem 'rubocop', '~> 1.75.8'
 gem 'rubocop-packaging', '~> 0.6.0'
 gem 'rubocop-performance', '~> 1.25.0'
