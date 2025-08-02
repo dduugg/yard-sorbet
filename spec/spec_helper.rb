@@ -6,6 +6,8 @@ require 'sorbet-runtime'
 T::Configuration.enable_checking_for_sigs_marked_checked_tests
 
 if ENV['CI']
+  require 'simplecov'
+  require 'simplecov-cobertura'
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
   SimpleCov.start
 end
