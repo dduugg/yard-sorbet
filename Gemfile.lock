@@ -10,9 +10,6 @@ GEM
   specs:
     ast (2.4.3)
     benchmark (0.4.1)
-    codecov (0.2.12)
-      json
-      simplecov
     diff-lcs (1.6.2)
     docile (1.4.1)
     erubi (1.13.1)
@@ -87,16 +84,19 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
+    simplecov-cobertura (3.0.0)
+      rexml
+      simplecov (~> 0.19)
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
-    sorbet (0.5.12368)
-      sorbet-static (= 0.5.12368)
-    sorbet-runtime (0.5.12368)
-    sorbet-static (0.5.12368-universal-darwin)
-    sorbet-static (0.5.12368-x86_64-linux)
-    sorbet-static-and-runtime (0.5.12368)
-      sorbet (= 0.5.12368)
-      sorbet-runtime (= 0.5.12368)
+    sorbet (0.5.12371)
+      sorbet-static (= 0.5.12371)
+    sorbet-runtime (0.5.12371)
+    sorbet-static (0.5.12371-universal-darwin)
+    sorbet-static (0.5.12371-x86_64-linux)
+    sorbet-static-and-runtime (0.5.12371)
+      sorbet (= 0.5.12371)
+      sorbet-runtime (= 0.5.12371)
     spoom (1.7.5)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -130,7 +130,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  codecov (~> 0.2.12)
   rake (~> 13.3.0)
   redcarpet (~> 3.6.0)
   rspec (~> 3.13.1)
@@ -140,7 +139,8 @@ DEPENDENCIES
   rubocop-rake (~> 0.7.1)
   rubocop-rspec (~> 3.6.0)
   rubocop-sorbet (~> 0.10.5)
-  simplecov (~> 0.22.0)
+  simplecov
+  simplecov-cobertura
   sorbet (~> 0.5.12368)
   tapioca (~> 0.17.7)
   yard-sorbet!

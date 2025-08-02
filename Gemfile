@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'codecov', '~> 0.2.12'
 gem 'rake', '~> 13.3.0'
 gem 'redcarpet', '~> 3.6.0'
 gem 'rspec', '~> 3.13.1'
@@ -15,6 +14,7 @@ gem 'rubocop-performance', '~> 1.25.0'
 gem 'rubocop-rake', '~> 0.7.1'
 gem 'rubocop-rspec', '~> 3.6.0'
 gem 'rubocop-sorbet', '~> 0.10.5'
-gem 'simplecov', '~> 0.22.0'
+gem 'simplecov'
+gem 'simplecov-cobertura'
 gem 'sorbet', '~> 0.5.12368'
 gem 'tapioca', '~> 0.17.7'
