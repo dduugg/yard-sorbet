@@ -5552,7 +5552,7 @@ class RSpec::Core::Formatters::ExceptionPresenter
 
   # :nocov:
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#286
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#287
   def encoded_description(description); end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#120
@@ -5563,7 +5563,7 @@ class RSpec::Core::Formatters::ExceptionPresenter
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#116
   def encoding_of(string); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#298
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#299
   def exception_backtrace; end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#150
@@ -5597,7 +5597,7 @@ class RSpec::Core::Formatters::ExceptionPresenter
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#262
   def find_failed_line; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#277
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#278
   def formatted_message_and_backtrace(colorizer); end
 
   # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#134
@@ -5619,49 +5619,49 @@ end
 #
 # @private
 #
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#307
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#308
 class RSpec::Core::Formatters::ExceptionPresenter::Factory
   # @return [Factory] a new instance of Factory
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#314
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#315
   def initialize(example); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#308
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#309
   def build; end
 
   private
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#369
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#370
   def multiple_exception_summarizer(exception, prior_detail_formatter, color); end
 
   # @return [Boolean]
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#365
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#366
   def multiple_exceptions_error?(exception); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#324
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#325
   def options; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#328
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#329
   def pending_options; end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#390
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#391
   def sub_failure_list_formatter(exception, message_color); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#349
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#350
   def with_multiple_error_options_as_needed(exception, options); end
 end
 
 # @private
 #
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#423
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#424
 class RSpec::Core::Formatters::ExceptionPresenter::Factory::CommonBacktraceTruncater
   # @return [CommonBacktraceTruncater] a new instance of CommonBacktraceTruncater
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#424
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#425
   def initialize(parent); end
 
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#428
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#429
   def with_truncated_backtrace(child); end
 end
 
@@ -5670,17 +5670,17 @@ end
 #
 # @private
 #
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#416
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#417
 module RSpec::Core::Formatters::ExceptionPresenter::Factory::EmptyBacktraceFormatter
   class << self
-    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#417
+    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#418
     def format_backtrace(*_arg0); end
   end
 end
 
 # @private
 #
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#448
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#449
 RSpec::Core::Formatters::ExceptionPresenter::PENDING_DETAIL_FORMATTER = T.let(T.unsafe(nil), Proc)
 
 # @private
@@ -8343,57 +8343,57 @@ end
 # individual spec has multiple exceptions, such as one in the `it` block
 # and one in an `after` block.
 #
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#458
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#459
 class RSpec::Core::MultipleExceptionError < ::StandardError
   include ::RSpec::Core::MultipleExceptionError::InterfaceTag
 
   # @param exceptions [Array<Exception>] The initial list of exceptions.
   # @return [MultipleExceptionError] a new instance of MultipleExceptionError
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#519
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#520
   def initialize(*exceptions); end
 
   # @return [nil] Provided only for interface compatibility with
   #   `RSpec::Expectations::MultipleExpectationsNotMetError`.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#516
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#517
   def aggregation_block_label; end
 
   # @return [Hash] Metadata used by RSpec for formatting purposes.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#512
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#513
   def aggregation_metadata; end
 
   # @return [Array<Exception>] The list of failures and other exceptions, combined.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#509
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#510
   def all_exceptions; end
 
   # return [String] A description of the failure/error counts.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#544
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#545
   def exception_count_description; end
 
   # @return [Array<Exception>] The list of failures.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#503
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#504
   def failures; end
 
   # @note RSpec does not actually use this -- instead it formats each exception
   #   individually.
   # @return [String] Combines all the exception messages into a single string.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#534
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#535
   def message; end
 
   # @return [Array<Exception>] The list of other errors.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#506
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#507
   def other_errors; end
 
   # @return [String] A summary of the failure, including the block label and a count of failures.
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#539
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#540
   def summary; end
 end
 
@@ -8404,14 +8404,14 @@ end
 #
 # @private
 #
-# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#464
+# source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#465
 module RSpec::Core::MultipleExceptionError::InterfaceTag
   # Appends the provided exception to the list.
   #
   # @param exception [Exception] Exception to append to the list.
   # @private
   #
-  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#468
+  # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#469
   def add(exception); end
 
   class << self
@@ -8421,7 +8421,7 @@ module RSpec::Core::MultipleExceptionError::InterfaceTag
     #
     # @private
     #
-    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#494
+    # source://rspec-core//lib/rspec/core/formatters/exception_presenter.rb#495
     def for(ex); end
   end
 end

@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'codecov', '~> 0.2.12'
 gem 'rake', '~> 13.3.0'
 gem 'redcarpet', '~> 3.6.0'
 gem 'rspec', '~> 3.13.1'

@@ -8,6 +8,9 @@ T::Configuration.enable_checking_for_sigs_marked_checked_tests
 if ENV['CI'] == 'true'
   require 'simplecov'
   SimpleCov.start
+
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
 require 'yard-sorbet'
