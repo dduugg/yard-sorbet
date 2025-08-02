@@ -9,75 +9,7 @@
 # extension.
 #
 # source://rspec-mocks//lib/rspec/mocks/instance_method_stasher.rb#1
-module RSpec
-  class << self
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#70
-    def clear_examples; end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#85
-    def configuration; end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#49
-    def configuration=(_arg0); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#97
-    def configure; end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#194
-    def const_missing(name); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/dsl.rb#42
-    def context(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#122
-    def current_example; end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#128
-    def current_example=(example); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#154
-    def current_scope; end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#134
-    def current_scope=(scope); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/dsl.rb#42
-    def describe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/dsl.rb#42
-    def example_group(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/dsl.rb#42
-    def fcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/dsl.rb#42
-    def fdescribe(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#58
-    def reset; end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/shared_example_group.rb#110
-    def shared_context(name, *args, &block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples(name, *args, &block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/shared_example_group.rb#110
-    def shared_examples_for(name, *args, &block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#160
-    def world; end
-
-    # source://rspec-core/3.13.3/lib/rspec/core.rb#49
-    def world=(_arg0); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/dsl.rb#42
-    def xcontext(*args, &example_group_block); end
-
-    # source://rspec-core/3.13.3/lib/rspec/core/dsl.rb#42
-    def xdescribe(*args, &example_group_block); end
-  end
-end
+module RSpec; end
 
 # Contains top-level utility methods. While this contains a few
 # public methods, these are not generally meant to be called from
@@ -183,14 +115,14 @@ end
 #
 # @private
 #
-# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#765
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#772
 class RSpec::Mocks::AndInvokeImplementation
   # @return [AndInvokeImplementation] a new instance of AndInvokeImplementation
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#766
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#773
   def initialize(procs_to_invoke); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#770
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#777
   def call(*args, **_arg1, &block); end
 end
 
@@ -198,14 +130,14 @@ end
 #
 # @private
 #
-# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#749
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#756
 class RSpec::Mocks::AndReturnImplementation
   # @return [AndReturnImplementation] a new instance of AndReturnImplementation
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#750
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#757
   def initialize(values_to_return); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#754
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#761
   def call(*_args_to_ignore, &_block); end
 end
 
@@ -213,54 +145,54 @@ end
 #
 # @private
 #
-# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#808
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#815
 class RSpec::Mocks::AndWrapOriginalImplementation
   # @return [AndWrapOriginalImplementation] a new instance of AndWrapOriginalImplementation
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#809
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#816
   def initialize(method, block); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#836
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#843
   def call(*args, **_arg1, &block); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#816
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#823
   def initial_action=(_value); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#832
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#839
   def inner_action; end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#820
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#827
   def inner_action=(_value); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#828
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#835
   def present?; end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#824
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#831
   def terminal_action=(_value); end
 
   private
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#843
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#850
   def cannot_modify_further_error; end
 end
 
-# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#814
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#821
 class RSpec::Mocks::AndWrapOriginalImplementation::CannotModifyFurtherError < ::StandardError; end
 
 # Handles the implementation of an `and_yield` declaration.
 #
 # @private
 #
-# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#722
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#729
 class RSpec::Mocks::AndYieldImplementation
   # @return [AndYieldImplementation] a new instance of AndYieldImplementation
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#723
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#730
   def initialize(args_to_yield, eval_context, error_generator); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#729
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#736
   def call(*_args_to_ignore, &block); end
 end
 
@@ -1041,7 +973,7 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(kind_of(Thing))
   #
-  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#121
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#125
   def a_kind_of(klass); end
 
   # Matches if `arg.instance_of?(klass)`
@@ -1049,7 +981,7 @@ module RSpec::Mocks::ArgumentMatchers
   # @example
   #   expect(object).to receive(:message).with(instance_of(Thing))
   #
-  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#111
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#115
   def an_instance_of(klass); end
 
   # Acts like an arg splat, matching any number of args at any point in an arg list.
@@ -1137,7 +1069,7 @@ module RSpec::Mocks::ArgumentMatchers
   #   expect(object).to receive(:message).with(hash_excluding(:key))
   #   expect(object).to receive(:message).with(hash_excluding(:key, :key2 => :val2))
   #
-  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#80
+  # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#105
   def hash_not_including(*args); end
 
   # Matches if `arg.instance_of?(klass)`
@@ -1375,6 +1307,7 @@ class RSpec::Mocks::ArgumentMatchers::SingletonMatcher
 
     private
 
+    # source://rspec-mocks//lib/rspec/mocks/argument_matchers.rb#144
     def new(*_arg0); end
   end
 end
@@ -1636,7 +1569,7 @@ class RSpec::Mocks::Configuration
   #   ref.some_method!
   #   end
   #
-  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#128
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#131
   def when_declaring_verifying_double(&block); end
 
   # Sets whether or not RSpec will yield the receiving instance of a
@@ -1688,7 +1621,7 @@ class RSpec::Mocks::Constant
 
   # The default `to_s` isn't very useful, so a custom version is provided.
   #
-  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#62
+  # source://rspec-mocks//lib/rspec/mocks/mutate_const.rb#65
   def inspect; end
 
   # @return [Boolean] Whether or not rspec-mocks has mutated
@@ -2227,7 +2160,7 @@ module RSpec::Mocks::ExampleMethods
   #   allow(dbl).to receive(:foo).with(5).and_return(:return_value)
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#128
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#84
   def allow(target); end
 
   # Used to wrap a class in preparation for stubbing a method
@@ -2237,7 +2170,7 @@ module RSpec::Mocks::ExampleMethods
   #   allow_any_instance_of(MyClass).to receive(:foo)
   # @note This is only available when you have enabled the `expect` syntax.
   #
-  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#136
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#84
   def allow_any_instance_of(klass); end
 
   # Disables warning messages about expectations being set on nil.
@@ -2308,7 +2241,7 @@ module RSpec::Mocks::ExampleMethods
   #   expect_any_instance_of(MyClass).to receive(:foo)
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#132
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#84
   def expect_any_instance_of(klass); end
 
   # Verifies that the given object received the expected message during the
@@ -2417,7 +2350,7 @@ module RSpec::Mocks::ExampleMethods
   #   expect(obj).to receive(:hello).with("world").exactly(3).times
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#114
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#84
   def receive(method_name, &block); end
 
   # stubs/mocks a chain of messages on an object or test double.
@@ -2447,7 +2380,7 @@ module RSpec::Mocks::ExampleMethods
   # @overload receive_message_chain
   # @overload receive_message_chain
   #
-  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#124
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#84
   def receive_message_chain(*messages, &block); end
 
   # Shorthand syntax used to setup message(s), and their return value(s),
@@ -2461,7 +2394,7 @@ module RSpec::Mocks::ExampleMethods
   #   allow(obj).to receive_messages(:speak => "Hello", :meow => "Meow")
   # @note If you disable the `:expect` syntax this method will be undefined.
   #
-  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#118
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#84
   def receive_messages(message_return_value_hash, &_block); end
 
   # Constructs a test double that is optimized for use with
@@ -2551,7 +2484,7 @@ end
 #
 # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#430
 module RSpec::Mocks::ExampleMethods::ExpectHost
-  # source://rspec-mocks//lib/rspec/mocks/syntax.rb#142
+  # source://rspec-mocks//lib/rspec/mocks/configuration.rb#84
   def expect(target); end
 end
 
@@ -2615,55 +2548,55 @@ RSpec::Mocks::IGNORED_BACKTRACE_LINE = T.let(T.unsafe(nil), String)
 #
 # @private
 #
-# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#785
+# source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#792
 class RSpec::Mocks::Implementation
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#788
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#795
   def call(*args, **_arg1, &block); end
 
   # Returns the value of attribute initial_action.
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#786
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#793
   def initial_action; end
 
   # Sets the attribute initial_action
   #
   # @param value the value to set the attribute initial_action to.
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#786
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#793
   def initial_action=(_arg0); end
 
   # Returns the value of attribute inner_action.
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#786
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#793
   def inner_action; end
 
   # Sets the attribute inner_action
   #
   # @param value the value to set the attribute inner_action to.
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#786
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#793
   def inner_action=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#795
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#802
   def present?; end
 
   # Returns the value of attribute terminal_action.
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#786
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#793
   def terminal_action; end
 
   # Sets the attribute terminal_action
   #
   # @param value the value to set the attribute terminal_action to.
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#786
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#793
   def terminal_action=(_arg0); end
 
   private
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#801
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#808
   def actions; end
 end
 
@@ -2684,7 +2617,7 @@ class RSpec::Mocks::InstanceMethodReference < ::RSpec::Mocks::MethodReference
   #
   # @return [Boolean]
   #
-  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#116
+  # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#125
   def method_defined?(mod); end
 
   # @return [Boolean]
@@ -2982,7 +2915,7 @@ class RSpec::Mocks::Matchers::Receive
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#20
   def description; end
 
-  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#30
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#39
   def does_not_match?(subject, &block); end
 
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#62
@@ -2994,7 +2927,7 @@ class RSpec::Mocks::Matchers::Receive
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#16
   def matcher_name; end
 
-  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#24
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#28
   def matches?(subject, &block); end
 
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive.rb#62
@@ -3117,13 +3050,13 @@ class RSpec::Mocks::Matchers::ReceiveMessageChain
 
   # @raise [NegationUnsupportedError]
   #
-  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#53
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#60
   def does_not_match?(*_args); end
 
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#23
   def matcher_name; end
 
-  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#48
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#59
   def matches?(subject, &block); end
 
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive_message_chain.rb#31
@@ -3171,13 +3104,13 @@ class RSpec::Mocks::Matchers::ReceiveMessages
 
   # @raise [NegationUnsupportedError]
   #
-  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#29
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#34
   def does_not_match?(_subject); end
 
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#13
   def matcher_name; end
 
-  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#21
+  # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#27
   def matches?(subject); end
 
   # source://rspec-mocks//lib/rspec/mocks/matchers/receive_messages.rb#36
@@ -3422,7 +3355,7 @@ class RSpec::Mocks::MessageExpectation
 
   # @return [String] a nice representation of the message expectation
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#396
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#401
   def inspect; end
 
   # Expect a message not to be received at all.
@@ -3471,7 +3404,7 @@ class RSpec::Mocks::MessageExpectation
   #   expect(dealer).to receive(:deal_card).at_most(10).times
   # @return [MessageExpectation] self, to support further chaining.
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#282
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#286
   def time(&block); end
 
   # Syntactic sugar for `exactly`, `at_least` and `at_most`
@@ -3727,16 +3660,16 @@ module RSpec::Mocks::MessageExpectation::ImplementationDetails
 
   # @return [Boolean]
   #
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#659
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#666
   def has_been_invoked?; end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#682
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#689
   def initial_implementation_action=(action); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#686
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#693
   def inner_implementation_action=(action); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#626
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#633
   def invoke_incrementing_actual_calls_by(increment, allowed_to_fail, parent_stub, *args, **_arg4, &block); end
 
   # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#618
@@ -3745,19 +3678,19 @@ module RSpec::Mocks::MessageExpectation::ImplementationDetails
   # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#622
   def invoking_internals=(value); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#663
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#670
   def raise_already_invoked_error_if_necessary(calling_customization); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#669
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#676
   def set_expected_received_count(relativity, n); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#692
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#699
   def terminal_implementation_action=(action); end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#696
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#703
   def warn_about_stub_override; end
 
-  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#703
+  # source://rspec-mocks//lib/rspec/mocks/message_expectation.rb#710
   def wrap_original(method_name, &block); end
 end
 
@@ -3905,7 +3838,7 @@ class RSpec::Mocks::MethodDouble
   # source://rspec-mocks//lib/rspec/mocks/method_double.rb#133
   def restore_original_visibility; end
 
-  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#24
+  # source://rspec-mocks//lib/rspec/mocks/method_double.rb#32
   def save_original_implementation_callable!; end
 
   # @private
@@ -4020,7 +3953,7 @@ class RSpec::Mocks::MethodReference
     # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#67
     def instance_method_visibility_for(klass, method_name); end
 
-    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#67
+    # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#78
     def method_defined_at_any_visibility?(klass, method_name); end
 
     # source://rspec-mocks//lib/rspec/mocks/method_reference.rb#81
@@ -4069,7 +4002,7 @@ class RSpec::Mocks::NamedObjectReference
 
   # @return [String] the constant name to replace with a double.
   #
-  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#121
+  # source://rspec-mocks//lib/rspec/mocks/object_reference.rb#124
   def description; end
 
   # @return [Object, nil] the target of the verifying double (the named object), or
@@ -4573,41 +4506,62 @@ class RSpec::Mocks::Proxy::SpecificMessage < ::Struct
   # Returns the value of attribute args
   #
   # @return [Object] the current value of args
+  #
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
   def args; end
 
   # Sets the attribute args
   #
   # @param value [Object] the value to set the attribute args to.
   # @return [Object] the newly set value
+  #
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
   def args=(_); end
 
   # Returns the value of attribute message
   #
   # @return [Object] the current value of message
+  #
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
   def message; end
 
   # Sets the attribute message
   #
   # @param value [Object] the value to set the attribute message to.
   # @return [Object] the newly set value
+  #
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
   def message=(_); end
 
   # Returns the value of attribute object
   #
   # @return [Object] the current value of object
+  #
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
   def object; end
 
   # Sets the attribute object
   #
   # @param value [Object] the value to set the attribute object to.
   # @return [Object] the newly set value
+  #
+  # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
   def object=(_); end
 
   class << self
+    # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
     def [](*_arg0); end
+
+    # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
     def inspect; end
+
+    # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
     def keyword_init?; end
+
+    # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
     def members; end
+
+    # source://rspec-mocks//lib/rspec/mocks/proxy.rb#8
     def new(*_arg0); end
   end
 end
@@ -4779,7 +4733,7 @@ class RSpec::Mocks::Space
   # source://rspec-mocks//lib/rspec/mocks/space.rb#89
   def constant_mutator_for(name); end
 
-  # source://rspec-mocks//lib/rspec/mocks/space.rb#111
+  # source://rspec-mocks//lib/rspec/mocks/space.rb#125
   def ensure_registered(object); end
 
   # source://rspec-mocks//lib/rspec/mocks/space.rb#69
