@@ -43,7 +43,7 @@ module YARDSorbet
       end
     end
 
-    # Gets the node that a sorbet `sig` can be attached do, bypassing visisbility modifiers and the like
+    # Gets the node that a sorbet `sig` can be attached do, bypassing visibility modifiers and the like
     sig { params(node: YARD::Parser::Ruby::AstNode).returns(SigableNode) }
     def self.get_method_node(node) = sigable_node?(node) ? node : node.jump(:def, :defs)
 
