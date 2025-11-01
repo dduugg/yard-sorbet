@@ -1,4 +1,9 @@
 ---
+inherit_mode:
+  merge:
+    - Exclude
+    - Include
+
 plugins:
   - rubocop-packaging
   - rubocop-performance
@@ -7,6 +12,8 @@ plugins:
   - rubocop-sorbet
 
 AllCops:
+  Include:
+    - "sorbet/rbi/shims/**/*.rbi"
   NewCops: enable
   TargetRubyVersion: 3.2
 

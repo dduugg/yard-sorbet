@@ -24,11 +24,11 @@ module RSpec::Mocks
     # @example Defines the implementation of `foo` on `bar`, using the passed block
     #   x = 0
     #   RSpec::Mocks.allow_message(bar, :foo) { x += 1 }
-    # @param subject the subject to which the message will be added
     # @param message a symbol, representing the message that will be
     #   added.
     # @param opts a hash of options, :expected_from is used to set the
     #   original call site
+    # @param subject the subject to which the message will be added
     # @yield an optional implementation for the allowance
     #
     # source://rspec-mocks//lib/rspec/mocks.rb#69
@@ -50,11 +50,11 @@ module RSpec::Mocks
     # @example Expect the message `foo` to receive `bar`, then call it
     #   RSpec::Mocks.expect_message(bar, :foo)
     #   bar.foo
-    # @param subject the subject on which the message will be expected
     # @param message a symbol, representing the message that will be
     #   expected.
     # @param opts a hash of options, :expected_from is used to set the
     #   original call site
+    # @param subject the subject on which the message will be expected
     # @yield an optional implementation for the expectation
     #
     # source://rspec-mocks//lib/rspec/mocks.rb#84
@@ -911,8 +911,8 @@ class RSpec::Mocks::ArgumentListMatcher
   # @api public
   # @param expected_args [Array] a list of expected literals and/or argument matchers
   # @return [ArgumentListMatcher] a new instance of ArgumentListMatcher
-  # @see ArgumentMatchers
   # @see #args_match?
+  # @see ArgumentMatchers
   #
   # source://rspec-mocks//lib/rspec/mocks/argument_list_matcher.rb#45
   def initialize(*expected_args, **_arg1); end
@@ -1752,9 +1752,9 @@ class RSpec::Mocks::ConstantMutator
     # @option options
     # @param constant_name [String] The fully qualified name of the constant. The current
     #   constant scoping at the point of call is not considered.
+    # @param options [Hash] Stubbing options.
     # @param value [Object] The value to make the constant refer to. When the
     #   example completes, the constant will be restored to its prior state.
-    # @param options [Hash] Stubbing options.
     # @return [Object] the stubbed value of the constant
     # @see ExampleMethods#stub_const
     #
@@ -1927,7 +1927,7 @@ end
 # A generic test double object. `double`, `instance_double` and friends
 # return an instance of this.
 #
-# source://rspec-mocks//lib/rspec/mocks/test_double.rb#134
+# source://rspec-mocks//lib/rspec/mocks/test_double.rb#135
 class RSpec::Mocks::Double
   include ::RSpec::Mocks::TestDouble
 end
@@ -2438,9 +2438,9 @@ module RSpec::Mocks::ExampleMethods
   # @option options
   # @param constant_name [String] The fully qualified name of the constant. The current
   #   constant scoping at the point of call is not considered.
+  # @param options [Hash] Stubbing options.
   # @param value [Object] The value to make the constant refer to. When the
   #   example completes, the constant will be restored to its prior state.
-  # @param options [Hash] Stubbing options.
   # @return [Object] the stubbed value of the constant
   #
   # source://rspec-mocks//lib/rspec/mocks/example_methods.rb#241
@@ -5006,19 +5006,19 @@ module RSpec::Mocks::TestDouble
 
   private
 
-  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#117
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#118
   def __build_mock_proxy(order_group); end
 
-  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#113
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#114
   def __mock_proxy; end
 
-  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#121
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#122
   def __raise_expired_error; end
 
-  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#107
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#108
   def assign_stubs(stubs); end
 
-  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#126
+  # source://rspec-mocks//lib/rspec/mocks/test_double.rb#127
   def initialize_copy(other); end
 
   # @raise [NoMethodError]
@@ -5029,21 +5029,21 @@ end
 
 # @private
 #
-# source://rspec-mocks//lib/rspec/mocks/test_double.rb#139
+# source://rspec-mocks//lib/rspec/mocks/test_double.rb#140
 module RSpec::Mocks::TestDoubleFormatter
   class << self
-    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#140
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#141
     def format(dbl, unwrap = T.unsafe(nil)); end
 
     private
 
-    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#166
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#167
     def name_desc(dbl); end
 
-    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#149
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#150
     def type_desc(dbl); end
 
-    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#161
+    # source://rspec-mocks//lib/rspec/mocks/test_double.rb#162
     def verified_module_desc(dbl); end
   end
 end

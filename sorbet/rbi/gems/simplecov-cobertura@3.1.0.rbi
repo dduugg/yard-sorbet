@@ -23,40 +23,37 @@ class SimpleCov::Formatter::CoberturaFormatter
 
   private
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#162
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#158
   def extract_rate(percent); end
 
   # Roughly mirrors private method SimpleCov::Formatter::HTMLFormatter#output_coverage
   #
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#151
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#147
   def output_message(result, output_path); end
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#166
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#162
   def project_root; end
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#158
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#154
   def resolve_filename(filename); end
 
   # source://simplecov-cobertura//lib/simplecov-cobertura.rb#35
   def result_to_xml(result); end
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#133
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#136
   def set_branch_attributes(line, file_line, branched_lines, branched_lines_covered); end
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#114
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#117
   def set_class_attributes(class_, file); end
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#85
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#88
   def set_coverage_attributes(coverage, result); end
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#128
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#131
   def set_line_attributes(line, file_line); end
 
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#102
+  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#105
   def set_package_attributes(package, name, result); end
-
-  # source://simplecov-cobertura//lib/simplecov-cobertura.rb#143
-  def set_xml_head(lines = T.unsafe(nil)); end
 end
 
 # source://simplecov-cobertura//lib/simplecov-cobertura.rb#11

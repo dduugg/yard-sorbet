@@ -72,9 +72,9 @@ module RSpec::Expectations
     # Adds a diff to the failure message when `expected` and `actual` are
     # both present.
     #
-    # @param message [String]
-    # @param expected [Object]
     # @param actual [Object]
+    # @param expected [Object]
+    # @param message [String]
     #
     # source://rspec-expectations//lib/rspec/expectations/fail_with.rb#27
     def fail_with(message, expected = T.unsafe(nil), actual = T.unsafe(nil)); end
@@ -551,8 +551,8 @@ class RSpec::Expectations::Configuration
   # Historically, the default was `false`, but `true` is recommended.
   #
   # @overload strict_predicate_matchers
-  # @overload strict_predicate_matchers?
   # @overload strict_predicate_matchers=
+  # @overload strict_predicate_matchers?
   #
   # source://rspec-expectations//lib/rspec/expectations/configuration.rb#211
   def strict_predicate_matchers; end
@@ -1529,8 +1529,8 @@ module RSpec::Matchers
   #   expect {
   #   user.symbolize_type
   #   }.to change(user, :type).from(String).to(Symbol)
-  # @param receiver [Object]
   # @param message [Symbol] the message to send the receiver
+  # @param receiver [Object]
   #
   # source://rspec-expectations//lib/rspec/matchers.rb#251
   def a_block_changing(*args, **_arg1, &block); end
@@ -2324,8 +2324,8 @@ module RSpec::Matchers
   #   expect {
   #   user.symbolize_type
   #   }.to change(user, :type).from(String).to(Symbol)
-  # @param receiver [Object]
   # @param message [Symbol] the message to send the receiver
+  # @param receiver [Object]
   #
   # source://rspec-expectations//lib/rspec/matchers.rb#492
   def change(receiver = T.unsafe(nil), message = T.unsafe(nil), &block); end
@@ -2408,8 +2408,8 @@ module RSpec::Matchers
   #   expect {
   #   user.symbolize_type
   #   }.to change(user, :type).from(String).to(Symbol)
-  # @param receiver [Object]
   # @param message [Symbol] the message to send the receiver
+  # @param receiver [Object]
   #
   # source://rspec-expectations//lib/rspec/matchers.rb#251
   def changing(*args, **_arg1, &block); end
@@ -2595,8 +2595,8 @@ module RSpec::Matchers
   #   expect(actual).to eq(expected)
   #   expect(actual).not_to eq(expected)
   # @return [Expectations::ExpectationTarget]
-  # @see Expectations::ExpectationTarget#to
   # @see Expectations::ExpectationTarget#not_to
+  # @see Expectations::ExpectationTarget#to
   #
   # source://rspec-expectations//lib/rspec/expectations/configuration.rb#48
   def expect(value = T.unsafe(nil), &block); end
@@ -7486,8 +7486,8 @@ module RSpec::Matchers::Composable
   # use `==` (and only `==`) for matching.
   #
   # @api public
-  # @param expected [Object] what is expected
   # @param actual [Object] the actual value
+  # @param expected [Object] what is expected
   # @return [Boolean]
   #
   # source://rspec-expectations//lib/rspec/matchers/composable.rb#66
@@ -7610,19 +7610,19 @@ module RSpec::Matchers::DSL
   # when passed as an argument to another matcher in a composed matcher expression.
   #
   # @example
+  #   RSpec::Matchers.alias_matcher :a_list_that_sums_to, :sum_to
+  #   sum_to(3).description # => "sum to 3"
+  #   a_list_that_sums_to(3).description # => "a list that sums to 3"
+  # @example
   #   RSpec::Matchers.alias_matcher :a_list_sorted_by, :be_sorted_by do |description|
   #   description.sub("be sorted by", "a list sorted by")
   #   end
   #
   #   be_sorted_by(:age).description # => "be sorted by age"
   #   a_list_sorted_by(:age).description # => "a list sorted by age"
-  # @example
-  #   RSpec::Matchers.alias_matcher :a_list_that_sums_to, :sum_to
-  #   sum_to(3).description # => "sum to 3"
-  #   a_list_that_sums_to(3).description # => "a list that sums to 3"
   # @option options
-  # @param old_name [Symbol] the original name for the matcher
   # @param new_name [Symbol] the new name for the matcher
+  # @param old_name [Symbol] the original name for the matcher
   # @param options [Hash] options for the aliased matcher
   # @see RSpec::Matchers
   # @yield [String] optional block that, when given, is used to define the overridden
@@ -7652,8 +7652,8 @@ module RSpec::Matchers::DSL
   #   RSpec::Matchers.define_negated_matcher :exclude, :include
   #   include(1, 2).description # => "include 1 and 2"
   #   exclude(1, 2).description # => "exclude 1 and 2"
-  # @param negated_name [Symbol] the name for the negated matcher
   # @param base_name [Symbol] the name of the original matcher that will be negated
+  # @param negated_name [Symbol] the name for the negated matcher
   # @see RSpec::Matchers
   # @yield [String] optional block that, when given, is used to define the overridden
   #   logic. The yielded arg is the original description or failure message. If no
@@ -8132,8 +8132,8 @@ class RSpec::Matchers::MultiMatcherDiff
   # factory and actual value if there are any
   #
   # @api private
-  # @param message [String] original failure message
   # @param differ [Proc]
+  # @param message [String] original failure message
   # @return [String]
   #
   # source://rspec-expectations//lib/rspec/matchers/multi_matcher_diff.rb#47
@@ -8162,8 +8162,8 @@ class RSpec::Matchers::MultiMatcherDiff
     # MultiMatcherDiff then it just returns it.
     #
     # @api private
-    # @param expected [Any] value to be wrapped
     # @param actual [Any] value
+    # @param expected [Any] value to be wrapped
     # @return [RSpec::Matchers::MultiMatcherDiff]
     #
     # source://rspec-expectations//lib/rspec/matchers/multi_matcher_diff.rb#27

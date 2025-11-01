@@ -1,5 +1,4 @@
 # typed: strict
-# frozen_string_literal: true
 
 # This may include Gem::RequestSet::GemDependencyAPI methods from
 # https://github.com/sorbet/sorbet/blob/master/rbi/stdlib/rubygems.rbi
