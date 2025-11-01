@@ -1,3 +1,4 @@
+--allowed-extension=.gemspec,.rb,.rbi
 --dir=.
 --enable-experimental-requires-ancestor
 --ignore=/vendor/bundle
