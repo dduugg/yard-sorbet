@@ -2,9 +2,8 @@
 # frozen_string_literal: true
 
 RSpec.describe YARDSorbet::Handlers::StructPropHandler do
-  path = File.join(File.expand_path('../../data', __dir__), 'struct_handler.txt')
-
   before do
+    path = File.join(File.expand_path('../../data', __dir__), 'struct_handler.txt')
     YARD::Registry.clear
     YARD::Parser::SourceParser.parse(path)
   end
@@ -46,6 +45,7 @@ RSpec.describe YARDSorbet::Handlers::StructPropHandler do
     end
 
     it 'does not trigger a redundant call to `register`' do
+      path = File.join(File.expand_path('../../data', __dir__), 'struct_handler.txt')
       YARD::Registry.clear
       expect_any_instance_of(described_class).not_to receive(:register) # rubocop:disable RSpec/AnyInstance
       YARD::Parser::SourceParser.parse(path)
