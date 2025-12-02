@@ -1,6 +1,7 @@
 --allowed-extension=.gemspec,.rb,.rbi
 --dir=.
 --enable-experimental-requires-ancestor
+--enable-experimental-rspec
 --ignore=/vendor/bundle
 Gemfile
 Rakefile
