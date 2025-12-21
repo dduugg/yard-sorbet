@@ -2,6 +2,7 @@
 --dir=.
 --enable-experimental-requires-ancestor
 --enable-experimental-rspec
+--ignore=.bundle/
 --ignore=/vendor/bundle
 Gemfile
 Rakefile
