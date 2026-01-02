@@ -25,7 +25,8 @@
 # development\_group:
 # :   The group to add development dependencies to. By default this is
 #     :development. Only one group may be specified.
-def gemspec(options = T.unsafe(nil)); end
+sig { params(options: {name: String, path: String, development_group: Symbol}).void }
+def gemspec(options = {}); end
 
 # Sets `url` as a source for gems for this dependency API. RubyGems uses the
 # default configured sources if no source was given. If a source is set only
@@ -37,4 +38,5 @@ def gemspec(options = T.unsafe(nil)); end
 #     supported as they are deprecated in bundler.
 # *   The `prepend:` option is not supported. If you wish to order sources
 #     then list them in your preferred order.
+sig { params(url: String).void }
 def source(url); end
