@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'irb', '~> 1.16.0'
 gem 'rake', '~> 13.3.1'
 gem 'redcarpet', '~> 3.6.0'
 gem 'rspec', '~> 3.13.2'
@@ -13,7 +14,7 @@ gem 'rubocop-packaging', '~> 0.6.0'
 gem 'rubocop-performance', '~> 1.26.1'
 gem 'rubocop-rake', '~> 0.7.1'
 gem 'rubocop-rspec', '~> 3.9.0'
-gem 'rubocop-sorbet', '~> 0.11.0'
+gem 'rubocop-sorbet', '~> 0.12.0'
 gem 'simplecov'
 gem 'simplecov-cobertura'
 gem 'sorbet', '~> 0.6.12798'
