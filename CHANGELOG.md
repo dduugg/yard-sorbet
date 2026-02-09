@@ -127,7 +127,7 @@
 * [#1](https://github.com/dduugg/yard-sorbet/pull/1): Add `T::Struct` support.
 
 ### Changes
-* [#3](https://github.com/dduugg/yard-sorbet/pull/3): Rename require path to be conistent with gem name.
+* [#3](https://github.com/dduugg/yard-sorbet/pull/3): Rename require path to be consistent with gem name.
 
 ## 0.0.0 (2020-01-05)
 * Initial Release
