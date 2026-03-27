@@ -1,7 +1,8 @@
 ---
 gem:
-  exclude:   # The following are stdlib gems that are bundled with sorbet. We exclude them to avoid
-    #   overwriting the bundled versions with tapioca's untyped shims.
+  # The following are stdlib gems that are bundled with sorbet. We exclude them
+  # to avoid overwriting the bundled versions with tapioca's untyped shims.
+  exclude:
     - base64
     - benchmark
     - bigdecimal
@@ -15,7 +16,7 @@ gem:
     - json
     - logger
     - matrix
-    - msgpack # not stdlib, but bundled with sorbet
+    - msgpack  # not stdlib, but bundled with sorbet
     - mutex_m
     - net-ftp
     - net-http
