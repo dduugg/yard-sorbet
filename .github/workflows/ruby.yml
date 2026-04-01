@@ -22,4 +22,4 @@ jobs:
       - name: Run tests
         run: bundle exec rake
       - name: Upload to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
