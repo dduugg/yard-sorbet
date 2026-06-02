@@ -113,14 +113,14 @@ GEM
       simplecov (~> 0.19)
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
-    sorbet (0.6.13184)
-      sorbet-static (= 0.6.13184)
-    sorbet-runtime (0.6.13184)
-    sorbet-static (0.6.13184-universal-darwin)
-    sorbet-static (0.6.13184-x86_64-linux)
-    sorbet-static-and-runtime (0.6.13184)
-      sorbet (= 0.6.13184)
-      sorbet-runtime (= 0.6.13184)
+    sorbet (0.6.13270)
+      sorbet-static (= 0.6.13270)
+    sorbet-runtime (0.6.13270)
+    sorbet-static (0.6.13270-universal-darwin)
+    sorbet-static (0.6.13270-x86_64-linux)
+    sorbet-static-and-runtime (0.6.13270)
+      sorbet (= 0.6.13270)
+      sorbet-runtime (= 0.6.13270)
     spoom (1.7.13)
       erubi (>= 1.10.0)
       prism (>= 0.28.0)
@@ -166,7 +166,7 @@ DEPENDENCIES
   rubocop-sorbet (~> 0.12.0)
   simplecov
   simplecov-cobertura
-  sorbet (~> 0.6.13184)
+  sorbet (~> 0.6.13270)
   tapioca (~> 0.19.1)
   yard-sorbet!
 
