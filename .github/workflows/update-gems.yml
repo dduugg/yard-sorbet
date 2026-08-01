@@ -1,0 +1,45 @@
+---
+name: Update Gems
+'on':
+  schedule:
+    # 07:00 UTC on the 1st of every month
+    - cron: '0 7 1 * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  update-gems:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ruby
+          bundler-cache: false
+      - name: Update gems
+        run: bundle update --all
+      - name: Regenerate gem RBIs
+        run: bundle exec tapioca gems --all
+      - name: Verify
+        id: verify
+        continue-on-error: true
+        run: bundle exec rake
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/update-gems
+          delete-branch: true
+          commit-message: Update gems and regenerate RBIs
+          title: Update gems and regenerate RBIs
+          body: |
+            Ran `bundle update --all` and
+            `bundle exec tapioca gems --all`.
+
+            `bundle exec rake` result:
+            **${{ steps.verify.outcome }}**
+
+            Opened automatically by
+            `.github/workflows/update-gems.yml`.
+          labels: dependencies
