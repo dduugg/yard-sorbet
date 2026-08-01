@@ -15,7 +15,7 @@ AllCops:
   Include:
     - "sorbet/rbi/shims/**/*.rbi"
   NewCops: enable
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.3
 
 Layout/ClassStructure:
   Enabled: true

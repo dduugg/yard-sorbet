@@ -6,13 +6,9 @@ updates:
     schedule:
       interval: "monthly"
     groups:
-      rubocop:
+      bundler:
         patterns:
-          - "rubocop*"
-      sorbet:
-        patterns:
-          - "*sorbet*"
-          - "tapioca"
+          - "*"
     labels:
       - "automerge"
       - "dependencies"
