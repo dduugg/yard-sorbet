@@ -14,7 +14,7 @@ repos:
       - id: check-shebang-scripts-are-executable
       - id: check-toml
       - id: check-vcs-permalinks
-        exclude: sorbet/rbi/annotations
+        exclude: sorbet/rbi/
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: forbid-submodules
