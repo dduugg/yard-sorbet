@@ -5,6 +5,8 @@ name: Ruby
     branches:
       - main
   pull_request:
+permissions:
+  contents: read
 jobs:
   Ruby-CI:
     runs-on: ubuntu-latest
