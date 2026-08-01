@@ -8,7 +8,7 @@ class MagicCommentHandler < YARD::Handlers::Ruby::Base
   extend T::Sig
 
   # File header regexp that matches magic comments
-  FILE_HEADER = T.let(/\Atyped: [[:alpha:]]+\nfrozen_string_literal: [[:alpha:]]+/, Regexp)
+  FILE_HEADER = /\Atyped: [[:alpha:]]+\nfrozen_string_literal: [[:alpha:]]+/
 
   handles :class, :module
   namespace_only
